@@ -27,7 +27,7 @@ main(int argc, char** argv)
     if (argc > 1)
         interface = argv[1];
     else
-        interface = "eth0";
+        interface = "eth1";
   
     printf("Using interface %s\n", interface);
 
