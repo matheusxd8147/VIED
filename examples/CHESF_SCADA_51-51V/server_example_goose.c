@@ -243,9 +243,8 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
             an[2] = 360 + an[2];
         }if(an[3]<0){
             an[3] = 360 + an[3];
-        }if(an[4]<0){
-            an[4] = 360 + an[4];
-        }if(an[5]<0){
+        }if(an[4]<0){ gettimeofday( &start_time, NULL );
+                    contador = false;
             an[5] = 360 + an[5];
         }
 

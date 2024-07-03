@@ -107,7 +107,7 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
         //exit(0);
     }
 
-    if ((strcmp(svID,"IEDNameMU0101"))== 0){      
+    if ((strcmp(svID,"ST2"))== 0){      
         //printf("teste 1: %f\n", SVSubscriber_ASDU_getINT32 (asdu,0)*0.001);
         //printf("teste 1: %d\n", SVSubscriber_ASDU_getDataSize(asdu));
         SVrms_deltaA = (SVrms_deltaA + pow((SVSubscriber_ASDU_getINT32 (asdu, 0)*0.001),2));
@@ -374,13 +374,20 @@ controlHandlerForBinaryOutput(ControlAction action, void* parameter, MmsValue* v
 
         if (MmsValue_getBoolean(value)){
             printf("on\n");
-            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind10_stVal, true);
-            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind11_stVal, false);
+            //IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind10_stVal, true);
+            //IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind11_stVal, false);
+
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind11_stVal, true);
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind10_stVal, false);
         }
         else{
             printf("off\n");
-            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind11_stVal, true);
-            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind10_stVal, false);
+            //IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind11_stVal, true);
+            //IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind10_stVal, false);
+
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind10_stVal, true);
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind11_stVal, false);
+
         }
             
     }
@@ -452,17 +459,20 @@ gooseListener(GooseSubscriber subscriber, void* parameter)
     b = buffer[1];
     c = buffer[6];
     d = buffer[11];
+    
+    //printf("\n%d\n",b);
 
 
     if(b == 116){
-        IedServer_updateDbposValue(iedServer, IEDMODEL_PRO_BK1XCBR1_Pos_stVal, DBPOS_OFF);
+        IedServer_updateDbposValue(iedServer, IEDMODEL_PRO_BK1XCBR1_Pos_stVal, DBPOS_ON);
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind11_stVal, false);
         
     }
 
     else{
-        IedServer_updateDbposValue(iedServer, IEDMODEL_PRO_BK1XCBR1_Pos_stVal, DBPOS_ON);
+        IedServer_updateDbposValue(iedServer, IEDMODEL_PRO_BK1XCBR1_Pos_stVal, DBPOS_OFF);
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind10_stVal, false);
+
     }
 }
 
@@ -507,9 +517,9 @@ main(int argc, char** argv)
 
     GooseReceiver receiver = GooseReceiver_create();
 
-    GooseReceiver_setInterfaceId(receiver, "p5p1");
+    GooseReceiver_setInterfaceId(receiver, "enp5s0");
     
-    GooseSubscriber subscriber = GooseSubscriber_create("MU320CTRL/LLN0$GO$FastGOOSE1", NULL); //Especificação de quem o ied irá receber as mensagens goose
+    GooseSubscriber subscriber = GooseSubscriber_create("MUBinIO_BinaryInputs/LLN0$GO$Control_DataSet", NULL); //Especificação de quem o ied irá receber as mensagens goose
 
     GooseSubscriber_setListener(subscriber, gooseListener, iedServer); 
 

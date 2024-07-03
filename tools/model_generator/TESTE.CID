@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SCL xmlns:esel="http://www.selinc.com/2006/61850" xmlns="http://www.iec.ch/61850/2003/SCL">
-  <Header id="teste-21_09" version="7" revision="1.0" toolID="1.1.143.0" nameStructure="IEDName">
+  <Header id="iec_scout" version="4" revision="1.0" toolID="SEL AcSELerator® ArchitectVersion 1.1.143.0" nameStructure="IEDName">
     <History>
-      <Hitem version="7" revision="1.0" when="10/13/2023 13:35:14" who="Matheus-PC\Matheus Souza" what="CID file exported from Project teste-21_09" />
+      <Hitem version="4" revision="1.0" when="06/21/2024 17:07:25" who="DESKTOP-M1EKIGR\Grei_bancada" what="CID file exported from Project iec_scout" />
     </History>
   </Header>
   <Communication>
     <SubNetwork name="W01">
       <ConnectedAP iedName="VIRTUAL_1" apName="S1">
         <Address>
-          <P type="IP">192.168.110.220</P>
+          <P type="IP">10.102.76.52</P>
           <P type="IP-SUBNET">255.255.255.0</P>
-          <P type="IP-GATEWAY">192.168.110.1</P>
+          <P type="IP-GATEWAY">10.102.76.1</P>
           <P type="OSI-TSEL">0001</P>
           <P type="OSI-PSEL">00000001</P>
           <P type="OSI-SSEL">0001</P>
@@ -21,7 +21,7 @@
             <P type="MAC-Address">01-0C-CD-01-00-09</P>
             <P type="APPID">1009</P>
             <P type="VLAN-PRIORITY">4</P>
-            <P type="VLAN-ID">001</P>
+            <P type="VLAN-ID">007</P>
           </Address>
           <MinTime unit="s" multiplier="m">1</MinTime>
           <MaxTime unit="s" multiplier="m">1000</MaxTime>
@@ -31,7 +31,7 @@
             <P type="MAC-Address">01-0C-CD-01-00-04</P>
             <P type="APPID">0004</P>
             <P type="VLAN-PRIORITY">4</P>
-            <P type="VLAN-ID">001</P>
+            <P type="VLAN-ID">007</P>
           </Address>
           <MinTime unit="s" multiplier="m">4</MinTime>
           <MaxTime unit="s" multiplier="m">1000</MaxTime>
@@ -100,68 +100,27 @@
         <Authentication />
         <LDevice desc="Config" inst="CFG">
           <LN0 lnType="LN0" lnClass="LLN0" inst="">
+            <DataSet name="GOOSE_EDITOR" desc="">
+              <FCDA ldInst="PRO" prefix="TRIP" lnClass="PTRC" lnInst="1" doName="Tr" daName="general" fc="ST" />
+              <FCDA ldInst="PRO" prefix="BFR1" lnClass="RBRF" lnInst="1" doName="OpEx" daName="general" fc="ST" />
+              <FCDA ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind10" daName="stVal" fc="ST" />
+              <FCDA ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind11" daName="stVal" fc="ST" />
+            </DataSet>
             <DataSet name="DSet01" desc="Meter (MMXU and MSQI)">
               <FCDA ldInst="MET" prefix="MET" lnClass="MMXU" lnInst="1" doName="A" fc="MX" />
               <FCDA ldInst="MET" prefix="MET" lnClass="MMXU" lnInst="1" doName="PhV" fc="MX" />
-              <FCDA ldInst="MET" prefix="MET" lnClass="MMXU" lnInst="1" doName="Hz" fc="MX" />
-              <FCDA ldInst="MET" prefix="MET" lnClass="MMXU" lnInst="1" doName="TotW" fc="MX" />
-              <FCDA ldInst="MET" prefix="MET" lnClass="MMXU" lnInst="1" doName="TotVAr" fc="MX" />
-              <FCDA ldInst="MET" prefix="MET" lnClass="MMXU" lnInst="1" doName="TotVA" fc="MX" />
-              <FCDA ldInst="MET" prefix="MET" lnClass="MMXU" lnInst="1" doName="TotPF" fc="MX" />
-              <FCDA ldInst="MET" prefix="MET" lnClass="MSQI" lnInst="1" doName="SeqA" fc="MX" />
-              <FCDA ldInst="MET" prefix="MET" lnClass="MSQI" lnInst="1" doName="SeqV" fc="MX" />
+              <FCDA ldInst="MET" prefix="MET" lnClass="MMXU" lnInst="1" doName="PPV" fc="MX" />
             </DataSet>
             <DataSet name="DSet02" desc="Math Variables">
               <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn01" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn02" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn03" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn04" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn05" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn06" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn07" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn08" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn09" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn10" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn11" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn12" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn13" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn14" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn15" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn16" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn17" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn18" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn19" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn20" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn21" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn22" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn23" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn24" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn25" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn26" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn27" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn28" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn29" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn30" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn31" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn32" fc="MX" />
+            </DataSet>
+            <DataSet name="DSet03" desc="Breaker Status and MB Inputs">
+              <FCDA ldInst="PRO" prefix="TRIP" lnClass="PTRC" lnInst="1" doName="Tr" fc="ST" />
+              <FCDA ldInst="PRO" prefix="BK1" lnClass="XCBR" lnInst="1" doName="Pos" fc="ST" />
+              <FCDA ldInst="PRO" prefix="BKR1" lnClass="CSWI" lnInst="1" doName="Pos" daName="Oper.ctlVal" fc="CO" />
             </DataSet>
             <DataSet name="DSet04" desc="Targets and Push Buttons">
               <FCDA ldInst="ANN" prefix="TLED" lnClass="GGIO" lnInst="6" doName="Ind01" fc="ST" />
-              <FCDA ldInst="ANN" prefix="TLED" lnClass="GGIO" lnInst="6" doName="Ind02" fc="ST" />
-              <FCDA ldInst="ANN" prefix="TLED" lnClass="GGIO" lnInst="6" doName="Ind03" fc="ST" />
-              <FCDA ldInst="ANN" prefix="TLED" lnClass="GGIO" lnInst="6" doName="Ind04" fc="ST" />
-              <FCDA ldInst="ANN" prefix="TLED" lnClass="GGIO" lnInst="6" doName="Ind05" fc="ST" />
-              <FCDA ldInst="ANN" prefix="TLED" lnClass="GGIO" lnInst="6" doName="Ind06" fc="ST" />
-              <FCDA ldInst="ANN" prefix="TLED" lnClass="GGIO" lnInst="6" doName="Ind07" fc="ST" />
-              <FCDA ldInst="ANN" prefix="TLED" lnClass="GGIO" lnInst="6" doName="Ind08" fc="ST" />
-              <FCDA ldInst="ANN" prefix="PBLED" lnClass="GGIO" lnInst="7" doName="Ind01" fc="ST" />
-              <FCDA ldInst="ANN" prefix="PBLED" lnClass="GGIO" lnInst="7" doName="Ind02" fc="ST" />
-              <FCDA ldInst="ANN" prefix="PBLED" lnClass="GGIO" lnInst="7" doName="Ind03" fc="ST" />
-              <FCDA ldInst="ANN" prefix="PBLED" lnClass="GGIO" lnInst="7" doName="Ind04" fc="ST" />
-              <FCDA ldInst="ANN" prefix="PBLED" lnClass="GGIO" lnInst="7" doName="Ind05" fc="ST" />
-              <FCDA ldInst="ANN" prefix="PBLED" lnClass="GGIO" lnInst="7" doName="Ind06" fc="ST" />
-              <FCDA ldInst="ANN" prefix="PBLED" lnClass="GGIO" lnInst="7" doName="Ind07" fc="ST" />
-              <FCDA ldInst="ANN" prefix="PBLED" lnClass="GGIO" lnInst="7" doName="Ind08" fc="ST" />
             </DataSet>
             <DataSet name="DSet05" desc="SV, SVT, and LT">
               <FCDA ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind01" fc="ST" />
@@ -189,190 +148,31 @@
               <FCDA ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind23" fc="ST" />
               <FCDA ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind24" fc="ST" />
               <FCDA ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind25" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind26" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind27" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind28" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind29" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind30" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind31" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind32" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind01" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind02" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind03" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind04" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind05" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind06" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind07" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind08" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind09" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind10" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind11" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind12" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind13" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind14" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind15" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind16" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind17" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind18" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind19" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind20" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind21" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind22" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind23" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind24" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind25" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind26" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind27" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind28" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind29" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind30" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind31" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind32" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind01" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind02" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind03" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind04" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind05" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind06" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind07" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind08" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind09" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind10" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind11" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind12" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind13" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind14" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind15" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind16" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind17" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind18" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind19" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind20" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind21" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind22" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind23" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind24" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind25" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind26" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind27" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind28" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind29" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind30" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind31" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind32" fc="ST" />
             </DataSet>
             <DataSet name="DSet06" desc="Remote Bits and Mirrored Bits">
               <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO01" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO02" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO03" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO04" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO05" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO06" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO07" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO08" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="2" doName="SPCSO09" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="2" doName="SPCSO10" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="2" doName="SPCSO11" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="2" doName="SPCSO12" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="2" doName="SPCSO13" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="2" doName="SPCSO14" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="2" doName="SPCSO15" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="2" doName="SPCSO16" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="3" doName="SPCSO17" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="3" doName="SPCSO18" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="3" doName="SPCSO19" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="3" doName="SPCSO20" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="3" doName="SPCSO21" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="3" doName="SPCSO22" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="3" doName="SPCSO23" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="3" doName="SPCSO24" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="4" doName="SPCSO25" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="4" doName="SPCSO26" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="4" doName="SPCSO27" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="4" doName="SPCSO28" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="4" doName="SPCSO29" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="4" doName="SPCSO30" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="4" doName="SPCSO31" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="4" doName="SPCSO32" fc="ST" />
-              <FCDA ldInst="ANN" prefix="RMBA" lnClass="GGIO" lnInst="8" doName="Ind01" fc="ST" />
-              <FCDA ldInst="ANN" prefix="RMBA" lnClass="GGIO" lnInst="8" doName="Ind02" fc="ST" />
-              <FCDA ldInst="ANN" prefix="RMBA" lnClass="GGIO" lnInst="8" doName="Ind03" fc="ST" />
-              <FCDA ldInst="ANN" prefix="RMBA" lnClass="GGIO" lnInst="8" doName="Ind04" fc="ST" />
-              <FCDA ldInst="ANN" prefix="RMBA" lnClass="GGIO" lnInst="8" doName="Ind05" fc="ST" />
-              <FCDA ldInst="ANN" prefix="RMBA" lnClass="GGIO" lnInst="8" doName="Ind06" fc="ST" />
-              <FCDA ldInst="ANN" prefix="RMBA" lnClass="GGIO" lnInst="8" doName="Ind07" fc="ST" />
-              <FCDA ldInst="ANN" prefix="RMBA" lnClass="GGIO" lnInst="8" doName="Ind08" fc="ST" />
-              <FCDA ldInst="ANN" prefix="RMBB" lnClass="GGIO" lnInst="10" doName="Ind01" fc="ST" />
-              <FCDA ldInst="ANN" prefix="RMBB" lnClass="GGIO" lnInst="10" doName="Ind02" fc="ST" />
-              <FCDA ldInst="ANN" prefix="RMBB" lnClass="GGIO" lnInst="10" doName="Ind03" fc="ST" />
-              <FCDA ldInst="ANN" prefix="RMBB" lnClass="GGIO" lnInst="10" doName="Ind04" fc="ST" />
-              <FCDA ldInst="ANN" prefix="RMBB" lnClass="GGIO" lnInst="10" doName="Ind05" fc="ST" />
-              <FCDA ldInst="ANN" prefix="RMBB" lnClass="GGIO" lnInst="10" doName="Ind06" fc="ST" />
-              <FCDA ldInst="ANN" prefix="RMBB" lnClass="GGIO" lnInst="10" doName="Ind07" fc="ST" />
-              <FCDA ldInst="ANN" prefix="RMBB" lnClass="GGIO" lnInst="10" doName="Ind08" fc="ST" />
             </DataSet>
             <DataSet name="DSet07" desc="Meter (MMXU and MSQI)">
               <FCDA ldInst="MET" prefix="MET" lnClass="MMXU" lnInst="1" doName="A" fc="MX" />
               <FCDA ldInst="MET" prefix="MET" lnClass="MMXU" lnInst="1" doName="PhV" fc="MX" />
-              <FCDA ldInst="MET" prefix="MET" lnClass="MMXU" lnInst="1" doName="Hz" fc="MX" />
-              <FCDA ldInst="MET" prefix="MET" lnClass="MMXU" lnInst="1" doName="TotW" fc="MX" />
-              <FCDA ldInst="MET" prefix="MET" lnClass="MMXU" lnInst="1" doName="TotVAr" fc="MX" />
-              <FCDA ldInst="MET" prefix="MET" lnClass="MMXU" lnInst="1" doName="TotVA" fc="MX" />
-              <FCDA ldInst="MET" prefix="MET" lnClass="MMXU" lnInst="1" doName="TotPF" fc="MX" />
-              <FCDA ldInst="MET" prefix="MET" lnClass="MSQI" lnInst="1" doName="SeqA" fc="MX" />
-              <FCDA ldInst="MET" prefix="MET" lnClass="MSQI" lnInst="1" doName="SeqV" fc="MX" />
+              <FCDA ldInst="MET" prefix="MET" lnClass="MMXU" lnInst="1" doName="PPV" fc="MX" />
             </DataSet>
             <DataSet name="DSet08" desc="Math Variables">
               <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn01" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn02" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn03" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn04" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn05" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn06" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn07" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn08" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn09" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn10" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn11" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn12" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn13" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn14" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn15" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn16" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn17" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn18" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn19" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn20" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn21" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn22" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn23" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn24" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn25" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn26" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn27" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn28" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn29" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn30" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn31" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn32" fc="MX" />
+            </DataSet>
+            <DataSet name="DSet09" desc="Breaker Status and MB Inputs">
+              <FCDA ldInst="PRO" prefix="TRIP" lnClass="PTRC" lnInst="1" doName="Tr" fc="ST" />
+              <FCDA ldInst="PRO" prefix="BK1" lnClass="XCBR" lnInst="1" doName="Pos" fc="ST" />
+              <FCDA ldInst="PRO" prefix="BKR1" lnClass="CSWI" lnInst="1" doName="Pos" daName="Oper.ctlVal" fc="CO" />
             </DataSet>
             <DataSet name="DSet10" desc="Targets and Push Buttons">
               <FCDA ldInst="ANN" prefix="TLED" lnClass="GGIO" lnInst="6" doName="Ind01" fc="ST" />
-              <FCDA ldInst="ANN" prefix="TLED" lnClass="GGIO" lnInst="6" doName="Ind02" fc="ST" />
-              <FCDA ldInst="ANN" prefix="TLED" lnClass="GGIO" lnInst="6" doName="Ind03" fc="ST" />
-              <FCDA ldInst="ANN" prefix="TLED" lnClass="GGIO" lnInst="6" doName="Ind04" fc="ST" />
-              <FCDA ldInst="ANN" prefix="TLED" lnClass="GGIO" lnInst="6" doName="Ind05" fc="ST" />
-              <FCDA ldInst="ANN" prefix="TLED" lnClass="GGIO" lnInst="6" doName="Ind06" fc="ST" />
-              <FCDA ldInst="ANN" prefix="TLED" lnClass="GGIO" lnInst="6" doName="Ind07" fc="ST" />
-              <FCDA ldInst="ANN" prefix="TLED" lnClass="GGIO" lnInst="6" doName="Ind08" fc="ST" />
-              <FCDA ldInst="ANN" prefix="PBLED" lnClass="GGIO" lnInst="7" doName="Ind01" fc="ST" />
-              <FCDA ldInst="ANN" prefix="PBLED" lnClass="GGIO" lnInst="7" doName="Ind02" fc="ST" />
-              <FCDA ldInst="ANN" prefix="PBLED" lnClass="GGIO" lnInst="7" doName="Ind03" fc="ST" />
-              <FCDA ldInst="ANN" prefix="PBLED" lnClass="GGIO" lnInst="7" doName="Ind04" fc="ST" />
-              <FCDA ldInst="ANN" prefix="PBLED" lnClass="GGIO" lnInst="7" doName="Ind05" fc="ST" />
-              <FCDA ldInst="ANN" prefix="PBLED" lnClass="GGIO" lnInst="7" doName="Ind06" fc="ST" />
-              <FCDA ldInst="ANN" prefix="PBLED" lnClass="GGIO" lnInst="7" doName="Ind07" fc="ST" />
-              <FCDA ldInst="ANN" prefix="PBLED" lnClass="GGIO" lnInst="7" doName="Ind08" fc="ST" />
+            </DataSet>
+            <DataSet name="DSet12" desc="Remote Bits and Mirrored Bits">
+              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO01" fc="ST" />
+            </DataSet>
+            <DataSet name="DSet13" desc="Breaker Status and 8 Remote Bits">
+              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO01" daName="stVal" fc="ST" />
             </DataSet>
             <DataSet name="DSet11" desc="SV, SVT, and LT">
               <FCDA ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind01" fc="ST" />
@@ -400,185 +200,6 @@
               <FCDA ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind23" fc="ST" />
               <FCDA ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind24" fc="ST" />
               <FCDA ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind25" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind26" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind27" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind28" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind29" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind30" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind31" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind32" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind01" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind02" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind03" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind04" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind05" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind06" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind07" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind08" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind09" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind10" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind11" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind12" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind13" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind14" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind15" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind16" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind17" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind18" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind19" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind20" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind21" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind22" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind23" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind24" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind25" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind26" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind27" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind28" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind29" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind30" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind31" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SVT" lnClass="GGIO" lnInst="4" doName="Ind32" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind01" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind02" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind03" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind04" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind05" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind06" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind07" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind08" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind09" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind10" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind11" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind12" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind13" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind14" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind15" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind16" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind17" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind18" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind19" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind20" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind21" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind22" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind23" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind24" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind25" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind26" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind27" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind28" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind29" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind30" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind31" fc="ST" />
-              <FCDA ldInst="ANN" prefix="LT" lnClass="GGIO" lnInst="5" doName="Ind32" fc="ST" />
-            </DataSet>
-            <DataSet name="DSet12" desc="Remote Bits and Mirrored Bits">
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO01" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO02" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO03" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO04" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO05" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO06" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO07" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO08" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="2" doName="SPCSO09" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="2" doName="SPCSO10" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="2" doName="SPCSO11" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="2" doName="SPCSO12" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="2" doName="SPCSO13" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="2" doName="SPCSO14" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="2" doName="SPCSO15" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="2" doName="SPCSO16" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="3" doName="SPCSO17" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="3" doName="SPCSO18" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="3" doName="SPCSO19" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="3" doName="SPCSO20" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="3" doName="SPCSO21" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="3" doName="SPCSO22" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="3" doName="SPCSO23" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="3" doName="SPCSO24" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="4" doName="SPCSO25" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="4" doName="SPCSO26" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="4" doName="SPCSO27" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="4" doName="SPCSO28" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="4" doName="SPCSO29" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="4" doName="SPCSO30" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="4" doName="SPCSO31" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="4" doName="SPCSO32" fc="ST" />
-              <FCDA ldInst="ANN" prefix="RMBA" lnClass="GGIO" lnInst="8" doName="Ind01" fc="ST" />
-              <FCDA ldInst="ANN" prefix="RMBA" lnClass="GGIO" lnInst="8" doName="Ind02" fc="ST" />
-              <FCDA ldInst="ANN" prefix="RMBA" lnClass="GGIO" lnInst="8" doName="Ind03" fc="ST" />
-              <FCDA ldInst="ANN" prefix="RMBA" lnClass="GGIO" lnInst="8" doName="Ind04" fc="ST" />
-              <FCDA ldInst="ANN" prefix="RMBA" lnClass="GGIO" lnInst="8" doName="Ind05" fc="ST" />
-              <FCDA ldInst="ANN" prefix="RMBA" lnClass="GGIO" lnInst="8" doName="Ind06" fc="ST" />
-              <FCDA ldInst="ANN" prefix="RMBA" lnClass="GGIO" lnInst="8" doName="Ind07" fc="ST" />
-              <FCDA ldInst="ANN" prefix="RMBA" lnClass="GGIO" lnInst="8" doName="Ind08" fc="ST" />
-              <FCDA ldInst="ANN" prefix="RMBB" lnClass="GGIO" lnInst="10" doName="Ind01" fc="ST" />
-              <FCDA ldInst="ANN" prefix="RMBB" lnClass="GGIO" lnInst="10" doName="Ind02" fc="ST" />
-              <FCDA ldInst="ANN" prefix="RMBB" lnClass="GGIO" lnInst="10" doName="Ind03" fc="ST" />
-              <FCDA ldInst="ANN" prefix="RMBB" lnClass="GGIO" lnInst="10" doName="Ind04" fc="ST" />
-              <FCDA ldInst="ANN" prefix="RMBB" lnClass="GGIO" lnInst="10" doName="Ind05" fc="ST" />
-              <FCDA ldInst="ANN" prefix="RMBB" lnClass="GGIO" lnInst="10" doName="Ind06" fc="ST" />
-              <FCDA ldInst="ANN" prefix="RMBB" lnClass="GGIO" lnInst="10" doName="Ind07" fc="ST" />
-              <FCDA ldInst="ANN" prefix="RMBB" lnClass="GGIO" lnInst="10" doName="Ind08" fc="ST" />
-            </DataSet>
-            <DataSet name="DSet13" desc="Breaker Status and 8 Remote Bits">
-              <FCDA ldInst="PRO" prefix="BK1" lnClass="XCBR" lnInst="1" doName="Pos" daName="stVal" fc="ST" />
-              <FCDA ldInst="PRO" prefix="BK1" lnClass="XCBR" lnInst="1" doName="Pos" daName="q" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO01" daName="stVal" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO01" daName="q" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO02" daName="stVal" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO02" daName="q" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO03" daName="stVal" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO03" daName="q" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO04" daName="stVal" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO04" daName="q" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO05" daName="stVal" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO05" daName="q" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO06" daName="stVal" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO06" daName="q" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO07" daName="stVal" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO07" daName="q" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO08" daName="stVal" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO08" daName="q" fc="ST" />
-            </DataSet>
-            <DataSet name="DSet03" desc="Breaker Status and MB Inputs">
-              <FCDA ldInst="PRO" prefix="TRIP" lnClass="PTRC" lnInst="1" doName="Tr" fc="ST" />
-              <FCDA ldInst="PRO" prefix="BK1" lnClass="XCBR" lnInst="1" doName="Pos" fc="ST" />
-              <FCDA ldInst="PRO" prefix="BKR1" lnClass="CSWI" lnInst="1" doName="Pos" fc="ST" />
-              <FCDA ldInst="PRO" prefix="BKR1" lnClass="CSWI" lnInst="1" doName="Pos" daName="Oper.ctlVal" fc="CO" />
-              <FCDA ldInst="PRO" prefix="P1T" lnClass="PIOC" lnInst="1" doName="Op" daName="general" fc="ST" />
-              <FCDA ldInst="PRO" prefix="P2T" lnClass="PIOC" lnInst="2" doName="Op" daName="general" fc="ST" />
-              <FCDA ldInst="PRO" prefix="P3T" lnClass="PIOC" lnInst="3" doName="Op" daName="general" fc="ST" />
-              <FCDA ldInst="PRO" prefix="AT" lnClass="PTOC" lnInst="20" doName="Op" daName="general" fc="ST" />
-              <FCDA ldInst="PRO" prefix="BT" lnClass="PTOC" lnInst="21" doName="Op" daName="general" fc="ST" />
-              <FCDA ldInst="PRO" prefix="CT" lnClass="PTOC" lnInst="22" doName="Op" daName="general" fc="ST" />
-              <FCDA ldInst="PRO" prefix="N1T" lnClass="PTOC" lnInst="15" doName="Op" daName="general" fc="ST" />
-              <FCDA ldInst="PRO" prefix="P67P1" lnClass="PTOC" lnInst="1" doName="Op" daName="general" fc="ST" />
-              <FCDA ldInst="PRO" prefix="N1T" lnClass="PIOC" lnInst="5" doName="Op" daName="general" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO01" daName="Oper.ctlVal" fc="CO" />
-            </DataSet>
-            <DataSet name="DSet09" desc="Breaker Status and MB Inputs">
-              <FCDA ldInst="PRO" prefix="TRIP" lnClass="PTRC" lnInst="1" doName="Tr" fc="ST" />
-              <FCDA ldInst="PRO" prefix="BK1" lnClass="XCBR" lnInst="1" doName="Pos" fc="ST" />
-              <FCDA ldInst="PRO" prefix="BKR1" lnClass="CSWI" lnInst="1" doName="Pos" fc="ST" />
-              <FCDA ldInst="PRO" prefix="BKR1" lnClass="CSWI" lnInst="1" doName="Pos" daName="Oper.ctlVal" fc="CO" />
-              <FCDA ldInst="PRO" prefix="P1T" lnClass="PIOC" lnInst="1" doName="Op" daName="general" fc="ST" />
-              <FCDA ldInst="PRO" prefix="P2T" lnClass="PIOC" lnInst="2" doName="Op" daName="general" fc="ST" />
-              <FCDA ldInst="PRO" prefix="P3T" lnClass="PIOC" lnInst="3" doName="Op" daName="general" fc="ST" />
-              <FCDA ldInst="PRO" prefix="N1T" lnClass="PIOC" lnInst="5" doName="Op" daName="general" fc="ST" />
-              <FCDA ldInst="PRO" prefix="P67P1" lnClass="PTOC" lnInst="1" doName="Op" daName="general" fc="ST" />
-              <FCDA ldInst="PRO" prefix="N1T" lnClass="PTOC" lnInst="15" doName="Op" daName="general" fc="ST" />
-              <FCDA ldInst="PRO" prefix="AT" lnClass="PTOC" lnInst="20" doName="Op" daName="general" fc="ST" />
-              <FCDA ldInst="PRO" prefix="BT" lnClass="PTOC" lnInst="21" doName="Op" daName="general" fc="ST" />
-              <FCDA ldInst="PRO" prefix="CT" lnClass="PTOC" lnInst="22" doName="Op" daName="general" fc="ST" />
-              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO01" daName="Oper.ctlVal" fc="CO" />
-            </DataSet>
-            <DataSet name="GOOSE_EDITOR" desc="">
-              <FCDA ldInst="PRO" prefix="TRIP" lnClass="PTRC" lnInst="1" doName="Tr" daName="general" fc="ST" />
-              <FCDA ldInst="PRO" prefix="BFR1" lnClass="RBRF" lnInst="1" doName="OpEx" daName="general" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind10" daName="stVal" fc="ST" />
-              <FCDA ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind11" daName="stVal" fc="ST" />
             </DataSet>
             <ReportControl name="BRep01" desc="Predefined Buffered Report 01" datSet="DSet01" rptID="DSet01" confRev="1" buffered="true" bufTime="500">
               <TrgOps dchg="true" qchg="true" />
@@ -673,7 +294,7 @@
                 <esel:Address>
                   <esel:P type="MAC-Address">01-0C-CD-01-00-09</esel:P>
                   <esel:P type="APPID">1009</esel:P>
-                  <esel:P type="VLAN-ID">001</esel:P>
+                  <esel:P type="VLAN-ID">007</esel:P>
                   <esel:P type="VLAN-PRIORITY">4</esel:P>
                 </esel:Address>
               </Private>
@@ -689,7 +310,7 @@
                 <esel:Address>
                   <esel:P type="MAC-Address">01-0C-CD-01-00-04</esel:P>
                   <esel:P type="APPID">0004</esel:P>
-                  <esel:P type="VLAN-ID">001</esel:P>
+                  <esel:P type="VLAN-ID">007</esel:P>
                   <esel:P type="VLAN-PRIORITY">4</esel:P>
                 </esel:Address>
               </Private>
@@ -3990,8 +3611,8 @@
                     <Val />
                   </DAI>
                 </SDI>
-                <DAI esel:datasrc="imm:40000" name="db">
-                  <Val>5000</Val>
+                <DAI esel:datasrc="imm:0" name="db">
+                  <Val>100000</Val>
                 </DAI>
               </SDI>
               <SDI name="phsBC">
@@ -4012,8 +3633,8 @@
                     <Val />
                   </DAI>
                 </SDI>
-                <DAI esel:datasrc="imm:40000" name="db">
-                  <Val>5000</Val>
+                <DAI esel:datasrc="imm:0" name="db">
+                  <Val>100000</Val>
                 </DAI>
               </SDI>
               <SDI name="phsCA">
@@ -4034,8 +3655,8 @@
                     <Val />
                   </DAI>
                 </SDI>
-                <DAI esel:datasrc="imm:40000" name="db">
-                  <Val>5000</Val>
+                <DAI esel:datasrc="imm:0" name="db">
+                  <Val>100000</Val>
                 </DAI>
               </SDI>
             </DOI>
@@ -4058,8 +3679,8 @@
                     <Val />
                   </DAI>
                 </SDI>
-                <DAI esel:datasrc="imm:25000" name="db">
-                  <Val>5000</Val>
+                <DAI esel:datasrc="imm:0" name="db">
+                  <Val>100000</Val>
                 </DAI>
               </SDI>
               <SDI name="phsB">
@@ -4080,8 +3701,8 @@
                     <Val />
                   </DAI>
                 </SDI>
-                <DAI esel:datasrc="imm:25000" name="db">
-                  <Val>5000</Val>
+                <DAI esel:datasrc="imm:0" name="db">
+                  <Val>100000</Val>
                 </DAI>
               </SDI>
               <SDI name="phsC">
@@ -4102,8 +3723,8 @@
                     <Val />
                   </DAI>
                 </SDI>
-                <DAI esel:datasrc="imm:25000" name="db">
-                  <Val>5000</Val>
+                <DAI esel:datasrc="imm:0" name="db">
+                  <Val>100000</Val>
                 </DAI>
               </SDI>
               <SDI name="res">
@@ -4124,8 +3745,8 @@
                     <Val />
                   </DAI>
                 </SDI>
-                <DAI esel:datasrc="imm:25000" name="db">
-                  <Val>5000</Val>
+                <DAI esel:datasrc="imm:0" name="db">
+                  <Val>100000</Val>
                 </DAI>
               </SDI>
             </DOI>
@@ -4148,8 +3769,8 @@
                     <Val />
                   </DAI>
                 </SDI>
-                <DAI esel:datasrc="imm:3000" name="db">
-                  <Val>500</Val>
+                <DAI esel:datasrc="imm:0" name="db">
+                  <Val>100000</Val>
                 </DAI>
               </SDI>
               <SDI name="phsB">
@@ -4170,8 +3791,8 @@
                     <Val />
                   </DAI>
                 </SDI>
-                <DAI esel:datasrc="imm:3000" name="db">
-                  <Val>500</Val>
+                <DAI esel:datasrc="imm:0" name="db">
+                  <Val>100000</Val>
                 </DAI>
               </SDI>
               <SDI name="phsC">
@@ -4192,8 +3813,8 @@
                     <Val />
                   </DAI>
                 </SDI>
-                <DAI esel:datasrc="imm:3000" name="db">
-                  <Val>500</Val>
+                <DAI esel:datasrc="imm:0" name="db">
+                  <Val>100000</Val>
                 </DAI>
               </SDI>
               <SDI name="neut">
@@ -4214,8 +3835,8 @@
                     <Val />
                   </DAI>
                 </SDI>
-                <DAI esel:datasrc="imm:3000" name="db">
-                  <Val>500</Val>
+                <DAI esel:datasrc="imm:0" name="db">
+                  <Val>100000</Val>
                 </DAI>
               </SDI>
               <SDI name="res">
