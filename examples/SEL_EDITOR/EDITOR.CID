@@ -2,7 +2,7 @@
 <SCL xmlns:esel="http://www.selinc.com/2006/61850" xmlns="http://www.iec.ch/61850/2003/SCL">
   <Header id="New Project" version="0" revision="1.0" toolID="SEL AcSELerator® ArchitectVersion 1.1.143.0" nameStructure="IEDName">
     <History>
-      <Hitem version="0" revision="1.0" when="08/02/2024 15:37:24" who="GREI_PC_MALA\GREI" what="CID file exported from Project New Project" />
+      <Hitem version="0" revision="1.0" when="08/02/2024 18:00:51" who="GREI_PC_MALA\GREI" what="CID file exported from Project New Project" />
     </History>
   </Header>
   <Communication>
@@ -18,8 +18,8 @@
         </Address>
         <GSE ldInst="CFG" cbName="GOOSE_SL_1">
           <Address>
-            <P type="MAC-Address">01-0C-CD-01-00-05</P>
-            <P type="APPID">0005</P>
+            <P type="MAC-Address">01-0C-CD-01-00-03</P>
+            <P type="APPID">0003</P>
             <P type="VLAN-PRIORITY">4</P>
             <P type="VLAN-ID">001</P>
           </Address>
@@ -134,13 +134,6 @@
               <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn30" fc="MX" />
               <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn31" fc="MX" />
               <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn32" fc="MX" />
-            </DataSet>
-            <DataSet name="DSet03" desc="Breaker Status and MB Inputs">
-              <FCDA ldInst="PRO" prefix="TRIP" lnClass="PTRC" lnInst="1" doName="Tr" fc="ST" />
-              <FCDA ldInst="PRO" prefix="BK1" lnClass="XCBR" lnInst="1" doName="Pos" fc="ST" />
-              <FCDA ldInst="PRO" prefix="BKR1" lnClass="CSWI" lnInst="1" doName="Pos" fc="ST" />
-              <FCDA ldInst="ANN" prefix="INA" lnClass="GGIO" lnInst="1" doName="Ind01" fc="ST" />
-              <FCDA ldInst="ANN" prefix="INA" lnClass="GGIO" lnInst="1" doName="Ind02" fc="ST" />
             </DataSet>
             <DataSet name="DSet04" desc="Targets and Push Buttons">
               <FCDA ldInst="ANN" prefix="TLED" lnClass="GGIO" lnInst="6" doName="Ind01" fc="ST" />
@@ -353,13 +346,6 @@
               <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn31" fc="MX" />
               <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn32" fc="MX" />
             </DataSet>
-            <DataSet name="DSet09" desc="Breaker Status and MB Inputs">
-              <FCDA ldInst="PRO" prefix="TRIP" lnClass="PTRC" lnInst="1" doName="Tr" fc="ST" />
-              <FCDA ldInst="PRO" prefix="BK1" lnClass="XCBR" lnInst="1" doName="Pos" fc="ST" />
-              <FCDA ldInst="PRO" prefix="BKR1" lnClass="CSWI" lnInst="1" doName="Pos" fc="ST" />
-              <FCDA ldInst="ANN" prefix="INA" lnClass="GGIO" lnInst="1" doName="Ind01" fc="ST" />
-              <FCDA ldInst="ANN" prefix="INA" lnClass="GGIO" lnInst="1" doName="Ind02" fc="ST" />
-            </DataSet>
             <DataSet name="DSet10" desc="Targets and Push Buttons">
               <FCDA ldInst="ANN" prefix="TLED" lnClass="GGIO" lnInst="6" doName="Ind01" fc="ST" />
               <FCDA ldInst="ANN" prefix="TLED" lnClass="GGIO" lnInst="6" doName="Ind02" fc="ST" />
@@ -551,6 +537,26 @@
               <FCDA ldInst="PRO" prefix="TRIP" lnClass="PTRC" lnInst="1" doName="Tr" daName="general" fc="ST" />
               <FCDA ldInst="PRO" prefix="BFR1" lnClass="RBRF" lnInst="1" doName="OpEx" daName="general" fc="ST" />
             </DataSet>
+            <DataSet name="DSet03" desc="Breaker Status and MB Inputs">
+              <FCDA ldInst="PRO" prefix="TRIP" lnClass="PTRC" lnInst="1" doName="Tr" fc="ST" />
+              <FCDA ldInst="PRO" prefix="BK1" lnClass="XCBR" lnInst="1" doName="Pos" fc="ST" />
+              <FCDA ldInst="PRO" prefix="BKR1" lnClass="CSWI" lnInst="1" doName="Pos" fc="ST" />
+              <FCDA ldInst="ANN" prefix="INA" lnClass="GGIO" lnInst="1" doName="Ind01" fc="ST" />
+              <FCDA ldInst="ANN" prefix="INA" lnClass="GGIO" lnInst="1" doName="Ind02" fc="ST" />
+              <FCDA ldInst="PRO" prefix="P1T" lnClass="PIOC" lnInst="1" doName="Str" daName="general" fc="ST" />
+              <FCDA ldInst="PRO" prefix="P1T" lnClass="PIOC" lnInst="1" doName="Op" daName="general" fc="ST" />
+              <FCDA ldInst="PRO" prefix="BFR1" lnClass="RBRF" lnInst="1" doName="OpEx" daName="general" fc="ST" />
+            </DataSet>
+            <DataSet name="DSet09" desc="Breaker Status and MB Inputs">
+              <FCDA ldInst="PRO" prefix="TRIP" lnClass="PTRC" lnInst="1" doName="Tr" fc="ST" />
+              <FCDA ldInst="PRO" prefix="BK1" lnClass="XCBR" lnInst="1" doName="Pos" fc="ST" />
+              <FCDA ldInst="PRO" prefix="BKR1" lnClass="CSWI" lnInst="1" doName="Pos" fc="ST" />
+              <FCDA ldInst="ANN" prefix="INA" lnClass="GGIO" lnInst="1" doName="Ind01" fc="ST" />
+              <FCDA ldInst="ANN" prefix="INA" lnClass="GGIO" lnInst="1" doName="Ind02" fc="ST" />
+              <FCDA ldInst="PRO" prefix="P1T" lnClass="PIOC" lnInst="1" doName="Str" daName="general" fc="ST" />
+              <FCDA ldInst="PRO" prefix="P1T" lnClass="PIOC" lnInst="1" doName="Op" daName="general" fc="ST" />
+              <FCDA ldInst="PRO" prefix="BFR1" lnClass="RBRF" lnInst="1" doName="OpEx" daName="general" fc="ST" />
+            </DataSet>
             <ReportControl name="BRep01" desc="Predefined Buffered Report 01" datSet="DSet01" rptID="DSet01" confRev="1" buffered="true" bufTime="500">
               <TrgOps dchg="true" qchg="true" />
               <OptFields seqNum="true" timeStamp="true" dataSet="true" reasonCode="true" configRef="true" />
@@ -646,8 +652,8 @@
             <GSEControl name="GOOSE_SL_1" desc="MENSAGEM GOOSE PARA SELETIVIDADE LÓGICA" datSet="GOOSE_EDITOR" confRev="1" appID="SEL_751_1">
               <Private type="SEL_GOOSETXAddress">
                 <esel:Address>
-                  <esel:P type="MAC-Address">01-0C-CD-01-00-05</esel:P>
-                  <esel:P type="APPID">0005</esel:P>
+                  <esel:P type="MAC-Address">01-0C-CD-01-00-03</esel:P>
+                  <esel:P type="APPID">0003</esel:P>
                   <esel:P type="VLAN-ID">001</esel:P>
                   <esel:P type="VLAN-PRIORITY">4</esel:P>
                 </esel:Address>

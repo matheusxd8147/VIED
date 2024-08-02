@@ -2,7 +2,7 @@
 <SCL xmlns:esel="http://www.selinc.com/2006/61850" xmlns="http://www.iec.ch/61850/2003/SCL">
   <Header id="New Project" version="0" revision="1.0" toolID="SEL AcSELerator® ArchitectVersion 1.1.143.0" nameStructure="IEDName">
     <History>
-      <Hitem version="0" revision="1.0" when="08/02/2024 15:38:45" who="GREI_PC_MALA\GREI" what="CID file exported from Project New Project" />
+      <Hitem version="0" revision="1.0" when="08/02/2024 17:59:01" who="GREI_PC_MALA\GREI" what="CID file exported from Project New Project" />
     </History>
   </Header>
   <Communication>
@@ -134,13 +134,6 @@
               <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn30" fc="MX" />
               <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn31" fc="MX" />
               <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn32" fc="MX" />
-            </DataSet>
-            <DataSet name="DSet03" desc="Breaker Status and MB Inputs">
-              <FCDA ldInst="PRO" prefix="TRIP" lnClass="PTRC" lnInst="1" doName="Tr" fc="ST" />
-              <FCDA ldInst="PRO" prefix="BK1" lnClass="XCBR" lnInst="1" doName="Pos" fc="ST" />
-              <FCDA ldInst="PRO" prefix="BKR1" lnClass="CSWI" lnInst="1" doName="Pos" fc="ST" />
-              <FCDA ldInst="ANN" prefix="INA" lnClass="GGIO" lnInst="1" doName="Ind01" fc="ST" />
-              <FCDA ldInst="ANN" prefix="INA" lnClass="GGIO" lnInst="1" doName="Ind02" fc="ST" />
             </DataSet>
             <DataSet name="DSet04" desc="Targets and Push Buttons">
               <FCDA ldInst="ANN" prefix="TLED" lnClass="GGIO" lnInst="6" doName="Ind01" fc="ST" />
@@ -353,13 +346,6 @@
               <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn31" fc="MX" />
               <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn32" fc="MX" />
             </DataSet>
-            <DataSet name="DSet09" desc="Breaker Status and MB Inputs">
-              <FCDA ldInst="PRO" prefix="TRIP" lnClass="PTRC" lnInst="1" doName="Tr" fc="ST" />
-              <FCDA ldInst="PRO" prefix="BK1" lnClass="XCBR" lnInst="1" doName="Pos" fc="ST" />
-              <FCDA ldInst="PRO" prefix="BKR1" lnClass="CSWI" lnInst="1" doName="Pos" fc="ST" />
-              <FCDA ldInst="ANN" prefix="INA" lnClass="GGIO" lnInst="1" doName="Ind01" fc="ST" />
-              <FCDA ldInst="ANN" prefix="INA" lnClass="GGIO" lnInst="1" doName="Ind02" fc="ST" />
-            </DataSet>
             <DataSet name="DSet10" desc="Targets and Push Buttons">
               <FCDA ldInst="ANN" prefix="TLED" lnClass="GGIO" lnInst="6" doName="Ind01" fc="ST" />
               <FCDA ldInst="ANN" prefix="TLED" lnClass="GGIO" lnInst="6" doName="Ind02" fc="ST" />
@@ -549,6 +535,26 @@
             <DataSet name="GOOSE_EDITOR" desc="">
               <FCDA ldInst="PRO" prefix="P1T" lnClass="PIOC" lnInst="1" doName="Str" daName="general" fc="ST" />
               <FCDA ldInst="PRO" prefix="TRIP" lnClass="PTRC" lnInst="1" doName="Tr" daName="general" fc="ST" />
+              <FCDA ldInst="PRO" prefix="BFR1" lnClass="RBRF" lnInst="1" doName="OpEx" daName="general" fc="ST" />
+            </DataSet>
+            <DataSet name="DSet03" desc="Breaker Status and MB Inputs">
+              <FCDA ldInst="PRO" prefix="TRIP" lnClass="PTRC" lnInst="1" doName="Tr" fc="ST" />
+              <FCDA ldInst="PRO" prefix="BK1" lnClass="XCBR" lnInst="1" doName="Pos" fc="ST" />
+              <FCDA ldInst="PRO" prefix="BKR1" lnClass="CSWI" lnInst="1" doName="Pos" fc="ST" />
+              <FCDA ldInst="ANN" prefix="INA" lnClass="GGIO" lnInst="1" doName="Ind01" fc="ST" />
+              <FCDA ldInst="ANN" prefix="INA" lnClass="GGIO" lnInst="1" doName="Ind02" fc="ST" />
+              <FCDA ldInst="PRO" prefix="BFR1" lnClass="RBRF" lnInst="1" doName="OpEx" daName="general" fc="ST" />
+              <FCDA ldInst="PRO" prefix="P1T" lnClass="PIOC" lnInst="1" doName="Str" daName="general" fc="ST" />
+              <FCDA ldInst="PRO" prefix="P1T" lnClass="PIOC" lnInst="1" doName="Op" daName="general" fc="ST" />
+            </DataSet>
+            <DataSet name="DSet09" desc="Breaker Status and MB Inputs">
+              <FCDA ldInst="PRO" prefix="TRIP" lnClass="PTRC" lnInst="1" doName="Tr" fc="ST" />
+              <FCDA ldInst="PRO" prefix="BK1" lnClass="XCBR" lnInst="1" doName="Pos" fc="ST" />
+              <FCDA ldInst="PRO" prefix="BKR1" lnClass="CSWI" lnInst="1" doName="Pos" fc="ST" />
+              <FCDA ldInst="ANN" prefix="INA" lnClass="GGIO" lnInst="1" doName="Ind01" fc="ST" />
+              <FCDA ldInst="ANN" prefix="INA" lnClass="GGIO" lnInst="1" doName="Ind02" fc="ST" />
+              <FCDA ldInst="PRO" prefix="P1T" lnClass="PIOC" lnInst="1" doName="Str" daName="general" fc="ST" />
+              <FCDA ldInst="PRO" prefix="P1T" lnClass="PIOC" lnInst="1" doName="Op" daName="general" fc="ST" />
               <FCDA ldInst="PRO" prefix="BFR1" lnClass="RBRF" lnInst="1" doName="OpEx" daName="general" fc="ST" />
             </DataSet>
             <ReportControl name="BRep01" desc="Predefined Buffered Report 01" datSet="DSet01" rptID="DSet01" confRev="1" buffered="true" bufTime="500">

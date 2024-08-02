@@ -400,7 +400,7 @@ gooseListener(GooseSubscriber subscriber, void* parameter)
     c = buffer[6];
     d = buffer[11];
 
-    if(b=!116){
+    if(b!=116){
         if (corrente_primarioA>pick_up){   
                     printf("-------------------------------------------------------------------------------------------------------------\n");            
                     printf("                         ATUAR FUNÇÃO 50: SOBRECORRENTE INSTANTÂNEA FASE A                                   \n");
@@ -515,9 +515,9 @@ main(int argc, char** argv)
 
     GooseReceiver receiver = GooseReceiver_create();
 
-    GooseReceiver_setInterfaceId(receiver, "enp2s0");
+    GooseReceiver_setInterfaceId(receiver, "eth0");
     
-    GooseSubscriber subscriber = GooseSubscriber_create("MUBinIO_BinaryInputs/LLN0$GO$Control_DataSet", NULL); //Especificação de quem o ied irá receber as mensagens goose
+    GooseSubscriber subscriber = GooseSubscriber_create("VIED_50_1CFG/LLN0$GO$GOOSE_VIED_50_1", NULL); //Especificação de quem o ied irá receber as mensagens goose
 
     GooseSubscriber_setListener(subscriber, gooseListener, iedServer); 
 
