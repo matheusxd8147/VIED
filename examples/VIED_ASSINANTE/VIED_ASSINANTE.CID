@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SCL xmlns:esel="http://www.selinc.com/2006/61850" xmlns="http://www.iec.ch/61850/2003/SCL">
-  <Header id="New Project" version="0" revision="1.0" toolID="SEL AcSELerator® ArchitectVersion 1.1.143.0" nameStructure="IEDName">
+  <Header id="IED-2_VIEDS-PUBLISHER_AND_SUBSCRIBER" version="4" revision="1.0" toolID="1.1.143.0" nameStructure="IEDName">
     <History>
-      <Hitem version="0" revision="1.0" when="08/02/2024 15:39:17" who="GREI_PC_MALA\GREI" what="CID file exported from Project New Project" />
+      <Hitem version="4" revision="1.0" when="08/06/2024 18:37:14" who="GREI_PC_MALA\GREI" what="CID file exported from Project IED-2_VIEDS-PUBLISHER_AND_SUBSCR" />
     </History>
   </Header>
   <Communication>
