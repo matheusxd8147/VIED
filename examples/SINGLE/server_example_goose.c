@@ -316,6 +316,8 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
 
         funcao_50();
 
+        IedServer_updateDbposValue(iedServer, IEDMODEL_PRO_BK1XCBR1_Pos_stVal, DBPOS_ON);
+
         if(contadorSV3 == 60){
             /*FILE *file;
             file = fopen("VIEDeficaz.txt","w");

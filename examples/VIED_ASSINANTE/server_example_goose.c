@@ -468,9 +468,9 @@ gooseListener(GooseSubscriber subscriber, void* parameter)
         }
     }
     if ((c==116)&&(d==116)){
-        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
+        IedServer_updateDbposValue(iedServer, IEDMODEL_PRO_BK1XCBR1_Pos_stVal, DBPOS_OFF);
     }else{
-        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, false);
+        IedServer_updateDbposValue(iedServer, IEDMODEL_PRO_BK1XCBR1_Pos_stVal, DBPOS_ON);
     }
 }
 
@@ -517,7 +517,7 @@ main(int argc, char** argv)
 
     GooseReceiver_setInterfaceId(receiver, "eth0");
     
-    GooseSubscriber subscriber = GooseSubscriber_create("VIED_50_1CFG/LLN0$GO$GOOSE_VIED_50_1", NULL); //Especificação de quem o ied irá receber as mensagens goose
+    GooseSubscriber subscriber = GooseSubscriber_create("SEL_751_1CFG/LLN0$GO$GOOSE_SL_1", NULL); //Especificação de quem o ied irá receber as mensagens goose
 
     GooseSubscriber_setListener(subscriber, gooseListener, iedServer); 
 
