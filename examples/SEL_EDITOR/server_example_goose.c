@@ -32,6 +32,7 @@ extern IedModel iedModel;
 bool contador = true;
 bool contador10 = true;
 bool contador9 = true;
+bool contador99 = true;
 bool contador11 = true;
 bool contador7 = true;
 bool contador8 = true;
@@ -78,11 +79,11 @@ static float pick_up;
 static float M, M1, M2, K, a, t, t1, t2,T, B = 1;
 struct timeval start_time, start1_time, start2_time;
 struct timeval stop_time, stop1_time, stop2_time;
-struct timeval tart_time, tart1_time, tart2_time;
-struct timeval top_time, top1_time, top2_time;
+struct timeval tart_time, tart_time9, tart1_time, tart2_time;
+struct timeval top_time, top_time9, top1_time, top2_time;
 static float ang1, ang2, ang3, ang4, ang5, ang6, ang7, ang8;
 static float time_diff = 0, time_diff1 = 0, time_diff2 = 0;
-static float ime_diff = 0, ime_diff1 = 0, ime_diff2 = 0;
+static float ime_diff = 0, ime_diff1 = 0, ime_diff2 = 0, ime_diff9 = 0;
 float an[6], teta[6];
 
 void sigint_handler(int signalId)
@@ -239,14 +240,25 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
 
 
 
-        if (corrente_primarioA>pick_up){   
+        if ((corrente_primarioA>pick_up)||(corrente_primarioB>pick_up)||(corrente_primarioC>pick_up)){   
                     printf("-------------------------------------------------------------------------------------------------------------\n");            
-                    printf("                         ATUAR FUNÇÃO 50: SOBRECORRENTE INSTANTÂNEA FASE A                                   \n");
+                    printf("                               PARTIDA FUNÇÃO 50: SOBRECORRENTE INSTANTÂNEA                                  \n");
                     printf("-------------------------------------------------------------------------------------------------------------\n");
-                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind04_stVal, true);
-                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_P1TPIOC1_Str_general, true);
-                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_P1TPIOC1_Op_general, true);
-                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true); 
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_P1TPIOC1_Str_general, true); 
+                    if (contador99 == true){
+                        gettimeofday( &tart_time9, NULL );
+                        contador99 = false;
+                    }
+                    gettimeofday( &top_time9, NULL );
+                    ime_diff9 = (float)(top_time9.tv_sec - tart_time9.tv_sec);
+                    ime_diff9 += (top_time9.tv_usec - tart_time9.tv_usec)/(float)MICRO_PER_SECOND;
+                    if ((ime_diff9)>=0.01){
+                        printf("-------------------------------------------------------------------------------------------------------------\n");            
+                        printf("                               ATUAÇÃO DA FUNÇÃO 50: SOBRECORRENTE INSTANTÂNEA                               \n");
+                        printf("-------------------------------------------------------------------------------------------------------------\n");
+                        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_P1TPIOC1_Op_general, true);
+                        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
+                    } 
                     if (contador9 == true){
                         gettimeofday( &tart_time, NULL );
                         contador9 = false;
@@ -257,44 +269,6 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
                     if ((ime_diff)>=0.250){
                         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_BFR1RBRF1_OpEx_general, true);
                     } 
-        }
-        if (corrente_primarioB>pick_up){
-                    printf("-------------------------------------------------------------------------------------------------------------\n");            
-                    printf("                         ATUAR FUNÇÃO 50: SOBRECORRENTE INSTANTÂNEA FASE B                                   \n");
-                    printf("-------------------------------------------------------------------------------------------------------------\n");
-                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind05_stVal, true);
-                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_P1TPIOC1_Str_general, true);
-                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_P1TPIOC1_Op_general, true);
-                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
-                    if (contador10 == true){
-                        gettimeofday( &tart1_time, NULL );
-                        contador10 = false;
-                    }
-                    gettimeofday( &top1_time, NULL );
-                    ime_diff1 = (float)(top1_time.tv_sec - tart1_time.tv_sec);
-                    ime_diff1 += (top1_time.tv_usec - tart1_time.tv_usec)/(float)MICRO_PER_SECOND;
-                    if ((ime_diff1)>=0.250){
-                        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_BFR1RBRF1_OpEx_general, true);
-                    }
-        }
-        if (corrente_primarioC>pick_up){
-                    printf("-------------------------------------------------------------------------------------------------------------\n");            
-                    printf("                         ATUAR FUNÇÃO 50: SOBRECORRENTE INSTANTÂNEA FASE C                                   \n");
-                    printf("-------------------------------------------------------------------------------------------------------------\n");
-                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind06_stVal, true);
-                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_P1TPIOC1_Str_general, true);
-                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_P1TPIOC1_Op_general, true);
-                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
-                    if (contador11 == true){
-                        gettimeofday( &tart2_time, NULL );
-                        contador11 = false;
-                    }
-                    gettimeofday( &top2_time, NULL );
-                    ime_diff2 = (float)(top2_time.tv_sec - tart2_time.tv_sec);
-                    ime_diff2 += (top2_time.tv_usec - tart2_time.tv_usec)/(float)MICRO_PER_SECOND;
-                    if ((ime_diff2)>=0.250){
-                        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_BFR1RBRF1_OpEx_general, true);
-                    }
         }
 
         if ((corrente_primarioA<(pick_up*10/100))&&(corrente_primarioB<(pick_up*10/100))&&(corrente_primarioC<(pick_up*10/100))){
