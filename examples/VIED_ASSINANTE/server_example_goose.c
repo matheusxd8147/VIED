@@ -399,6 +399,7 @@ gooseListener(GooseSubscriber subscriber, void* parameter)
     b = buffer[1];
     c = buffer[6];
     d = buffer[11];
+    uint64_t y = Hal_getTimeInMs();
 
     if(b!=116){
         if (corrente_primarioA>pick_up){   
@@ -469,6 +470,10 @@ gooseListener(GooseSubscriber subscriber, void* parameter)
     }
     if ((c==116)&&(d==116)){
         IedServer_updateDbposValue(iedServer, IEDMODEL_PRO_BK1XCBR1_Pos_stVal, DBPOS_OFF);
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
+        IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_PRO_BK1XCBR1_Pos_t, y);
+        IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_t, y);
+
     }else{
         IedServer_updateDbposValue(iedServer, IEDMODEL_PRO_BK1XCBR1_Pos_stVal, DBPOS_ON);
     }

@@ -39,7 +39,7 @@ main(int argc, char** argv)
 
         /* Create first ASDU and add data points */
 
-        SVPublisher_ASDU asdu1 = SVPublisher_addASDU(svPublisher, "IEDNameMU0201", NULL, 1);
+        SVPublisher_ASDU asdu1 = SVPublisher_addASDU(svPublisher, "IEDNameMU0101", NULL, 1);
 
         /*float float1 = SVPublisher_ASDU_addFLOAT(asdu1);
         float float11 = SVPublisher_ASDU_addFLOAT(asdu1);

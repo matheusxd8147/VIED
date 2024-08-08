@@ -244,6 +244,8 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
                     printf("-------------------------------------------------------------------------------------------------------------\n");            
                     printf("                               PARTIDA FUNÇÃO 50: SOBRECORRENTE INSTANTÂNEA                                  \n");
                     printf("-------------------------------------------------------------------------------------------------------------\n");
+                    uint64_t y = Hal_getTimeInMs();
+                    IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_PRO_P1TPIOC1_Str_t, y);
                     IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_P1TPIOC1_Str_general, true); 
                     if (contador99 == true){
                         gettimeofday( &tart_time9, NULL );
@@ -258,6 +260,9 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
                         printf("-------------------------------------------------------------------------------------------------------------\n");
                         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_P1TPIOC1_Op_general, true);
                         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
+                        uint64_t x = Hal_getTimeInMs();
+                        IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_t, x);
+                        IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_PRO_P1TPIOC1_Op_t, x);
                     } 
                     if (contador9 == true){
                         gettimeofday( &tart_time, NULL );
@@ -268,6 +273,8 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
                     ime_diff += (top_time.tv_usec - tart_time.tv_usec)/(float)MICRO_PER_SECOND;
                     if ((ime_diff)>=0.250){
                         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_BFR1RBRF1_OpEx_general, true);
+                        uint64_t z = Hal_getTimeInMs();
+                        IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_PRO_BFR1RBRF1_OpEx_t, z);
                     } 
         }
 
