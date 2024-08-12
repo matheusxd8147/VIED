@@ -137,13 +137,17 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
         SVrms_estrelaC = 0;
         
         //(abs(corrente_primarioA-corrente_secundarioA)/corrente_primarioA)*100>30
+        uint64_t timestamp = Hal_getTimeInMs();
 
        if ((abs(corrente_primarioA-corrente_secundarioA)/corrente_primarioA)*100>30)
         {
             printf("-------------------------------------------------------------------------------------------------------------\n");            
             printf("   ATUAR FUNÇÃO 87T: Diferença maior que 30%% na fase A -----> COMANDO DE ABERTURA DE 12T1 E 11T1 ENVIADO\n");
             printf("-------------------------------------------------------------------------------------------------------------\n");
-            IedServer_updateDbposValue(iedServer, IEDMODEL_LD0_XCBR1_Pos_stVal, DBPOS_ON);
+            IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_LD0_XCBR1_Pos_t, timestamp);
+            IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_LD0_A87T_PDIF1_Op_t, timestamp);
+            IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_LD0_PTRC1_Tr_t, timestamp);
+            IedServer_updateDbposValue(iedServer, IEDMODEL_LD0_XCBR1_Pos_stVal, DBPOS_OFF);
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_LD0_A87T_PDIF1_Op_general, true);
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_LD0_PTRC1_Tr_general, true);
             printf("\n");
@@ -153,7 +157,10 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
             printf("-------------------------------------------------------------------------------------------------------------\n");
             printf("   ATUAR FUNÇÃO 87T: Diferença maior que 30%% na fase B  -----> COMANDO DE ABERTURA DE 12T1 E 11T1 ENVIADO\n");
             printf("-------------------------------------------------------------------------------------------------------------\n");
-            IedServer_updateDbposValue(iedServer, IEDMODEL_LD0_XCBR1_Pos_stVal, DBPOS_ON);
+            IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_LD0_XCBR1_Pos_t, timestamp);
+            IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_LD0_A87T_PDIF1_Op_t, timestamp);
+            IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_LD0_PTRC1_Tr_t, timestamp);
+            IedServer_updateDbposValue(iedServer, IEDMODEL_LD0_XCBR1_Pos_stVal, DBPOS_OFF);
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_LD0_A87T_PDIF1_Op_general, true);
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_LD0_PTRC1_Tr_general, true);
             printf("\n");
@@ -163,14 +170,20 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
             printf("-------------------------------------------------------------------------------------------------------------\n");
             printf("   ATUAR FUNÇÃO 87T: Diferença maior que 30%% na fase C  -----> COMANDO DE ABERTURA DE 12T1 E 11T1 ENVIADO\n");
             printf("-------------------------------------------------------------------------------------------------------------\n");
-            IedServer_updateDbposValue(iedServer, IEDMODEL_LD0_XCBR1_Pos_stVal, DBPOS_ON);
+            IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_LD0_XCBR1_Pos_t, timestamp);
+            IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_LD0_A87T_PDIF1_Op_t, timestamp);
+            IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_LD0_PTRC1_Tr_t, timestamp);
+            IedServer_updateDbposValue(iedServer, IEDMODEL_LD0_XCBR1_Pos_stVal, DBPOS_OFF);
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_LD0_A87T_PDIF1_Op_general, true);
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_LD0_PTRC1_Tr_general, true);
             printf("\n");
             teste = teste+1;
         }
-        if (teste == 0){
-            IedServer_updateDbposValue(iedServer, IEDMODEL_LD0_XCBR1_Pos_stVal, DBPOS_OFF);
+        if (((abs(corrente_primarioA-corrente_secundarioA)/corrente_primarioA)*100>30)&&((abs(corrente_primarioB-corrente_secundarioB)/corrente_primarioB)*100>30)&&((abs(corrente_primarioC-corrente_secundarioC)/corrente_primarioC)*100>30)){
+            IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_LD0_XCBR1_Pos_t, timestamp);
+            IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_LD0_A87T_PDIF1_Op_t, timestamp);
+            IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_LD0_PTRC1_Tr_t, timestamp);
+            IedServer_updateDbposValue(iedServer, IEDMODEL_LD0_XCBR1_Pos_stVal, DBPOS_ON);
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_LD0_A87T_PDIF1_Op_general, false);
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_LD0_PTRC1_Tr_general, false);
         }else{
@@ -353,7 +366,7 @@ main(int argc, char** argv)
 
     while (running) {
 
-        Thread_sleep(0.20833);
+        Thread_sleep(1000);
     }
 
     /* stop MMS server - close TCP server socket and all client sockets */

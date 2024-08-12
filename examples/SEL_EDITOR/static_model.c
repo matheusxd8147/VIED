@@ -18,9 +18,9 @@ extern DataSet iedModelds_CFG_LLN0_DSet10;
 extern DataSet iedModelds_CFG_LLN0_DSet11;
 extern DataSet iedModelds_CFG_LLN0_DSet12;
 extern DataSet iedModelds_CFG_LLN0_DSet13;
-extern DataSet iedModelds_CFG_LLN0_GOOSE_EDITOR;
 extern DataSet iedModelds_CFG_LLN0_DSet03;
 extern DataSet iedModelds_CFG_LLN0_DSet09;
+extern DataSet iedModelds_CFG_LLN0_GOOSE_PUBLISHER;
 
 
 extern DataSetEntry iedModelds_CFG_LLN0_DSet01_fcda0;
@@ -4739,48 +4739,6 @@ DataSet iedModelds_CFG_LLN0_DSet13 = {
   "LLN0$DSet13",
   18,
   &iedModelds_CFG_LLN0_DSet13_fcda0,
-  &iedModelds_CFG_LLN0_GOOSE_EDITOR
-};
-
-extern DataSetEntry iedModelds_CFG_LLN0_GOOSE_EDITOR_fcda0;
-extern DataSetEntry iedModelds_CFG_LLN0_GOOSE_EDITOR_fcda1;
-extern DataSetEntry iedModelds_CFG_LLN0_GOOSE_EDITOR_fcda2;
-
-DataSetEntry iedModelds_CFG_LLN0_GOOSE_EDITOR_fcda0 = {
-  "PRO",
-  false,
-  "P1TPIOC1$ST$Str$general", 
-  -1,
-  NULL,
-  NULL,
-  &iedModelds_CFG_LLN0_GOOSE_EDITOR_fcda1
-};
-
-DataSetEntry iedModelds_CFG_LLN0_GOOSE_EDITOR_fcda1 = {
-  "PRO",
-  false,
-  "TRIPPTRC1$ST$Tr$general", 
-  -1,
-  NULL,
-  NULL,
-  &iedModelds_CFG_LLN0_GOOSE_EDITOR_fcda2
-};
-
-DataSetEntry iedModelds_CFG_LLN0_GOOSE_EDITOR_fcda2 = {
-  "PRO",
-  false,
-  "BFR1RBRF1$ST$OpEx$general", 
-  -1,
-  NULL,
-  NULL,
-  NULL
-};
-
-DataSet iedModelds_CFG_LLN0_GOOSE_EDITOR = {
-  "CFG",
-  "LLN0$GOOSE_EDITOR",
-  3,
-  &iedModelds_CFG_LLN0_GOOSE_EDITOR_fcda0,
   &iedModelds_CFG_LLN0_DSet03
 };
 
@@ -4975,6 +4933,48 @@ DataSet iedModelds_CFG_LLN0_DSet09 = {
   "LLN0$DSet09",
   8,
   &iedModelds_CFG_LLN0_DSet09_fcda0,
+  &iedModelds_CFG_LLN0_GOOSE_PUBLISHER
+};
+
+extern DataSetEntry iedModelds_CFG_LLN0_GOOSE_PUBLISHER_fcda0;
+extern DataSetEntry iedModelds_CFG_LLN0_GOOSE_PUBLISHER_fcda1;
+extern DataSetEntry iedModelds_CFG_LLN0_GOOSE_PUBLISHER_fcda2;
+
+DataSetEntry iedModelds_CFG_LLN0_GOOSE_PUBLISHER_fcda0 = {
+  "PRO",
+  false,
+  "P1TPIOC1$ST$Str$general", 
+  -1,
+  NULL,
+  NULL,
+  &iedModelds_CFG_LLN0_GOOSE_PUBLISHER_fcda1
+};
+
+DataSetEntry iedModelds_CFG_LLN0_GOOSE_PUBLISHER_fcda1 = {
+  "PRO",
+  false,
+  "TRIPPTRC1$ST$Tr$general", 
+  -1,
+  NULL,
+  NULL,
+  &iedModelds_CFG_LLN0_GOOSE_PUBLISHER_fcda2
+};
+
+DataSetEntry iedModelds_CFG_LLN0_GOOSE_PUBLISHER_fcda2 = {
+  "PRO",
+  false,
+  "BFR1RBRF1$ST$OpEx$general", 
+  -1,
+  NULL,
+  NULL,
+  NULL
+};
+
+DataSet iedModelds_CFG_LLN0_GOOSE_PUBLISHER = {
+  "CFG",
+  "LLN0$GOOSE_PUBLISHER",
+  3,
+  &iedModelds_CFG_LLN0_GOOSE_PUBLISHER_fcda0,
   NULL
 };
 
@@ -116933,7 +116933,7 @@ static PhyComAddress iedModel_CFG_LLN0_gse0_address = {
   {0x1, 0xc, 0xcd, 0x1, 0x0, 0x3}
 };
 
-GSEControlBlock iedModel_CFG_LLN0_gse0 = {&iedModel_CFG_LLN0, "GOOSE_SL_1", "SEL_751_1", "GOOSE_EDITOR", 1, false, &iedModel_CFG_LLN0_gse0_address, 4, 1000, NULL};
+GSEControlBlock iedModel_CFG_LLN0_gse0 = {&iedModel_CFG_LLN0, "GOOSE_SL_1", "SEL_751_1", "GOOSE_PUBLISHER", 1, false, &iedModel_CFG_LLN0_gse0_address, 4, 1000, NULL};
 
 
 

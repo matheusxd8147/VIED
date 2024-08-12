@@ -33,6 +33,7 @@ bool contador = true;
 bool contador10 = true;
 bool contador9 = true;
 bool contador99 = true;
+bool contador100 = true;
 bool contador11 = true;
 bool contador7 = true;
 bool contador8 = true;
@@ -48,6 +49,7 @@ bool resposta = true;
 bool comando = false;
 int curva = 0;
 int funcao = 0;
+
 
 char* svID2;
 static int running = 0;
@@ -238,15 +240,13 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
 
         contadorSV3 ++;
 
+        IedServer_updateDbposValue(iedServer, IEDMODEL_PRO_BK1XCBR1_Pos_stVal, DBPOS_ON);
 
+        uint64_t y = Hal_getTimeInMs();
 
         if ((corrente_primarioA>pick_up)||(corrente_primarioB>pick_up)||(corrente_primarioC>pick_up)){   
-                    printf("-------------------------------------------------------------------------------------------------------------\n");            
-                    printf("                               PARTIDA FUNÇÃO 50: SOBRECORRENTE INSTANTÂNEA                                  \n");
-                    printf("-------------------------------------------------------------------------------------------------------------\n");
-                    uint64_t y = Hal_getTimeInMs();
                     IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_PRO_P1TPIOC1_Str_t, y);
-                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_P1TPIOC1_Str_general, true); 
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_P1TPIOC1_Str_general, true);
                     if (contador99 == true){
                         gettimeofday( &tart_time9, NULL );
                         contador99 = false;
@@ -256,13 +256,13 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
                     ime_diff9 += (top_time9.tv_usec - tart_time9.tv_usec)/(float)MICRO_PER_SECOND;
                     if ((ime_diff9)>=0.01){
                         printf("-------------------------------------------------------------------------------------------------------------\n");            
-                        printf("                               ATUAÇÃO DA FUNÇÃO 50: SOBRECORRENTE INSTANTÂNEA                               \n");
+                        printf("                               ATUA ^g ^cO DA FUN ^g ^cO 50: SOBRECORRENTE INSTANT ^bNEA                               \n");
                         printf("-------------------------------------------------------------------------------------------------------------\n");
                         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_P1TPIOC1_Op_general, true);
                         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
-                        uint64_t x = Hal_getTimeInMs();
-                        IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_t, x);
-                        IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_PRO_P1TPIOC1_Op_t, x);
+                        //uint64_t x = Hal_getTimeInMs();
+                        IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_t, y);
+                        IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_PRO_P1TPIOC1_Op_t, y);
                     } 
                     if (contador9 == true){
                         gettimeofday( &tart_time, NULL );
@@ -271,11 +271,11 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
                     gettimeofday( &top_time, NULL );
                     ime_diff = (float)(top_time.tv_sec - tart_time.tv_sec);
                     ime_diff += (top_time.tv_usec - tart_time.tv_usec)/(float)MICRO_PER_SECOND;
-                    if ((ime_diff)>=0.250){
+                    if ((ime_diff)>=1){
                         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_BFR1RBRF1_OpEx_general, true);
-                        uint64_t z = Hal_getTimeInMs();
-                        IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_PRO_BFR1RBRF1_OpEx_t, z);
-                    } 
+                        //uint64_t z = Hal_getTimeInMs();
+                        IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_PRO_BFR1RBRF1_OpEx_t, y);
+                    }
         }
 
         if ((corrente_primarioA<(pick_up*10/100))&&(corrente_primarioB<(pick_up*10/100))&&(corrente_primarioC<(pick_up*10/100))){
@@ -289,6 +289,8 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
                 contador9 = true;
                 contador10 = true;
                 contador11 = true;
+                contador99 = true;
+                contador100 = true;
         }
 
         
@@ -502,7 +504,7 @@ main(int argc, char** argv)
 
     GooseReceiver receiver = GooseReceiver_create();
 
-    GooseReceiver_setInterfaceId(receiver, "enp2s0");
+    GooseReceiver_setInterfaceId(receiver, "eth0");
     
     GooseSubscriber subscriber = GooseSubscriber_create("MUBinIO_BinaryInputs/LLN0$GO$Control_DataSet", NULL); //Especificação de quem o ied irá receber as mensagens goose
 

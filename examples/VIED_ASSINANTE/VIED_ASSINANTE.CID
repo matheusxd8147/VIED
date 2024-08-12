@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SCL xmlns:esel="http://www.selinc.com/2006/61850" xmlns="http://www.iec.ch/61850/2003/SCL">
-  <Header id="IED-2_VIEDS-PUBLISHER_AND_SUBSCRIBER" version="4" revision="1.0" toolID="1.1.143.0" nameStructure="IEDName">
+  <Header id="New Project" version="0" revision="1.0" toolID="SEL AcSELerator® ArchitectVersion 1.1.143.0" nameStructure="IEDName">
     <History>
-      <Hitem version="4" revision="1.0" when="08/06/2024 18:37:14" who="GREI_PC_MALA\GREI" what="CID file exported from Project IED-2_VIEDS-PUBLISHER_AND_SUBSCR" />
+      <Hitem version="0" revision="1.0" when="08/11/2024 22:56:27" who="Matheus-PC\Matheus Souza" what="CID file exported from Project New Project" />
     </History>
   </Header>
   <Communication>
@@ -546,7 +546,7 @@
               <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO08" daName="stVal" fc="ST" />
               <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO08" daName="q" fc="ST" />
             </DataSet>
-            <DataSet name="GOOSE_ASSINANTE" desc="">
+            <DataSet name="GOOSE_SUBSCRIBER" desc="">
               <FCDA ldInst="PRO" prefix="TRIP" lnClass="PTRC" lnInst="1" doName="Tr" daName="general" fc="ST" />
             </DataSet>
             <ReportControl name="BRep01" desc="Predefined Buffered Report 01" datSet="DSet01" rptID="DSet01" confRev="1" buffered="true" bufTime="500">
@@ -641,7 +641,7 @@
               <ExtRef doName="Str" daName="general" intAddr="VB001|q=0x1807" iedName="SEL_751_1" ldInst="PRO" prefix="P1T" lnClass="PIOC" lnInst="1" />
               <ExtRef doName="OpEx" daName="general" intAddr="VB002|q=0x1807" iedName="SEL_751_1" ldInst="PRO" prefix="BFR1" lnClass="RBRF" lnInst="1" />
             </Inputs>
-            <GSEControl name="GOOSE_VIED_50_1" desc="MENSAGEM GOOSE PARA SELETIVIDADE LÓGICA" datSet="GOOSE_ASSINANTE" confRev="1" appID="VIED_50_1">
+            <GSEControl name="GOOSE_VIED_50_1" desc="GOOSE MESSAGE FOR LOGICAL SELECTIVITY" datSet="GOOSE_SUBSCRIBER" confRev="1" appID="VIED_50_1">
               <Private type="SEL_GOOSETXAddress">
                 <esel:Address>
                   <esel:P type="MAC-Address">01-0C-CD-01-00-06</esel:P>

@@ -1,0 +1,3626 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<SCL xmlns="http://www.iec.ch/61850/2003/SCL" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Private type="SchneiderElectric-SFT-Key">63C7E0C79AF73EBD32A0A96F86B48FBA</Private>
+  <Private type="SchneiderElectric-SFT-EditTime">2024-08-12 13:27:16</Private>
+  <Private type="SchneiderElectric-SFT-Version">4.5.1</Private>
+  <Header id="My Project Id" nameStructure="IEDName" revision="0" toolID="CET850 v2.0" version="2">
+    <History>
+      <Hitem revision="0" version="V1" what="Draft 1" when="2024-08-12" who="CET850Config"/>
+    </History>
+  </Header>
+  <Communication>
+    <SubNetwork name="NET">
+      <ConnectedAP apName="AP1" iedName="VIED_50_3">
+        <Address>
+          <P type="IP">169.254.0.10</P>
+          <P type="IP-SUBNET">255.255.0.0</P>
+          <P type="IP-GATEWAY">0.0.0.0</P>
+          <P type="OSI-PSEL">00000001</P>
+          <P type="OSI-SSEL">0001</P>
+          <P type="OSI-TSEL">0001</P>
+        </Address>
+        <GSE cbName="GOOSE_SUBSCRIBER" ldInst="LD0">
+          <Address>
+            <P type="MAC-Address">01-0C-CD-01-00-00</P>
+            <P type="APPID">0000</P>
+            <P type="VLAN-ID">001</P>
+            <P type="VLAN-PRIORITY">4</P>
+          </Address>
+          <MinTime multiplier="m" unit="s">8</MinTime>
+          <MaxTime multiplier="m" unit="s">2050</MaxTime>
+        </GSE>
+      </ConnectedAP>
+    </SubNetwork>
+  </Communication>
+  <IED configVersion="7.0" desc="VIED" manufacturer="Schneider Electric" name="VIED_50_3" type="Sepam T81">
+    <Private type="SchneiderElectric-IED-Type">ACE850</Private>
+    <Services>
+      <DynAssociation/>
+      <SettingGroups/>
+      <GetDirectory/>
+      <GetDataObjectDefinition/>
+      <DataObjectDirectory/>
+      <GetDataSetValue/>
+      <DataSetDirectory/>
+      <ConfDataSet max="32" maxAttributes="600" modify="true"/>
+      <ReadWrite/>
+      <ConfReportControl max="16"/>
+      <GetCBValues/>
+      <ReportSettings bufTime="Dyn" cbName="Conf" datSet="Conf" intgPd="Dyn" optFields="Dyn" rptID="Dyn" trgOps="Dyn"/>
+      <GSESettings appID="Conf" cbName="Conf" datSet="Conf"/>
+      <GSEDir/>
+      <GOOSE max="4"/>
+      <ConfLNs fixLnInst="true" fixPrefix="true"/>
+      <ConfLogControl max="1"/>
+      <LogSettings cbName="Conf" datSet="Conf" intgPd="Dyn" logEna="Dyn" trgOps="Dyn"/>
+      <FileHandling/>
+    </Services>
+    <AccessPoint name="AP1">
+      <Private type="Default-AP-Params">
+        <Comm xmlns="http://www.schneider-electric.com/IEC61850/XMLSchema">
+          <AddressParams xmlns="http://www.iec.ch/61850/2003/SCL" OSI-PSEL="00000001" OSI-SSEL="0001" OSI-TSEL="0001"/>
+        </Comm>
+      </Private>
+      <Server>
+        <Private type="SchneiderElectric-SFT-Timeout">1000</Private>
+        <Private type="SchneiderElectric-SFT-Retries">3</Private>
+        <Private type="SchneiderElectric-IED-Settings">
+          <SepamSettings xmlns="http://www.schneider-electric.com/IEC61850/XMLSchema">
+            <Setting active="no" desc="" fun="0000" index="0" name="Template" value="0"/>
+          </SepamSettings>
+        </Private>
+        
+<!-- ==========================================================================
+        GOOSE RECEPTION DEFINITIONS
+        =========================================================================== -->
+        <Private type="SchneiderElectric-IED-GOOSE">
+          <GooseReceive xmlns="http://www.schneider-electric.com/IEC61850/XMLSchema" max="40">
+            <Gxx>
+              <GI desc="Default assignment to Goose Input G401 on Sepam s80" id="1" name="Receive Blocking Indication 1" ref="G401"/>
+              <GI desc="" id="2" name="" ref="G402"/>
+              <GI desc="Default assignment to Goose Input G403 on Sepam s80" id="3" name="External Trip 2" ref="G403"/>
+              <GI desc="Default assignment to Goose Input G404 on Sepam s80" id="4" name="Inhibit closing" ref="G404"/>
+              <GI desc="" id="5" name="" ref="G405"/>
+              <GI desc="" id="6" name="" ref="G406"/>
+              <GI desc="" id="7" name="" ref="G407"/>
+              <GI desc="" id="8" name="" ref="G408"/>
+              <GI desc="" id="9" name="" ref="G409"/>
+              <GI desc="" id="10" name="" ref="G410"/>
+              <GI desc="" id="11" name="" ref="G411"/>
+              <GI desc="" id="12" name="" ref="G412"/>
+              <GI desc="" id="13" name="" ref="G413"/>
+              <GI desc="" id="14" name="" ref="G414"/>
+              <GI desc="" id="15" name="" ref="G415"/>
+              <GI desc="" id="16" name="" ref="G416"/>
+              <GI desc="" id="17" name="" ref="G501"/>
+              <GI desc="" id="18" name="" ref="G502"/>
+              <GI desc="" id="19" name="" ref="G503"/>
+              <GI desc="" id="20" name="" ref="G504"/>
+              <GI desc="" id="21" name="" ref="G505"/>
+              <GI desc="" id="22" name="" ref="G506"/>
+              <GI desc="" id="23" name="" ref="G507"/>
+              <GI desc="" id="24" name="" ref="G508"/>
+              <GI desc="" id="25" name="" ref="G509"/>
+              <GI desc="" id="26" name="" ref="G510"/>
+              <GI desc="" id="27" name="" ref="G511"/>
+              <GI desc="" id="28" name="" ref="G512"/>
+              <GI desc="" id="29" name="" ref="G513"/>
+              <GI desc="" id="30" name="" ref="G514"/>
+              <GI desc="" id="31" name="" ref="G515"/>
+            </Gxx>
+          </GooseReceive>
+        </Private>
+        <Authentication none="true"/>
+        <LDevice inst="LD0">
+          
+<!-- ==========================================================================
+            DEVICE CHARACTERISTICS
+          =========================================================================== -->
+          <Private type="SchneiderElectric-SFT-IcdFileName">s80/SE_Sepam_T81-F07_E1V11.icd</Private>
+          <Private type="SchneiderElectric-SFT-IedVersion">800</Private>
+          <Private type="SchneiderElectric-SFT-IedName">Sepam</Private>
+          <Private type="SchneiderElectric-SFT-IedFamily">series 80</Private>
+          <Private type="SchneiderElectric-SFT-IedAppli">T81</Private>
+          <Private type="SchneiderElectric-IED-DevModel">80:T81</Private>
+          <Private type="SchneiderElectric-IED-MdbAddr">1</Private>
+          <Private type="SchneiderElectric-IED-MdbTbl">200:271:M</Private>
+          <Private type="SchneiderElectric-IED-MdbTbl">27E:2AB:M</Private>
+          <Private type="SchneiderElectric-IED-MdbTbl">300:339:M</Private>
+          <Private type="SchneiderElectric-IED-MdbTbl">C40:C57:M</Private>
+          <Private type="SchneiderElectric-IED-MdbTbl">C10:C15:S</Private>
+          <Private type="SchneiderElectric-IED-MdbTbl">C8F:C9E:S</Private>
+          <Private type="SchneiderElectric-IED-MdbTbl">C88:C8B:C</Private>
+          
+<!-- ==========================================================================
+            SYSTEM LOGICAL NODES
+          =========================================================================== -->
+          <LN0 desc="General" inst="" lnClass="LLN0" lnType="SE_LLN0_Sepam80_V003">
+            <DataSet desc="Default Status Dataset" name="StDs">
+              <Private type="SchneiderElectric-SFT-IsPredefined"/>
+              
+<!-- ==================================================================
+                INFOS (PROTECTION)
+                Numerical order
+              =================================================================== -->
+              
+<!-- ==================================================================
+                INFOS (NON PROTECTION)
+                Alphabetical order of lnClass
+              =================================================================== -->
+              <FCDA doName="Tr" fc="ST" ldInst="LD0" lnClass="PTRC" lnInst="1"/>
+              <FCDA doName="Pos" fc="ST" ldInst="LD0" lnClass="XCBR" lnInst="1"/>
+            </DataSet>
+            <DataSet desc="Default Measurands Dataset" name="MxDs">
+              <Private type="SchneiderElectric-SFT-IsPredefined"/>
+              <FCDA doName="A" fc="MX" ldInst="LD0" lnClass="MMXU" lnInst="1"/>
+              <FCDA doName="PhV" fc="MX" ldInst="LD0" lnClass="MMXU" lnInst="1"/>
+              <FCDA doName="Hz" fc="MX" ldInst="LD0" lnClass="MMXU" lnInst="1"/>
+              <FCDA doName="TotW" fc="MX" ldInst="LD0" lnClass="MMXU" lnInst="1"/>
+              <FCDA doName="TotVAr" fc="MX" ldInst="LD0" lnClass="MMXU" lnInst="1"/>
+            </DataSet>
+            <DataSet desc="Basic Goose Dataset" name="BasicGseDs">
+              <Private type="SchneiderElectric-SFT-IsPredefined"/>
+              <FCDA doName="Pos" fc="ST" ldInst="LD0" lnClass="CSWI" lnInst="1"/>
+              <FCDA doName="Tr" fc="ST" ldInst="LD0" lnClass="PTRC" lnInst="1"/>
+              <FCDA doName="BlkInd1" fc="ST" ldInst="LD0" lnClass="PTRC" lnInst="1"/>
+              <FCDA doName="BlkInd2" fc="ST" ldInst="LD0" lnClass="PTRC" lnInst="1"/>
+              <FCDA doName="LEDRs" fc="ST" ldInst="LD0" lnClass="LLN0"/>
+              <FCDA doName="Test1" fc="ST" ldInst="LD0" lnClass="GGIO" lnInst="1" prefix="GSE_"/>
+            </DataSet>
+            <DataSet desc="" name="ST_VIED">
+              <FCDA doName="Tr" fc="ST" ldInst="LD0" lnClass="PTRC" lnInst="1"/>
+            </DataSet>
+            <ReportControl bufTime="100" buffered="true" confRev="2" datSet="StDs" desc="Default Status Report" intgPd="0" name="brcbST" rptID="brcbST">
+              <Private type="SchneiderElectric-SFT-IsPredefined"/>
+              <TrgOps dchg="true" dupd="false" period="true" qchg="true"/>
+              <OptFields bufOvfl="true" configRef="true" dataRef="false" dataSet="true" entryID="true" reasonCode="true" seqNum="true" timeStamp="true"/>
+              <RptEnabled max="2"/>
+            </ReportControl>
+            <ReportControl bufTime="500" buffered="true" confRev="1" datSet="MxDs" desc="Default Measurands Report" name="brcbMX" rptID="brcbMX">
+              <Private type="SchneiderElectric-SFT-IsPredefined"/>
+              <TrgOps dchg="true" period="true" qchg="true"/>
+              <OptFields bufOvfl="true" configRef="true" dataSet="true" entryID="true" reasonCode="true" seqNum="true" timeStamp="true"/>
+              <RptEnabled max="2"/>
+            </ReportControl>
+            <LogControl datSet="StDs" logEna="false" logName="LD0" name="lgCB">
+              <TrgOps dchg="true" qchg="true"/>
+            </LogControl>
+            
+<!--
+                LLN0 ATTRIBUTES
+              -->
+            <DOI name="Mod">
+              <Private type="SchneiderElectric-IED-PntRef">T:IO;S:C9CF;P:7</Private>
+            </DOI>
+            <DOI name="NamPlt">
+              <DAI name="configRev"/>
+            </DOI>
+            <DOI name="Loc">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C90D:I</Private>
+            </DOI>
+            <DOI name="LEDRs">
+              <Private type="SchneiderElectric-IED-PntRef">T:SC;C:C882;S:C904:I</Private>
+            </DOI>
+            <DOI name="PhRot">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8B5;C:C8B6</Private>
+            </DOI>
+            <DOI name="CTFlt">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C9D0;S:C9D3;P:1</Private>
+            </DOI>
+            <DOI name="VTFlt">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C9D1;S:C9D2;S:C9D4;S:C9D5;P:1</Private>
+            </DOI>
+            <DOI name="ComFlt">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C9EF</Private>
+            </DOI>
+            <DOI name="ActSGA">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C8F5</Private>
+            </DOI>
+            <DOI name="ActSGB">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C8F6</Private>
+            </DOI>
+            <DOI name="PhRotFlt">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C9EE</Private>
+            </DOI>
+            
+<!--
+              GooseControl
+            -->
+            <GSEControl appID="CBstatusGse" confRev="2" datSet="ST_VIED" desc="Message GOOSE ControlBlock" name="GOOSE_SUBSCRIBER" type="GOOSE">
+              <Private type="SchneiderElectric-IED-GseRef">
+                <GseRef xmlns="http://www.schneider-electric.com/IEC61850/XMLSchema" cbName="GOOSE_SUBSCRIBER" ldInst="LD0">
+                  <Address>
+                    <P type="MAC-Address">01-0C-CD-01-00-00</P>
+                    <P type="APPID">0000</P>
+                    <P type="VLAN-ID">001</P>
+                    <P type="VLAN-PRIORITY">4</P>
+                  </Address>
+                  <MinTime multiplier="m" unit="s">8</MinTime>
+                  <MaxTime multiplier="m" unit="s">2050</MaxTime>
+                </GseRef>
+              </Private>
+            </GSEControl>
+            
+<!--
+              SettingControl
+            -->
+            <SettingControl numOfSGs="2">
+              <Private type="SchneiderElectric-IED-SG">T:SG;C:C8A0;C:C8A1;S:C8F5;S:C8F6</Private>
+            </SettingControl>
+            <Log/>
+          </LN0>
+          <LN desc="Device" inst="1" lnClass="LPHD" lnType="LPHD_Sepam80" prefix="">
+            
+<!--
+            LPHD1 ATTRIBUTES
+          -->
+            <DOI name="PhyNam">
+              <DAI name="model">
+                <Val>Sepam T81</Val>
+              </DAI>
+              <DAI desc="can be freely used" name="location">
+                <Val/>
+              </DAI>
+            </DOI>
+            <DOI name="PhyHealth">
+              <Private type="SchneiderElectric-IED-PntRef">T:ES;S:C8F8;S:C8F9;S:C9DA;P:5</Private>
+            </DOI>
+            <DOI name="Proxy">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;P:6</Private>
+            </DOI>
+            <DOI name="PwrSupAlm">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C9D8;S:C9D9;P:1</Private>
+            </DOI>
+          </LN>
+          
+<!-- ==========================================================================
+            LOGICAL NODES ATTRIBUTES (NON PROTECTION)
+            Alphabetical order of lnClass
+          =========================================================================== -->
+          <LN desc="Remote breaker control" inst="1" lnClass="CSWI" lnType="CSWI_Sepam204080_V002" prefix="">
+            
+<!--
+            CSWI1 ATTRIBUTES
+          -->
+            <DOI name="Loc">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C90D:I</Private>
+            </DOI>
+            <DOI name="Pos">
+              <Private type="SchneiderElectric-IED-PntRef">T:DC;C:C881;C:C880;S:C100;S:C101</Private>
+              <DAI name="sboTimeout">
+                <Val>300000</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <LN desc="Logic Equations" inst="1" lnClass="GGIO" lnType="EQU_GGIO_Sepam80" prefix="EQU_">
+            
+<!--
+              EQU_GGIO1 ATTRIBUTES
+            -->
+            <DOI desc="V1" name="Ind1">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C130</Private>
+            </DOI>
+            <DOI desc="V2" name="Ind2">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C131</Private>
+            </DOI>
+            <DOI desc="V3" name="Ind3">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C132</Private>
+            </DOI>
+            <DOI desc="V4" name="Ind4">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C133</Private>
+            </DOI>
+            <DOI desc="V5" name="Ind5">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C134</Private>
+            </DOI>
+            <DOI desc="V6" name="Ind6">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C135</Private>
+            </DOI>
+            <DOI desc="V7" name="Ind7">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C136</Private>
+            </DOI>
+            <DOI desc="V8" name="Ind8">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C137</Private>
+            </DOI>
+            <DOI desc="V_MIMIC_IN_1" name="Ind101">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C158</Private>
+            </DOI>
+            <DOI desc="V_MIMIC_IN_2" name="Ind102">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C159</Private>
+            </DOI>
+            <DOI desc="V_MIMIC_IN_3" name="Ind103">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C15A</Private>
+            </DOI>
+            <DOI desc="V_MIMIC_IN_4" name="Ind104">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C15B</Private>
+            </DOI>
+            <DOI desc="V_MIMIC_IN_5" name="Ind105">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C15C</Private>
+            </DOI>
+            <DOI desc="V_MIMIC_IN_6" name="Ind106">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C15D</Private>
+            </DOI>
+            <DOI desc="V_MIMIC_IN_7" name="Ind107">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C15E</Private>
+            </DOI>
+            <DOI desc="V_MIMIC_IN_8" name="Ind108">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C15F</Private>
+            </DOI>
+          </LN>
+          <LN desc="Logipam" inst="1" lnClass="GGIO" lnType="LGP_GGIO_Sepam80_V003" prefix="LGP_">
+            
+<!--
+            LGP_GGIO1 ATTRIBUTES
+          -->
+            <DOI name="Loc">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C90D:I</Private>
+            </DOI>
+            <DOI desc="TS33" name="Ind1">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C920</Private>
+            </DOI>
+            <DOI desc="TS34" name="Ind2">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C921</Private>
+            </DOI>
+            <DOI desc="TS35" name="Ind3">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C922</Private>
+            </DOI>
+            <DOI desc="TS36" name="Ind4">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C923</Private>
+            </DOI>
+            <DOI desc="TS37" name="Ind5">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C924</Private>
+            </DOI>
+            <DOI desc="TS38" name="Ind6">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C925</Private>
+            </DOI>
+            <DOI desc="TS39" name="Ind7">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C926</Private>
+            </DOI>
+            <DOI desc="TS40" name="Ind8">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C927</Private>
+            </DOI>
+            <DOI desc="TC49" name="SPCSO1">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8B0</Private>
+            </DOI>
+            <DOI desc="TC50" name="SPCSO2">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8B1</Private>
+            </DOI>
+            <DOI desc="TC51" name="SPCSO3">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8B2</Private>
+            </DOI>
+            <DOI desc="TC52" name="SPCSO4">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8B3</Private>
+            </DOI>
+            <DOI desc="TC53" name="SPCSO5">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8B4</Private>
+            </DOI>
+            <DOI desc="TC54" name="SPCSO6">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8B5</Private>
+            </DOI>
+            <DOI desc="TC55" name="SPCSO7">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8B6</Private>
+            </DOI>
+            <DOI desc="TC56" name="SPCSO8">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8B7</Private>
+            </DOI>
+            <DOI desc="C1" name="IntIn1">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:C40:16U</Private>
+            </DOI>
+            <DOI desc="C2" name="IntIn2">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:C41:16U</Private>
+            </DOI>
+            <DOI desc="C3" name="IntIn3">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:C42:16U</Private>
+            </DOI>
+            <DOI desc="C4" name="IntIn4">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:C43:16U</Private>
+            </DOI>
+            <DOI desc="C5" name="IntIn5">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:C44:16U</Private>
+            </DOI>
+            <DOI desc="C6" name="IntIn6">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:C45:16U</Private>
+            </DOI>
+            <DOI desc="C7" name="IntIn7">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:C46:16U</Private>
+            </DOI>
+            <DOI desc="C8" name="IntIn8">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:C47:16U</Private>
+            </DOI>
+            <DOI desc="TC57/58+TS41/42" name="DPCSO1">
+              <Private type="SchneiderElectric-IED-PntRef">T:DC;C:C8B8;C:C8B9;S:C928;S:C929</Private>
+              <DAI name="sboTimeout">
+                <Val>300000</Val>
+              </DAI>
+            </DOI>
+            <DOI desc="TC59/60+TS43/44" name="DPCSO2">
+              <Private type="SchneiderElectric-IED-PntRef">T:DC;C:C8BA;C:C8BB;S:C92A;S:C92B</Private>
+              <DAI name="sboTimeout">
+                <Val>300000</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <LN desc="Generic Sepam series 80 - Remote indications" inst="1" lnClass="GGIO" lnType="SE_GGIOS80RI_Sepam80_V001" prefix="S80RI_">
+            
+<!--
+            S80RI_GGIO1 ATTRIBUTES
+          -->
+            <DOI name="TS1">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C900</Private>
+            </DOI>
+            <DOI name="TS2">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C901</Private>
+            </DOI>
+            <DOI name="TS3">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C902</Private>
+            </DOI>
+            <DOI name="TS4">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C903</Private>
+            </DOI>
+            <DOI name="TS5">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C904</Private>
+            </DOI>
+            <DOI name="TS6">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C905</Private>
+            </DOI>
+            <DOI name="TS7">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C906</Private>
+            </DOI>
+            <DOI name="TS8">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C907</Private>
+            </DOI>
+            <DOI name="TS9">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C908</Private>
+            </DOI>
+            <DOI name="TS10">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C909</Private>
+            </DOI>
+            <DOI name="TS11">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C90A</Private>
+            </DOI>
+            <DOI name="TS12">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C90B</Private>
+            </DOI>
+            <DOI name="TS13">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C90C</Private>
+            </DOI>
+            <DOI name="TS14">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C90D</Private>
+            </DOI>
+            <DOI name="TS15">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C90E</Private>
+            </DOI>
+            <DOI name="TS16">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C90F</Private>
+            </DOI>
+            <DOI name="TS17">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C910</Private>
+            </DOI>
+            <DOI name="TS18">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C911</Private>
+            </DOI>
+            <DOI name="TS19">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C912</Private>
+            </DOI>
+            <DOI name="TS20">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C913</Private>
+            </DOI>
+            <DOI name="TS21">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C914</Private>
+            </DOI>
+            <DOI name="TS22">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C915</Private>
+            </DOI>
+            <DOI name="TS23">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C916</Private>
+            </DOI>
+            <DOI name="TS24">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C917</Private>
+            </DOI>
+            <DOI name="TS25">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C918</Private>
+            </DOI>
+            <DOI name="TS26">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C919</Private>
+            </DOI>
+            <DOI name="TS27">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C91A</Private>
+            </DOI>
+            <DOI name="TS28">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C91B</Private>
+            </DOI>
+            <DOI name="TS29">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C91C</Private>
+            </DOI>
+            <DOI name="TS30">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C91D</Private>
+            </DOI>
+            <DOI name="TS31">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C91E</Private>
+            </DOI>
+            <DOI name="TS32">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C91F</Private>
+            </DOI>
+            <DOI name="TS33">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C920</Private>
+            </DOI>
+            <DOI name="TS34">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C921</Private>
+            </DOI>
+            <DOI name="TS35">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C922</Private>
+            </DOI>
+            <DOI name="TS36">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C923</Private>
+            </DOI>
+            <DOI name="TS37">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C924</Private>
+            </DOI>
+            <DOI name="TS38">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C925</Private>
+            </DOI>
+            <DOI name="TS39">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C926</Private>
+            </DOI>
+            <DOI name="TS40">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C927</Private>
+            </DOI>
+            <DOI name="TS41">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C928</Private>
+            </DOI>
+            <DOI name="TS42">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C929</Private>
+            </DOI>
+            <DOI name="TS43">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C92A</Private>
+            </DOI>
+            <DOI name="TS44">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C92B</Private>
+            </DOI>
+            <DOI name="TS45">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C92C</Private>
+            </DOI>
+            <DOI name="TS46">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C92D</Private>
+            </DOI>
+            <DOI name="TS47">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C92E</Private>
+            </DOI>
+            <DOI name="TS48">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C92F</Private>
+            </DOI>
+            <DOI name="TS49">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C930</Private>
+            </DOI>
+            <DOI name="TS50">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C931</Private>
+            </DOI>
+            <DOI name="TS51">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C932</Private>
+            </DOI>
+            <DOI name="TS52">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C933</Private>
+            </DOI>
+            <DOI name="TS53">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C934</Private>
+            </DOI>
+            <DOI name="TS54">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C935</Private>
+            </DOI>
+            <DOI name="TS55">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C936</Private>
+            </DOI>
+            <DOI name="TS56">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C937</Private>
+            </DOI>
+            <DOI name="TS57">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C938</Private>
+            </DOI>
+            <DOI name="TS58">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C939</Private>
+            </DOI>
+            <DOI name="TS59">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C93A</Private>
+            </DOI>
+            <DOI name="TS60">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C93B</Private>
+            </DOI>
+            <DOI name="TS61">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C93C</Private>
+            </DOI>
+            <DOI name="TS62">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C93D</Private>
+            </DOI>
+            <DOI name="TS63">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C93E</Private>
+            </DOI>
+            <DOI name="TS64">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C93F</Private>
+            </DOI>
+          </LN>
+          <LN desc="Generic Sepam series 80 - Counters" inst="1" lnClass="GGIO" lnType="SE_GGIOS80CT_Sepam80_V001" prefix="S80CT_">
+            
+<!--
+            S80CT_GGIO1 ATTRIBUTES
+          -->
+            <DOI name="C1">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:C40:16U</Private>
+            </DOI>
+            <DOI name="C2">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:C41:16U</Private>
+            </DOI>
+            <DOI name="C3">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:C42:16U</Private>
+            </DOI>
+            <DOI name="C4">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:C43:16U</Private>
+            </DOI>
+            <DOI name="C5">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:C44:16U</Private>
+            </DOI>
+            <DOI name="C6">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:C45:16U</Private>
+            </DOI>
+            <DOI name="C7">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:C46:16U</Private>
+            </DOI>
+            <DOI name="C8">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:C47:16U</Private>
+            </DOI>
+            <DOI name="C9">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:C48:16U</Private>
+            </DOI>
+            <DOI name="C10">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:C49:16U</Private>
+            </DOI>
+            <DOI name="C11">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:C4A:16U</Private>
+            </DOI>
+            <DOI name="C12">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:C4B:16U</Private>
+            </DOI>
+            <DOI name="C13">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:C4C:16U</Private>
+            </DOI>
+            <DOI name="C14">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:C4D:16U</Private>
+            </DOI>
+            <DOI name="C15">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:C4E:16U</Private>
+            </DOI>
+            <DOI name="C16">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:C4F:16U</Private>
+            </DOI>
+            <DOI name="C17">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:C50:16U</Private>
+            </DOI>
+            <DOI name="C18">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:C51:16U</Private>
+            </DOI>
+            <DOI name="C19">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:C52:16U</Private>
+            </DOI>
+            <DOI name="C20">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:C53:16U</Private>
+            </DOI>
+            <DOI name="C21">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:C54:16U</Private>
+            </DOI>
+            <DOI name="C22">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:C55:16U</Private>
+            </DOI>
+            <DOI name="C23">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:C56:16U</Private>
+            </DOI>
+            <DOI name="C24">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:C57:16U</Private>
+            </DOI>
+          </LN>
+          <LN desc="Generic Sepam series 80 - Remote controls group 1" inst="1" lnClass="GGIO" lnType="SE_GGIOS80RC1_Sepam80_V001" prefix="S80RC_">
+            
+<!--
+            S80RC_GGIO1 ATTRIBUTES
+          -->
+            <DOI name="Loc">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C90D:I</Private>
+            </DOI>
+            <DOI name="TC1">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C880</Private>
+            </DOI>
+            <DOI name="TC2">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C881</Private>
+            </DOI>
+            <DOI name="TC3">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C882</Private>
+            </DOI>
+            <DOI name="TC4">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C883</Private>
+            </DOI>
+            <DOI name="TC5">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C884</Private>
+            </DOI>
+            <DOI name="TC6">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C885</Private>
+            </DOI>
+            <DOI name="TC7">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C886</Private>
+            </DOI>
+            <DOI name="TC8">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C887</Private>
+            </DOI>
+            <DOI name="TC9">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C888</Private>
+            </DOI>
+            <DOI name="TC10">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C889</Private>
+            </DOI>
+            <DOI name="TC11">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C88A</Private>
+            </DOI>
+            <DOI name="TC12">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C88B</Private>
+            </DOI>
+            <DOI name="TC13">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C88C</Private>
+            </DOI>
+            <DOI name="TC14">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C88D</Private>
+            </DOI>
+            <DOI name="TC15">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C88E</Private>
+            </DOI>
+            <DOI name="TC16">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C88F</Private>
+            </DOI>
+            <DOI name="TC17">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C890</Private>
+            </DOI>
+            <DOI name="TC18">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C891</Private>
+            </DOI>
+            <DOI name="TC19">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C892</Private>
+            </DOI>
+            <DOI name="TC20">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C893</Private>
+            </DOI>
+            <DOI name="TC21">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C894</Private>
+            </DOI>
+            <DOI name="TC22">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C895</Private>
+            </DOI>
+            <DOI name="TC23">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C896</Private>
+            </DOI>
+            <DOI name="TC24">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C897</Private>
+            </DOI>
+            <DOI name="TC25">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C898</Private>
+            </DOI>
+            <DOI name="TC26">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C899</Private>
+            </DOI>
+            <DOI name="TC27">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C89A</Private>
+            </DOI>
+            <DOI name="TC28">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C89B</Private>
+            </DOI>
+            <DOI name="TC29">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C89C</Private>
+            </DOI>
+            <DOI name="TC30">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C89D</Private>
+            </DOI>
+            <DOI name="TC31">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C89E</Private>
+            </DOI>
+            <DOI name="TC32">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C89F</Private>
+            </DOI>
+          </LN>
+          <LN desc="Generic Sepam series 80 - Remote controls group 2" inst="2" lnClass="GGIO" lnType="SE_GGIOS80RC2_Sepam80_V001" prefix="S80RC_">
+            
+<!--
+            S80RC_GGIO2 ATTRIBUTES
+          -->
+            <DOI name="Loc">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C90D:I</Private>
+            </DOI>
+            <DOI name="TC33">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8A0</Private>
+            </DOI>
+            <DOI name="TC34">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8A1</Private>
+            </DOI>
+            <DOI name="TC35">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8A2</Private>
+            </DOI>
+            <DOI name="TC36">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8A3</Private>
+            </DOI>
+            <DOI name="TC37">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8A4</Private>
+            </DOI>
+            <DOI name="TC38">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8A5</Private>
+            </DOI>
+            <DOI name="TC39">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8A6</Private>
+            </DOI>
+            <DOI name="TC40">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8A7</Private>
+            </DOI>
+            <DOI name="TC41">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8A8</Private>
+            </DOI>
+            <DOI name="TC42">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8A9</Private>
+            </DOI>
+            <DOI name="TC43">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8AA</Private>
+            </DOI>
+            <DOI name="TC44">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8AB</Private>
+            </DOI>
+            <DOI name="TC45">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8AC</Private>
+            </DOI>
+            <DOI name="TC46">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8AD</Private>
+            </DOI>
+            <DOI name="TC47">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8AE</Private>
+            </DOI>
+            <DOI name="TC48">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8AF</Private>
+            </DOI>
+            <DOI name="TC49">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8B0</Private>
+            </DOI>
+            <DOI name="TC50">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8B1</Private>
+            </DOI>
+            <DOI name="TC51">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8B2</Private>
+            </DOI>
+            <DOI name="TC52">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8B3</Private>
+            </DOI>
+            <DOI name="TC53">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8B4</Private>
+            </DOI>
+            <DOI name="TC54">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8B5</Private>
+            </DOI>
+            <DOI name="TC55">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8B6</Private>
+            </DOI>
+            <DOI name="TC56">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8B7</Private>
+            </DOI>
+            <DOI name="TC57">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8B8</Private>
+            </DOI>
+            <DOI name="TC58">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8B9</Private>
+            </DOI>
+            <DOI name="TC59">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8BA</Private>
+            </DOI>
+            <DOI name="TC60">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8BB</Private>
+            </DOI>
+            <DOI name="TC61">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8BC</Private>
+            </DOI>
+            <DOI name="TC62">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8BD</Private>
+            </DOI>
+            <DOI name="TC63">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8BE</Private>
+            </DOI>
+            <DOI name="TC64">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8BF</Private>
+            </DOI>
+          </LN>
+          <LN desc="MES120-1" inst="1" lnClass="GGIO" lnType="MES_GGIO_Sepam80" prefix="M120_">
+          
+  <!--
+            M120_GGIO1 ATTRIBUTES
+          -->
+            <DOI desc="I101" name="Ind1">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C100</Private>
+            </DOI>
+            <DOI desc="I102" name="Ind2">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C101</Private>
+            </DOI>
+            <DOI desc="I103" name="Ind3">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C102</Private>
+            </DOI>
+            <DOI desc="I104" name="Ind4">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C103</Private>
+            </DOI>
+            <DOI desc="I105" name="Ind5">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C104</Private>
+            </DOI>
+            <DOI desc="I106" name="Ind6">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C105</Private>
+            </DOI>
+            <DOI desc="I107" name="Ind7">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C106</Private>
+            </DOI>
+            <DOI desc="I108" name="Ind8">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C107</Private>
+            </DOI>
+            <DOI desc="I109" name="Ind9">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C108</Private>
+            </DOI>
+            <DOI desc="I110" name="Ind10">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C109</Private>
+            </DOI>
+            <DOI desc="I111" name="Ind11">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C10A</Private>
+            </DOI>
+            <DOI desc="I112" name="Ind12">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C10B</Private>
+            </DOI>
+            <DOI desc="I113" name="Ind13">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C10C</Private>
+            </DOI>
+            <DOI desc="I114" name="Ind14">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C10D</Private>
+            </DOI>
+          </LN>
+          <LN desc="MES120-2" inst="2" lnClass="GGIO" lnType="MES_GGIO_Sepam80" prefix="M120_">
+          
+  <!--
+            M120_GGIO2 ATTRIBUTES
+          -->
+            <DOI desc="I201" name="Ind1">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C110</Private>
+            </DOI>
+            <DOI desc="I202" name="Ind2">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C111</Private>
+            </DOI>
+            <DOI desc="I203" name="Ind3">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C112</Private>
+            </DOI>
+            <DOI desc="I204" name="Ind4">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C113</Private>
+            </DOI>
+            <DOI desc="I205" name="Ind5">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C114</Private>
+            </DOI>
+            <DOI desc="I206" name="Ind6">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C115</Private>
+            </DOI>
+            <DOI desc="I207" name="Ind7">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C116</Private>
+            </DOI>
+            <DOI desc="I208" name="Ind8">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C117</Private>
+            </DOI>
+            <DOI desc="I209" name="Ind9">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C118</Private>
+            </DOI>
+            <DOI desc="I210" name="Ind10">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C119</Private>
+            </DOI>
+            <DOI desc="I211" name="Ind11">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C11A</Private>
+            </DOI>
+            <DOI desc="I212" name="Ind12">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C11B</Private>
+            </DOI>
+            <DOI desc="I213" name="Ind13">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C11C</Private>
+            </DOI>
+            <DOI desc="I214" name="Ind14">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C11D</Private>
+            </DOI>
+          </LN>
+          <LN desc="MES120-3" inst="3" lnClass="GGIO" lnType="MES_GGIO_Sepam80" prefix="M120_">
+          
+  <!--
+            M120_GGIO3 ATTRIBUTES
+          -->
+            <DOI desc="I301" name="Ind1">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C120</Private>
+            </DOI>
+            <DOI desc="I302" name="Ind2">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C121</Private>
+            </DOI>
+            <DOI desc="I303" name="Ind3">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C122</Private>
+            </DOI>
+            <DOI desc="I304" name="Ind4">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C123</Private>
+            </DOI>
+            <DOI desc="I305" name="Ind5">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C124</Private>
+            </DOI>
+            <DOI desc="I306" name="Ind6">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C125</Private>
+            </DOI>
+            <DOI desc="I307" name="Ind7">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C126</Private>
+            </DOI>
+            <DOI desc="I308" name="Ind8">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C127</Private>
+            </DOI>
+            <DOI desc="I309" name="Ind9">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C128</Private>
+            </DOI>
+            <DOI desc="I310" name="Ind10">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C129</Private>
+            </DOI>
+            <DOI desc="I311" name="Ind11">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C12A</Private>
+            </DOI>
+            <DOI desc="I312" name="Ind12">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C12B</Private>
+            </DOI>
+            <DOI desc="I313" name="Ind13">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C12C</Private>
+            </DOI>
+            <DOI desc="I314" name="Ind14">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C12D</Private>
+            </DOI>
+          </LN>
+          <LN desc="Sepam Goose Monitoring" inst="1" lnClass="GGIO" lnType="SE_GGIOGSE_Sepam80_V001" prefix="GSE_">
+          
+  <!--
+            GSE_GGIO1 ATTRIBUTES
+          -->
+            <DOI desc="Goose Input G401" name="G401">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C170</Private>
+            </DOI>
+            <DOI desc="Goose Input G402" name="G402">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C171</Private>
+            </DOI>
+            <DOI desc="Goose Input G403" name="G403">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C172</Private>
+            </DOI>
+            <DOI desc="Goose Input G404" name="G404">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C173</Private>
+            </DOI>
+            <DOI desc="Goose Input G405" name="G405">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C174</Private>
+            </DOI>
+            <DOI desc="Goose Input G406" name="G406">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C175</Private>
+            </DOI>
+            <DOI desc="Goose Input G407" name="G407">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C176</Private>
+            </DOI>
+            <DOI desc="Goose Input G408" name="G408">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C177</Private>
+            </DOI>
+            <DOI desc="Goose Input G409" name="G409">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C178</Private>
+            </DOI>
+            <DOI desc="Goose Input G410" name="G410">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C179</Private>
+            </DOI>
+            <DOI desc="Goose Input G411" name="G411">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C17A</Private>
+            </DOI>
+            <DOI desc="Goose Input G412" name="G412">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C17B</Private>
+            </DOI>
+            <DOI desc="Goose Input G413" name="G413">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C17C</Private>
+            </DOI>
+            <DOI desc="Goose Input G414" name="G414">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C17D</Private>
+            </DOI>
+            <DOI desc="Goose Input G415" name="G415">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C17E</Private>
+            </DOI>
+            <DOI desc="Goose Input G416" name="G416">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C17F</Private>
+            </DOI>
+            <DOI desc="Goose Input G501" name="G501">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C180</Private>
+            </DOI>
+            <DOI desc="Goose Input G502" name="G502">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C181</Private>
+            </DOI>
+            <DOI desc="Goose Input G503" name="G503">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C182</Private>
+            </DOI>
+            <DOI desc="Goose Input G504" name="G504">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C183</Private>
+            </DOI>
+            <DOI desc="Goose Input G505" name="G505">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C184</Private>
+            </DOI>
+            <DOI desc="Goose Input G506" name="G506">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C185</Private>
+            </DOI>
+            <DOI desc="Goose Input G507" name="G507">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C186</Private>
+            </DOI>
+            <DOI desc="Goose Input G508" name="G508">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C187</Private>
+            </DOI>
+            <DOI desc="Goose Input G509" name="G509">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C188</Private>
+            </DOI>
+            <DOI desc="Goose Input G510" name="G510">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C189</Private>
+            </DOI>
+            <DOI desc="Goose Input G511" name="G511">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C18A</Private>
+            </DOI>
+            <DOI desc="Goose Input G512" name="G512">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C18B</Private>
+            </DOI>
+            <DOI desc="Goose Input G513" name="G513">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C18C</Private>
+            </DOI>
+            <DOI desc="Goose Input G514" name="G514">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C18D</Private>
+            </DOI>
+            <DOI desc="Goose Input G515" name="G515">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C18E</Private>
+            </DOI>
+            <DOI desc="Goose test 1" name="Test1">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C190</Private>
+            </DOI>
+            <DOI desc="Goose test 2" name="Test2">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C191</Private>
+            </DOI>
+            <DOI desc="Goose test 3" name="Test3">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C192</Private>
+            </DOI>
+            <DOI desc="Goose test 4" name="Test4">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C193</Private>
+            </DOI>
+          </LN>
+          <LN desc="Harmonic measurements" inst="1" lnClass="MHAN" lnType="MHAN_Sepam80" prefix="">
+          
+  <!--
+            MHAN1 ATTRIBUTES
+          -->
+            <DOI name="Hz">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:228:32U:0.01;P:101</Private>
+              <DAI desc="unit: 0.01Hz" name="db">
+                <Val>10</Val>
+              </DAI>
+            </DOI>
+            <DOI name="ThdAmp">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:311:16U:0.1</Private>
+              <DAI desc="unit: 0.1%" name="db">
+                <Val>5</Val>
+              </DAI>
+            </DOI>
+            <DOI name="ThdVol">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:310:16U:0.1</Private>
+              <DAI desc="unit: 0.1%" name="db">
+                <Val>5</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <LN desc="Energy counters" inst="1" lnClass="MMTR" lnType="MMTR_Sepam4080" prefix="">
+          
+  <!--
+            MMTR1 ATTRIBUTES
+          -->
+            <DOI name="SupWh">
+              <Private type="SchneiderElectric-IED-PntRef">T:BC;M:24A:32U:0.1</Private>
+            </DOI>
+            <DOI name="SupVArh">
+              <Private type="SchneiderElectric-IED-PntRef">T:BC;M:24E:32U:0.1</Private>
+            </DOI>
+            <DOI name="DmdWh">
+              <Private type="SchneiderElectric-IED-PntRef">T:BC;M:248:32U:0.1</Private>
+            </DOI>
+            <DOI name="DmdVArh">
+              <Private type="SchneiderElectric-IED-PntRef">T:BC;M:24C:32U:0.1</Private>
+            </DOI>
+          </LN>
+          <LN desc="External energy counters" inst="2" lnClass="MMTR" lnType="MMTR_Sepam4080" prefix="">
+          
+  <!--
+            MMTR2 ATTRIBUTES
+          -->
+            <DOI name="SupWh">
+              <Private type="SchneiderElectric-IED-PntRef">T:BC;M:252:32U:0.1</Private>
+            </DOI>
+            <DOI name="SupVArh">
+              <Private type="SchneiderElectric-IED-PntRef">T:BC;M:256:32U:0.1</Private>
+            </DOI>
+            <DOI name="DmdWh">
+              <Private type="SchneiderElectric-IED-PntRef">T:BC;M:250:32U:0.1</Private>
+            </DOI>
+            <DOI name="DmdVArh">
+              <Private type="SchneiderElectric-IED-PntRef">T:BC;M:254:32U:0.1</Private>
+            </DOI>
+          </LN>
+          <LN desc="Measurements" inst="1" lnClass="MMXU" lnType="MMXU_Sepam80" prefix="">
+          
+  <!--
+            MMXU1 ATTRIBUTES
+          -->
+            <DOI name="TotW">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:22A:32S:0.1</Private>
+              <DAI desc="unit: 0.1kW" name="db">
+                <Val>1000</Val>
+              </DAI>
+            </DOI>
+            <DOI name="TotVAr">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:22C:32S:0.1</Private>
+              <DAI desc="unit: 0.1kvar" name="db">
+                <Val>1000</Val>
+              </DAI>
+            </DOI>
+            <DOI name="TotVA">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:22E:32S:0.1</Private>
+              <DAI desc="unit: 0.1kVA" name="db">
+                <Val>1000</Val>
+              </DAI>
+            </DOI>
+            <DOI name="TotPF">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:230:32S:0.01;P:102</Private>
+              <DAI desc="unit: 0.01" name="db">
+                <Val>10</Val>
+              </DAI>
+            </DOI>
+            <DOI name="Hz">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:228:32U:0.01;P:101</Private>
+              <DAI desc="unit: 0.01Hz" name="db">
+                <Val>10</Val>
+              </DAI>
+            </DOI>
+            <DOI name="PPV">
+              <SDI name="phsAB">
+                <Private type="SchneiderElectric-IED-PntRef">T:CM;M:216:32U</Private>
+                <DAI desc="unit: 1V" name="db">
+                  <Val>100</Val>
+                </DAI>
+              </SDI>
+              <SDI name="phsBC">
+                <Private type="SchneiderElectric-IED-PntRef">T:CM;M:218:32U</Private>
+                <DAI desc="unit: 1V" name="db">
+                  <Val>100</Val>
+                </DAI>
+              </SDI>
+              <SDI name="phsCA">
+                <Private type="SchneiderElectric-IED-PntRef">T:CM;M:21A:32U</Private>
+                <DAI desc="unit: 1V" name="db">
+                  <Val>100</Val>
+                </DAI>
+              </SDI>
+            </DOI>
+            <DOI name="PhV">
+              <SDI name="phsA">
+                <Private type="SchneiderElectric-IED-PntRef">T:CM;M:21C:32U</Private>
+                <DAI desc="unit: 1V" name="db">
+                  <Val>100</Val>
+                </DAI>
+              </SDI>
+              <SDI name="phsB">
+                <Private type="SchneiderElectric-IED-PntRef">T:CM;M:21E:32U</Private>
+                <DAI desc="unit: 1V" name="db">
+                  <Val>100</Val>
+                </DAI>
+              </SDI>
+              <SDI name="phsC">
+                <Private type="SchneiderElectric-IED-PntRef">T:CM;M:220:32U</Private>
+                <DAI desc="unit: 1V" name="db">
+                  <Val>100</Val>
+                </DAI>
+              </SDI>
+              <SDI name="res">
+                <Private type="SchneiderElectric-IED-PntRef">T:CM;M:222:32U</Private>
+                <DAI desc="unit: 1V" name="db">
+                  <Val>100</Val>
+                </DAI>
+              </SDI>
+            </DOI>
+            <DOI name="A">
+              <SDI name="phsA">
+                <Private type="SchneiderElectric-IED-PntRef">T:CM;M:200:32U:0.1;M:316:16U</Private>
+                <DAI desc="unit: 0.1A" name="db">
+                  <Val>50</Val>
+                </DAI>
+              </SDI>
+              <SDI name="phsB">
+                <Private type="SchneiderElectric-IED-PntRef">T:CM;M:202:32U:0.1;M:317:16U</Private>
+                <DAI desc="unit: 0.1A" name="db">
+                  <Val>50</Val>
+                </DAI>
+              </SDI>
+              <SDI name="phsC">
+                <Private type="SchneiderElectric-IED-PntRef">T:CM;M:204:32U:0.1;M:318:16U</Private>
+                <DAI desc="unit: 0.1A" name="db">
+                  <Val>50</Val>
+                </DAI>
+              </SDI>
+              <SDI name="neut">
+                <Private type="SchneiderElectric-IED-PntRef">T:CM;M:208:32U:0.1;M:314:16U</Private>
+                <DAI desc="unit: 0.1A" name="db">
+                  <Val>20</Val>
+                </DAI>
+              </SDI>
+              <SDI name="res">
+                <Private type="SchneiderElectric-IED-PntRef">T:CM;M:206:32U:0.1;M:312:16U</Private>
+                <DAI desc="unit: 0.1A" name="db">
+                  <Val>20</Val>
+                </DAI>
+              </SDI>
+            </DOI>
+            <DOI name="W">
+              <SDI name="phsA">
+                <Private type="SchneiderElectric-IED-PntRef">T:CM;M:236:32S:0.1</Private>
+                <DAI desc="unit: 0.1kW" name="db">
+                  <Val>1000</Val>
+                </DAI>
+              </SDI>
+              <SDI name="phsB">
+                <Private type="SchneiderElectric-IED-PntRef">T:CM;M:238:32S:0.1</Private>
+                <DAI desc="unit: 0.1kW" name="db">
+                  <Val>1000</Val>
+                </DAI>
+              </SDI>
+              <SDI name="phsC">
+                <Private type="SchneiderElectric-IED-PntRef">T:CM;M:23A:32S:0.1</Private>
+                <DAI desc="unit: 0.1kW" name="db">
+                  <Val>1000</Val>
+                </DAI>
+              </SDI>
+            </DOI>
+            <DOI name="VAr">
+              <SDI name="phsA">
+                <Private type="SchneiderElectric-IED-PntRef">T:CM;M:23C:32S:0.1</Private>
+                <DAI desc="unit: 0.1kvar" name="db">
+                  <Val>1000</Val>
+                </DAI>
+              </SDI>
+              <SDI name="phsB">
+                <Private type="SchneiderElectric-IED-PntRef">T:CM;M:23E:32S:0.1</Private>
+                <DAI desc="unit: 0.1kvar" name="db">
+                  <Val>1000</Val>
+                </DAI>
+              </SDI>
+              <SDI name="phsC">
+                <Private type="SchneiderElectric-IED-PntRef">T:CM;M:240:32S:0.1</Private>
+                <DAI desc="unit: 0.1kvar" name="db">
+                  <Val>1000</Val>
+                </DAI>
+              </SDI>
+            </DOI>
+            <DOI name="VA">
+              <SDI name="phsA">
+                <Private type="SchneiderElectric-IED-PntRef">T:CM;M:242:32S:0.1</Private>
+                <DAI desc="unit: 0.1kVA" name="db">
+                  <Val>1000</Val>
+                </DAI>
+              </SDI>
+              <SDI name="phsB">
+                <Private type="SchneiderElectric-IED-PntRef">T:CM;M:244:32S:0.1</Private>
+                <DAI desc="unit: 0.1kVA" name="db">
+                  <Val>1000</Val>
+                </DAI>
+              </SDI>
+              <SDI name="phsC">
+                <Private type="SchneiderElectric-IED-PntRef">T:CM;M:246:32S:0.1</Private>
+                <DAI desc="unit: 0.1kVA" name="db">
+                  <Val>1000</Val>
+                </DAI>
+              </SDI>
+            </DOI>
+          </LN>
+          <LN desc="Sequence and imbalance #1" inst="1" lnClass="MSQI" lnType="MSQI_Sepam204080" prefix="">
+            
+<!--
+            MSQI1 ATTRIBUTES
+          -->
+            <DOI name="SeqV">
+              <SDI name="c1">
+                <Private type="SchneiderElectric-IED-PntRef">T:CM;M:224:32U</Private>
+                <DAI desc="unit: 1V" name="db">
+                  <Val>100</Val>
+                </DAI>
+              </SDI>
+              <SDI name="c2">
+                <Private type="SchneiderElectric-IED-PntRef">T:CM;M:226:32U</Private>
+                <DAI desc="unit: 1V" name="db">
+                  <Val>100</Val>
+                </DAI>
+              </SDI>
+              <SDI name="c3">
+                <Private type="SchneiderElectric-IED-PntRef">T:CM;M:222:32U:0.33</Private>
+                <DAI desc="unit: 1V" name="db">
+                  <Val>100</Val>
+                </DAI>
+              </SDI>
+            </DOI>
+          </LN>
+          <LN desc="Meetereing statistics" inst="1" lnClass="MSTA" lnType="MSTA_Sepam80" prefix="">
+            
+<!--
+            MSTA1 ATTRIBUTES
+          -->
+            <DOI name="Loc">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C90D:I</Private>
+            </DOI>
+            <DOI name="MaxW">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:232:32S:0.1</Private>
+              <DAI desc="unit: 0.1kW" name="db">
+                <Val>1000</Val>
+              </DAI>
+            </DOI>
+            <DOI name="MaxVAr">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:234:32S:0.1</Private>
+              <DAI desc="unit: 0.1kvar" name="db">
+                <Val>1000</Val>
+              </DAI>
+            </DOI>
+            <DOI name="AvAmps1">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:20A:32U:0.1</Private>
+              <DAI desc="unit: 0.1A" name="db">
+                <Val>50</Val>
+              </DAI>
+            </DOI>
+            <DOI name="AvAmps2">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:20C:32U:0.1</Private>
+              <DAI desc="unit: 0.1A" name="db">
+                <Val>50</Val>
+              </DAI>
+            </DOI>
+            <DOI name="AvAmps3">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:20E:32U:0.1</Private>
+              <DAI desc="unit: 0.1A" name="db">
+                <Val>50</Val>
+              </DAI>
+            </DOI>
+            <DOI name="MaxAmps1">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:210:32U:0.1</Private>
+              <DAI desc="unit: 0.1A" name="db">
+                <Val>50</Val>
+              </DAI>
+            </DOI>
+            <DOI name="MaxAmps2">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:212:32U:0.1</Private>
+              <DAI desc="unit: 0.1A" name="db">
+                <Val>50</Val>
+              </DAI>
+            </DOI>
+            <DOI name="MaxAmps3">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:214:32U:0.1</Private>
+              <DAI desc="unit: 0.1A" name="db">
+                <Val>50</Val>
+              </DAI>
+            </DOI>
+            <DOI name="TrAmp1">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:26A:32U:0.1</Private>
+            </DOI>
+            <DOI name="TrAmp2">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:26C:32U:0.1</Private>
+            </DOI>
+            <DOI name="TrAmp3">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:26E:32U:0.1</Private>
+            </DOI>
+            <DOI name="TrAmp4">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:270:32U:0.1</Private>
+            </DOI>
+            <DOI name="RsMaxA">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C883</Private>
+            </DOI>
+            <DOI name="RsMaxPwr">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C884</Private>
+            </DOI>
+          </LN>
+          <LN desc="Breaker failure" inst="1" lnClass="RBRF" lnType="RBRF_Sepam204080" prefix="">
+            
+<!--
+            RBRF1 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:9801;N:7;A:3</Private>
+            <DOI name="OpEx">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C96F</Private>
+            </DOI>
+          </LN>
+          <LN desc="Disturbance recorder" inst="1" lnClass="RDRE" lnType="RDRE_Sepam204080" prefix="">
+            
+<!--
+            RDRE1 ATTRIBUTES
+          -->
+            <DOI name="Loc">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C90D:I</Private>
+            </DOI>
+            <DOI name="RcdTrg">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C893</Private>
+            </DOI>
+            <DOI name="RcdInh">
+              <Private type="SchneiderElectric-IED-PntRef">T:SC;C:C891;C:C892;S:C931</Private>
+            </DOI>
+            <DOI name="RcdMade">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C930</Private>
+            </DOI>
+            <DOI name="FltNum">
+              <DAI name="stVal">
+                <Val>0</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <LN desc="Context recorder" inst="2" lnClass="RDRE" lnType="RDRE_CtxSepam80" prefix="CTX_">
+            
+<!-- RDRE2 ATTRIBUTES -->
+            <DOI name="RcdMade">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;P:1010</Private>
+            </DOI>
+            <DOI name="FltNum">
+              <DAI name="stVal">
+                <Val>0</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <LN desc="Data log recorder" inst="3" lnClass="RDRE" lnType="RDRE_MsDlSepam80" prefix="DLG_">
+            
+<!-- RDRE3 ATTRIBUTES -->
+            <DOI name="Loc">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C90D:I</Private>
+            </DOI>
+            <DOI name="RcdTrg">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8B3;C:C8B4</Private>
+            </DOI>
+            <DOI name="RcdMade">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;P:1011</Private>
+            </DOI>
+            <DOI name="FltNum">
+              <DAI name="stVal">
+                <Val>0</Val>
+              </DAI>
+            </DOI>
+            <DOI name="RcdStr">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C98E</Private>
+            </DOI>
+          </LN>
+          <LN desc="Synchro-check" inst="1" lnClass="RSYN" lnType="RSYN_Sepam80" prefix="">
+            
+<!--
+            RSYN1 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:1801;N:11;A:3</Private>
+            <DOI name="Loc">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C90D:I</Private>
+            </DOI>
+            <DOI name="InhSynChk">
+              <Private type="SchneiderElectric-IED-PntRef">T:SN;C:C8A5;C:C8A4</Private>
+            </DOI>
+            <DOI name="Rel">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;P:4</Private>
+            </DOI>
+            <DOI name="VInd">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C9DC</Private>
+            </DOI>
+            <DOI name="AngInd">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C9DD</Private>
+            </DOI>
+            <DOI name="HzInd">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C9DE</Private>
+            </DOI>
+            <DOI name="SynPrg">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C9DB</Private>
+            </DOI>
+            <DOI name="SynStop">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C9DF</Private>
+            </DOI>
+            <DOI name="SynFlt">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C9E0</Private>
+            </DOI>
+            <DOI name="Syn">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C9E1</Private>
+            </DOI>
+            <DOI name="DifVClc">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:2A6:32U</Private>
+              <DAI desc="unit: 1V" name="db">
+                <Val>100</Val>
+              </DAI>
+            </DOI>
+            <DOI name="DifAngClc">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:2AA:32U:0.1;P:101</Private>
+              <DAI desc="unit: 0.1deg" name="db">
+                <Val>50</Val>
+              </DAI>
+            </DOI>
+            <DOI name="DifHzClc">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:2A8:32U:0.01;P:101</Private>
+              <DAI desc="unit: 0.01Hz" name="db">
+                <Val>10</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <LN desc="Insulation medium supervision" inst="1" lnClass="SIML" lnType="SIML_Sepam4080" prefix="">
+            
+<!--
+            SIML1 ATTRIBUTES
+          -->
+            <DOI name="InsAlm">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C9BA</Private>
+            </DOI>
+            <DOI name="GasInsTr">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C9BB</Private>
+            </DOI>
+            <DOI name="PresAlm">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C9BE</Private>
+            </DOI>
+            <DOI name="PresTr">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C9BF</Private>
+            </DOI>
+            <DOI name="ThmAlm">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C9B8</Private>
+            </DOI>
+            <DOI name="ThmTr">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C9B9</Private>
+            </DOI>
+            <DOI name="TmpAlm">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C9BC</Private>
+            </DOI>
+            <DOI name="TmpTr">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C9BD</Private>
+            </DOI>
+          </LN>
+          <LN desc="Circuit Breaker" inst="1" lnClass="XCBR" lnType="XCBR_Sepam80" prefix="">
+            
+<!--
+            XCBR1 ATTRIBUTES
+          -->
+            <DOI name="Loc">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C90D:I</Private>
+            </DOI>
+            <DOI name="EEHealth">
+              <Private type="SchneiderElectric-IED-PntRef">T:ES;S:C90B;S:C900;S:C9E9;P:3</Private>
+            </DOI>
+            <DOI name="OpCnt">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:268:32U</Private>
+            </DOI>
+            <DOI name="Pos">
+              <Private type="SchneiderElectric-IED-PntRef">T:DO;S:C100;S:C101</Private>
+            </DOI>
+            <DOI name="BlkOpn">
+              <Private type="SchneiderElectric-IED-PntRef">T:SO;P:4</Private>
+            </DOI>
+            <DOI name="BlkCls">
+              <Private type="SchneiderElectric-IED-PntRef">T:SO;P:4</Private>
+            </DOI>
+            <DOI name="SumSwARs">
+              <Private type="SchneiderElectric-IED-PntRef">T:BC;M:325:16U</Private>
+            </DOI>
+            <DOI name="OpHrsCnt">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:31D:16U</Private>
+            </DOI>
+            <DOI name="OpTmms">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:32D:16U</Private>
+            </DOI>
+            <DOI name="ChaTms">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:32E:16U</Private>
+            </DOI>
+            <DOI name="PhFltCnt">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:331:16U</Private>
+            </DOI>
+            <DOI name="EFTrCnt">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:332:16U</Private>
+            </DOI>
+            <DOI name="SumSwAAlm">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C9EA</Private>
+            </DOI>
+            <DOI name="CBRkdOut">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C90A</Private>
+            </DOI>
+            <DOI name="RkdOutCnt">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:32F:16U</Private>
+            </DOI>
+            <DOI name="ESwPos">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C90C</Private>
+            </DOI>
+          </LN>
+          
+<!-- ==========================================================================
+            LOGICAL NODES ATTRIBUTES (PROTECTION)
+            Numerical order
+          =========================================================================== -->
+          <LN desc="Undervoltage #1" inst="1" lnClass="PTUV" lnType="PTUV_Sepam204080" prefix="A27_">
+            
+<!--
+            27_PTUV1 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:3201;N:8;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C950</Private>
+              <DAI name="general"/>
+            </DOI>
+          </LN>
+          <LN desc="Undervoltage #2" inst="2" lnClass="PTUV" lnType="PTUV_Sepam204080" prefix="A27_">
+            
+<!--
+            27_PTUV2 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:3202;N:8;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C951</Private>
+              <DAI name="general"/>
+            </DOI>
+          </LN>
+          <LN desc="Undervoltage #3" inst="3" lnClass="PTUV" lnType="PTUV_Sepam204080" prefix="A27_">
+            
+<!--
+            27_PTUV3 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:3203;N:8;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C952</Private>
+              <DAI name="general"/>
+            </DOI>
+          </LN>
+          <LN desc="Undervoltage #4" inst="4" lnClass="PTUV" lnType="PTUV_Sepam204080" prefix="A27_">
+            
+<!--
+            27_PTUV4 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:3204;N:8;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C953</Private>
+              <DAI name="general"/>
+            </DOI>
+          </LN>
+          <LN desc="Pos. seq. undervoltage #1" inst="1" lnClass="PTUV" lnType="PTUV_Sepam204080" prefix="A27D_">
+            
+<!--
+            27D_PTUV1 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:3801;N:6;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C954</Private>
+              <DAI name="general"/>
+            </DOI>
+          </LN>
+          <LN desc="Pos. seq. undervoltage #2" inst="2" lnClass="PTUV" lnType="PTUV_Sepam204080" prefix="A27D_">
+            
+<!--
+            27D_PTUV2 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:3802;N:6;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C955</Private>
+              <DAI name="general"/>
+            </DOI>
+          </LN>
+          <LN desc="Remanent undervoltage #1" inst="1" lnClass="PTUV" lnType="PTUV_Sepam204080" prefix="A27R_">
+            
+<!--
+            27R_PTUV1 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:3501;N:6;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C956</Private>
+              <DAI name="general"/>
+            </DOI>
+          </LN>
+          <LN desc="Remanent undervoltage #2" inst="2" lnClass="PTUV" lnType="PTUV_Sepam204080" prefix="A27R_">
+            
+<!--
+            27R_PTUV2 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:3502;N:6;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C957</Private>
+              <DAI name="general"/>
+            </DOI>
+          </LN>
+          <LN desc="Directional active overpower #1" inst="1" lnClass="PDOP" lnType="PDOP_Sepam4080" prefix="A32P_">
+            
+<!--
+            32P_PDOP1 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:5301;N:7;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C968</Private>
+            </DOI>
+          </LN>
+          <LN desc="Directional active overpower #2" inst="2" lnClass="PDOP" lnType="PDOP_Sepam4080" prefix="A32P_">
+            
+<!--
+            32P_PDOP2 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:5302;N:7;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C969</Private>
+            </DOI>
+          </LN>
+          <LN desc="Unbalance #1" inst="1" lnClass="PTOC" lnType="PTOC_Sepam204080" prefix="A46_">
+            
+<!--
+            46_PTOC1 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:4501;N:8;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C964</Private>
+            </DOI>
+          </LN>
+          <LN desc="Unbalance #2" inst="2" lnClass="PTOC" lnType="PTOC_Sepam204080" prefix="A46_">
+            
+<!--
+            46_PTOC2 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:4502;N:8;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C965</Private>
+            </DOI>
+          </LN>
+          <LN desc="Neg. seq. overvoltage #1" inst="1" lnClass="PTOV" lnType="PTOV_Sepam204080" prefix="A47_">
+            
+<!--
+            47_PTOV1 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:4001;N:6;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C966</Private>
+            </DOI>
+          </LN>
+          <LN desc="Neg. seq. overvoltage #2" inst="2" lnClass="PTOV" lnType="PTOV_Sepam204080" prefix="A47_">
+            
+<!--
+            47_PTOV2 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:4002;N:6;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C967</Private>
+            </DOI>
+          </LN>
+          <LN desc="Thermal overload" inst="1" lnClass="PTTR" lnType="49_PTTR_Sepam204080" prefix="A49_">
+            
+<!--
+            49_PTTR1 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:4301;N:25;A:3</Private>
+            <DOI name="Loc">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C90D:I</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C971</Private>
+            </DOI>
+            <DOI name="AlmThm">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C970</Private>
+            </DOI>
+            <DOI name="TmResTr">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:31E:16U;P:101</Private>
+            </DOI>
+            <DOI name="WaitTm">
+              <Private type="SchneiderElectric-IED-PntRef">T:IS;M:31F:16U;P:101</Private>
+            </DOI>
+            <DOI name="InhThmPro">
+              <Private type="SchneiderElectric-IED-PntRef">T:SC;C:C89D;C:C89E;S:C9C2</Private>
+            </DOI>
+            <DOI name="ThmRte">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:31C:16U</Private>
+              <DAI desc="unit: 1%" name="db">
+                <Val>5</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <LN desc="Temperature monitoring #1" inst="1" lnClass="PTTR" lnType="49T_PTTR_Sepam204080" prefix="A49T_">
+            
+<!--
+            49T_PTTR1 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:4601;N:6;A:3</Private>
+            <DOI name="Health">
+              <Private type="SchneiderElectric-IED-PntRef">T:ES;S:C9C0;P:3</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C991</Private>
+            </DOI>
+            <DOI name="AlmThm">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C990</Private>
+            </DOI>
+            <DOI name="Tmp">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:300:16S;P:103</Private>
+              <DAI desc="unit: 1degC" name="db">
+                <Val>10</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <LN desc="Temperature monitoring #2" inst="2" lnClass="PTTR" lnType="49T_PTTR_Sepam204080" prefix="A49T_">
+            
+<!--
+            49T_PTTR2 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:4602;N:6;A:3</Private>
+            <DOI name="Health">
+              <Private type="SchneiderElectric-IED-PntRef">T:ES;S:C9C0;P:3</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C993</Private>
+            </DOI>
+            <DOI name="AlmThm">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C992</Private>
+            </DOI>
+            <DOI name="Tmp">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:301:16S;P:103</Private>
+              <DAI desc="unit: 1degC" name="db">
+                <Val>10</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <LN desc="Temperature monitoring #3" inst="3" lnClass="PTTR" lnType="49T_PTTR_Sepam204080" prefix="A49T_">
+            
+<!--
+            49T_PTTR3 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:4603;N:6;A:3</Private>
+            <DOI name="Health">
+              <Private type="SchneiderElectric-IED-PntRef">T:ES;S:C9C0;P:3</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C995</Private>
+            </DOI>
+            <DOI name="AlmThm">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C994</Private>
+            </DOI>
+            <DOI name="Tmp">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:302:16S;P:103</Private>
+              <DAI desc="unit: 1degC" name="db">
+                <Val>10</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <LN desc="Temperature monitoring #4" inst="4" lnClass="PTTR" lnType="49T_PTTR_Sepam204080" prefix="A49T_">
+            
+<!--
+            49T_PTTR4 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:4604;N:6;A:3</Private>
+            <DOI name="Health">
+              <Private type="SchneiderElectric-IED-PntRef">T:ES;S:C9C0;P:3</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C997</Private>
+            </DOI>
+            <DOI name="AlmThm">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C996</Private>
+            </DOI>
+            <DOI name="Tmp">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:303:16S;P:103</Private>
+              <DAI desc="unit: 1degC" name="db">
+                <Val>10</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <LN desc="Temperature monitoring #5" inst="5" lnClass="PTTR" lnType="49T_PTTR_Sepam204080" prefix="A49T_">
+            
+<!--
+            49T_PTTR5 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:4605;N:6;A:3</Private>
+            <DOI name="Health">
+              <Private type="SchneiderElectric-IED-PntRef">T:ES;S:C9C0;P:3</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C999</Private>
+            </DOI>
+            <DOI name="AlmThm">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C998</Private>
+            </DOI>
+            <DOI name="Tmp">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:304:16S;P:103</Private>
+              <DAI desc="unit: 1degC" name="db">
+                <Val>10</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <LN desc="Temperature monitoring #6" inst="6" lnClass="PTTR" lnType="49T_PTTR_Sepam204080" prefix="A49T_">
+            
+<!--
+            49T_PTTR6 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:4606;N:6;A:3</Private>
+            <DOI name="Health">
+              <Private type="SchneiderElectric-IED-PntRef">T:ES;S:C9C0;P:3</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C99B</Private>
+            </DOI>
+            <DOI name="AlmThm">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C99A</Private>
+            </DOI>
+            <DOI name="Tmp">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:305:16S;P:103</Private>
+              <DAI desc="unit: 1degC" name="db">
+                <Val>10</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <LN desc="Temperature monitoring #7" inst="7" lnClass="PTTR" lnType="49T_PTTR_Sepam204080" prefix="A49T_">
+            
+<!--
+            49T_PTTR7 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:4607;N:6;A:3</Private>
+            <DOI name="Health">
+              <Private type="SchneiderElectric-IED-PntRef">T:ES;S:C9C0;P:3</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C99D</Private>
+            </DOI>
+            <DOI name="AlmThm">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C99C</Private>
+            </DOI>
+            <DOI name="Tmp">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:306:16S;P:103</Private>
+              <DAI desc="unit: 1degC" name="db">
+                <Val>10</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <LN desc="Temperature monitoring #8" inst="8" lnClass="PTTR" lnType="49T_PTTR_Sepam204080" prefix="A49T_">
+            
+<!--
+            49T_PTTR8 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:4608;N:6;A:3</Private>
+            <DOI name="Health">
+              <Private type="SchneiderElectric-IED-PntRef">T:ES;S:C9C0;P:3</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C99F</Private>
+            </DOI>
+            <DOI name="AlmThm">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C99E</Private>
+            </DOI>
+            <DOI name="Tmp">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:307:16S;P:103</Private>
+              <DAI desc="unit: 1degC" name="db">
+                <Val>10</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <LN desc="Temperature monitoring #9" inst="9" lnClass="PTTR" lnType="49T_PTTR_Sepam204080" prefix="A49T_">
+            
+<!--
+            49T_PTTR9 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:4609;N:6;A:3</Private>
+            <DOI name="Health">
+              <Private type="SchneiderElectric-IED-PntRef">T:ES;S:C9C1;P:3</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C9A1</Private>
+            </DOI>
+            <DOI name="AlmThm">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C9A0</Private>
+            </DOI>
+            <DOI name="Tmp">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:308:16S;P:103</Private>
+              <DAI desc="unit: 1degC" name="db">
+                <Val>10</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <LN desc="Temperature monitoring #10" inst="10" lnClass="PTTR" lnType="49T_PTTR_Sepam204080" prefix="A49T_">
+            
+<!--
+            49T_PTTR10 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:460A;N:6;A:3</Private>
+            <DOI name="Health">
+              <Private type="SchneiderElectric-IED-PntRef">T:ES;S:C9C1;P:3</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C9A3</Private>
+            </DOI>
+            <DOI name="AlmThm">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C9A2</Private>
+            </DOI>
+            <DOI name="Tmp">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:309:16S;P:103</Private>
+              <DAI desc="unit: 1degC" name="db">
+                <Val>10</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <LN desc="Temperature monitoring #11" inst="11" lnClass="PTTR" lnType="49T_PTTR_Sepam204080" prefix="A49T_">
+            
+<!--
+            49T_PTTR11 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:460B;N:6;A:3</Private>
+            <DOI name="Health">
+              <Private type="SchneiderElectric-IED-PntRef">T:ES;S:C9C1;P:3</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C9A5</Private>
+            </DOI>
+            <DOI name="AlmThm">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C9A4</Private>
+            </DOI>
+            <DOI name="Tmp">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:30A:16S;P:103</Private>
+              <DAI desc="unit: 1degC" name="db">
+                <Val>10</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <LN desc="Temperature monitoring #12" inst="12" lnClass="PTTR" lnType="49T_PTTR_Sepam204080" prefix="A49T_">
+            
+<!--
+            49T_PTTR12 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:460C;N:6;A:3</Private>
+            <DOI name="Health">
+              <Private type="SchneiderElectric-IED-PntRef">T:ES;S:C9C1;P:3</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C9A7</Private>
+            </DOI>
+            <DOI name="AlmThm">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C9A6</Private>
+            </DOI>
+            <DOI name="Tmp">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:30B:16S;P:103</Private>
+              <DAI desc="unit: 1degC" name="db">
+                <Val>10</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <LN desc="Temperature monitoring #13" inst="13" lnClass="PTTR" lnType="49T_PTTR_Sepam204080" prefix="A49T_">
+            
+<!--
+            49T_PTTR13 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:460D;N:6;A:3</Private>
+            <DOI name="Health">
+              <Private type="SchneiderElectric-IED-PntRef">T:ES;S:C9C1;P:3</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C9A9</Private>
+            </DOI>
+            <DOI name="AlmThm">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C9A8</Private>
+            </DOI>
+            <DOI name="Tmp">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:30C:16S;P:103</Private>
+              <DAI desc="unit: 1degC" name="db">
+                <Val>10</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <LN desc="Temperature monitoring #14" inst="14" lnClass="PTTR" lnType="49T_PTTR_Sepam204080" prefix="A49T_">
+            
+<!--
+            49T_PTTR14 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:460E;N:6;A:3</Private>
+            <DOI name="Health">
+              <Private type="SchneiderElectric-IED-PntRef">T:ES;S:C9C1;P:3</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C9AB</Private>
+            </DOI>
+            <DOI name="AlmThm">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C9AA</Private>
+            </DOI>
+            <DOI name="Tmp">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:30D:16S;P:103</Private>
+              <DAI desc="unit: 1degC" name="db">
+                <Val>10</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <LN desc="Temperature monitoring #15" inst="15" lnClass="PTTR" lnType="49T_PTTR_Sepam204080" prefix="A49T_">
+            
+<!--
+            49T_PTTR15 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:460F;N:6;A:3</Private>
+            <DOI name="Health">
+              <Private type="SchneiderElectric-IED-PntRef">T:ES;S:C9C1;P:3</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C9AD</Private>
+            </DOI>
+            <DOI name="AlmThm">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C9AC</Private>
+            </DOI>
+            <DOI name="Tmp">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:30E:16S;P:103</Private>
+              <DAI desc="unit: 1degC" name="db">
+                <Val>10</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <LN desc="Temperature monitoring #16" inst="16" lnClass="PTTR" lnType="49T_PTTR_Sepam204080" prefix="A49T_">
+            
+<!--
+            49T_PTTR16 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:4610;N:6;A:3</Private>
+            <DOI name="Health">
+              <Private type="SchneiderElectric-IED-PntRef">T:ES;S:C9C1;P:3</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C9AF</Private>
+            </DOI>
+            <DOI name="AlmThm">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C9AE</Private>
+            </DOI>
+            <DOI name="Tmp">
+              <Private type="SchneiderElectric-IED-PntRef">T:MV;M:30F:16S;P:103</Private>
+              <DAI desc="unit: 1degC" name="db">
+                <Val>10</Val>
+              </DAI>
+            </DOI>
+          </LN>
+          <LN desc="Phase overcurrent #1" inst="1" lnClass="PTOC" lnType="PTOC_Sepam204080" prefix="A51_">
+            
+<!--
+            51_PTOC1 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:0101;N:15;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C940</Private>
+            </DOI>
+          </LN>
+          <LN desc="Phase overcurrent #2" inst="2" lnClass="PTOC" lnType="PTOC_Sepam204080" prefix="A51_">
+            
+<!--
+            51_PTOC2 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:0102;N:15;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C941</Private>
+            </DOI>
+          </LN>
+          <LN desc="Phase overcurrent #3" inst="3" lnClass="PTOC" lnType="PTOC_Sepam204080" prefix="A51_">
+            
+<!--
+            51_PTOC3 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:0103;N:15;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C942</Private>
+            </DOI>
+          </LN>
+          <LN desc="Phase overcurrent #4" inst="4" lnClass="PTOC" lnType="PTOC_Sepam204080" prefix="A51_">
+            
+<!--
+            51_PTOC4 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:0104;N:15;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C943</Private>
+            </DOI>
+          </LN>
+          <LN desc="Phase overcurrent #5" inst="5" lnClass="PTOC" lnType="PTOC_Sepam204080" prefix="A51_">
+            
+<!--
+            51_PTOC5 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:0105;N:15;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C944</Private>
+            </DOI>
+          </LN>
+          <LN desc="Phase overcurrent #6" inst="6" lnClass="PTOC" lnType="PTOC_Sepam204080" prefix="A51_">
+            
+<!--
+            51_PTOC6 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:0106;N:15;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C945</Private>
+            </DOI>
+          </LN>
+          <LN desc="Phase overcurrent #7" inst="7" lnClass="PTOC" lnType="PTOC_Sepam204080" prefix="A51_">
+            
+<!--
+            51_PTOC7 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:0107;N:15;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C946</Private>
+            </DOI>
+          </LN>
+          <LN desc="Phase overcurrent #8" inst="8" lnClass="PTOC" lnType="PTOC_Sepam204080" prefix="A51_">
+            
+<!--
+            51_PTOC8 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:0108;N:15;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C947</Private>
+            </DOI>
+          </LN>
+          <LN desc="Earth fault #1" inst="1" lnClass="PTOC" lnType="PTOC_Sepam204080" prefix="A51N_">
+            
+<!--
+            51N_PTOC1 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:0601;N:16;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C948</Private>
+            </DOI>
+          </LN>
+          <LN desc="Earth fault #2" inst="2" lnClass="PTOC" lnType="PTOC_Sepam204080" prefix="A51N_">
+            
+<!--
+            51N_PTOC2 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:0602;N:16;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C949</Private>
+            </DOI>
+          </LN>
+          <LN desc="Earth fault #3" inst="3" lnClass="PTOC" lnType="PTOC_Sepam204080" prefix="A51N_">
+            
+<!--
+            51N_PTOC3 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:0603;N:16;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C94A</Private>
+            </DOI>
+          </LN>
+          <LN desc="Earth fault #4" inst="4" lnClass="PTOC" lnType="PTOC_Sepam204080" prefix="A51N_">
+            
+<!--
+            51N_PTOC4 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:0604;N:16;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C94B</Private>
+            </DOI>
+          </LN>
+          <LN desc="Earth fault #5" inst="5" lnClass="PTOC" lnType="PTOC_Sepam204080" prefix="A51N_">
+            
+<!--
+            51N_PTOC5 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:0605;N:16;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C94C</Private>
+            </DOI>
+          </LN>
+          <LN desc="Earth fault #6" inst="6" lnClass="PTOC" lnType="PTOC_Sepam204080" prefix="A51N_">
+            
+<!--
+            51N_PTOC6 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:0606;N:16;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C94D</Private>
+            </DOI>
+          </LN>
+          <LN desc="Earth fault #7" inst="7" lnClass="PTOC" lnType="PTOC_Sepam204080" prefix="A51N_">
+            
+<!--
+            51N_PTOC7 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:0607;N:16;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C94E</Private>
+            </DOI>
+          </LN>
+          <LN desc="Earth fault #8" inst="8" lnClass="PTOC" lnType="PTOC_Sepam204080" prefix="A51N_">
+            
+<!--
+            51N_PTOC8 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:0608;N:16;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C94F</Private>
+            </DOI>
+          </LN>
+          <LN desc="Overvoltage #1" inst="1" lnClass="PTOV" lnType="PTOV_Sepam204080" prefix="A59_">
+            
+<!--
+            59_PTOV1 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:2801;N:7;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C958</Private>
+            </DOI>
+          </LN>
+          <LN desc="Overvoltage #2" inst="2" lnClass="PTOV" lnType="PTOV_Sepam204080" prefix="A59_">
+            
+<!--
+            59_PTOV2 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:2802;N:7;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C959</Private>
+            </DOI>
+          </LN>
+          <LN desc="Overvoltage #3" inst="3" lnClass="PTOV" lnType="PTOV_Sepam204080" prefix="A59_">
+            
+<!--
+            59_PTOV3 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:2803;N:7;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C95A</Private>
+            </DOI>
+          </LN>
+          <LN desc="Overvoltage #4" inst="4" lnClass="PTOV" lnType="PTOV_Sepam204080" prefix="A59_">
+            
+<!--
+            59_PTOV4 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:2804;N:7;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C95B</Private>
+            </DOI>
+          </LN>
+          <LN desc="Neutral voltage displacement #1" inst="1" lnClass="PTOV" lnType="PTOV_Sepam204080" prefix="A59N_">
+            
+<!--
+            59N_PTOV1 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:3901;N:7;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C95C</Private>
+            </DOI>
+          </LN>
+          <LN desc="Neutral voltage displacement #2" inst="2" lnClass="PTOV" lnType="PTOV_Sepam204080" prefix="A59N_">
+            
+<!--
+            59N_PTOV2 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:3902;N:7;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C95D</Private>
+            </DOI>
+          </LN>
+          <LN desc="Restricted earth fault differential #1" inst="1" lnClass="PDIF" lnType="64REF_PDIF_Sepam80" prefix="A64RF_">
+            
+<!--
+            64REF_PDIF1 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:6401;N:5;A:3</Private>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C97B</Private>
+            </DOI>
+          </LN>
+          <LN desc="Restricted earth fault differential #2" inst="2" lnClass="PDIF" lnType="64REF_PDIF_Sepam80" prefix="A64RF_">
+            
+<!--
+            64REF_PDIF2 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:6402;N:5;A:3</Private>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C97C</Private>
+            </DOI>
+          </LN>
+          <LN desc="Directionnal earth fault #1" inst="1" lnClass="PTOC" lnType="PTOC_Sepam204080" prefix="A67N_">
+            
+<!--
+            67N_PTOC1 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:5001;N:27;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C962</Private>
+            </DOI>
+          </LN>
+          <LN desc="Directionnal earth fault #2" inst="2" lnClass="PTOC" lnType="PTOC_Sepam204080" prefix="A67N_">
+            
+<!--
+            67N_PTOC2 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:5002;N:27;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C963</Private>
+            </DOI>
+          </LN>
+          <LN desc="Overfrequency #1" inst="1" lnClass="PTOF" lnType="PTOF_Sepam204080" prefix="A81H_">
+            
+<!--
+            81H_PTOF1 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:5701;N:8;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C980</Private>
+            </DOI>
+          </LN>
+          <LN desc="Overfrequency #2" inst="2" lnClass="PTOF" lnType="PTOF_Sepam204080" prefix="A81H_">
+            
+<!--
+            81H_PTOF2 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:5702;N:8;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C981</Private>
+            </DOI>
+          </LN>
+          <LN desc="Underfrequency #1" inst="1" lnClass="PTUF" lnType="PTUF_Sepam204080" prefix="A81L_">
+            
+<!--
+            81L_PTUF1 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:5601;N:9;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C982</Private>
+              <DAI name="general"/>
+            </DOI>
+          </LN>
+          <LN desc="Underfrequency #2" inst="2" lnClass="PTUF" lnType="PTUF_Sepam204080" prefix="A81L_">
+            
+<!--
+            81L_PTUF2 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:5602;N:9;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C983</Private>
+              <DAI name="general"/>
+            </DOI>
+          </LN>
+          <LN desc="Underfrequency #3" inst="3" lnClass="PTUF" lnType="PTUF_Sepam204080" prefix="A81L_">
+            
+<!--
+            81L_PTUF3 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:5603;N:9;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C984</Private>
+              <DAI name="general"/>
+            </DOI>
+          </LN>
+          <LN desc="Underfrequency #4" inst="4" lnClass="PTUF" lnType="PTUF_Sepam204080" prefix="A81L_">
+            
+<!--
+            81L_PTUF4 ATTRIBUTES
+          -->
+            <Private type="SchneiderElectric-IED-FunRef">F:5604;N:9;A:3</Private>
+            <DOI name="Str">
+              <Private type="SchneiderElectric-IED-PntRef">T:AD;P:4</Private>
+            </DOI>
+            <DOI name="Op">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C985</Private>
+              <DAI name="general"/>
+            </DOI>
+          </LN>
+          <LN desc="Protection trip conditioning" inst="1" lnClass="PTRC" lnType="PTRC_Sepam4080" prefix="">
+            
+<!--
+            PTRC1 ATTRIBUTES
+          -->
+            <DOI name="Tr">
+              <Private type="SchneiderElectric-IED-PntRef">T:AT;S:C9E8</Private>
+            </DOI>
+            <DOI name="ExTr1">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C903</Private>
+            </DOI>
+            <DOI name="ExTr2">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C905</Private>
+            </DOI>
+            <DOI name="ExTr3">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C906</Private>
+            </DOI>
+            <DOI name="BlkInd1">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C91F</Private>
+              <DAI name="stVal"/>
+            </DOI>
+            <DOI name="BlkInd2">
+              <Private type="SchneiderElectric-IED-PntRef">T:SS;S:C9C5</Private>
+              <DAI name="stVal"/>
+            </DOI>
+          </LN>
+        </LDevice>
+      </Server>
+    </AccessPoint>
+  </IED>
+  <DataTypeTemplates>
+    <LNodeType id="PTOF_Sepam204080" iedType="" lnClass="PTOF">
+      <DO name="Mod" type="Mod_Sepam204080"/>
+      <DO name="Beh" type="Beh_Sepam204080"/>
+      <DO name="Health" type="Health_Sepam204080"/>
+      <DO name="NamPlt" type="Lpl_Sepam204080"/>
+      <DO name="Str" type="Acd_Sepam204080"/>
+      <DO name="Op" type="Act_Sepam204080"/>
+    </LNodeType>
+    <LNodeType id="PTOV_Sepam204080" iedType="" lnClass="PTOV">
+      <DO name="Mod" type="Mod_Sepam204080"/>
+      <DO name="Beh" type="Beh_Sepam204080"/>
+      <DO name="Health" type="Health_Sepam204080"/>
+      <DO name="NamPlt" type="Lpl_Sepam204080"/>
+      <DO name="Str" type="Acd_Sepam204080"/>
+      <DO name="Op" type="Act_Sepam204080"/>
+    </LNodeType>
+    <LNodeType id="PTOC_Sepam204080" iedType="" lnClass="PTOC">
+      <DO name="Mod" type="Mod_Sepam204080"/>
+      <DO name="Beh" type="Beh_Sepam204080"/>
+      <DO name="Health" type="Health_Sepam204080"/>
+      <DO name="NamPlt" type="Lpl_Sepam204080"/>
+      <DO name="Str" type="Acd_Sepam204080"/>
+      <DO name="Op" type="Act_Sepam204080"/>
+    </LNodeType>
+    <LNodeType id="MES_GGIO_Sepam80" iedType="" lnClass="GGIO">
+      <DO name="Mod" type="Mod_Sepam204080"/>
+      <DO name="Beh" type="Beh_Sepam204080"/>
+      <DO name="Health" type="Health_Sepam204080"/>
+      <DO name="NamPlt" type="Lpl_Sepam204080"/>
+      <DO name="Ind1" type="Sps_Sepam204080"/>
+      <DO name="Ind2" type="Sps_Sepam204080"/>
+      <DO name="Ind3" type="Sps_Sepam204080"/>
+      <DO name="Ind4" type="Sps_Sepam204080"/>
+      <DO name="Ind5" type="Sps_Sepam204080"/>
+      <DO name="Ind6" type="Sps_Sepam204080"/>
+      <DO name="Ind7" type="Sps_Sepam204080"/>
+      <DO name="Ind8" type="Sps_Sepam204080"/>
+      <DO name="Ind9" type="Sps_Sepam204080"/>
+      <DO name="Ind10" type="Sps_Sepam204080"/>
+      <DO name="Ind11" type="Sps_Sepam204080"/>
+      <DO name="Ind12" type="Sps_Sepam204080"/>
+      <DO name="Ind13" type="Sps_Sepam204080"/>
+      <DO name="Ind14" type="Sps_Sepam204080"/>
+    </LNodeType>
+    <LNodeType id="SE_GGIOS80CT_Sepam80_V001" iedType="" lnClass="GGIO">
+      <DO name="Mod" type="Mod_Sepam204080"/>
+      <DO name="Beh" type="Beh_Sepam204080"/>
+      <DO name="Health" type="Health_Sepam204080"/>
+      <DO name="NamPlt" type="Lpl_Sepam204080"/>
+      <DO name="C1" type="InsEx_Sepam204080"/>
+      <DO name="C2" type="InsEx_Sepam204080"/>
+      <DO name="C3" type="InsEx_Sepam204080"/>
+      <DO name="C4" type="InsEx_Sepam204080"/>
+      <DO name="C5" type="InsEx_Sepam204080"/>
+      <DO name="C6" type="InsEx_Sepam204080"/>
+      <DO name="C7" type="InsEx_Sepam204080"/>
+      <DO name="C8" type="InsEx_Sepam204080"/>
+      <DO name="C9" type="InsEx_Sepam204080"/>
+      <DO name="C10" type="InsEx_Sepam204080"/>
+      <DO name="C11" type="InsEx_Sepam204080"/>
+      <DO name="C12" type="InsEx_Sepam204080"/>
+      <DO name="C13" type="InsEx_Sepam204080"/>
+      <DO name="C14" type="InsEx_Sepam204080"/>
+      <DO name="C15" type="InsEx_Sepam204080"/>
+      <DO name="C16" type="InsEx_Sepam204080"/>
+      <DO name="C17" type="InsEx_Sepam204080"/>
+      <DO name="C18" type="InsEx_Sepam204080"/>
+      <DO name="C19" type="InsEx_Sepam204080"/>
+      <DO name="C20" type="InsEx_Sepam204080"/>
+      <DO name="C21" type="InsEx_Sepam204080"/>
+      <DO name="C22" type="InsEx_Sepam204080"/>
+      <DO name="C23" type="InsEx_Sepam204080"/>
+      <DO name="C24" type="InsEx_Sepam204080"/>
+    </LNodeType>
+    <LNodeType id="SE_GGIOS80RI_Sepam80_V001" iedType="" lnClass="GGIO">
+      <DO name="Mod" type="Mod_Sepam204080"/>
+      <DO name="Beh" type="Beh_Sepam204080"/>
+      <DO name="Health" type="Health_Sepam204080"/>
+      <DO name="NamPlt" type="Lpl_Sepam204080"/>
+      <DO name="TS1" type="SpsEx_Sepam204080"/>
+      <DO name="TS2" type="SpsEx_Sepam204080"/>
+      <DO name="TS3" type="SpsEx_Sepam204080"/>
+      <DO name="TS4" type="SpsEx_Sepam204080"/>
+      <DO name="TS5" type="SpsEx_Sepam204080"/>
+      <DO name="TS6" type="SpsEx_Sepam204080"/>
+      <DO name="TS7" type="SpsEx_Sepam204080"/>
+      <DO name="TS8" type="SpsEx_Sepam204080"/>
+      <DO name="TS9" type="SpsEx_Sepam204080"/>
+      <DO name="TS10" type="SpsEx_Sepam204080"/>
+      <DO name="TS11" type="SpsEx_Sepam204080"/>
+      <DO name="TS12" type="SpsEx_Sepam204080"/>
+      <DO name="TS13" type="SpsEx_Sepam204080"/>
+      <DO name="TS14" type="SpsEx_Sepam204080"/>
+      <DO name="TS15" type="SpsEx_Sepam204080"/>
+      <DO name="TS16" type="SpsEx_Sepam204080"/>
+      <DO name="TS17" type="SpsEx_Sepam204080"/>
+      <DO name="TS18" type="SpsEx_Sepam204080"/>
+      <DO name="TS19" type="SpsEx_Sepam204080"/>
+      <DO name="TS20" type="SpsEx_Sepam204080"/>
+      <DO name="TS21" type="SpsEx_Sepam204080"/>
+      <DO name="TS22" type="SpsEx_Sepam204080"/>
+      <DO name="TS23" type="SpsEx_Sepam204080"/>
+      <DO name="TS24" type="SpsEx_Sepam204080"/>
+      <DO name="TS25" type="SpsEx_Sepam204080"/>
+      <DO name="TS26" type="SpsEx_Sepam204080"/>
+      <DO name="TS27" type="SpsEx_Sepam204080"/>
+      <DO name="TS28" type="SpsEx_Sepam204080"/>
+      <DO name="TS29" type="SpsEx_Sepam204080"/>
+      <DO name="TS30" type="SpsEx_Sepam204080"/>
+      <DO name="TS31" type="SpsEx_Sepam204080"/>
+      <DO name="TS32" type="SpsEx_Sepam204080"/>
+      <DO name="TS33" type="SpsEx_Sepam204080"/>
+      <DO name="TS34" type="SpsEx_Sepam204080"/>
+      <DO name="TS35" type="SpsEx_Sepam204080"/>
+      <DO name="TS36" type="SpsEx_Sepam204080"/>
+      <DO name="TS37" type="SpsEx_Sepam204080"/>
+      <DO name="TS38" type="SpsEx_Sepam204080"/>
+      <DO name="TS39" type="SpsEx_Sepam204080"/>
+      <DO name="TS40" type="SpsEx_Sepam204080"/>
+      <DO name="TS41" type="SpsEx_Sepam204080"/>
+      <DO name="TS42" type="SpsEx_Sepam204080"/>
+      <DO name="TS43" type="SpsEx_Sepam204080"/>
+      <DO name="TS44" type="SpsEx_Sepam204080"/>
+      <DO name="TS45" type="SpsEx_Sepam204080"/>
+      <DO name="TS46" type="SpsEx_Sepam204080"/>
+      <DO name="TS47" type="SpsEx_Sepam204080"/>
+      <DO name="TS48" type="SpsEx_Sepam204080"/>
+      <DO name="TS49" type="SpsEx_Sepam204080"/>
+      <DO name="TS50" type="SpsEx_Sepam204080"/>
+      <DO name="TS51" type="SpsEx_Sepam204080"/>
+      <DO name="TS52" type="SpsEx_Sepam204080"/>
+      <DO name="TS53" type="SpsEx_Sepam204080"/>
+      <DO name="TS54" type="SpsEx_Sepam204080"/>
+      <DO name="TS55" type="SpsEx_Sepam204080"/>
+      <DO name="TS56" type="SpsEx_Sepam204080"/>
+      <DO name="TS57" type="SpsEx_Sepam204080"/>
+      <DO name="TS58" type="SpsEx_Sepam204080"/>
+      <DO name="TS59" type="SpsEx_Sepam204080"/>
+      <DO name="TS60" type="SpsEx_Sepam204080"/>
+      <DO name="TS61" type="SpsEx_Sepam204080"/>
+      <DO name="TS62" type="SpsEx_Sepam204080"/>
+      <DO name="TS63" type="SpsEx_Sepam204080"/>
+      <DO name="TS64" type="SpsEx_Sepam204080"/>
+    </LNodeType>
+    <LNodeType id="RDRE_Sepam204080" iedType="" lnClass="RDRE">
+      <DO name="Mod" type="Mod_Sepam204080"/>
+      <DO name="Beh" type="Beh_Sepam204080"/>
+      <DO name="Health" type="Health_Sepam204080"/>
+      <DO name="NamPlt" type="Lpl_Sepam204080"/>
+      <DO name="Loc" type="Sps_Sepam204080"/>
+      <DO name="RcdTrg" type="SpcCoOnly_Sepam204080"/>
+      <DO name="RcdInh" type="SpcEx_Sepam204080"/>
+      <DO name="RcdMade" type="Sps_Sepam204080"/>
+      <DO name="FltNum" type="Ins_Sepam204080"/>
+    </LNodeType>
+    <LNodeType id="RBRF_Sepam204080" iedType="" lnClass="RBRF">
+      <DO name="Mod" type="Mod_Sepam204080"/>
+      <DO name="Beh" type="Beh_Sepam204080"/>
+      <DO name="Health" type="Health_Sepam204080"/>
+      <DO name="NamPlt" type="Lpl_Sepam204080"/>
+      <DO name="OpEx" type="Act_Sepam204080"/>
+    </LNodeType>
+    <LNodeType id="MSQI_Sepam204080" iedType="" lnClass="MSQI">
+      <DO name="Mod" type="Mod_Sepam204080"/>
+      <DO name="Beh" type="Beh_Sepam204080"/>
+      <DO name="Health" type="Health_Sepam204080"/>
+      <DO name="NamPlt" type="Lpl_Sepam204080"/>
+      <DO name="SeqV" type="Seq_Sepam204080"/>
+    </LNodeType>
+    <LNodeType id="SE_GGIOS80RC1_Sepam80_V001" iedType="" lnClass="GGIO">
+      <DO name="Mod" type="Mod_Sepam204080"/>
+      <DO name="Beh" type="Beh_Sepam204080"/>
+      <DO name="Health" type="Health_Sepam204080"/>
+      <DO name="NamPlt" type="Lpl_Sepam204080"/>
+      <DO name="Loc" type="Sps_Sepam204080"/>
+      <DO name="TC1" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC2" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC3" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC4" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC5" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC6" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC7" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC8" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC9" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC10" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC11" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC12" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC13" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC14" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC15" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC16" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC17" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC18" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC19" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC20" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC21" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC22" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC23" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC24" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC25" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC26" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC27" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC28" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC29" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC30" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC31" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC32" type="SpcCoOnlyEx_Sepam204080"/>
+    </LNodeType>
+    <LNodeType id="LPHD_Sepam80" iedType="" lnClass="LPHD">
+      <DO name="PhyNam" type="Dpl_Sepam204080"/>
+      <DO name="PhyHealth" type="Health_Sepam204080"/>
+      <DO name="Proxy" type="Sps_Sepam204080"/>
+      <DO name="PwrSupAlm" type="Sps_Sepam204080"/>
+    </LNodeType>
+    <LNodeType id="RSYN_Sepam80" iedType="" lnClass="RSYN">
+      <DO name="Mod" type="Mod_Sepam204080"/>
+      <DO name="Beh" type="Beh_Sepam204080"/>
+      <DO name="Health" type="Health_Sepam204080"/>
+      <DO name="NamPlt" type="Lpl_Sepam204080"/>
+      <DO name="Loc" type="Sps_Sepam204080"/>
+      <DO name="InhSynChk" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="Rel" type="Sps_Sepam204080"/>
+      <DO name="VInd" type="Sps_Sepam204080"/>
+      <DO name="AngInd" type="Sps_Sepam204080"/>
+      <DO name="HzInd" type="Sps_Sepam204080"/>
+      <DO name="SynPrg" type="Sps_Sepam204080"/>
+      <DO name="SynStop" type="SpsEx_Sepam204080"/>
+      <DO name="SynFlt" type="SpsEx_Sepam204080"/>
+      <DO name="Syn" type="SpsEx_Sepam204080"/>
+      <DO name="DifVClc" type="Mv_Sepam204080"/>
+      <DO name="DifHzClc" type="Mv_Sepam204080"/>
+      <DO name="DifAngClc" type="Mv_Sepam204080"/>
+    </LNodeType>
+    <LNodeType id="SE_LLN0_Sepam80_V003" iedType="" lnClass="LLN0">
+      <DO name="Mod" type="Mod_Sepam204080"/>
+      <DO name="Beh" type="Beh_Sepam204080"/>
+      <DO name="Health" type="Health_Sepam204080"/>
+      <DO name="NamPlt" type="LplLLN0_Sepam204080"/>
+      <DO name="Loc" type="Sps_Sepam204080"/>
+      <DO name="LEDRs" type="Spc_Sepam204080"/>
+      <DO name="PhRot" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="CTFlt" type="SpsEx_Sepam204080"/>
+      <DO name="VTFlt" type="SpsEx_Sepam204080"/>
+      <DO name="ComFlt" type="SpsEx_Sepam204080"/>
+      <DO name="ActSGA" type="SpsEx_Sepam204080"/>
+      <DO name="ActSGB" type="SpsEx_Sepam204080"/>
+      <DO name="PhRotFlt" type="SpsEx_Sepam204080"/>
+    </LNodeType>
+    <LNodeType id="64REF_PDIF_Sepam80" iedType="" lnClass="PDIF">
+      <DO name="Mod" type="Mod_Sepam204080"/>
+      <DO name="Beh" type="Beh_Sepam204080"/>
+      <DO name="Health" type="Health_Sepam204080"/>
+      <DO name="NamPlt" type="Lpl_Sepam204080"/>
+      <DO name="Op" type="Act_Sepam204080"/>
+    </LNodeType>
+    <LNodeType id="49_PTTR_Sepam204080" iedType="" lnClass="PTTR">
+      <DO name="Mod" type="Mod_Sepam204080"/>
+      <DO name="Beh" type="Beh_Sepam204080"/>
+      <DO name="Health" type="Health_Sepam204080"/>
+      <DO name="NamPlt" type="Lpl_Sepam204080"/>
+      <DO name="Loc" type="Sps_Sepam204080"/>
+      <DO name="ThmRte" type="MvEx_Sepam204080"/>
+      <DO name="InhThmPro" type="SpcEx_Sepam204080"/>
+      <DO name="Op" type="Act_Sepam204080"/>
+      <DO name="AlmThm" type="Act_Sepam204080"/>
+      <DO name="TmResTr" type="InsEx_Sepam204080"/>
+      <DO name="WaitTm" type="InsEx_Sepam204080"/>
+    </LNodeType>
+    <LNodeType id="MSTA_Sepam80" iedType="" lnClass="MSTA">
+      <DO name="Mod" type="Mod_Sepam204080"/>
+      <DO name="Beh" type="Beh_Sepam204080"/>
+      <DO name="Health" type="Health_Sepam204080"/>
+      <DO name="NamPlt" type="Lpl_Sepam204080"/>
+      <DO name="Loc" type="Sps_Sepam204080"/>
+      <DO name="MaxW" type="Mv_Sepam204080"/>
+      <DO name="MaxVAr" type="Mv_Sepam204080"/>
+      <DO name="AvAmps1" type="Mv_Sepam204080"/>
+      <DO name="AvAmps2" type="Mv_Sepam204080"/>
+      <DO name="AvAmps3" type="Mv_Sepam204080"/>
+      <DO name="MaxAmps1" type="Mv_Sepam204080"/>
+      <DO name="MaxAmps2" type="Mv_Sepam204080"/>
+      <DO name="MaxAmps3" type="Mv_Sepam204080"/>
+      <DO name="TrAmp1" type="MvEx_Sepam204080"/>
+      <DO name="TrAmp2" type="MvEx_Sepam204080"/>
+      <DO name="TrAmp3" type="MvEx_Sepam204080"/>
+      <DO name="TrAmp4" type="MvEx_Sepam204080"/>
+      <DO name="RsMaxA" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="RsMaxPwr" type="SpcCoOnlyEx_Sepam204080"/>
+    </LNodeType>
+    <LNodeType id="CSWI_Sepam204080_V002" iedType="" lnClass="CSWI">
+      <DO name="Mod" type="Mod_Sepam204080"/>
+      <DO name="Beh" type="Beh_Sepam204080"/>
+      <DO name="Health" type="Health_Sepam204080"/>
+      <DO name="NamPlt" type="Lpl_Sepam204080"/>
+      <DO name="Loc" type="Sps_Sepam204080"/>
+      <DO name="Pos" type="Pos_Sepam204080_V003"/>
+    </LNodeType>
+    <LNodeType id="RDRE_MsDlSepam80" lnClass="RDRE">
+      <DO name="Mod" type="Mod_Sepam204080"/>
+      <DO name="Beh" type="Beh_Sepam204080"/>
+      <DO name="Health" type="Health_Sepam204080"/>
+      <DO name="NamPlt" type="Lpl_Sepam204080"/>
+      <DO name="Loc" type="Sps_Sepam204080"/>
+      <DO name="RcdTrg" type="SpcCoOnly_Sepam204080"/>
+      <DO name="RcdMade" type="Sps_Sepam204080"/>
+      <DO name="FltNum" type="Ins_Sepam204080"/>
+      <DO name="RcdStr" type="Sps_Sepam204080"/>
+    </LNodeType>
+    <LNodeType id="RDRE_CtxSepam80" lnClass="RDRE">
+      <DO name="Mod" type="Mod_Sepam204080"/>
+      <DO name="Beh" type="Beh_Sepam204080"/>
+      <DO name="Health" type="Health_Sepam204080"/>
+      <DO name="NamPlt" type="Lpl_Sepam204080"/>
+      <DO name="RcdMade" type="Sps_Sepam204080"/>
+      <DO name="FltNum" type="Ins_Sepam204080"/>
+    </LNodeType>
+    <LNodeType id="MMXU_Sepam80" iedType="" lnClass="MMXU">
+      <DO name="Mod" type="Mod_Sepam204080"/>
+      <DO name="Beh" type="Beh_Sepam204080"/>
+      <DO name="Health" type="Health_Sepam204080"/>
+      <DO name="NamPlt" type="Lpl_Sepam204080"/>
+      <DO name="TotW" type="Mv_Sepam204080"/>
+      <DO name="TotVAr" type="Mv_Sepam204080"/>
+      <DO name="TotVA" type="Mv_Sepam204080"/>
+      <DO name="TotPF" type="Mv_Sepam204080"/>
+      <DO name="Hz" type="Mv_Sepam204080"/>
+      <DO name="PPV" type="Del_Sepam204080"/>
+      <DO name="PhV" type="WyeABCr_Sepam204080"/>
+      <DO name="A" type="WyeAngABCnr_Sepam204080"/>
+      <DO name="W" type="WyeABC_Sepam204080"/>
+      <DO name="VAr" type="WyeABC_Sepam204080"/>
+      <DO name="VA" type="WyeABC_Sepam204080"/>
+    </LNodeType>
+    <LNodeType id="XCBR_Sepam80" iedType="" lnClass="XCBR">
+      <DO name="Mod" type="Mod_Sepam204080"/>
+      <DO name="Beh" type="Beh_Sepam204080"/>
+      <DO name="Health" type="Health_Sepam204080"/>
+      <DO name="NamPlt" type="Lpl_Sepam204080"/>
+      <DO name="Loc" type="Sps_Sepam204080"/>
+      <DO name="EEHealth" type="Health_Sepam204080"/>
+      <DO name="OpCnt" type="Ins_Sepam204080"/>
+      <DO name="Pos" type="PosStOnly_Sepam204080"/>
+      <DO name="BlkOpn" type="SpcStOnly_Sepam204080"/>
+      <DO name="BlkCls" type="SpcStOnly_Sepam204080"/>
+      <DO name="SumSwARs" type="Bcr_Sepam204080"/>
+      <DO name="CBOpCap" type="CBOpCap_Sepam204080"/>
+      <DO name="OpHrsCnt" type="InsEx_Sepam204080"/>
+      <DO name="OpTmms" type="InsEx_Sepam204080"/>
+      <DO name="ChaTms" type="InsEx_Sepam204080"/>
+      <DO name="PhFltCnt" type="InsEx_Sepam204080"/>
+      <DO name="EFTrCnt" type="InsEx_Sepam204080"/>
+      <DO name="SumSwAAlm" type="SpsEx_Sepam204080"/>
+      <DO name="CBRkdOut" type="SpsEx_Sepam204080"/>
+      <DO name="RkdOutCnt" type="InsEx_Sepam204080"/>
+      <DO name="ESwPos" type="SpsEx_Sepam204080"/>
+    </LNodeType>
+    <LNodeType id="MHAN_Sepam80" iedType="" lnClass="MHAN">
+      <DO name="Mod" type="Mod_Sepam204080"/>
+      <DO name="Beh" type="Beh_Sepam204080"/>
+      <DO name="Health" type="Health_Sepam204080"/>
+      <DO name="NamPlt" type="Lpl_Sepam204080"/>
+      <DO name="Hz" type="Mv_Sepam204080"/>
+      <DO name="ThdAmp" type="Mv_Sepam204080"/>
+      <DO name="ThdVol" type="Mv_Sepam204080"/>
+    </LNodeType>
+    <LNodeType id="PTUF_Sepam204080" iedType="" lnClass="PTUF">
+      <DO name="Mod" type="Mod_Sepam204080"/>
+      <DO name="Beh" type="Beh_Sepam204080"/>
+      <DO name="Health" type="Health_Sepam204080"/>
+      <DO name="NamPlt" type="Lpl_Sepam204080"/>
+      <DO name="Str" type="Acd_Sepam204080"/>
+      <DO name="Op" type="Act_Sepam204080"/>
+    </LNodeType>
+    <LNodeType id="49T_PTTR_Sepam204080" iedType="" lnClass="PTTR">
+      <DO name="Mod" type="Mod_Sepam204080"/>
+      <DO name="Beh" type="Beh_Sepam204080"/>
+      <DO name="Health" type="Health_Sepam204080"/>
+      <DO name="NamPlt" type="Lpl_Sepam204080"/>
+      <DO name="Tmp" type="Mv_Sepam204080"/>
+      <DO name="Op" type="Act_Sepam204080"/>
+      <DO name="AlmThm" type="Act_Sepam204080"/>
+    </LNodeType>
+    <LNodeType id="PDOP_Sepam4080" iedType="" lnClass="PDOP">
+      <DO name="Mod" type="Mod_Sepam204080"/>
+      <DO name="Beh" type="Beh_Sepam204080"/>
+      <DO name="Health" type="Health_Sepam204080"/>
+      <DO name="NamPlt" type="Lpl_Sepam204080"/>
+      <DO name="Str" type="Acd_Sepam204080"/>
+      <DO name="Op" type="Act_Sepam204080"/>
+    </LNodeType>
+    <LNodeType id="PTUV_Sepam204080" iedType="" lnClass="PTUV">
+      <DO name="Mod" type="Mod_Sepam204080"/>
+      <DO name="Beh" type="Beh_Sepam204080"/>
+      <DO name="Health" type="Health_Sepam204080"/>
+      <DO name="NamPlt" type="Lpl_Sepam204080"/>
+      <DO name="Str" type="Acd_Sepam204080"/>
+      <DO name="Op" type="Act_Sepam204080"/>
+    </LNodeType>
+    <LNodeType id="SIML_Sepam4080" iedType="" lnClass="SIML">
+      <DO name="Mod" type="Mod_Sepam204080"/>
+      <DO name="Beh" type="Beh_Sepam204080"/>
+      <DO name="Health" type="Health_Sepam204080"/>
+      <DO name="NamPlt" type="Lpl_Sepam204080"/>
+      <DO name="InsAlm" type="Sps_Sepam204080"/>
+      <DO name="GasInsTr" type="Sps_Sepam204080"/>
+      <DO name="PresAlm" type="Sps_Sepam204080"/>
+      <DO name="PresTr" type="Sps_Sepam204080"/>
+      <DO name="TmpAlm" type="Sps_Sepam204080"/>
+      <DO name="TmpTr" type="SpsEx_Sepam204080"/>
+      <DO name="ThmAlm" type="SpsEx_Sepam204080"/>
+      <DO name="ThmTr" type="SpsEx_Sepam204080"/>
+    </LNodeType>
+    <LNodeType id="SE_GGIOGSE_Sepam80_V001" iedType="" lnClass="GGIO">
+      <DO name="Mod" type="Mod_Sepam204080"/>
+      <DO name="Beh" type="Beh_Sepam204080"/>
+      <DO name="Health" type="Health_Sepam204080"/>
+      <DO name="NamPlt" type="Lpl_Sepam204080"/>
+      <DO name="G401" type="SpsEx_Sepam204080"/>
+      <DO name="G402" type="SpsEx_Sepam204080"/>
+      <DO name="G403" type="SpsEx_Sepam204080"/>
+      <DO name="G404" type="SpsEx_Sepam204080"/>
+      <DO name="G405" type="SpsEx_Sepam204080"/>
+      <DO name="G406" type="SpsEx_Sepam204080"/>
+      <DO name="G407" type="SpsEx_Sepam204080"/>
+      <DO name="G408" type="SpsEx_Sepam204080"/>
+      <DO name="G409" type="SpsEx_Sepam204080"/>
+      <DO name="G410" type="SpsEx_Sepam204080"/>
+      <DO name="G411" type="SpsEx_Sepam204080"/>
+      <DO name="G412" type="SpsEx_Sepam204080"/>
+      <DO name="G413" type="SpsEx_Sepam204080"/>
+      <DO name="G414" type="SpsEx_Sepam204080"/>
+      <DO name="G415" type="SpsEx_Sepam204080"/>
+      <DO name="G416" type="SpsEx_Sepam204080"/>
+      <DO name="G501" type="SpsEx_Sepam204080"/>
+      <DO name="G502" type="SpsEx_Sepam204080"/>
+      <DO name="G503" type="SpsEx_Sepam204080"/>
+      <DO name="G504" type="SpsEx_Sepam204080"/>
+      <DO name="G505" type="SpsEx_Sepam204080"/>
+      <DO name="G506" type="SpsEx_Sepam204080"/>
+      <DO name="G507" type="SpsEx_Sepam204080"/>
+      <DO name="G508" type="SpsEx_Sepam204080"/>
+      <DO name="G509" type="SpsEx_Sepam204080"/>
+      <DO name="G510" type="SpsEx_Sepam204080"/>
+      <DO name="G511" type="SpsEx_Sepam204080"/>
+      <DO name="G512" type="SpsEx_Sepam204080"/>
+      <DO name="G513" type="SpsEx_Sepam204080"/>
+      <DO name="G514" type="SpsEx_Sepam204080"/>
+      <DO name="G515" type="SpsEx_Sepam204080"/>
+      <DO name="Test1" type="SpsEx_Sepam204080"/>
+      <DO name="Test2" type="SpsEx_Sepam204080"/>
+      <DO name="Test3" type="SpsEx_Sepam204080"/>
+      <DO name="Test4" type="SpsEx_Sepam204080"/>
+    </LNodeType>
+    <LNodeType id="SE_GGIOS80RC2_Sepam80_V001" iedType="" lnClass="GGIO">
+      <DO name="Mod" type="Mod_Sepam204080"/>
+      <DO name="Beh" type="Beh_Sepam204080"/>
+      <DO name="Health" type="Health_Sepam204080"/>
+      <DO name="NamPlt" type="Lpl_Sepam204080"/>
+      <DO name="Loc" type="Sps_Sepam204080"/>
+      <DO name="TC33" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC34" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC35" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC36" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC37" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC38" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC39" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC40" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC41" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC42" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC43" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC44" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC45" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC46" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC47" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC48" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC49" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC50" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC51" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC52" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC53" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC54" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC55" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC56" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC57" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC58" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC59" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC60" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC61" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC62" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC63" type="SpcCoOnlyEx_Sepam204080"/>
+      <DO name="TC64" type="SpcCoOnlyEx_Sepam204080"/>
+    </LNodeType>
+    <LNodeType id="LGP_GGIO_Sepam80_V003" iedType="" lnClass="GGIO">
+      <DO name="Mod" type="Mod_Sepam204080"/>
+      <DO name="Beh" type="Beh_Sepam204080"/>
+      <DO name="Health" type="Health_Sepam204080"/>
+      <DO name="NamPlt" type="Lpl_Sepam204080"/>
+      <DO name="Loc" type="Sps_Sepam204080"/>
+      <DO name="SPCSO1" type="SpcCoOnly_Sepam204080"/>
+      <DO name="SPCSO2" type="SpcCoOnly_Sepam204080"/>
+      <DO name="SPCSO3" type="SpcCoOnly_Sepam204080"/>
+      <DO name="SPCSO4" type="SpcCoOnly_Sepam204080"/>
+      <DO name="SPCSO5" type="SpcCoOnly_Sepam204080"/>
+      <DO name="SPCSO6" type="SpcCoOnly_Sepam204080"/>
+      <DO name="SPCSO7" type="SpcCoOnly_Sepam204080"/>
+      <DO name="SPCSO8" type="SpcCoOnly_Sepam204080"/>
+      <DO name="DPCSO1" type="Pos_Sepam204080_V003"/>
+      <DO name="DPCSO2" type="Pos_Sepam204080_V003"/>
+      <DO name="IntIn1" type="Ins_Sepam204080"/>
+      <DO name="IntIn2" type="Ins_Sepam204080"/>
+      <DO name="IntIn3" type="Ins_Sepam204080"/>
+      <DO name="IntIn4" type="Ins_Sepam204080"/>
+      <DO name="IntIn5" type="Ins_Sepam204080"/>
+      <DO name="IntIn6" type="Ins_Sepam204080"/>
+      <DO name="IntIn7" type="Ins_Sepam204080"/>
+      <DO name="IntIn8" type="Ins_Sepam204080"/>
+      <DO name="Ind1" type="Sps_Sepam204080"/>
+      <DO name="Ind2" type="Sps_Sepam204080"/>
+      <DO name="Ind3" type="Sps_Sepam204080"/>
+      <DO name="Ind4" type="Sps_Sepam204080"/>
+      <DO name="Ind5" type="Sps_Sepam204080"/>
+      <DO name="Ind6" type="Sps_Sepam204080"/>
+      <DO name="Ind7" type="Sps_Sepam204080"/>
+      <DO name="Ind8" type="Sps_Sepam204080"/>
+    </LNodeType>
+    <LNodeType id="PTRC_Sepam4080" iedType="" lnClass="PTRC">
+      <DO name="Mod" type="Mod_Sepam204080"/>
+      <DO name="Beh" type="Beh_Sepam204080"/>
+      <DO name="Health" type="Health_Sepam204080"/>
+      <DO name="NamPlt" type="Lpl_Sepam204080"/>
+      <DO name="Tr" type="Act_Sepam204080"/>
+      <DO name="ExTr1" type="SpsEx_Sepam204080"/>
+      <DO name="ExTr2" type="SpsEx_Sepam204080"/>
+      <DO name="ExTr3" type="SpsEx_Sepam204080"/>
+      <DO name="BlkInd1" type="SpsEx_Sepam204080"/>
+      <DO name="BlkInd2" type="SpsEx_Sepam204080"/>
+    </LNodeType>
+    <LNodeType id="EQU_GGIO_Sepam80" iedType="" lnClass="GGIO">
+      <DO name="Mod" type="Mod_Sepam204080"/>
+      <DO name="Beh" type="Beh_Sepam204080"/>
+      <DO name="Health" type="Health_Sepam204080"/>
+      <DO name="NamPlt" type="Lpl_Sepam204080"/>
+      <DO name="Ind1" type="Sps_Sepam204080"/>
+      <DO name="Ind2" type="Sps_Sepam204080"/>
+      <DO name="Ind3" type="Sps_Sepam204080"/>
+      <DO name="Ind4" type="Sps_Sepam204080"/>
+      <DO name="Ind5" type="Sps_Sepam204080"/>
+      <DO name="Ind6" type="Sps_Sepam204080"/>
+      <DO name="Ind7" type="Sps_Sepam204080"/>
+      <DO name="Ind8" type="Sps_Sepam204080"/>
+      <DO name="Ind101" type="Sps_Sepam204080"/>
+      <DO name="Ind102" type="Sps_Sepam204080"/>
+      <DO name="Ind103" type="Sps_Sepam204080"/>
+      <DO name="Ind104" type="Sps_Sepam204080"/>
+      <DO name="Ind105" type="Sps_Sepam204080"/>
+      <DO name="Ind106" type="Sps_Sepam204080"/>
+      <DO name="Ind107" type="Sps_Sepam204080"/>
+      <DO name="Ind108" type="Sps_Sepam204080"/>
+    </LNodeType>
+    <LNodeType id="MMTR_Sepam4080" iedType="" lnClass="MMTR">
+      <DO name="Mod" type="Mod_Sepam204080"/>
+      <DO name="Beh" type="Beh_Sepam204080"/>
+      <DO name="Health" type="Health_Sepam204080"/>
+      <DO name="NamPlt" type="Lpl_Sepam204080"/>
+      <DO name="SupWh" type="Bcr_Sepam204080"/>
+      <DO name="SupVArh" type="Bcr_Sepam204080"/>
+      <DO name="DmdWh" type="Bcr_Sepam204080"/>
+      <DO name="DmdVArh" type="Bcr_Sepam204080"/>
+    </LNodeType>
+    <DOType cdc="WYE" id="WyeABCr_Sepam204080">
+      <SDO name="phsA" type="Cmv_Sepam204080"/>
+      <SDO name="phsB" type="Cmv_Sepam204080"/>
+      <SDO name="phsC" type="Cmv_Sepam204080"/>
+      <SDO name="res" type="Cmv_Sepam204080"/>
+    </DOType>
+    <DOType cdc="SPC" id="Spc_Sepam204080">
+      <DA bType="BOOLEAN" dchg="true" fc="ST" name="stVal"/>
+      <DA bType="Quality" fc="ST" name="q" qchg="true"/>
+      <DA bType="Timestamp" fc="ST" name="t"/>
+      <DA bType="Struct" fc="CO" name="Oper" type="operSepam"/>
+      <DA bType="Enum" fc="CF" name="ctlModel" type="ctlModel" valKind="RO">
+        <Val>direct-with-normal-security</Val>
+      </DA>
+    </DOType>
+    <DOType cdc="SPC" id="SpcEx_Sepam204080">
+      <DA bType="BOOLEAN" dchg="true" fc="ST" name="stVal"/>
+      <DA bType="Quality" fc="ST" name="q" qchg="true"/>
+      <DA bType="Timestamp" fc="ST" name="t"/>
+      <DA bType="Struct" fc="CO" name="Oper" type="operSepam"/>
+      <DA bType="Enum" fc="CF" name="ctlModel" type="ctlModel" valKind="RO">
+        <Val>direct-with-normal-security</Val>
+      </DA>
+      <DA bType="VisString255" fc="EX" name="dataNs">
+        <Val>Sepam series 20/40/60/80</Val>
+      </DA>
+    </DOType>
+    <DOType cdc="ACT" id="Act_Sepam204080">
+      <DA bType="BOOLEAN" dchg="true" fc="ST" name="general"/>
+      <DA bType="Quality" fc="ST" name="q" qchg="true"/>
+      <DA bType="Timestamp" fc="ST" name="t"/>
+    </DOType>
+    <DOType cdc="MV" id="MvEx_Sepam204080">
+      <DA bType="Struct" fc="MX" name="mag" type="analogValSepam"/>
+      <DA bType="Quality" fc="MX" name="q" qchg="true"/>
+      <DA bType="Timestamp" fc="MX" name="t"/>
+      <DA bType="INT32U" fc="CF" name="db" valKind="RO"/>
+      <DA bType="VisString255" fc="EX" name="dataNs">
+        <Val>Sepam series 20/40/60/80</Val>
+      </DA>
+    </DOType>
+    <DOType cdc="MV" id="Mv_Sepam204080">
+      <DA bType="Struct" fc="MX" name="mag" type="analogValSepam"/>
+      <DA bType="Quality" fc="MX" name="q" qchg="true"/>
+      <DA bType="Timestamp" fc="MX" name="t"/>
+      <DA bType="INT32U" fc="CF" name="db" valKind="RO"/>
+    </DOType>
+    <DOType cdc="SPC" id="SpcStOnly_Sepam204080">
+      <DA bType="BOOLEAN" dchg="true" fc="ST" name="stVal"/>
+      <DA bType="Quality" fc="ST" name="q" qchg="true"/>
+      <DA bType="Timestamp" fc="ST" name="t"/>
+      <DA bType="Enum" fc="CF" name="ctlModel" type="ctlModel" valKind="RO">
+        <Val>status-only</Val>
+      </DA>
+    </DOType>
+    <DOType cdc="INS" id="Ins_Sepam204080">
+      <DA bType="INT32" dchg="true" fc="ST" name="stVal"/>
+      <DA bType="Quality" fc="ST" name="q" qchg="true"/>
+      <DA bType="Timestamp" fc="ST" name="t"/>
+    </DOType>
+    <DOType cdc="DEL" id="Del_Sepam204080">
+      <SDO name="phsAB" type="Cmv_Sepam204080"/>
+      <SDO name="phsBC" type="Cmv_Sepam204080"/>
+      <SDO name="phsCA" type="Cmv_Sepam204080"/>
+    </DOType>
+    <DOType cdc="LPL" id="Lpl_Sepam204080">
+      <DA bType="VisString255" fc="DC" name="vendor" valKind="RO">
+        <Val>Schneider Electric</Val>
+      </DA>
+      <DA bType="VisString255" fc="DC" name="swRev" valKind="RO"/>
+      <DA bType="VisString255" fc="DC" name="d" valKind="RO"/>
+    </DOType>
+    <DOType cdc="DPL" id="Dpl_Sepam204080">
+      <DA bType="VisString255" fc="DC" name="vendor" valKind="RO">
+        <Val>Schneider Electric</Val>
+      </DA>
+      <DA bType="VisString255" fc="DC" name="model" valKind="RO"/>
+      <DA bType="VisString255" fc="DC" name="location" valKind="RO"/>
+    </DOType>
+    <DOType cdc="SPC" id="SpcCoOnlyEx_Sepam204080">
+      <DA bType="Struct" fc="CO" name="Oper" type="operSepam"/>
+      <DA bType="Enum" fc="CF" name="ctlModel" type="ctlModel" valKind="RO">
+        <Val>direct-with-normal-security</Val>
+      </DA>
+      <DA bType="VisString255" fc="EX" name="dataNs">
+        <Val>Sepam series 20/40/60/80</Val>
+      </DA>
+    </DOType>
+    <DOType cdc="DPC" id="PosStOnly_Sepam204080">
+      <DA bType="Dbpos" dchg="true" fc="ST" name="stVal"/>
+      <DA bType="Quality" fc="ST" name="q" qchg="true"/>
+      <DA bType="Timestamp" fc="ST" name="t"/>
+      <DA bType="Enum" fc="CF" name="ctlModel" type="ctlModel" valKind="RO">
+        <Val>status-only</Val>
+      </DA>
+    </DOType>
+    <DOType cdc="INS" id="CBOpCap_Sepam204080">
+      <DA bType="Enum" dchg="true" fc="ST" name="stVal" type="CBOpCap">
+        <Val>None</Val>
+      </DA>
+      <DA bType="Quality" fc="ST" name="q" qchg="true"/>
+      <DA bType="Timestamp" fc="ST" name="t"/>
+    </DOType>
+    <DOType cdc="INS" id="InsEx_Sepam204080">
+      <DA bType="INT32" dchg="true" fc="ST" name="stVal"/>
+      <DA bType="Quality" fc="ST" name="q" qchg="true"/>
+      <DA bType="Timestamp" fc="ST" name="t"/>
+      <DA bType="VisString255" fc="EX" name="dataNs">
+        <Val>Sepam series 20/40/60/80</Val>
+      </DA>
+    </DOType>
+    <DOType cdc="INS" id="Health_Sepam204080">
+      <DA bType="Enum" dchg="true" fc="ST" name="stVal" type="Health">
+        <Val>Ok</Val>
+      </DA>
+      <DA bType="Quality" fc="ST" name="q" qchg="true"/>
+      <DA bType="Timestamp" fc="ST" name="t"/>
+    </DOType>
+    <DOType cdc="WYE" id="WyeABC_Sepam204080">
+      <SDO name="phsA" type="Cmv_Sepam204080"/>
+      <SDO name="phsB" type="Cmv_Sepam204080"/>
+      <SDO name="phsC" type="Cmv_Sepam204080"/>
+    </DOType>
+    <DOType cdc="SEQ" id="Seq_Sepam204080">
+      <SDO name="c1" type="Cmv_Sepam204080"/>
+      <SDO name="c2" type="Cmv_Sepam204080"/>
+      <SDO name="c3" type="Cmv_Sepam204080"/>
+      <DA bType="Enum" fc="MX" name="seqT" type="seqT">
+        <Val>pos-neg-zero</Val>
+      </DA>
+    </DOType>
+    <DOType cdc="CMV" id="Cmv_Sepam204080">
+      <DA bType="Struct" dchg="true" fc="MX" name="cVal" type="cValSepam"/>
+      <DA bType="Quality" fc="MX" name="q" qchg="true"/>
+      <DA bType="Timestamp" fc="MX" name="t"/>
+      <DA bType="INT32U" fc="CF" name="db" valKind="RO"/>
+    </DOType>
+    <DOType cdc="LPL" id="LplLLN0_Sepam204080">
+      <DA bType="VisString255" fc="DC" name="vendor" valKind="RO">
+        <Val>Schneider Electric</Val>
+      </DA>
+      <DA bType="VisString255" fc="DC" name="swRev" valKind="RO"/>
+      <DA bType="VisString255" fc="DC" name="d" valKind="RO"/>
+      <DA bType="VisString255" fc="DC" name="configRev" valKind="RO"/>
+      <DA bType="VisString255" fc="EX" name="ldNs">
+        <Val>IEC 61850-7-4:2003</Val>
+      </DA>
+    </DOType>
+    <DOType cdc="INS" id="Beh_Sepam204080">
+      <DA bType="Enum" dchg="true" fc="ST" name="stVal" type="Beh">
+        <Val>off</Val>
+      </DA>
+      <DA bType="Quality" fc="ST" name="q" qchg="true"/>
+      <DA bType="Timestamp" fc="ST" name="t"/>
+    </DOType>
+    <DOType cdc="WYE" id="WyeAngABCnr_Sepam204080">
+      <SDO name="phsA" type="CmvAng_Sepam204080"/>
+      <SDO name="phsB" type="CmvAng_Sepam204080"/>
+      <SDO name="phsC" type="CmvAng_Sepam204080"/>
+      <SDO name="neut" type="CmvAng_Sepam204080"/>
+      <SDO name="res" type="CmvAng_Sepam204080"/>
+    </DOType>
+    <DOType cdc="SPC" id="SpcCoOnly_Sepam204080">
+      <DA bType="Struct" fc="CO" name="Oper" type="operSepam"/>
+      <DA bType="Enum" fc="CF" name="ctlModel" type="ctlModel" valKind="RO">
+        <Val>direct-with-normal-security</Val>
+      </DA>
+    </DOType>
+    <DOType cdc="DPC" id="Pos_Sepam204080_V003">
+      <DA bType="Struct" dchg="true" fc="ST" name="origin" type="originatorSepam"/>
+      <DA bType="Dbpos" dchg="true" fc="ST" name="stVal"/>
+      <DA bType="Quality" fc="ST" name="q" qchg="true"/>
+      <DA bType="Timestamp" fc="ST" name="t"/>
+      <DA bType="Struct" fc="CO" name="SBOw" type="operSepam"/>
+      <DA bType="Struct" fc="CO" name="Oper" type="operSepam"/>
+      <DA bType="Struct" fc="CO" name="Cancel" type="cancelSepam"/>
+      <DA bType="Enum" fc="CF" name="ctlModel" type="ctlModel" valKind="RO">
+        <Val>sbo-with-enhanced-security</Val>
+      </DA>
+      <DA bType="INT32U" fc="CF" name="sboTimeout" valKind="RO"/>
+      <DA bType="Enum" fc="CF" name="sboClass" type="sboClass" valKind="RO">
+        <Val>operate-once</Val>
+      </DA>
+    </DOType>
+    <DOType cdc="BCR" id="Bcr_Sepam204080">
+      <DA bType="INT128" dchg="true" fc="ST" name="actVal"/>
+      <DA bType="Quality" fc="ST" name="q" qchg="true"/>
+      <DA bType="Timestamp" fc="ST" name="t"/>
+      <DA bType="FLOAT32" fc="CF" name="pulsQty" valKind="RO">
+        <Val>1.0</Val>
+      </DA>
+    </DOType>
+    <DOType cdc="SPS" id="SpsEx_Sepam204080">
+      <DA bType="BOOLEAN" dchg="true" fc="ST" name="stVal"/>
+      <DA bType="Quality" fc="ST" name="q" qchg="true"/>
+      <DA bType="Timestamp" fc="ST" name="t"/>
+      <DA bType="VisString255" fc="EX" name="dataNs">
+        <Val>Sepam series 20/40/60/80</Val>
+      </DA>
+    </DOType>
+    <DOType cdc="INC" id="Mod_Sepam204080">
+      <DA bType="Enum" dchg="true" fc="ST" name="stVal" type="Beh">
+        <Val>off</Val>
+      </DA>
+      <DA bType="Quality" fc="ST" name="q" qchg="true"/>
+      <DA bType="Timestamp" fc="ST" name="t"/>
+      <DA bType="Enum" fc="CF" name="ctlModel" type="ctlModel" valKind="RO">
+        <Val>status-only</Val>
+      </DA>
+    </DOType>
+    <DOType cdc="CMV" id="CmvAng_Sepam204080">
+      <DA bType="Struct" dchg="true" fc="MX" name="cVal" type="cValAngSepam"/>
+      <DA bType="Quality" fc="MX" name="q" qchg="true"/>
+      <DA bType="Timestamp" fc="MX" name="t"/>
+      <DA bType="INT32U" fc="CF" name="db" valKind="RO"/>
+    </DOType>
+    <DOType cdc="SPS" id="Sps_Sepam204080">
+      <DA bType="BOOLEAN" dchg="true" fc="ST" name="stVal"/>
+      <DA bType="Quality" fc="ST" name="q" qchg="true"/>
+      <DA bType="Timestamp" fc="ST" name="t"/>
+    </DOType>
+    <DOType cdc="ACD" id="Acd_Sepam204080">
+      <DA bType="BOOLEAN" dchg="true" fc="ST" name="general"/>
+      <DA bType="Enum" dchg="true" fc="ST" name="dirGeneral" type="dir">
+        <Val>unknown</Val>
+      </DA>
+      <DA bType="Quality" fc="ST" name="q" qchg="true"/>
+      <DA bType="Timestamp" fc="ST" name="t"/>
+    </DOType>
+    <DAType id="originatorSepam">
+      <BDA bType="Enum" name="orCat" type="orCategory"/>
+      <BDA bType="Octet64" name="orIdent"/>
+    </DAType>
+    <DAType id="cValSepam">
+      <BDA bType="Struct" name="mag" type="analogValSepam"/>
+    </DAType>
+    <DAType id="cValAngSepam">
+      <BDA bType="Struct" name="mag" type="analogValSepam"/>
+      <BDA bType="Struct" name="ang" type="analogValSepam"/>
+    </DAType>
+    <DAType id="analogValSepam">
+      <BDA bType="FLOAT32" name="f"/>
+    </DAType>
+    <DAType id="cancelSepam">
+      <BDA bType="BOOLEAN" name="ctlVal"/>
+      <BDA bType="Struct" name="origin" type="originatorSepam"/>
+      <BDA bType="INT8U" name="ctlNum"/>
+      <BDA bType="Timestamp" name="T"/>
+      <BDA bType="BOOLEAN" name="Test"/>
+    </DAType>
+    <DAType id="operSepam">
+      <BDA bType="BOOLEAN" name="ctlVal"/>
+      <BDA bType="Struct" name="origin" type="originatorSepam"/>
+      <BDA bType="INT8U" name="ctlNum"/>
+      <BDA bType="Timestamp" name="T"/>
+      <BDA bType="BOOLEAN" name="Test"/>
+      <BDA bType="Check" name="Check"/>
+    </DAType>
+    <EnumType id="seqT">
+      <EnumVal ord="0">pos-neg-zero</EnumVal>
+      <EnumVal ord="1">dir-quad-zero</EnumVal>
+    </EnumType>
+    <EnumType id="sboClass">
+      <EnumVal ord="0">operate-once</EnumVal>
+      <EnumVal ord="1">operate-many</EnumVal>
+    </EnumType>
+    <EnumType id="CBOpCap">
+      <EnumVal ord="1">None</EnumVal>
+      <EnumVal ord="2">Open</EnumVal>
+      <EnumVal ord="3">Close-Open</EnumVal>
+      <EnumVal ord="4">Open-Close-Open</EnumVal>
+      <EnumVal ord="5">Close-Open-Close-Open</EnumVal>
+    </EnumType>
+    <EnumType id="dir">
+      <EnumVal ord="0">unknown</EnumVal>
+      <EnumVal ord="1">forward</EnumVal>
+      <EnumVal ord="2">backward</EnumVal>
+      <EnumVal ord="3">both</EnumVal>
+    </EnumType>
+    <EnumType id="ctlModel">
+      <EnumVal ord="0">status-only</EnumVal>
+      <EnumVal ord="1">direct-with-normal-security</EnumVal>
+      <EnumVal ord="2">sbo-with-normal-security</EnumVal>
+      <EnumVal ord="3">direct-with-enhanced-security</EnumVal>
+      <EnumVal ord="4">sbo-with-enhanced-security</EnumVal>
+    </EnumType>
+    <EnumType id="Health">
+      <EnumVal ord="1">Ok</EnumVal>
+      <EnumVal ord="2">Warning</EnumVal>
+      <EnumVal ord="3">Alarm</EnumVal>
+    </EnumType>
+    <EnumType id="Beh">
+      <EnumVal ord="1">on</EnumVal>
+      <EnumVal ord="2">blocked</EnumVal>
+      <EnumVal ord="3">test</EnumVal>
+      <EnumVal ord="4">test/blocked</EnumVal>
+      <EnumVal ord="5">off</EnumVal>
+    </EnumType>
+    <EnumType id="orCategory">
+      <EnumVal ord="0">not-supported</EnumVal>
+      <EnumVal ord="1">bay-control</EnumVal>
+      <EnumVal ord="2">station-control</EnumVal>
+      <EnumVal ord="3">remote-control</EnumVal>
+      <EnumVal ord="4">automatic-bay</EnumVal>
+      <EnumVal ord="5">automatic-station</EnumVal>
+      <EnumVal ord="6">automatic-remote</EnumVal>
+      <EnumVal ord="7">maintenance</EnumVal>
+      <EnumVal ord="8">process</EnumVal>
+    </EnumType>
+  </DataTypeTemplates>
+</SCL>
+

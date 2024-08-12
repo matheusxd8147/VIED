@@ -20,7 +20,7 @@ extern DataSet iedModelds_CFG_LLN0_DSet10;
 extern DataSet iedModelds_CFG_LLN0_DSet11;
 extern DataSet iedModelds_CFG_LLN0_DSet12;
 extern DataSet iedModelds_CFG_LLN0_DSet13;
-extern DataSet iedModelds_CFG_LLN0_GOOSE_ASSINANTE;
+extern DataSet iedModelds_CFG_LLN0_GOOSE_SUBSCRIBER;
 
 
 extern DataSetEntry iedModelds_CFG_LLN0_DSet01_fcda0;
@@ -4867,12 +4867,12 @@ DataSet iedModelds_CFG_LLN0_DSet13 = {
   "LLN0$DSet13",
   18,
   &iedModelds_CFG_LLN0_DSet13_fcda0,
-  &iedModelds_CFG_LLN0_GOOSE_ASSINANTE
+  &iedModelds_CFG_LLN0_GOOSE_SUBSCRIBER
 };
 
-extern DataSetEntry iedModelds_CFG_LLN0_GOOSE_ASSINANTE_fcda0;
+extern DataSetEntry iedModelds_CFG_LLN0_GOOSE_SUBSCRIBER_fcda0;
 
-DataSetEntry iedModelds_CFG_LLN0_GOOSE_ASSINANTE_fcda0 = {
+DataSetEntry iedModelds_CFG_LLN0_GOOSE_SUBSCRIBER_fcda0 = {
   "PRO",
   false,
   "TRIPPTRC1$ST$Tr$general", 
@@ -4882,11 +4882,11 @@ DataSetEntry iedModelds_CFG_LLN0_GOOSE_ASSINANTE_fcda0 = {
   NULL
 };
 
-DataSet iedModelds_CFG_LLN0_GOOSE_ASSINANTE = {
+DataSet iedModelds_CFG_LLN0_GOOSE_SUBSCRIBER = {
   "CFG",
-  "LLN0$GOOSE_ASSINANTE",
+  "LLN0$GOOSE_SUBSCRIBER",
   1,
-  &iedModelds_CFG_LLN0_GOOSE_ASSINANTE_fcda0,
+  &iedModelds_CFG_LLN0_GOOSE_SUBSCRIBER_fcda0,
   NULL
 };
 
@@ -116845,7 +116845,7 @@ static PhyComAddress iedModel_CFG_LLN0_gse0_address = {
   {0x1, 0xc, 0xcd, 0x1, 0x0, 0x6}
 };
 
-GSEControlBlock iedModel_CFG_LLN0_gse0 = {&iedModel_CFG_LLN0, "GOOSE_VIED_50_1", "VIED_50_1", "GOOSE_ASSINANTE", 1, false, &iedModel_CFG_LLN0_gse0_address, 4, 1000, NULL};
+GSEControlBlock iedModel_CFG_LLN0_gse0 = {&iedModel_CFG_LLN0, "GOOSE_VIED_50_1", "VIED_50_1", "GOOSE_SUBSCRIBER", 1, false, &iedModel_CFG_LLN0_gse0_address, 4, 1000, NULL};
 
 
 

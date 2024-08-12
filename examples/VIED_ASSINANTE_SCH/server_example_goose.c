@@ -473,11 +473,10 @@ gooseListener(GooseSubscriber subscriber, void* parameter)
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
         IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_PRO_BK1XCBR1_Pos_t, y);
         IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_t, y);
+
     }else{
         IedServer_updateDbposValue(iedServer, IEDMODEL_PRO_BK1XCBR1_Pos_stVal, DBPOS_ON);
-        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, false);
     }
-
 }
 
 int
