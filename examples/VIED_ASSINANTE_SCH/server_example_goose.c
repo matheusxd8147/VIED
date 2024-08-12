@@ -32,6 +32,8 @@ extern IedModel iedModel;
 bool contador = true;
 bool contador10 = true;
 bool contador9 = true;
+bool contador99 = true;
+bool contador100 = true;
 bool contador11 = true;
 bool contador7 = true;
 bool contador8 = true;
@@ -102,8 +104,8 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
         printf("Defina a corrente de Pick-Up:\n");
         scanf("%f", &pick_up);
         resposta = false;
-        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind10_stVal, false);
-        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind11_stVal, false);
+        //IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind10_stVal, false);
+        //IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind11_stVal, false);
         //exit(0);
     }
 
@@ -274,7 +276,7 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
             printf("   A corrente RMS da fase B no primário é: %.2f [A] %.1f°\n", corrente_primarioB, an[4] );
             printf("   A corrente RMS da fase C no primário é: %.2f [A] %.1f°\n", corrente_primarioC, an[5] );
             printf("-----------------------------------------------------\n");
-            IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_MET_METMMXU1_A_phsA_cVal_mag_f, corrente_primarioA);
+            /*IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_MET_METMMXU1_A_phsA_cVal_mag_f, corrente_primarioA);
             IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_MET_METMMXU1_A_phsB_cVal_mag_f, corrente_primarioB);
             IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_MET_METMMXU1_A_phsC_cVal_mag_f, corrente_primarioC);
             IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_MET_METMMXU1_PPV_phsAB_cVal_mag_f, tensao_primarioA);
@@ -285,7 +287,7 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
             IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_MET_METMMXU1_A_phsC_cVal_ang_f, an[5]);
             IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_MET_METMMXU1_PPV_phsAB_cVal_ang_f, an[0]);
             IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_MET_METMMXU1_PPV_phsBC_cVal_ang_f, an[1]);
-            IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_MET_METMMXU1_PPV_phsCA_cVal_ang_f, an[2]);
+            IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_MET_METMMXU1_PPV_phsCA_cVal_ang_f, an[2]);*/
             contadorSV3 = 0;
         }
 
@@ -317,23 +319,23 @@ controlHandlerForBinaryOutput(ControlAction action, void* parameter, MmsValue* v
             //IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind10_stVal, true);
             //IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind11_stVal, false);
 
-            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind11_stVal, true);
-            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind10_stVal, false);
+            /*IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind11_stVal, true);
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind10_stVal, false);*/
         }
         else{
             printf("off\n");
             //IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind11_stVal, true);
             //IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind10_stVal, false);
 
-            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind10_stVal, true);
-            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind11_stVal, false);
+            /*IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind10_stVal, true);
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind11_stVal, false);*/
 
         }
             
     }
     uint64_t timestamp = Hal_getTimeInMs();
 
-    if (parameter == IEDMODEL_CON_RBGGIO1_SPCSO01) {
+    /*if (parameter == IEDMODEL_LD0_LGP_GGIO1_SPCSO1) {
         IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_t, timestamp);
         IedServer_updateAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, value);
     }
@@ -368,10 +370,10 @@ controlHandlerForBinaryOutput(ControlAction action, void* parameter, MmsValue* v
         IedServer_updateAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO07_stVal, value);
     }
 
-    if (parameter == IEDMODEL_PRO_BKR1CSWI1_Pos) {
+    if (parameter == IEDMODEL_LD0_CSWI1_Pos) {
         //IedServer_getAttributeValue(iedServer, IEDMODEL_PRO_BKR1CSWI1_Pos_Oper_ctlVal);
         
-    }
+    }*/
 
 }
 
@@ -402,80 +404,24 @@ gooseListener(GooseSubscriber subscriber, void* parameter)
     uint64_t y = Hal_getTimeInMs();
 
     if(b!=116){
-        if (corrente_primarioA>pick_up){   
-                    printf("-------------------------------------------------------------------------------------------------------------\n");            
-                    printf("                         ATUAR FUNÇÃO 50: SOBRECORRENTE INSTANTÂNEA FASE A                                   \n");
-                    printf("-------------------------------------------------------------------------------------------------------------\n");
-                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind04_stVal, true);
-                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_P1TPIOC1_Str_general, true);
-                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true); 
-                    if (contador9 == true){
-                        gettimeofday( &tart_time, NULL );
-                        contador9 = false;
-                    }
-                    gettimeofday( &top_time, NULL );
-                    ime_diff = (float)(top_time.tv_sec - tart_time.tv_sec);
-                    ime_diff += (top_time.tv_usec - tart_time.tv_usec)/(float)MICRO_PER_SECOND;
-                    if ((ime_diff)>=0.250){
-                        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_BFR1RBRF1_OpEx_general, true);
-                    } 
+        if ((corrente_primarioA>pick_up)||(corrente_primarioB>pick_up)||(corrente_primarioC>pick_up)){   
+            IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_LD0_PTRC1_Tr_t, y);
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_LD0_PTRC1_Tr_general, true);
         }
-        if (corrente_primarioB>pick_up){
-                    printf("-------------------------------------------------------------------------------------------------------------\n");            
-                    printf("                         ATUAR FUNÇÃO 50: SOBRECORRENTE INSTANTÂNEA FASE B                                   \n");
-                    printf("-------------------------------------------------------------------------------------------------------------\n");
-                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind05_stVal, true);
-                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_P1TPIOC1_Str_general, true);
-                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
-                    if (contador10 == true){
-                        gettimeofday( &tart1_time, NULL );
-                        contador10 = false;
-                    }
-                    gettimeofday( &top1_time, NULL );
-                    ime_diff1 = (float)(top1_time.tv_sec - tart1_time.tv_sec);
-                    ime_diff1 += (top1_time.tv_usec - tart1_time.tv_usec)/(float)MICRO_PER_SECOND;
-                    if ((ime_diff1)>=0.250){
-                        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_BFR1RBRF1_OpEx_general, true);
-                    }
-        }
-        if (corrente_primarioC>pick_up){
-                    printf("-------------------------------------------------------------------------------------------------------------\n");            
-                    printf("                         ATUAR FUNÇÃO 50: SOBRECORRENTE INSTANTÂNEA FASE C                                   \n");
-                    printf("-------------------------------------------------------------------------------------------------------------\n");
-                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind06_stVal, true);
-                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_P1TPIOC1_Str_general, true);
-                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
-                    if (contador11 == true){
-                        gettimeofday( &tart2_time, NULL );
-                        contador11 = false;
-                    }
-                    gettimeofday( &top2_time, NULL );
-                    ime_diff2 = (float)(top2_time.tv_sec - tart2_time.tv_sec);
-                    ime_diff2 += (top2_time.tv_usec - tart2_time.tv_usec)/(float)MICRO_PER_SECOND;
-                    if ((ime_diff2)>=0.250){
-                        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_BFR1RBRF1_OpEx_general, true);
-                    }
-        }
+
         if ((corrente_primarioA<(pick_up*10/100))&&(corrente_primarioB<(pick_up*10/100))&&(corrente_primarioC<(pick_up*10/100))){
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, false);
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_BFR1RBRF1_OpEx_general, false);
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind04_stVal, false);
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind05_stVal, false);
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind06_stVal, false);
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_P1TPIOC1_Str_general, false);
-                contador9 = true;
-                contador10 = true;
-                contador11 = true;
+            IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_LD0_PTRC1_Tr_t, y);
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_LD0_PTRC1_Tr_general, false);
         }
     }
     if ((c==116)&&(d==116)){
-        IedServer_updateDbposValue(iedServer, IEDMODEL_PRO_BK1XCBR1_Pos_stVal, DBPOS_OFF);
-        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
-        IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_PRO_BK1XCBR1_Pos_t, y);
-        IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_t, y);
+        IedServer_updateDbposValue(iedServer, IEDMODEL_LD0_XCBR1_Pos_stVal, DBPOS_OFF);
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_LD0_PTRC1_Tr_general, true);
+        IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_LD0_XCBR1_Pos_t, y);
+        IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_LD0_PTRC1_Tr_t, y);
 
     }else{
-        IedServer_updateDbposValue(iedServer, IEDMODEL_PRO_BK1XCBR1_Pos_stVal, DBPOS_ON);
+        IedServer_updateDbposValue(iedServer, IEDMODEL_LD0_XCBR1_Pos_stVal, DBPOS_ON);
     }
 }
 
@@ -506,7 +452,7 @@ main(int argc, char** argv)
         printf("Using GOOSE interface for GenericIO/LLN0.gcbAnalogValues: %s\n", ethernetIfcID);
 
         /* set GOOSE interface for a particular GOOSE publisher (GCB) */
-        IedServer_setGooseInterfaceIdEx(iedServer, IEDMODEL_CFG_LLN0, "BRep0201", ethernetIfcID);
+        IedServer_setGooseInterfaceIdEx(iedServer, IEDMODEL_LD0_LLN0, "BRep0201", ethernetIfcID);
     }
 
     /*Preparando o código para receber mensagens SV*/
@@ -538,28 +484,28 @@ main(int argc, char** argv)
     /* MMS server will be instructed to start listening to client connections. */
     IedServer_start(iedServer, 102);
 
-    IedServer_setControlHandler(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01, (ControlHandler) controlHandlerForBinaryOutput,
-    IEDMODEL_CON_RBGGIO1_SPCSO01);
+    IedServer_setControlHandler(iedServer, IEDMODEL_LD0_LGP_GGIO1_SPCSO1, (ControlHandler) controlHandlerForBinaryOutput,
+    IEDMODEL_LD0_LGP_GGIO1_SPCSO1);
 
-    IedServer_setControlHandler(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02, (ControlHandler) controlHandlerForBinaryOutput,
-    IEDMODEL_CON_RBGGIO1_SPCSO02);
+    IedServer_setControlHandler(iedServer, IEDMODEL_LD0_LGP_GGIO1_SPCSO2, (ControlHandler) controlHandlerForBinaryOutput,
+    IEDMODEL_LD0_LGP_GGIO1_SPCSO2);
 
-    IedServer_setControlHandler(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO03, (ControlHandler) controlHandlerForBinaryOutput,
-    IEDMODEL_CON_RBGGIO1_SPCSO03);
+    IedServer_setControlHandler(iedServer, IEDMODEL_LD0_LGP_GGIO1_SPCSO3, (ControlHandler) controlHandlerForBinaryOutput,
+    IEDMODEL_LD0_LGP_GGIO1_SPCSO3);
 
-    IedServer_setControlHandler(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO04, (ControlHandler) controlHandlerForBinaryOutput,
-    IEDMODEL_CON_RBGGIO1_SPCSO04);
+    IedServer_setControlHandler(iedServer, IEDMODEL_LD0_LGP_GGIO1_SPCSO4, (ControlHandler) controlHandlerForBinaryOutput,
+    IEDMODEL_LD0_LGP_GGIO1_SPCSO4);
 
-    IedServer_setControlHandler(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO05, (ControlHandler) controlHandlerForBinaryOutput,
-    IEDMODEL_CON_RBGGIO1_SPCSO05);
+    IedServer_setControlHandler(iedServer, IEDMODEL_LD0_LGP_GGIO1_SPCSO5, (ControlHandler) controlHandlerForBinaryOutput,
+    IEDMODEL_LD0_LGP_GGIO1_SPCSO5);
 
-    IedServer_setControlHandler(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO06, (ControlHandler) controlHandlerForBinaryOutput,
-    IEDMODEL_CON_RBGGIO1_SPCSO06);
+    IedServer_setControlHandler(iedServer, IEDMODEL_LD0_LGP_GGIO1_SPCSO6, (ControlHandler) controlHandlerForBinaryOutput,
+    IEDMODEL_LD0_LGP_GGIO1_SPCSO6);
 
-    IedServer_setControlHandler(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO07, (ControlHandler) controlHandlerForBinaryOutput,
-    IEDMODEL_CON_RBGGIO1_SPCSO07);
+    IedServer_setControlHandler(iedServer, IEDMODEL_LD0_LGP_GGIO1_SPCSO7, (ControlHandler) controlHandlerForBinaryOutput,
+    IEDMODEL_LD0_LGP_GGIO1_SPCSO7);
 
-    IedServer_setControlHandler(iedServer, IEDMODEL_PRO_BKR1CSWI1_Pos, (ControlHandler) controlHandlerForBinaryOutput, IEDMODEL_PRO_BKR1CSWI1_Pos);
+    IedServer_setControlHandler(iedServer, IEDMODEL_LD0_CSWI1_Pos, (ControlHandler) controlHandlerForBinaryOutput, IEDMODEL_LD0_CSWI1_Pos);
 
     /*GooseReceiver_start(receiver);
     SVReceiver_start(receiverSV);*/
