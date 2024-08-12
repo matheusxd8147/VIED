@@ -184,22 +184,23 @@ main(int argc, char** argv)
             x = 2*M_PI*freq*tempo;
             tempo = (tempo + 0.0002083);
 
-            /*fVal1 = vpico*sin(x)*1000;
+            fVal1 = vpico*sin(x)*1000;
             fVal2 = vpico*sin(x + 4.18879)*1000;
-            fVal3 = vpico*sin(x + 2.0944)*1000;*/
+            fVal3 = vpico*sin(x + 2.0944)*1000; 
             /*fVal1 = vpico*sin(x+1.222)*1000;
             fVal2 = vpico*sin(x+1.222)*1000;
-            fVal3 = vpico*sin(x+1.222)*1000;
+            fVal3 = vpico*sin(x+1.222)*1000;*/
             fVal4 = tpico*sin(x)*100;
             fVal5 = tpico*sin(x+4.18879)*100;
-            fVal6 = tpico*sin(x+2.0944)*100;*/
+            fVal6 = tpico*sin(x+2.0944)*100;  
 
-            fVal1 = vpico*sin(x)*1000;
+            /*fVal1 = vpico*sin(x)*1000;
             fVal2 = 0;
             fVal3 = 0;
             fVal4 = tpico*sin(x)*100;
             fVal5 = 0;
-            fVal6 = 0;
+            fVal6 = 0;*/
+
 
             fVal7 = vpico*sin(x)*1000;
             fVal8 = tpico*sin(x)*100;
