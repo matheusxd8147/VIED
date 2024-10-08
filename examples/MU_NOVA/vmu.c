@@ -21,9 +21,7 @@
  *  See COPYING file for the complete license text.
  */
 
-#include "iec61850_client.h"
-#include "goose_receiver.h"
-#include "goose_subscriber.h"
+#include "goose_publisher.h"
 #include "iec61850_server.h"
 #include "sv_publisher.h"
 #include "hal_thread.h"
@@ -78,7 +76,7 @@ setupSVPublisher(const char* svInterface)
 
     if (svPublisher) {
 
-        asdu = SVPublisher_addASDU(svPublisher, "xxxxMUnn01", NULL, 1);
+        asdu = SVPublisher_addASDU(svPublisher, "VMU01", NULL, 1);
 
         amp1 = SVPublisher_ASDU_addINT32(asdu);
         amp1q = SVPublisher_ASDU_addQuality(asdu);
@@ -125,6 +123,8 @@ main(int argc, char** argv)
 
     IedServer iedServer = IedServer_create(&iedModel);
 
+    IedServer_enableGoosePublishing(iedServer);
+
     /* MMS server will be instructed to start listening to client connections. */
     IedServer_start(iedServer, 102);
 
@@ -142,7 +142,7 @@ main(int argc, char** argv)
 
     if (svPublisher) {
 
-        SVControlBlock* svcb = IedModel_getSVControlBlock(&iedModel, IEDMODEL_MUnn_LLN0, "MSVCB01");
+        SVControlBlock* svcb = IedModel_getSVControlBlock(&iedModel, IEDMODEL_Mod3_MU2_LLN0, "MSVCB01");
 
         if (svcb == NULL) {
             printf("Lookup svcb failed!\n");
@@ -191,23 +191,23 @@ main(int argc, char** argv)
 
             IedServer_lockDataModel(iedServer);
 
-            IedServer_updateInt32AttributeValue(iedServer, IEDMODEL_MUnn_TCTR1_Amp_instMag_i, currentA);
-            IedServer_updateQuality(iedServer, IEDMODEL_MUnn_TCTR1_Amp_q, q);
-            IedServer_updateInt32AttributeValue(iedServer, IEDMODEL_MUnn_TCTR2_Amp_instMag_i, currentB);
-            IedServer_updateQuality(iedServer, IEDMODEL_MUnn_TCTR2_Amp_q, q);
-            IedServer_updateInt32AttributeValue(iedServer, IEDMODEL_MUnn_TCTR3_Amp_instMag_i, currentC);
-            IedServer_updateQuality(iedServer, IEDMODEL_MUnn_TCTR3_Amp_q, q);
-            IedServer_updateInt32AttributeValue(iedServer, IEDMODEL_MUnn_TCTR4_Amp_instMag_i, currentN);
-            IedServer_updateQuality(iedServer, IEDMODEL_MUnn_TCTR4_Amp_q, q);
+            IedServer_updateInt32AttributeValue(iedServer, IEDMODEL_Mod3_MU2_I01ATCTR1_AmpSv_instMag_i, currentA);
+            IedServer_updateQuality(iedServer, IEDMODEL_Mod3_MU2_I01ATCTR1_AmpSv_q, q);
+            IedServer_updateInt32AttributeValue(iedServer, IEDMODEL_Mod3_MU2_I01BTCTR2_AmpSv_instMag_i, currentA);
+            IedServer_updateQuality(iedServer, IEDMODEL_Mod3_MU2_I01BTCTR2_AmpSv_q, q);
+            IedServer_updateInt32AttributeValue(iedServer, IEDMODEL_Mod3_MU2_I01CTCTR3_AmpSv_instMag_i, currentA);
+            IedServer_updateQuality(iedServer, IEDMODEL_Mod3_MU2_I01CTCTR3_AmpSv_q, q);
+            IedServer_updateInt32AttributeValue(iedServer, IEDMODEL_Mod3_MU2_I01NTCTR4_AmpSv_instMag_i, currentA);
+            IedServer_updateQuality(iedServer, IEDMODEL_Mod3_MU2_I01NTCTR4_AmpSv_q, q);
 
-            IedServer_updateInt32AttributeValue(iedServer, IEDMODEL_MUnn_TVTR1_Vol_instMag_i, voltageA);
-            IedServer_updateQuality(iedServer, IEDMODEL_MUnn_TVTR1_Vol_q, q);
-            IedServer_updateInt32AttributeValue(iedServer, IEDMODEL_MUnn_TVTR2_Vol_instMag_i, voltageB);
-            IedServer_updateQuality(iedServer, IEDMODEL_MUnn_TVTR2_Vol_q, q);
-            IedServer_updateInt32AttributeValue(iedServer, IEDMODEL_MUnn_TVTR3_Vol_instMag_i, voltageC);
-            IedServer_updateQuality(iedServer, IEDMODEL_MUnn_TVTR3_Vol_q, q);
-            IedServer_updateInt32AttributeValue(iedServer, IEDMODEL_MUnn_TVTR4_Vol_instMag_i, voltageN);
-            IedServer_updateQuality(iedServer, IEDMODEL_MUnn_TVTR4_Vol_q, q);
+            IedServer_updateInt32AttributeValue(iedServer, IEDMODEL_Mod3_MU2_U01ATVTR1_VolSv_instMag_i, voltageA);
+            IedServer_updateQuality(iedServer, IEDMODEL_Mod3_MU2_U01ATVTR1_VolSv_q, q);
+            IedServer_updateInt32AttributeValue(iedServer, IEDMODEL_Mod3_MU2_U01BTVTR2_VolSv_instMag_i, voltageB);
+            IedServer_updateQuality(iedServer, IEDMODEL_Mod3_MU2_U01BTVTR2_VolSv_q, q);
+            IedServer_updateInt32AttributeValue(iedServer, IEDMODEL_Mod3_MU2_U01CTVTR3_VolSv_instMag_i, voltageC);
+            IedServer_updateQuality(iedServer, IEDMODEL_Mod3_MU2_U01CTVTR3_VolSv_q, q);
+            IedServer_updateInt32AttributeValue(iedServer, IEDMODEL_Mod3_MU2_U01NTVTR4_VolSv_instMag_i, voltageN);
+            IedServer_updateQuality(iedServer, IEDMODEL_Mod3_MU2_U01NTVTR4_VolSv_q, q);
 
             IedServer_unlockDataModel(iedServer);
 

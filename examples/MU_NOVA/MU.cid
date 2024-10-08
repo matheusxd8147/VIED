@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SCL version="2007" revision="B" release="4" xmlns="http://www.iec.ch/61850/2003/SCL" xsi:schemaLocation="http://www.iec.ch/61850/2003/SCL SCL.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:IEC_60870_5_104="http://www.iec.ch/61850-80-1/2007/SCL" xmlns:siebase="http://www.siemens.com/energy/2009/09/siprotec5/SieBase" eIEC61850-6-100:version="2019" eIEC61850-6-100:revision="A" eIEC61850-6-100:release="8" xmlns:siedig="http://www.siemens.com/energy/2011/11/Siedig" xmlns:eIEC61850-6-100="http://www.iec.ch/61850/2019/SCL/6-100">
 	<Private type="Siemens-SclLib-V5-Version">V09.20.02.000</Private>
-	<Private type="Siemens-SclLib-V5-EditTime">07.10.2024 15:46:33</Private>
+	<Private type="Siemens-SclLib-V5-EditTime">08.10.2024 18:09:33</Private>
 	<Private type="Siemens-Configurator-Version">7.70.17</Private>
-	<Header id="MU" version="1" revision="15" toolID="IEC 61850 System Configurator, Version: 7.70.17" nameStructure="IEDName">
+	<Header id="MU" version="1" revision="19" toolID="IEC 61850 System Configurator, Version: 7.70.17" nameStructure="IEDName">
 		<Text>Cid-File for device: MU</Text>
 		<History>
-			<Hitem version="1" revision="15" when="Monday, October 7, 2024 3:46:33 PM" who="Licenced User:  GREI_PC Machine: DESKTOP-H81TBPD User: GREI_PC" what="Device MU is exported as Edition2B4 CID file." why="IEC 61850 System Configurator User Action" />
+			<Hitem version="1" revision="19" when="Tuesday, October 8, 2024 6:09:33 PM" who="Licenced User:  Grei_PC Machine: DESKTOP-G8SGRTC User: Grei_PC" what="Device MU is exported as Edition2B4 CID file." why="IEC 61850 System Configurator User Action" />
 		</History>
 	</Header>
 	<Communication>
@@ -23,24 +23,6 @@
 					<P type="OSI-SSEL">0001</P>
 					<P type="OSI-TSEL">0001</P>
 				</Address>
-				<GSE ldInst="BinIO_BinaryInputs" cbName="Control_DataSet">
-					<Address>
-						<P type="VLAN-ID" xsi:type="tP_VLAN-ID">005</P>
-						<P type="VLAN-PRIORITY" xsi:type="tP_VLAN-PRIORITY">4</P>
-						<P type="MAC-Address" xsi:type="tP_MAC-Address">01-0C-CD-01-00-00</P>
-						<P type="APPID" xsi:type="tP_APPID">0001</P>
-					</Address>
-					<MinTime unit="s" multiplier="m">1</MinTime>
-					<MaxTime unit="s" multiplier="m">1000</MaxTime>
-				</GSE>
-				<SMV ldInst="Mod3_MU1" cbName="MSVCB03">
-					<Address>
-						<P type="VLAN-ID" xsi:type="tP_VLAN-ID">009</P>
-						<P type="VLAN-PRIORITY" xsi:type="tP_VLAN-PRIORITY">4</P>
-						<P type="MAC-Address" xsi:type="tP_MAC-Address">01-0C-CD-04-00-00</P>
-						<P type="APPID" xsi:type="tP_APPID">4001</P>
-					</Address>
-				</SMV>
 				<SMV ldInst="Mod3_MU2" cbName="MSVCB01">
 					<Address>
 						<P type="VLAN-ID" xsi:type="tP_VLAN-ID">009</P>
@@ -49,30 +31,6 @@
 						<P type="APPID" xsi:type="tP_APPID">4000</P>
 					</Address>
 				</SMV>
-			</ConnectedAP>
-			<ConnectedAP iedName="VIRTUAL_1" apName="P1">
-				<Address>
-					<P type="IP" xsi:type="tP_IP">10.102.77.48</P>
-					<P type="OSI-TSEL" xsi:type="tP_OSI-TSEL">0001</P>
-					<P type="OSI-SSEL" xsi:type="tP_OSI-SSEL">0001</P>
-					<P type="OSI-PSEL" xsi:type="tP_OSI-PSEL">00000001</P>
-					<P type="OSI-AP-Title" xsi:type="tP_OSI-AP-Title">1,1,1,999,1</P>
-					<P type="OSI-AP-Invoke" xsi:type="tP_OSI-AP-Invoke">0</P>
-					<P type="OSI-AE-Qualifier" xsi:type="tP_OSI-AE-Qualifier">12</P>
-					<P type="OSI-AE-Invoke" xsi:type="tP_OSI-AE-Invoke">0</P>
-					<P type="IP-SUBNET" xsi:type="tP_IP-SUBNET">255.255.254.0</P>
-					<P type="IP-GATEWAY" xsi:type="tP_IP-GATEWAY">10.102.76.1</P>
-				</Address>
-				<GSE ldInst="CFG" cbName="GOOSE_SL_1">
-					<Address>
-						<P type="MAC-Address" xsi:type="tP_MAC-Address">01-0C-CD-01-00-04</P>
-						<P type="APPID" xsi:type="tP_APPID">0004</P>
-						<P type="VLAN-ID" xsi:type="tP_VLAN-ID">007</P>
-						<P type="VLAN-PRIORITY" xsi:type="tP_VLAN-PRIORITY">4</P>
-					</Address>
-					<MinTime unit="s" multiplier="m">4</MinTime>
-					<MaxTime unit="s" multiplier="m">1000</MaxTime>
-				</GSE>
 			</ConnectedAP>
 		</SubNetwork>
 	</Communication>
@@ -86,9 +44,7 @@
 		<Private type="Siemens-Siprotec5-Configuration-Version">V09.71.01</Private>
 		<Private type="Siemens-IsSiprotec5IED" />
 		<Private type="Siemens-IED-Id">974c8526-54ca-4849-8f64-681fa6f53f96</Private>
-		<Private type="Siemens-NoOfSmvsConfigured">10</Private>
-		<Private type="Siemens-ModifiedDate">06/25/2024 20:02:00</Private>
-		<Private type="Siemens-ModificationCounter">6</Private>
+		<Private type="Siemens-NoOfSmvsConfigured">1</Private>
 		<Private type="Siemens-CID-MainIED" />
 		<Services nameLength="64">
 			<ClientServices goose="true" gsse="false" bufReport="false" unbufReport="false" readLog="false" sv="false" supportsLdName="true" maxGOOSE="128" rGOOSE="false" rSV="false" noIctBinding="false">
@@ -127,20 +83,15 @@
 				<SamplesPerSec>14400</SamplesPerSec>
 				<SamplesPerSec>15360</SamplesPerSec>
 			</SMVSettings>
-			<SMVsc max="2" delivery="multicast" deliveryConf="false" sv="true" rSV="false" />
+			<SMVsc max="1" delivery="multicast" deliveryConf="false" sv="true" rSV="false" />
 		</Services>
 		<AccessPoint desc="Port E" name="E" router="false" clock="false">
 			<Server timeout="0">
-				<Private type="Siemens-MasterId">922a3d0f-513a-41dc-860d-88be268ccb89</Private>
 				<Authentication none="true" />
 				<LDevice desc="Aplicação" inst="Application">
 					<Private type="Siemens-MasterId">5ec2591b-28d1-46c6-8786-f49a306d19e2</Private>
 					<LN0 lnClass="LLN0" inst="" lnType="SIPROTEC5_LNType_LLN0_Application" desc="Geral">
 						<Private type="Siemens-MasterId">e55b177b-754b-4228-8c6a-cb4a3783fffd</Private>
-						<DataSet name="DataSet">
-							<FCDA ldInst="BinIO" prefix="" lnClass="LLN0" doName="Beh" fc="ST" />
-							<FCDA ldInst="BinIO_BinaryInputs" prefix="" lnClass="LLN0" doName="Beh" fc="ST" />
-						</DataSet>
 						<ReportControl rptID="MUApplication/LLN0$RP$A_URCB" confRev="1" buffered="false" name="A_URCB">
 							<Private type="Siemens-Siprotec5-IsPredefined" />
 							<OptFields />
@@ -608,13 +559,6 @@
 					<Private type="Siemens-MasterId">40630a50-a466-42cc-88f0-197e2e037d8b</Private>
 					<LN0 lnClass="LLN0" inst="" lnType="SIPROTEC5_LNType_LLN0_LDevice_Generic_Ctrl" desc="Geral">
 						<Private type="Siemens-MasterId">27287642-d324-4158-92fd-7d1d5e59688e</Private>
-						<DataSet name="DataSet">
-							<Private type="Siemens-GUID">7182e4975b87408bbc855b140f52709c</Private>
-							<FCDA ldInst="BinIO_BinaryInputs" prefix="" lnClass="LPDI" lnInst="3" doName="In" daName="stVal" fc="ST" />
-							<FCDA ldInst="BinIO_BinaryInputs" prefix="" lnClass="LPDI" lnInst="3" doName="In" daName="q" fc="ST" />
-							<FCDA ldInst="BinIO_BinaryInputs" prefix="" lnClass="LPDI" lnInst="4" doName="In" daName="stVal" fc="ST" />
-							<FCDA ldInst="BinIO_BinaryInputs" prefix="" lnClass="LPDI" lnInst="4" doName="In" daName="q" fc="ST" />
-						</DataSet>
 						<DOI name="Mod" desc="Modo (controlável)" />
 						<DOI name="Beh" desc="Estado" />
 						<DOI name="Health" desc="Prontidão" />
@@ -633,7 +577,6 @@
 								<Val>on</Val>
 							</DAI>
 						</DOI>
-						<GSEControl datSet="DataSet" confRev="10001" type="GOOSE" appID="MU/BinIO_BinaryInputs/LLN0/Control_DataSet" name="Control_DataSet" />
 					</LN0>
 					<LN prefix="" lnClass="LPDI" inst="3" lnType="SIPROTEC5_LNType_LPDI_BinaryInput" desc="Binary input  1.3">
 						<Private type="Siemens-MasterId">ea69b887-ae34-484f-a025-e7d95bd92e2c</Private>
@@ -785,24 +728,24 @@
 							</DAI>
 						</DOI>
 						<Inputs>
-							<ExtRef desc="RxTr" iedName="VIRTUAL_1" ldInst="PRO" prefix="TRIP" lnClass="PTRC" lnInst="1" doName="Tr" daName="general" intAddr="RxTr;/Op/general" serviceType="GOOSE" srcLDInst="CFG" srcLNClass="LLN0" srcCBName="GOOSE_SL_1" pServT="GOOSE" pDO="Op" pDA="general" />
+							<ExtRef desc="RxTr" intAddr="RxTr;/Op/general" pServT="GOOSE" pDO="Op" pDA="general" />
 							<ExtRef desc="RxTr" intAddr="RxTr;/Op/phsA" pServT="GOOSE" pDO="Op" pDA="phsA" />
 							<ExtRef desc="RxTr" intAddr="RxTr;/Op/phsB" pServT="GOOSE" pDO="Op" pDA="phsB" />
 							<ExtRef desc="RxTr" intAddr="RxTr;/Op/phsC" pServT="GOOSE" pDO="Op" pDA="phsC" />
 							<ExtRef desc="RxTr" intAddr="RxTr;/Op/neut" pServT="GOOSE" pDO="Op" pDA="neut" />
 							<ExtRef desc="RxTr" intAddr="RxTr;/Op/q" pServT="GOOSE" pDO="Op" pDA="q" />
 							<ExtRef desc="RxTr" intAddr="RxTr;/Op/t" pServT="GOOSE" pDO="Op" pDA="t" />
-							<ExtRef desc="RxOpEx" iedName="VIRTUAL_1" ldInst="PRO" prefix="BFR1" lnClass="RBRF" lnInst="1" doName="OpEx" daName="general" intAddr="RxOpEx;/Op/general" serviceType="GOOSE" srcLDInst="CFG" srcLNClass="LLN0" srcCBName="GOOSE_SL_1" pServT="GOOSE" pDO="Op" pDA="general" />
+							<ExtRef desc="RxOpEx" intAddr="RxOpEx;/Op/general" pServT="GOOSE" pDO="Op" pDA="general" />
 							<ExtRef desc="RxOpEx" intAddr="RxOpEx;/Op/phsA" pServT="GOOSE" pDO="Op" pDA="phsA" />
 							<ExtRef desc="RxOpEx" intAddr="RxOpEx;/Op/phsB" pServT="GOOSE" pDO="Op" pDA="phsB" />
 							<ExtRef desc="RxOpEx" intAddr="RxOpEx;/Op/phsC" pServT="GOOSE" pDO="Op" pDA="phsC" />
 							<ExtRef desc="RxOpEx" intAddr="RxOpEx;/Op/neut" pServT="GOOSE" pDO="Op" pDA="neut" />
 							<ExtRef desc="RxOpEx" intAddr="RxOpEx;/Op/q" pServT="GOOSE" pDO="Op" pDA="q" />
 							<ExtRef desc="RxOpEx" intAddr="RxOpEx;/Op/t" pServT="GOOSE" pDO="Op" pDA="t" />
-							<ExtRef desc="RxInd10" iedName="VIRTUAL_1" ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind10" daName="stVal" intAddr="RxInd10;/Ind/stVal" serviceType="GOOSE" srcLDInst="CFG" srcLNClass="LLN0" srcCBName="GOOSE_SL_1" pServT="GOOSE" pDO="Ind" pDA="stVal" />
+							<ExtRef desc="RxInd10" intAddr="RxInd10;/Ind/stVal" pServT="GOOSE" pDO="Ind" pDA="stVal" />
 							<ExtRef desc="RxInd10" intAddr="RxInd10;/Ind/q" pServT="GOOSE" pDO="Ind" pDA="q" />
 							<ExtRef desc="RxInd10" intAddr="RxInd10;/Ind/t" pServT="GOOSE" pDO="Ind" pDA="t" />
-							<ExtRef desc="RxInd11" iedName="VIRTUAL_1" ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind11" daName="stVal" intAddr="RxInd11;/Ind/stVal" serviceType="GOOSE" srcLDInst="CFG" srcLNClass="LLN0" srcCBName="GOOSE_SL_1" pServT="GOOSE" pDO="Ind" pDA="stVal" />
+							<ExtRef desc="RxInd11" intAddr="RxInd11;/Ind/stVal" pServT="GOOSE" pDO="Ind" pDA="stVal" />
 							<ExtRef desc="RxInd11" intAddr="RxInd11;/Ind/q" pServT="GOOSE" pDO="Ind" pDA="q" />
 							<ExtRef desc="RxInd11" intAddr="RxInd11;/Ind/t" pServT="GOOSE" pDO="Ind" pDA="t" />
 						</Inputs>
@@ -859,11 +802,7 @@
 						<DOI name="SimSt" desc="Status Sim messages" />
 						<DOI name="ConfRevNum" desc="Exp. conf. rev." />
 						<DOI name="RxConfRevNum" desc="Rec. conf. rev." />
-						<DOI name="GoCBRef" desc="Ref. GOOSE CB">
-							<DAI name="setSrcRef" valImport="true">
-								<Val />
-							</DAI>
-						</DOI>
+						<DOI name="GoCBRef" desc="Ref. GOOSE CB" />
 						<DOI name="RxSPS1" desc="RxSPS1">
 							<DAI name="dataNs">
 								<Val>SIPROTEC5/userdefined</Val>
@@ -1997,119 +1936,12 @@
 						<DOI name="ChLiv" desc="Sinal de vida canal" />
 					</LN>
 				</LDevice>
-				<LDevice desc="E:ETH-BD-2FO_MU 1" inst="Mod3_MU1">
-					<Private type="Siemens-MasterId">091aad29-a717-4b50-96a9-673e816e0520</Private>
-					<LN0 lnClass="LLN0" inst="" lnType="SIPROTEC5_LNType_LLN0_LDevice_Generic_Ctrl" desc="Geral">
-						<Private type="Siemens-MasterId">fcc62b4e-779a-4456-aba6-c172b81fba89</Private>
-						<DataSet name="PhsMeas3">
-							<Private type="Siemens-GUID">3e7b62eb7f3545de95b2119e4cd1d305</Private>
-							<FCDA ldInst="Mod3_MU2" prefix="I01A" lnClass="TCTR" lnInst="1" doName="AmpSv" daName="instMag.i" fc="MX" />
-							<FCDA ldInst="Mod3_MU2" prefix="I01A" lnClass="TCTR" lnInst="1" doName="AmpSv" daName="q" fc="MX" />
-							<FCDA ldInst="Mod3_MU2" prefix="I01B" lnClass="TCTR" lnInst="2" doName="AmpSv" daName="instMag.i" fc="MX" />
-							<FCDA ldInst="Mod3_MU2" prefix="I01B" lnClass="TCTR" lnInst="2" doName="AmpSv" daName="q" fc="MX" />
-							<FCDA ldInst="Mod3_MU2" prefix="I01C" lnClass="TCTR" lnInst="3" doName="AmpSv" daName="instMag.i" fc="MX" />
-							<FCDA ldInst="Mod3_MU2" prefix="I01C" lnClass="TCTR" lnInst="3" doName="AmpSv" daName="q" fc="MX" />
-							<FCDA ldInst="Mod3_MU2" prefix="I01N" lnClass="TCTR" lnInst="4" doName="AmpSv" daName="instMag.i" fc="MX" />
-							<FCDA ldInst="Mod3_MU2" prefix="I01N" lnClass="TCTR" lnInst="4" doName="AmpSv" daName="q" fc="MX" />
-							<FCDA ldInst="Mod3_MU2" prefix="U01A" lnClass="TVTR" lnInst="1" doName="VolSv" daName="instMag.i" fc="MX" />
-							<FCDA ldInst="Mod3_MU2" prefix="U01A" lnClass="TVTR" lnInst="1" doName="VolSv" daName="q" fc="MX" />
-							<FCDA ldInst="Mod3_MU2" prefix="U01B" lnClass="TVTR" lnInst="2" doName="VolSv" daName="instMag.i" fc="MX" />
-							<FCDA ldInst="Mod3_MU2" prefix="U01B" lnClass="TVTR" lnInst="2" doName="VolSv" daName="q" fc="MX" />
-							<FCDA ldInst="Mod3_MU2" prefix="U01C" lnClass="TVTR" lnInst="3" doName="VolSv" daName="instMag.i" fc="MX" />
-							<FCDA ldInst="Mod3_MU2" prefix="U01C" lnClass="TVTR" lnInst="3" doName="VolSv" daName="q" fc="MX" />
-							<FCDA ldInst="Mod3_MU2" prefix="U01N" lnClass="TVTR" lnInst="4" doName="VolSv" daName="instMag.i" fc="MX" />
-							<FCDA ldInst="Mod3_MU2" prefix="U01N" lnClass="TVTR" lnInst="4" doName="VolSv" daName="q" fc="MX" />
-						</DataSet>
-						<DOI name="Mod" desc="Modo (controlável)" />
-						<DOI name="Beh" desc="Estado" />
-						<DOI name="Health" desc="Prontidão" />
-						<DOI name="NamPlt" desc="Designação">
-							<DAI name="ldNs">
-								<Val>IEC 61850-7-4:2007B</Val>
-							</DAI>
-						</DOI>
-						<DOI name="GrRef" desc="GrRef">
-							<DAI name="setSrcRef">
-								<Val>@Mod3</Val>
-							</DAI>
-						</DOI>
-						<DOI name="SetMod" desc="Modo">
-							<DAI name="setVal">
-								<Val>on</Val>
-							</DAI>
-						</DOI>
-						<SampledValueControl datSet="PhsMeas3" confRev="50001" smvID="ST01" multicast="true" smpRate="4800" nofASDU="2" smpMod="SmpPerSec" name="MSVCB03">
-							<Private type="Siemens-DirectionIN">IN = +3I0</Private>
-							<SmvOpts refreshTime="false" sampleSynchronized="true" sampleRate="false" dataSet="false" security="false" synchSourceId="true" />
-						</SampledValueControl>
-					</LN0>
-					<LN prefix="" lnClass="LPHD" inst="1" lnType="SIPROTEC5_LNType_LPHD_LD_PBMergingUnit" desc="Device MU">
-						<Private type="Siemens-MasterId">8ec33a4d-1670-4bc3-af31-0ff7fc48124a</Private>
-						<DOI name="NamPlt" desc="Designação">
-							<DAI name="configRev">
-								<Val>2024-06-06 13:55:33</Val>
-							</DAI>
-							<DAI name="lnNs">
-								<Val>IEC 61869-9:2016A</Val>
-							</DAI>
-						</DOI>
-						<DOI name="PhyNam" desc="Nome fís. dispositivo">
-							<DAI name="vendor">
-								<Val>SIEMENS</Val>
-							</DAI>
-							<DAI name="d">
-								<Val>SIEMENS SIPROTEC 5 Merging unit</Val>
-							</DAI>
-						</DOI>
-						<DOI name="PhyHealth" desc="Status do dispositivo" />
-						<DOI name="Proxy" desc="Proxy" />
-						<DOI name="NamVariant" desc="NamVariant">
-							<DAI name="val">
-								<Val>F4000S1I0-24U0-24;F4800S1-2I0-24U0-24;F12800S8I0-16U0-16;F14400S6I0-24U0-24;F15360S8I0-16U0-16;</Val>
-							</DAI>
-						</DOI>
-						<DOI name="NamHzRtg" desc="NamHzRtg">
-							<DAI name="val">
-								<Val>50;60</Val>
-							</DAI>
-						</DOI>
-						<DOI name="NamHoldRtg" desc="NamHoldRtg">
-							<DAI name="val">
-								<Val>0-3600</Val>
-							</DAI>
-						</DOI>
-						<DOI name="NamMaxDlRtg" desc="NamMaxDlRtg">
-							<DAI name="val">
-								<Val>1150</Val>
-							</DAI>
-						</DOI>
-						<DOI name="MaxDl" desc="Max.delay time of samples">
-							<DAI name="setVal">
-								<Val>1150</Val>
-							</DAI>
-							<DAI name="maxVal">
-								<Val>2147483647</Val>
-							</DAI>
-							<DAI name="stepSize">
-								<Val>1</Val>
-							</DAI>
-							<SDI name="units">
-								<DAI name="SIUnit">
-									<Val>s</Val>
-								</DAI>
-								<DAI name="multiplier">
-									<Val>µ</Val>
-								</DAI>
-							</SDI>
-						</DOI>
-					</LN>
-				</LDevice>
 				<LDevice desc="E:ETH-BD-2FO_MU 2" inst="Mod3_MU2">
 					<Private type="Siemens-MasterId">e2e4cae8-9f7f-489f-9cdf-4167f284ed60</Private>
 					<LN0 lnClass="LLN0" inst="" lnType="SIPROTEC5_LNType_LLN0_LDevice_Generic_Ctrl" desc="Geral">
 						<Private type="Siemens-MasterId">ae1c58e2-4ce3-453a-955b-618f246c74e9</Private>
 						<DataSet name="PhsMeas1">
-							<Private type="Siemens-GUID">42dddcabfd3a4fabbc3c56ccb15ee662</Private>
+							<Private type="Siemens-GUID">e9e39718783846a9a9182b2edde43480</Private>
 							<FCDA ldInst="Mod3_MU2" prefix="I01A" lnClass="TCTR" lnInst="1" doName="AmpSv" daName="instMag.i" fc="MX" />
 							<FCDA ldInst="Mod3_MU2" prefix="I01A" lnClass="TCTR" lnInst="1" doName="AmpSv" daName="q" fc="MX" />
 							<FCDA ldInst="Mod3_MU2" prefix="I01B" lnClass="TCTR" lnInst="2" doName="AmpSv" daName="instMag.i" fc="MX" />
@@ -3891,202 +3723,6 @@
 			</Server>
 		</AccessPoint>
 	</IED>
-	<IED name="VIRTUAL_1" originalSclVersion="2007" originalSclRevision="B">
-		<Private type="Siemens-IED-Id">VIRTUAL_1</Private>
-		<Private type="Siemens-ModifiedDate">06/25/2024 20:07:16</Private>
-		<Private type="Siemens-ModificationCounter">6</Private>
-		<Services>
-			<DynAssociation />
-			<GetDirectory />
-			<GetDataObjectDefinition />
-			<DataObjectDirectory />
-			<GetDataSetValue />
-			<SetDataSetValue />
-			<DataSetDirectory />
-			<ConfDataSet max="14" modify="false" />
-			<DynDataSet max="42" />
-			<ReadWrite />
-			<ConfReportControl max="12" />
-			<GetCBValues />
-			<ReportSettings rptID="Dyn" optFields="Dyn" bufTime="Dyn" trgOps="Dyn" intgPd="Dyn" />
-			<ConfLNs fixPrefix="true" fixLnInst="true" />
-			<GOOSE max="2" />
-			<GSSE max="0" />
-			<FileHandling />
-			<ClientServices goose="true" gsse="true" />
-		</Services>
-		<AccessPoint name="P1">
-			<Server>
-				<Authentication none="true" />
-				<LDevice inst="ANN">
-					<LN0 lnClass="LLN0" inst="" lnType="VIRTUAL_1ANN.LLN0">
-						<DOI name="Mod">
-							<DAI name="ctlModel">
-								<Val>status-only</Val>
-							</DAI>
-						</DOI>
-						<DOI name="NamPlt">
-							<DAI name="vendor">
-								<Val>SEL</Val>
-							</DAI>
-							<DAI name="swRev">
-								<Val />
-							</DAI>
-							<DAI name="d">
-								<Val>Annunciators</Val>
-							</DAI>
-							<DAI name="configRev">
-								<Val>0</Val>
-							</DAI>
-							<DAI name="ldNs">
-								<Val>IEC61850-7-4:2003</Val>
-							</DAI>
-						</DOI>
-					</LN0>
-					<LN prefix="SV" lnClass="GGIO" inst="3" lnType="VIRTUAL_1ANN.LTGGIO5">
-						<DOI name="Mod">
-							<DAI name="ctlModel">
-								<Val>status-only</Val>
-							</DAI>
-						</DOI>
-						<DOI name="NamPlt">
-							<DAI name="vendor">
-								<Val>SEL</Val>
-							</DAI>
-							<DAI name="swRev">
-								<Val />
-							</DAI>
-							<DAI name="d">
-								<Val>Annunciators</Val>
-							</DAI>
-							<DAI name="configRev">
-								<Val />
-							</DAI>
-						</DOI>
-					</LN>
-				</LDevice>
-				<LDevice inst="CFG">
-					<LN0 lnClass="LLN0" inst="" lnType="VIRTUAL_1ANN.LLN0">
-						<DataSet name="GOOSE_EDITOR">
-							<Private type="Siemens-GUID">e07bebdf3b704a4892375427efb05d90</Private>
-							<FCDA ldInst="PRO" prefix="TRIP" lnClass="PTRC" lnInst="1" doName="Tr" daName="general" fc="ST" />
-							<FCDA ldInst="PRO" prefix="BFR1" lnClass="RBRF" lnInst="1" doName="OpEx" daName="general" fc="ST" />
-							<FCDA ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind10" daName="stVal" fc="ST" />
-							<FCDA ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind11" daName="stVal" fc="ST" />
-						</DataSet>
-						<DOI name="Mod">
-							<DAI name="ctlModel">
-								<Val>status-only</Val>
-							</DAI>
-						</DOI>
-						<DOI name="NamPlt">
-							<DAI name="vendor">
-								<Val>SEL</Val>
-							</DAI>
-							<DAI name="swRev">
-								<Val />
-							</DAI>
-							<DAI name="d">
-								<Val />
-							</DAI>
-							<DAI name="configRev">
-								<Val>0</Val>
-							</DAI>
-							<DAI name="ldNs">
-								<Val>IEC61850-7-4:2003</Val>
-							</DAI>
-						</DOI>
-						<GSEControl datSet="GOOSE_EDITOR" confRev="1" type="GOOSE" appID="VIRTUAL_1" name="GOOSE_SL_1">
-							<IEDName apRef="E">MU</IEDName>
-						</GSEControl>
-					</LN0>
-				</LDevice>
-				<LDevice inst="PRO">
-					<LN0 lnClass="LLN0" inst="" lnType="VIRTUAL_1ANN.LLN0">
-						<DOI name="Mod">
-							<DAI name="ctlModel">
-								<Val>status-only</Val>
-							</DAI>
-						</DOI>
-						<DOI name="NamPlt">
-							<DAI name="vendor">
-								<Val>SEL</Val>
-							</DAI>
-							<DAI name="swRev">
-								<Val />
-							</DAI>
-							<DAI name="d">
-								<Val>Protection</Val>
-							</DAI>
-							<DAI name="configRev">
-								<Val>0</Val>
-							</DAI>
-							<DAI name="ldNs">
-								<Val>IEC61850-7-4:2003</Val>
-							</DAI>
-						</DOI>
-					</LN0>
-					<LN prefix="BFR1" lnClass="RBRF" inst="1" lnType="VIRTUAL_1PRO.BFR1RBRF1">
-						<DOI name="Mod">
-							<DAI name="ctlModel">
-								<Val>status-only</Val>
-							</DAI>
-						</DOI>
-						<DOI name="NamPlt">
-							<DAI name="vendor">
-								<Val>SEL</Val>
-							</DAI>
-							<DAI name="swRev">
-								<Val />
-							</DAI>
-							<DAI name="d">
-								<Val>Protection</Val>
-							</DAI>
-							<DAI name="configRev">
-								<Val />
-							</DAI>
-						</DOI>
-						<DOI name="Str">
-							<DAI name="d">
-								<Val />
-							</DAI>
-						</DOI>
-						<DOI name="OpEx">
-							<DAI name="d">
-								<Val />
-							</DAI>
-						</DOI>
-					</LN>
-					<LN prefix="TRIP" lnClass="PTRC" inst="1" lnType="VIRTUAL_1PRO.TRIPPTRC1">
-						<DOI name="Mod">
-							<DAI name="ctlModel">
-								<Val>status-only</Val>
-							</DAI>
-						</DOI>
-						<DOI name="NamPlt">
-							<DAI name="vendor">
-								<Val>SEL</Val>
-							</DAI>
-							<DAI name="swRev">
-								<Val />
-							</DAI>
-							<DAI name="d">
-								<Val>Protection</Val>
-							</DAI>
-							<DAI name="configRev">
-								<Val />
-							</DAI>
-						</DOI>
-						<DOI name="Tr">
-							<DAI name="d">
-								<Val />
-							</DAI>
-						</DOI>
-					</LN>
-				</LDevice>
-			</Server>
-		</AccessPoint>
-	</IED>
 	<DataTypeTemplates>
 		<LNodeType id="SIPROTEC5_LNType_LLN0_Application" lnClass="LLN0">
 			<DO name="Mod" type="SIPROTEC5_DOType_Mod_controllable_OnBlockedTestTestBlocked_with_InitVal_V09.71.01_V09.71.01" />
@@ -4359,65 +3995,6 @@
 			<DO name="RcdMade" type="SIPROTEC5_DOType_SPS_V09.71.01_V09.71.01" />
 			<DO name="FltNum" type="SIPROTEC5_DOType_INS_V09.71.01_V09.71.01" />
 			<DO name="RcdStr" type="SIPROTEC5_DOType_SPS_V09.71.01_V09.71.01" />
-		</LNodeType>
-		<LNodeType id="VIRTUAL_1ANN.LTGGIO5" lnClass="GGIO">
-			<DO name="Mod" type="VIRTUAL_1ANN.LLN0.Mod" />
-			<DO name="Beh" type="VIRTUAL_1ANN.LLN0.Beh" />
-			<DO name="Health" type="VIRTUAL_1ANN.LLN0.Health" />
-			<DO name="Ind01" type="VIRTUAL_1ANN.DevIDLPHD1.Proxy" />
-			<DO name="Ind02" type="VIRTUAL_1ANN.DevIDLPHD1.Proxy" />
-			<DO name="Ind03" type="VIRTUAL_1ANN.DevIDLPHD1.Proxy" />
-			<DO name="Ind04" type="VIRTUAL_1ANN.DevIDLPHD1.Proxy" />
-			<DO name="Ind05" type="VIRTUAL_1ANN.DevIDLPHD1.Proxy" />
-			<DO name="Ind06" type="VIRTUAL_1ANN.DevIDLPHD1.Proxy" />
-			<DO name="Ind07" type="VIRTUAL_1ANN.DevIDLPHD1.Proxy" />
-			<DO name="Ind08" type="VIRTUAL_1ANN.DevIDLPHD1.Proxy" />
-			<DO name="Ind09" type="VIRTUAL_1ANN.DevIDLPHD1.Proxy" />
-			<DO name="Ind10" type="VIRTUAL_1ANN.DevIDLPHD1.Proxy" />
-			<DO name="Ind11" type="VIRTUAL_1ANN.DevIDLPHD1.Proxy" />
-			<DO name="Ind12" type="VIRTUAL_1ANN.DevIDLPHD1.Proxy" />
-			<DO name="Ind13" type="VIRTUAL_1ANN.DevIDLPHD1.Proxy" />
-			<DO name="Ind14" type="VIRTUAL_1ANN.DevIDLPHD1.Proxy" />
-			<DO name="Ind15" type="VIRTUAL_1ANN.DevIDLPHD1.Proxy" />
-			<DO name="Ind16" type="VIRTUAL_1ANN.DevIDLPHD1.Proxy" />
-			<DO name="Ind17" type="VIRTUAL_1ANN.DevIDLPHD1.Proxy" />
-			<DO name="Ind18" type="VIRTUAL_1ANN.DevIDLPHD1.Proxy" />
-			<DO name="Ind19" type="VIRTUAL_1ANN.DevIDLPHD1.Proxy" />
-			<DO name="Ind20" type="VIRTUAL_1ANN.DevIDLPHD1.Proxy" />
-			<DO name="Ind21" type="VIRTUAL_1ANN.DevIDLPHD1.Proxy" />
-			<DO name="Ind22" type="VIRTUAL_1ANN.DevIDLPHD1.Proxy" />
-			<DO name="Ind23" type="VIRTUAL_1ANN.DevIDLPHD1.Proxy" />
-			<DO name="Ind24" type="VIRTUAL_1ANN.DevIDLPHD1.Proxy" />
-			<DO name="Ind25" type="VIRTUAL_1ANN.DevIDLPHD1.Proxy" />
-			<DO name="Ind26" type="VIRTUAL_1ANN.DevIDLPHD1.Proxy" />
-			<DO name="Ind27" type="VIRTUAL_1ANN.DevIDLPHD1.Proxy" />
-			<DO name="Ind28" type="VIRTUAL_1ANN.DevIDLPHD1.Proxy" />
-			<DO name="Ind29" type="VIRTUAL_1ANN.DevIDLPHD1.Proxy" />
-			<DO name="Ind30" type="VIRTUAL_1ANN.DevIDLPHD1.Proxy" />
-			<DO name="Ind31" type="VIRTUAL_1ANN.DevIDLPHD1.Proxy" />
-			<DO name="Ind32" type="VIRTUAL_1ANN.DevIDLPHD1.Proxy" />
-			<DO name="NamPlt" type="VIRTUAL_1ANN.AINCGGIO21.NamPlt" />
-		</LNodeType>
-		<LNodeType id="VIRTUAL_1ANN.LLN0" lnClass="LLN0">
-			<DO name="Mod" type="VIRTUAL_1ANN.LLN0.Mod" />
-			<DO name="Beh" type="VIRTUAL_1ANN.LLN0.Beh" />
-			<DO name="Health" type="VIRTUAL_1ANN.LLN0.Health" />
-			<DO name="NamPlt" type="VIRTUAL_1ANN.LLN0.NamPlt" />
-		</LNodeType>
-		<LNodeType id="VIRTUAL_1PRO.TRIPPTRC1" lnClass="PTRC">
-			<DO name="Mod" type="VIRTUAL_1ANN.LLN0.Mod" />
-			<DO name="Beh" type="VIRTUAL_1ANN.LLN0.Beh" />
-			<DO name="Health" type="VIRTUAL_1ANN.LLN0.Health" />
-			<DO name="NamPlt" type="VIRTUAL_1ANN.AINCGGIO21.NamPlt" />
-			<DO name="Tr" type="VIRTUAL_1PRO.ATPTOC20.Op" />
-		</LNodeType>
-		<LNodeType id="VIRTUAL_1PRO.BFR1RBRF1" lnClass="RBRF">
-			<DO name="Mod" type="VIRTUAL_1ANN.LLN0.Mod" />
-			<DO name="Beh" type="VIRTUAL_1ANN.LLN0.Beh" />
-			<DO name="Health" type="VIRTUAL_1ANN.LLN0.Health" />
-			<DO name="NamPlt" type="VIRTUAL_1ANN.AINCGGIO21.NamPlt" />
-			<DO name="Str" type="VIRTUAL_1PRO.ATPTOC20.Str" />
-			<DO name="OpEx" type="VIRTUAL_1PRO.ATPTOC20.Op" />
 		</LNodeType>
 		<DOType id="SIPROTEC5_DOType_SPG_readOnly_with_dataNs_V09.71.01_V09.71.01" cdc="SPG">
 			<DA fc="SE" name="setVal" bType="BOOLEAN" valKind="RO" />
@@ -4891,53 +4468,6 @@
 			</DA>
 			<DA fc="CO" name="Oper" bType="Struct" type="SIPROTEC5_DAType_Oper_Boolean_V09.71.01_V09.71.01" />
 		</DOType>
-		<DOType id="VIRTUAL_1PRO.ATPTOC20.Str" cdc="ACD">
-			<DA fc="ST" name="general" bType="BOOLEAN" />
-			<DA fc="ST" name="dirGeneral" bType="Enum" type="SIPROTEC5_Textlist_DirectionGeneral_V09.71.01_V09.71.01" />
-			<DA fc="ST" name="q" bType="Quality" />
-			<DA fc="ST" name="t" bType="Timestamp" />
-			<DA fc="DC" name="d" bType="VisString255" />
-		</DOType>
-		<DOType id="VIRTUAL_1PRO.ATPTOC20.Op" cdc="ACT">
-			<DA fc="ST" name="general" bType="BOOLEAN" />
-			<DA fc="ST" name="q" bType="Quality" />
-			<DA fc="ST" name="t" bType="Timestamp" />
-			<DA fc="DC" name="d" bType="VisString255" />
-		</DOType>
-		<DOType id="VIRTUAL_1ANN.LLN0.Mod" cdc="ENC">
-			<DA fc="ST" name="stVal" bType="Enum" type="SIPROTEC5_Textlist_Behavior_V09.71.01_V09.71.01" />
-			<DA fc="ST" name="q" bType="Quality" />
-			<DA fc="ST" name="t" bType="Timestamp" />
-			<DA fc="CF" name="ctlModel" bType="Enum" type="ctlModel" />
-		</DOType>
-		<DOType id="VIRTUAL_1ANN.LLN0.Beh" cdc="ENS">
-			<DA fc="ST" name="stVal" bType="Enum" type="SIPROTEC5_Textlist_Behavior_V09.71.01_V09.71.01" />
-			<DA fc="ST" name="q" bType="Quality" />
-			<DA fc="ST" name="t" bType="Timestamp" />
-		</DOType>
-		<DOType id="VIRTUAL_1ANN.LLN0.Health" cdc="ENS">
-			<DA fc="ST" name="stVal" bType="Enum" type="SIPROTEC5_Textlist_Health_V09.71.01_V09.71.01" />
-			<DA fc="ST" name="q" bType="Quality" />
-			<DA fc="ST" name="t" bType="Timestamp" />
-		</DOType>
-		<DOType id="VIRTUAL_1ANN.LLN0.NamPlt" cdc="LPL">
-			<DA fc="DC" name="vendor" bType="VisString255" />
-			<DA fc="DC" name="swRev" bType="VisString255" />
-			<DA fc="DC" name="d" bType="VisString255" />
-			<DA fc="DC" name="configRev" bType="VisString255" />
-			<DA fc="EX" name="ldNs" bType="VisString255" />
-		</DOType>
-		<DOType id="VIRTUAL_1ANN.AINCGGIO21.NamPlt" cdc="LPL">
-			<DA fc="DC" name="vendor" bType="VisString255" />
-			<DA fc="DC" name="swRev" bType="VisString255" />
-			<DA fc="DC" name="d" bType="VisString255" />
-			<DA fc="DC" name="configRev" bType="VisString255" />
-		</DOType>
-		<DOType id="VIRTUAL_1ANN.DevIDLPHD1.Proxy" cdc="SPS">
-			<DA fc="ST" name="stVal" bType="BOOLEAN" />
-			<DA fc="ST" name="q" bType="Quality" />
-			<DA fc="ST" name="t" bType="Timestamp" />
-		</DOType>
 		<DAType id="SIPROTEC5_DAType_origin_V09.71.01_V09.71.01">
 			<BDA name="orCat" bType="Enum" type="SIPROTEC5_Textlist_orCategory_V09.71.01_V09.71.01" />
 			<BDA name="orIdent" bType="Octet64" />
@@ -5031,9 +4561,6 @@
 			<EnumVal ord="7">maintenance</EnumVal>
 			<EnumVal ord="8">process</EnumVal>
 		</EnumType>
-		<EnumType id="SIPROTEC5_Textlist_ctlModel_dir_with_nor_sec_V09.71.01_V09.71.01">
-			<EnumVal ord="1">direct-with-normal-security</EnumVal>
-		</EnumType>
 		<EnumType id="SIPROTEC5_Textlist_Health_V09.71.01_V09.71.01">
 			<EnumVal ord="1">Ok</EnumVal>
 			<EnumVal ord="2">Warning</EnumVal>
@@ -5045,6 +4572,42 @@
 			<EnumVal ord="3">test</EnumVal>
 			<EnumVal ord="4">test/blocked</EnumVal>
 			<EnumVal ord="5">off</EnumVal>
+		</EnumType>
+		<EnumType id="SIPROTEC5_EnType_Multiplier_V09.71.01_V09.71.01">
+			<EnumVal ord="-24">y</EnumVal>
+			<EnumVal ord="-21">z</EnumVal>
+			<EnumVal ord="-18">a</EnumVal>
+			<EnumVal ord="-15">f</EnumVal>
+			<EnumVal ord="-12">p</EnumVal>
+			<EnumVal ord="-9">n</EnumVal>
+			<EnumVal ord="-6">µ</EnumVal>
+			<EnumVal ord="-3">m</EnumVal>
+			<EnumVal ord="-2">c</EnumVal>
+			<EnumVal ord="-1">d</EnumVal>
+			<EnumVal ord="0" />
+			<EnumVal ord="1">da</EnumVal>
+			<EnumVal ord="2">h</EnumVal>
+			<EnumVal ord="3">k</EnumVal>
+			<EnumVal ord="6">M</EnumVal>
+			<EnumVal ord="9">G</EnumVal>
+			<EnumVal ord="12">T</EnumVal>
+			<EnumVal ord="15">P</EnumVal>
+			<EnumVal ord="18">E</EnumVal>
+			<EnumVal ord="21">Z</EnumVal>
+			<EnumVal ord="24">Y</EnumVal>
+		</EnumType>
+		<EnumType id="SIPROTEC5_Textlist_DirectionGeneral_V09.71.01_V09.71.01">
+			<EnumVal ord="0">unknown</EnumVal>
+			<EnumVal ord="1">forward</EnumVal>
+			<EnumVal ord="2">backward</EnumVal>
+			<EnumVal ord="3">both</EnumVal>
+		</EnumType>
+		<EnumType id="SIPROTEC5_Textlist_SEQtype_V09.71.01_V09.71.01">
+			<EnumVal ord="0">pos-neg-zero</EnumVal>
+			<EnumVal ord="1">dir-quad-zero</EnumVal>
+		</EnumType>
+		<EnumType id="SIPROTEC5_Textlist_ctlModel_dir_with_nor_sec_V09.71.01_V09.71.01">
+			<EnumVal ord="1">direct-with-normal-security</EnumVal>
 		</EnumType>
 		<EnumType id="SIPROTEC5_Textlist_Behavior_OnBlockedTestTestBlocked_V09.71.01_V09.71.01">
 			<EnumVal ord="1">on</EnumVal>
@@ -5161,29 +4724,6 @@
 			<EnumVal ord="83">dBm</EnumVal>
 			<EnumVal ord="84">h</EnumVal>
 			<EnumVal ord="85">min</EnumVal>
-		</EnumType>
-		<EnumType id="SIPROTEC5_EnType_Multiplier_V09.71.01_V09.71.01">
-			<EnumVal ord="-24">y</EnumVal>
-			<EnumVal ord="-21">z</EnumVal>
-			<EnumVal ord="-18">a</EnumVal>
-			<EnumVal ord="-15">f</EnumVal>
-			<EnumVal ord="-12">p</EnumVal>
-			<EnumVal ord="-9">n</EnumVal>
-			<EnumVal ord="-6">µ</EnumVal>
-			<EnumVal ord="-3">m</EnumVal>
-			<EnumVal ord="-2">c</EnumVal>
-			<EnumVal ord="-1">d</EnumVal>
-			<EnumVal ord="0" />
-			<EnumVal ord="1">da</EnumVal>
-			<EnumVal ord="2">h</EnumVal>
-			<EnumVal ord="3">k</EnumVal>
-			<EnumVal ord="6">M</EnumVal>
-			<EnumVal ord="9">G</EnumVal>
-			<EnumVal ord="12">T</EnumVal>
-			<EnumVal ord="15">P</EnumVal>
-			<EnumVal ord="18">E</EnumVal>
-			<EnumVal ord="21">Z</EnumVal>
-			<EnumVal ord="24">Y</EnumVal>
 		</EnumType>
 		<EnumType id="SIPROTEC5_Textlist_ctlModel_status_only_V09.71.01_V09.71.01">
 			<EnumVal ord="0">status-only</EnumVal>
@@ -5335,20 +4875,10 @@
 			<EnumVal ord="1">on</EnumVal>
 			<EnumVal ord="5">off</EnumVal>
 		</EnumType>
-		<EnumType id="SIPROTEC5_Textlist_DirectionGeneral_V09.71.01_V09.71.01">
-			<EnumVal ord="0">unknown</EnumVal>
-			<EnumVal ord="1">forward</EnumVal>
-			<EnumVal ord="2">backward</EnumVal>
-			<EnumVal ord="3">both</EnumVal>
-		</EnumType>
 		<EnumType id="SIPROTEC5_Textlist_DirectionPhase_V09.71.01_V09.71.01">
 			<EnumVal ord="0">unknown</EnumVal>
 			<EnumVal ord="1">forward</EnumVal>
 			<EnumVal ord="2">backward</EnumVal>
-		</EnumType>
-		<EnumType id="SIPROTEC5_Textlist_SEQtype_V09.71.01_V09.71.01">
-			<EnumVal ord="0">pos-neg-zero</EnumVal>
-			<EnumVal ord="1">dir-quad-zero</EnumVal>
 		</EnumType>
 		<EnumType id="SIPROTEC5_EnType_InstrumentTransformerProtectionRatingKind_V09.71.01_V09.71.01">
 			<EnumVal ord="1">1</EnumVal>
@@ -5384,14 +4914,6 @@
 		</EnumType>
 		<EnumType id="SIPROTEC5_Textlist_ctlModel_dir_with_enh_sec_V09.71.01_V09.71.01">
 			<EnumVal ord="3">direct-with-enhanced-security</EnumVal>
-		</EnumType>
-		<EnumType id="ctlModel">
-			<!--Source: IEC 61850-7-3:2003A-->
-			<EnumVal ord="0">status-only</EnumVal>
-			<EnumVal ord="1">direct-with-normal-security</EnumVal>
-			<EnumVal ord="2">sbo-with-normal-security</EnumVal>
-			<EnumVal ord="3">direct-with-enhanced-security</EnumVal>
-			<EnumVal ord="4">sbo-with-enhanced-security</EnumVal>
 		</EnumType>
 	</DataTypeTemplates>
 </SCL>

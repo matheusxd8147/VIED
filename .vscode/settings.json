@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "static_model.h": "c"
+        "static_model.h": "c",
+        "iec61850_client.h": "c"
     }
 }
