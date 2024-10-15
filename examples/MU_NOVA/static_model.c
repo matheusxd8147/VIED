@@ -7,8 +7,62 @@
 
 static void initializeValues();
 
+extern DataSet iedModelds_BinIO_BinaryInputs_LLN0_DataSet;
 extern DataSet iedModelds_Mod3_MU2_LLN0_PhsMeas1;
 
+
+extern DataSetEntry iedModelds_BinIO_BinaryInputs_LLN0_DataSet_fcda0;
+extern DataSetEntry iedModelds_BinIO_BinaryInputs_LLN0_DataSet_fcda1;
+extern DataSetEntry iedModelds_BinIO_BinaryInputs_LLN0_DataSet_fcda2;
+extern DataSetEntry iedModelds_BinIO_BinaryInputs_LLN0_DataSet_fcda3;
+
+DataSetEntry iedModelds_BinIO_BinaryInputs_LLN0_DataSet_fcda0 = {
+  "BinIO_BinaryInputs",
+  false,
+  "LPDI3$ST$In$stVal", 
+  -1,
+  NULL,
+  NULL,
+  &iedModelds_BinIO_BinaryInputs_LLN0_DataSet_fcda1
+};
+
+DataSetEntry iedModelds_BinIO_BinaryInputs_LLN0_DataSet_fcda1 = {
+  "BinIO_BinaryInputs",
+  false,
+  "LPDI3$ST$In$q", 
+  -1,
+  NULL,
+  NULL,
+  &iedModelds_BinIO_BinaryInputs_LLN0_DataSet_fcda2
+};
+
+DataSetEntry iedModelds_BinIO_BinaryInputs_LLN0_DataSet_fcda2 = {
+  "BinIO_BinaryInputs",
+  false,
+  "LPDI4$ST$In$stVal", 
+  -1,
+  NULL,
+  NULL,
+  &iedModelds_BinIO_BinaryInputs_LLN0_DataSet_fcda3
+};
+
+DataSetEntry iedModelds_BinIO_BinaryInputs_LLN0_DataSet_fcda3 = {
+  "BinIO_BinaryInputs",
+  false,
+  "LPDI4$ST$In$q", 
+  -1,
+  NULL,
+  NULL,
+  NULL
+};
+
+DataSet iedModelds_BinIO_BinaryInputs_LLN0_DataSet = {
+  "BinIO_BinaryInputs",
+  "LLN0$DataSet",
+  4,
+  &iedModelds_BinIO_BinaryInputs_LLN0_DataSet_fcda0,
+  &iedModelds_Mod3_MU2_LLN0_PhsMeas1
+};
 
 extern DataSetEntry iedModelds_Mod3_MU2_LLN0_PhsMeas1_fcda0;
 extern DataSetEntry iedModelds_Mod3_MU2_LLN0_PhsMeas1_fcda1;
@@ -49031,6 +49085,16 @@ ReportControlBlock iedModel_Application_LLN0_report54 = {&iedModel_Application_L
 extern SVControlBlock iedModel_Mod3_MU2_LLN0_smv0;
 SVControlBlock iedModel_Mod3_MU2_LLN0_smv0 = {&iedModel_Mod3_MU2_LLN0, "MSVCB01", "ST2", "PhsMeas1", 2, 0, 80, 1, NULL, false, 1, NULL};
 
+extern GSEControlBlock iedModel_BinIO_BinaryInputs_LLN0_gse0;
+
+static PhyComAddress iedModel_BinIO_BinaryInputs_LLN0_gse0_address = {
+  4,
+  1,
+  6,
+  {0x1, 0xc, 0xcd, 0x1, 0x0, 0x6}
+};
+
+GSEControlBlock iedModel_BinIO_BinaryInputs_LLN0_gse0 = {&iedModel_BinIO_BinaryInputs_LLN0, "GOOSE_VIED_50_1", "VIED_50_1", "GOOSE_SUBSCRIBER", 1, false, &iedModel_BinIO_BinaryInputs_LLN0_gse0_address, 4, 1000, NULL};
 
 extern SettingGroupControlBlock iedModel_Application_LLN0_sgcb;
 
@@ -49042,9 +49106,9 @@ SettingGroupControlBlock iedModel_Application_LLN0_sgcb = {&iedModel_Application
 IedModel iedModel = {
     "MU",
     &iedModel_Application,
-    &iedModelds_Mod3_MU2_LLN0_PhsMeas1,
+    &iedModelds_BinIO_BinaryInputs_LLN0_DataSet,
     &iedModel_Application_LLN0_report0,
-    NULL,
+    &iedModel_BinIO_BinaryInputs_LLN0_gse0,
     &iedModel_Mod3_MU2_LLN0_smv0,
     &iedModel_Application_LLN0_sgcb,
     NULL,

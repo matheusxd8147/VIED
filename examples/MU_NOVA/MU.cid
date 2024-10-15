@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<SCL version="2007" revision="B" release="4" xmlns="http://www.iec.ch/61850/2003/SCL" xsi:schemaLocation="http://www.iec.ch/61850/2003/SCL SCL.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:IEC_60870_5_104="http://www.iec.ch/61850-80-1/2007/SCL" xmlns:siebase="http://www.siemens.com/energy/2009/09/siprotec5/SieBase" eIEC61850-6-100:version="2019" eIEC61850-6-100:revision="A" eIEC61850-6-100:release="8" xmlns:siedig="http://www.siemens.com/energy/2011/11/Siedig" xmlns:eIEC61850-6-100="http://www.iec.ch/61850/2019/SCL/6-100">
-	<Private type="Siemens-SclLib-V5-Version">V09.20.02.000</Private>
-	<Private type="Siemens-SclLib-V5-EditTime">08.10.2024 18:09:33</Private>
-	<Private type="Siemens-Configurator-Version">7.70.17</Private>
-	<Header id="MU" version="1" revision="19" toolID="IEC 61850 System Configurator, Version: 7.70.17" nameStructure="IEDName">
+<SCL version="2007" revision="B" release="4" xmlns="http://www.iec.ch/61850/2003/SCL" xsi:schemaLocation="http://www.iec.ch/61850/2003/SCL SCL.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:IEC_60870_5_104="http://www.iec.ch/61850-80-1/2007/SCL" xmlns:siebase="http://www.siemens.com/energy/2009/09/siprotec5/SieBase" eIEC61850-6-100:version="2019" eIEC61850-6-100:revision="B" eIEC61850-6-100:release="9" xmlns:siedig="http://www.siemens.com/energy/2011/11/Siedig" xmlns:eIEC61850-6-100="http://www.iec.ch/61850/2019/SCL/6-100">
+	<Private type="Siemens-SclLib-V5-Version">V09.80.14.000</Private>
+	<Private type="Siemens-SclLib-V5-EditTime">15.10.2024 19:06:07</Private>
+	<Private type="Siemens-Configurator-Version">7.80.71</Private>
+	<Header id="MU" version="1" revision="21" toolID="IEC 61850 System Configurator, Version: 7.80.71" nameStructure="IEDName">
 		<Text>Cid-File for device: MU</Text>
 		<History>
-			<Hitem version="1" revision="19" when="Tuesday, October 8, 2024 6:09:33 PM" who="Licenced User:  Grei_PC Machine: DESKTOP-G8SGRTC User: Grei_PC" what="Device MU is exported as Edition2B4 CID file." why="IEC 61850 System Configurator User Action" />
+			<Hitem version="1" revision="21" when="Tuesday, October 15, 2024 7:06:07 PM" who="Licenced User:  GREI Machine: DESKTOP-N6EBMG4 User: GREI" what="Device MU is exported as Edition2B4 CID file." why="IEC 61850 System Configurator User Action" />
 		</History>
 	</Header>
 	<Communication>
@@ -23,6 +23,16 @@
 					<P type="OSI-SSEL">0001</P>
 					<P type="OSI-TSEL">0001</P>
 				</Address>
+				<GSE ldInst="BinIO_BinaryInputs" cbName="Control_DataSet">
+					<Address>
+						<P type="MAC-Address" xsi:type="tP_MAC-Address">01-0C-CD-01-00-00</P>
+						<P type="VLAN-ID" xsi:type="tP_VLAN-ID">005</P>
+						<P type="VLAN-PRIORITY" xsi:type="tP_VLAN-PRIORITY">4</P>
+						<P type="APPID" xsi:type="tP_APPID">0001</P>
+					</Address>
+					<MinTime unit="s" multiplier="m">4</MinTime>
+					<MaxTime unit="s" multiplier="m">1000</MaxTime>
+				</GSE>
 				<SMV ldInst="Mod3_MU2" cbName="MSVCB01">
 					<Address>
 						<P type="VLAN-ID" xsi:type="tP_VLAN-ID">009</P>
@@ -44,7 +54,9 @@
 		<Private type="Siemens-Siprotec5-Configuration-Version">V09.71.01</Private>
 		<Private type="Siemens-IsSiprotec5IED" />
 		<Private type="Siemens-IED-Id">974c8526-54ca-4849-8f64-681fa6f53f96</Private>
-		<Private type="Siemens-NoOfSmvsConfigured">1</Private>
+		<Private type="Siemens-NoOfSmvsConfigured">6</Private>
+		<Private type="Siemens-ModifiedDate">10/15/2024 21:29:11</Private>
+		<Private type="Siemens-ModificationCounter">6</Private>
 		<Private type="Siemens-CID-MainIED" />
 		<Services nameLength="64">
 			<ClientServices goose="true" gsse="false" bufReport="false" unbufReport="false" readLog="false" sv="false" supportsLdName="true" maxGOOSE="128" rGOOSE="false" rSV="false" noIctBinding="false">
@@ -559,6 +571,15 @@
 					<Private type="Siemens-MasterId">40630a50-a466-42cc-88f0-197e2e037d8b</Private>
 					<LN0 lnClass="LLN0" inst="" lnType="SIPROTEC5_LNType_LLN0_LDevice_Generic_Ctrl" desc="Geral">
 						<Private type="Siemens-MasterId">27287642-d324-4158-92fd-7d1d5e59688e</Private>
+						<DataSet name="DataSet">
+							<Private type="Siemens-GUID">33d0681a7ae747f5a94e6c8af85967c8</Private>
+							<Private type="Siemens-SysConItem" />
+							<Private type="Siemens-IsPartOfSedExport">Yes</Private>
+							<FCDA ldInst="BinIO_BinaryInputs" prefix="" lnClass="LPDI" lnInst="3" doName="In" daName="stVal" fc="ST" />
+							<FCDA ldInst="BinIO_BinaryInputs" prefix="" lnClass="LPDI" lnInst="3" doName="In" daName="q" fc="ST" />
+							<FCDA ldInst="BinIO_BinaryInputs" prefix="" lnClass="LPDI" lnInst="4" doName="In" daName="stVal" fc="ST" />
+							<FCDA ldInst="BinIO_BinaryInputs" prefix="" lnClass="LPDI" lnInst="4" doName="In" daName="q" fc="ST" />
+						</DataSet>
 						<DOI name="Mod" desc="Modo (controlável)" />
 						<DOI name="Beh" desc="Estado" />
 						<DOI name="Health" desc="Prontidão" />
@@ -577,6 +598,7 @@
 								<Val>on</Val>
 							</DAI>
 						</DOI>
+						<GSEControl datSet="DataSet" confRev="10001" appID="VMU/BinIO_BinaryInputs/LLN0/Control_DataSet" name="Control_DataSet" />
 					</LN0>
 					<LN prefix="" lnClass="LPDI" inst="3" lnType="SIPROTEC5_LNType_LPDI_BinaryInput" desc="Binary input  1.3">
 						<Private type="Siemens-MasterId">ea69b887-ae34-484f-a025-e7d95bd92e2c</Private>
@@ -1941,7 +1963,7 @@
 					<LN0 lnClass="LLN0" inst="" lnType="SIPROTEC5_LNType_LLN0_LDevice_Generic_Ctrl" desc="Geral">
 						<Private type="Siemens-MasterId">ae1c58e2-4ce3-453a-955b-618f246c74e9</Private>
 						<DataSet name="PhsMeas1">
-							<Private type="Siemens-GUID">e9e39718783846a9a9182b2edde43480</Private>
+							<Private type="Siemens-GUID">8c0e2d4d818549659cb453f50c92eb3c</Private>
 							<FCDA ldInst="Mod3_MU2" prefix="I01A" lnClass="TCTR" lnInst="1" doName="AmpSv" daName="instMag.i" fc="MX" />
 							<FCDA ldInst="Mod3_MU2" prefix="I01A" lnClass="TCTR" lnInst="1" doName="AmpSv" daName="q" fc="MX" />
 							<FCDA ldInst="Mod3_MU2" prefix="I01B" lnClass="TCTR" lnInst="2" doName="AmpSv" daName="instMag.i" fc="MX" />
@@ -4561,6 +4583,9 @@
 			<EnumVal ord="7">maintenance</EnumVal>
 			<EnumVal ord="8">process</EnumVal>
 		</EnumType>
+		<EnumType id="SIPROTEC5_Textlist_ctlModel_dir_with_nor_sec_V09.71.01_V09.71.01">
+			<EnumVal ord="1">direct-with-normal-security</EnumVal>
+		</EnumType>
 		<EnumType id="SIPROTEC5_Textlist_Health_V09.71.01_V09.71.01">
 			<EnumVal ord="1">Ok</EnumVal>
 			<EnumVal ord="2">Warning</EnumVal>
@@ -4572,42 +4597,6 @@
 			<EnumVal ord="3">test</EnumVal>
 			<EnumVal ord="4">test/blocked</EnumVal>
 			<EnumVal ord="5">off</EnumVal>
-		</EnumType>
-		<EnumType id="SIPROTEC5_EnType_Multiplier_V09.71.01_V09.71.01">
-			<EnumVal ord="-24">y</EnumVal>
-			<EnumVal ord="-21">z</EnumVal>
-			<EnumVal ord="-18">a</EnumVal>
-			<EnumVal ord="-15">f</EnumVal>
-			<EnumVal ord="-12">p</EnumVal>
-			<EnumVal ord="-9">n</EnumVal>
-			<EnumVal ord="-6">µ</EnumVal>
-			<EnumVal ord="-3">m</EnumVal>
-			<EnumVal ord="-2">c</EnumVal>
-			<EnumVal ord="-1">d</EnumVal>
-			<EnumVal ord="0" />
-			<EnumVal ord="1">da</EnumVal>
-			<EnumVal ord="2">h</EnumVal>
-			<EnumVal ord="3">k</EnumVal>
-			<EnumVal ord="6">M</EnumVal>
-			<EnumVal ord="9">G</EnumVal>
-			<EnumVal ord="12">T</EnumVal>
-			<EnumVal ord="15">P</EnumVal>
-			<EnumVal ord="18">E</EnumVal>
-			<EnumVal ord="21">Z</EnumVal>
-			<EnumVal ord="24">Y</EnumVal>
-		</EnumType>
-		<EnumType id="SIPROTEC5_Textlist_DirectionGeneral_V09.71.01_V09.71.01">
-			<EnumVal ord="0">unknown</EnumVal>
-			<EnumVal ord="1">forward</EnumVal>
-			<EnumVal ord="2">backward</EnumVal>
-			<EnumVal ord="3">both</EnumVal>
-		</EnumType>
-		<EnumType id="SIPROTEC5_Textlist_SEQtype_V09.71.01_V09.71.01">
-			<EnumVal ord="0">pos-neg-zero</EnumVal>
-			<EnumVal ord="1">dir-quad-zero</EnumVal>
-		</EnumType>
-		<EnumType id="SIPROTEC5_Textlist_ctlModel_dir_with_nor_sec_V09.71.01_V09.71.01">
-			<EnumVal ord="1">direct-with-normal-security</EnumVal>
 		</EnumType>
 		<EnumType id="SIPROTEC5_Textlist_Behavior_OnBlockedTestTestBlocked_V09.71.01_V09.71.01">
 			<EnumVal ord="1">on</EnumVal>
@@ -4724,6 +4713,29 @@
 			<EnumVal ord="83">dBm</EnumVal>
 			<EnumVal ord="84">h</EnumVal>
 			<EnumVal ord="85">min</EnumVal>
+		</EnumType>
+		<EnumType id="SIPROTEC5_EnType_Multiplier_V09.71.01_V09.71.01">
+			<EnumVal ord="-24">y</EnumVal>
+			<EnumVal ord="-21">z</EnumVal>
+			<EnumVal ord="-18">a</EnumVal>
+			<EnumVal ord="-15">f</EnumVal>
+			<EnumVal ord="-12">p</EnumVal>
+			<EnumVal ord="-9">n</EnumVal>
+			<EnumVal ord="-6">µ</EnumVal>
+			<EnumVal ord="-3">m</EnumVal>
+			<EnumVal ord="-2">c</EnumVal>
+			<EnumVal ord="-1">d</EnumVal>
+			<EnumVal ord="0" />
+			<EnumVal ord="1">da</EnumVal>
+			<EnumVal ord="2">h</EnumVal>
+			<EnumVal ord="3">k</EnumVal>
+			<EnumVal ord="6">M</EnumVal>
+			<EnumVal ord="9">G</EnumVal>
+			<EnumVal ord="12">T</EnumVal>
+			<EnumVal ord="15">P</EnumVal>
+			<EnumVal ord="18">E</EnumVal>
+			<EnumVal ord="21">Z</EnumVal>
+			<EnumVal ord="24">Y</EnumVal>
 		</EnumType>
 		<EnumType id="SIPROTEC5_Textlist_ctlModel_status_only_V09.71.01_V09.71.01">
 			<EnumVal ord="0">status-only</EnumVal>
@@ -4875,10 +4887,20 @@
 			<EnumVal ord="1">on</EnumVal>
 			<EnumVal ord="5">off</EnumVal>
 		</EnumType>
+		<EnumType id="SIPROTEC5_Textlist_DirectionGeneral_V09.71.01_V09.71.01">
+			<EnumVal ord="0">unknown</EnumVal>
+			<EnumVal ord="1">forward</EnumVal>
+			<EnumVal ord="2">backward</EnumVal>
+			<EnumVal ord="3">both</EnumVal>
+		</EnumType>
 		<EnumType id="SIPROTEC5_Textlist_DirectionPhase_V09.71.01_V09.71.01">
 			<EnumVal ord="0">unknown</EnumVal>
 			<EnumVal ord="1">forward</EnumVal>
 			<EnumVal ord="2">backward</EnumVal>
+		</EnumType>
+		<EnumType id="SIPROTEC5_Textlist_SEQtype_V09.71.01_V09.71.01">
+			<EnumVal ord="0">pos-neg-zero</EnumVal>
+			<EnumVal ord="1">dir-quad-zero</EnumVal>
 		</EnumType>
 		<EnumType id="SIPROTEC5_EnType_InstrumentTransformerProtectionRatingKind_V09.71.01_V09.71.01">
 			<EnumVal ord="1">1</EnumVal>

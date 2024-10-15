@@ -21,9 +21,6 @@
  *  See COPYING file for the complete license text.
  */
 
-#include "goose_receiver.h"
-#include "goose_subscriber.h"
-#include "goose_publisher.h"
 #include "iec61850_server.h"
 #include "sv_publisher.h"
 #include "hal_thread.h"
@@ -121,52 +118,6 @@ goCbEventHandler(MmsGooseControlBlock goCb, int event, void* parameter)
     printf("         GoEna: %i\n", MmsGooseControlBlock_getGoEna(goCb));
 }
 
-static void
-gooseListener(GooseSubscriber subscriber, void* parameter)
-{
-    MmsValue* values = GooseSubscriber_getDataSetValues(subscriber);
-
-    char buffer[50];
-
-    MmsValue_printToBuffer(values, buffer, 50);
-
-
-    char b; char c; char d;
-
-    b = buffer[1];
-    c = buffer[6];
-    d = buffer[11];
-    uint64_t y = Hal_getTimeInMs();
-
-    printf("-------------------------------------------------------------------------------------------------------------\n");            
-    printf("                               PRIMEIRA MENSAGEM GOOSE ASSINADA VIED 1                                       \n");
-    printf("-------------------------------------------------------------------------------------------------------------\n");
-
-}
-
-static void
-gooseListener1(GooseSubscriber subscriber, void* parameter)
-{
-    MmsValue* values = GooseSubscriber_getDataSetValues(subscriber);
-
-    char buffer[50];
-
-    MmsValue_printToBuffer(values, buffer, 50);
-
-
-    char b; char c; char d;
-
-    b = buffer[1];
-    c = buffer[6];
-    d = buffer[11];
-    uint64_t y = Hal_getTimeInMs();
-
-    printf("-------------------------------------------------------------------------------------------------------------\n");            
-    printf("                               PRIMEIRA MENSAGEM GOOSE ASSINADA VIED 2                                       \n");
-    printf("-------------------------------------------------------------------------------------------------------------\n");
-
-}
-
 int 
 main(int argc, char** argv)
 {
@@ -174,18 +125,20 @@ main(int argc, char** argv)
 
     IedServerConfig config = IedServerConfig_create();
 
-    //iedServer = IedServer_createWithConfig(&iedModel, NULL, config);
+    iedServer = IedServer_createWithConfig(&iedModel, NULL, config);
 
     IedServerConfig_destroy(config);
     
-    IedServer iedServer = IedServer_create(&iedModel);
+    //IedServer iedServer = IedServer_create(&iedModel);
 
     if (argc > 1){
         svInterface = argv[1];
         char* ethernetIfcID = argv[1];
         printf("Using GOOSE interface: %s\n", ethernetIfcID);
         IedServer_setGooseInterfaceId(iedServer, ethernetIfcID);
-    }else{
+    }
+    
+    if (argc > 2){
         svInterface = "eth0";
         char* ethernetIfcID = argv[2];
         printf("Using GOOSE interface for GenericIO/LLN0.gcbAnalogValues: %s\n", ethernetIfcID);
@@ -194,7 +147,7 @@ main(int argc, char** argv)
 
     IedServer_enableGoosePublishing(iedServer);
 
-    GooseReceiver receiver = GooseReceiver_create();
+    /*GooseReceiver receiver = GooseReceiver_create();
 
     GooseReceiver_setInterfaceId(receiver, "eth0");
     
@@ -208,7 +161,7 @@ main(int argc, char** argv)
     GooseReceiver_addSubscriber(receiver, subscriber);
     GooseReceiver_addSubscriber(receiver, subscriber1); 
 
-    GooseReceiver_start(receiver);
+    GooseReceiver_start(receiver);*/
 
     IedServer_setGoCBHandler(iedServer, goCbEventHandler, NULL);
 
@@ -229,7 +182,7 @@ main(int argc, char** argv)
 
     if (svPublisher) {
 
-        //IedServer_enableGoosePublishing(iedServer);
+        IedServer_enableGoosePublishing(iedServer);
 
         SVControlBlock* svcb = IedModel_getSVControlBlock(&iedModel, IEDMODEL_Mod3_MU2_LLN0, "MSVCB01");
 
@@ -261,7 +214,6 @@ main(int argc, char** argv)
 
         while (running) {
 
-            /* update measurement values */
             int samplePoint = sampleCount % 80;
 
             double angleA = (2 * M_PI / 80) * samplePoint;
@@ -324,7 +276,7 @@ main(int argc, char** argv)
 
                 SVPublisher_ASDU_setSmpCnt(asdu, (uint16_t) sampleCount);
 
-                //SVPublisher_publish(svPublisher);
+                SVPublisher_publish(svPublisher);
             }
 
             sampleCount = ((sampleCount + 1) % 4800);
