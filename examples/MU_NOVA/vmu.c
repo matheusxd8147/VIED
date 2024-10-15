@@ -21,6 +21,8 @@
  *  See COPYING file for the complete license text.
  */
 
+#include "goose_receiver.h"
+#include "goose_subscriber.h"
 #include "goose_publisher.h"
 #include "iec61850_server.h"
 #include "sv_publisher.h"
@@ -37,6 +39,7 @@
 
 /* import IEC 61850 device model created from SCL-File */
 extern IedModel iedModel;
+static IedServer iedServer = NULL;
 
 static int running = 0;
 static int svcbEnabled = 1;
@@ -111,19 +114,103 @@ static void sVCBEventHandler (SVControlBlock* svcb, int event, void* parameter)
         svcbEnabled = 0;
 }
 
+static void
+goCbEventHandler(MmsGooseControlBlock goCb, int event, void* parameter)
+{
+    printf("Access to GoCB: %s\n", MmsGooseControlBlock_getName(goCb));
+    printf("         GoEna: %i\n", MmsGooseControlBlock_getGoEna(goCb));
+}
+
+static void
+gooseListener(GooseSubscriber subscriber, void* parameter)
+{
+    MmsValue* values = GooseSubscriber_getDataSetValues(subscriber);
+
+    char buffer[50];
+
+    MmsValue_printToBuffer(values, buffer, 50);
+
+
+    char b; char c; char d;
+
+    b = buffer[1];
+    c = buffer[6];
+    d = buffer[11];
+    uint64_t y = Hal_getTimeInMs();
+
+    printf("-------------------------------------------------------------------------------------------------------------\n");            
+    printf("                               PRIMEIRA MENSAGEM GOOSE ASSINADA VIED 1                                       \n");
+    printf("-------------------------------------------------------------------------------------------------------------\n");
+
+}
+
+static void
+gooseListener1(GooseSubscriber subscriber, void* parameter)
+{
+    MmsValue* values = GooseSubscriber_getDataSetValues(subscriber);
+
+    char buffer[50];
+
+    MmsValue_printToBuffer(values, buffer, 50);
+
+
+    char b; char c; char d;
+
+    b = buffer[1];
+    c = buffer[6];
+    d = buffer[11];
+    uint64_t y = Hal_getTimeInMs();
+
+    printf("-------------------------------------------------------------------------------------------------------------\n");            
+    printf("                               PRIMEIRA MENSAGEM GOOSE ASSINADA VIED 2                                       \n");
+    printf("-------------------------------------------------------------------------------------------------------------\n");
+
+}
+
 int 
 main(int argc, char** argv)
 {
     char* svInterface;
 
-    if (argc > 1)
-        svInterface = argv[1];
-    else
-        svInterface = "eth0";
+    IedServerConfig config = IedServerConfig_create();
 
+    //iedServer = IedServer_createWithConfig(&iedModel, NULL, config);
+
+    IedServerConfig_destroy(config);
+    
     IedServer iedServer = IedServer_create(&iedModel);
 
+    if (argc > 1){
+        svInterface = argv[1];
+        char* ethernetIfcID = argv[1];
+        printf("Using GOOSE interface: %s\n", ethernetIfcID);
+        IedServer_setGooseInterfaceId(iedServer, ethernetIfcID);
+    }else{
+        svInterface = "eth0";
+        char* ethernetIfcID = argv[2];
+        printf("Using GOOSE interface for GenericIO/LLN0.gcbAnalogValues: %s\n", ethernetIfcID);
+        //IedServer_setGooseInterfaceIdEx(iedServer, IEDMODEL_CFG_LLN0, "BRep0201", ethernetIfcID);
+    }
+
     IedServer_enableGoosePublishing(iedServer);
+
+    GooseReceiver receiver = GooseReceiver_create();
+
+    GooseReceiver_setInterfaceId(receiver, "eth0");
+    
+    GooseSubscriber subscriber = GooseSubscriber_create("SEL_751_1CFG/LLN0$GO$GOOSE_SL_1", NULL); //Especificação de quem o ied irá receber as mensagens goose
+
+    GooseSubscriber subscriber1 = GooseSubscriber_create("VIED_50_2CFG/LLN0$GO$GOOSE_VIED_50_2", NULL); //Especificação de quem o ied irá receber as mensagens goose
+
+    GooseSubscriber_setListener(subscriber, gooseListener, iedServer);
+    GooseSubscriber_setListener(subscriber1, gooseListener1, iedServer);  
+
+    GooseReceiver_addSubscriber(receiver, subscriber);
+    GooseReceiver_addSubscriber(receiver, subscriber1); 
+
+    GooseReceiver_start(receiver);
+
+    IedServer_setGoCBHandler(iedServer, goCbEventHandler, NULL);
 
     /* MMS server will be instructed to start listening to client connections. */
     IedServer_start(iedServer, 102);
@@ -141,6 +228,8 @@ main(int argc, char** argv)
     setupSVPublisher(svInterface);
 
     if (svPublisher) {
+
+        //IedServer_enableGoosePublishing(iedServer);
 
         SVControlBlock* svcb = IedModel_getSVControlBlock(&iedModel, IEDMODEL_Mod3_MU2_LLN0, "MSVCB01");
 
@@ -235,7 +324,7 @@ main(int argc, char** argv)
 
                 SVPublisher_ASDU_setSmpCnt(asdu, (uint16_t) sampleCount);
 
-                SVPublisher_publish(svPublisher);
+                //SVPublisher_publish(svPublisher);
             }
 
             sampleCount = ((sampleCount + 1) % 4800);
