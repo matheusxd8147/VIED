@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<SCL version="2007" revision="B" release="4" xmlns="http://www.iec.ch/61850/2003/SCL" xsi:schemaLocation="http://www.iec.ch/61850/2003/SCL SCL.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:IEC_60870_5_104="http://www.iec.ch/61850-80-1/2007/SCL" xmlns:siebase="http://www.siemens.com/energy/2009/09/siprotec5/SieBase" eIEC61850-6-100:version="2019" eIEC61850-6-100:revision="B" eIEC61850-6-100:release="9" xmlns:siedig="http://www.siemens.com/energy/2011/11/Siedig" xmlns:eIEC61850-6-100="http://www.iec.ch/61850/2019/SCL/6-100">
+<SCL version="2007" revision="B" xmlns="http://www.iec.ch/61850/2003/SCL" xsi:schemaLocation="http://www.iec.ch/61850/2003/SCL SCL.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:IEC_60870_5_104="http://www.iec.ch/61850-80-1/2007/SCL" xmlns:siebase="http://www.siemens.com/energy/2009/09/siprotec5/SieBase" xmlns:siedig="http://www.siemens.com/energy/2011/11/Siedig" xmlns:eIEC61850-6-100="http://www.iec.ch/61850/2019/SCL/6-100" eIEC61850-6-100:version="2019" eIEC61850-6-100:revision="B" eIEC61850-6-100:release="9">
 	<Private type="Siemens-SclLib-V5-Version">V09.80.14.000</Private>
-	<Private type="Siemens-SclLib-V5-EditTime">15.10.2024 19:06:07</Private>
+	<Private type="Siemens-SclLib-V5-EditTime">17.10.2024 16:59:05</Private>
 	<Private type="Siemens-Configurator-Version">7.80.71</Private>
-	<Header id="MU" version="1" revision="21" toolID="IEC 61850 System Configurator, Version: 7.80.71" nameStructure="IEDName">
-		<Text>Cid-File for device: MU</Text>
+	<Header id="MU" version="1" revision="2" toolID="IEC 61850 System Configurator, Version: 7.80.71" nameStructure="IEDName">
+		<Text>Iid-File for device: MU</Text>
 		<History>
-			<Hitem version="1" revision="21" when="Tuesday, October 15, 2024 7:06:07 PM" who="Licenced User:  GREI Machine: DESKTOP-N6EBMG4 User: GREI" what="Device MU is exported as Edition2B4 CID file." why="IEC 61850 System Configurator User Action" />
+			<Hitem version="1" revision="2" when="Thursday, October 17, 2024 4:59:05 PM" who="Licenced User:  GREI Machine: DESKTOP-N6EBMG4 User: GREI" what="Device MU is exported as Edition2B IID file." why="IEC 61850 System Configurator User Action" />
 		</History>
 	</Header>
 	<Communication>
@@ -26,12 +26,12 @@
 				<GSE ldInst="BinIO_BinaryInputs" cbName="Control_DataSet">
 					<Address>
 						<P type="MAC-Address" xsi:type="tP_MAC-Address">01-0C-CD-01-00-00</P>
-						<P type="VLAN-ID" xsi:type="tP_VLAN-ID">005</P>
+						<P type="VLAN-ID" xsi:type="tP_VLAN-ID">000</P>
 						<P type="VLAN-PRIORITY" xsi:type="tP_VLAN-PRIORITY">4</P>
 						<P type="APPID" xsi:type="tP_APPID">0001</P>
 					</Address>
-					<MinTime unit="s" multiplier="m">4</MinTime>
-					<MaxTime unit="s" multiplier="m">1000</MaxTime>
+					<MinTime unit="s" multiplier="m">10</MinTime>
+					<MaxTime unit="s" multiplier="m">2000</MaxTime>
 				</GSE>
 				<SMV ldInst="Mod3_MU2" cbName="MSVCB01">
 					<Address>
@@ -44,7 +44,7 @@
 			</ConnectedAP>
 		</SubNetwork>
 	</Communication>
-	<IED desc="MU_1" name="MU" type="7SL87" manufacturer="SIEMENS" configVersion="V09.71.01" originalSclVersion="2007" originalSclRevision="B" originalSclRelease="4">
+	<IED desc="MU_1" name="MU" type="7SL87" manufacturer="SIEMENS" configVersion="V09.71.01" originalSclVersion="2007" originalSclRevision="B">
 		<Private type="Siemens-MasterId">974c8526-54ca-4849-8f64-681fa6f53f96</Private>
 		<Private type="Siemens-s7ManagerName">MU_1</Private>
 		<Private type="Siemens-ICD-Language">pt-BR</Private>
@@ -54,13 +54,13 @@
 		<Private type="Siemens-Siprotec5-Configuration-Version">V09.71.01</Private>
 		<Private type="Siemens-IsSiprotec5IED" />
 		<Private type="Siemens-IED-Id">974c8526-54ca-4849-8f64-681fa6f53f96</Private>
-		<Private type="Siemens-NoOfSmvsConfigured">6</Private>
-		<Private type="Siemens-ModifiedDate">10/15/2024 21:29:11</Private>
-		<Private type="Siemens-ModificationCounter">6</Private>
+		<Private type="Siemens-NoOfSmvsConfigured">1</Private>
+		<Private type="Siemens-ModifiedDate">10/17/2024 19:58:40</Private>
+		<Private type="Siemens-ModificationCounter">2</Private>
 		<Private type="Siemens-CID-MainIED" />
 		<Services nameLength="64">
-			<ClientServices goose="true" gsse="false" bufReport="false" unbufReport="false" readLog="false" sv="false" supportsLdName="true" maxGOOSE="128" rGOOSE="false" rSV="false" noIctBinding="false">
-				<TimeSyncProt sntp="true" c37_238="false" other="false" iec61850_9_3="true" />
+			<ClientServices goose="true" gsse="false" bufReport="false" unbufReport="false" readLog="false" sv="false" supportsLdName="true" maxGOOSE="128">
+				<TimeSyncProt sntp="true" c37_238="false" other="false" />
 			</ClientServices>
 			<DynAssociation max="6" />
 			<SettingGroups>
@@ -77,16 +77,16 @@
 			<ConfReportControl max="60" bufMode="both" bufConf="true" />
 			<GetCBValues />
 			<ReportSettings cbName="Conf" datSet="Dyn" rptID="Dyn" optFields="Dyn" bufTime="Dyn" trgOps="Dyn" intgPd="Dyn" resvTms="true" owner="true" />
-			<GSESettings cbName="Conf" datSet="Conf" appID="Conf" dataLabel="Fix" kdaParticipant="false" />
+			<GSESettings cbName="Conf" datSet="Conf" appID="Conf" dataLabel="Fix" />
 			<ConfLNs fixPrefix="false" fixLnInst="false" />
 			<ConfLdName />
-			<GOOSE max="16" fixedOffs="false" goose="true" rGOOSE="false" />
+			<GOOSE max="16" fixedOffs="false" />
 			<FileHandling />
 			<SupSubscription maxGo="128" maxSv="0" />
 			<ValueHandling setToRO="false" />
 			<RedProt hsr="true" prp="true" rstp="true" />
 			<CommProt ipv6="false" />
-			<SMVSettings cbName="Conf" datSet="Fix" svID="Conf" optFields="Fix" smpRate="Fix" samplesPerSec="true" synchSrcId="true" nofASDU="Fix" kdaParticipant="false">
+			<SMVSettings cbName="Conf" datSet="Fix" svID="Conf" optFields="Fix" smpRate="Fix" samplesPerSec="true">
 				<SmpRate>80</SmpRate>
 				<SmpRate>256</SmpRate>
 				<SamplesPerSec>4000</SamplesPerSec>
@@ -95,10 +95,11 @@
 				<SamplesPerSec>14400</SamplesPerSec>
 				<SamplesPerSec>15360</SamplesPerSec>
 			</SMVSettings>
-			<SMVsc max="1" delivery="multicast" deliveryConf="false" sv="true" rSV="false" />
+			<SMVsc max="1" delivery="multicast" deliveryConf="false" />
 		</Services>
 		<AccessPoint desc="Port E" name="E" router="false" clock="false">
 			<Server timeout="0">
+				<Private type="Siemens-MasterId">922a3d0f-513a-41dc-860d-88be268ccb89</Private>
 				<Authentication none="true" />
 				<LDevice desc="Aplicação" inst="Application">
 					<Private type="Siemens-MasterId">5ec2591b-28d1-46c6-8786-f49a306d19e2</Private>
@@ -332,7 +333,7 @@
 								<Val>2024-03-28 18:48:47</Val>
 							</DAI>
 							<DAI name="ldNs">
-								<Val>IEC 61850-7-4:2007B</Val>
+								<Val>IEC 61850-7-4:2007</Val>
 							</DAI>
 						</DOI>
 						<DOI name="LEDRs" desc="Resetar LED" />
@@ -552,17 +553,12 @@
 						<DOI name="Health" desc="Prontidão" />
 						<DOI name="NamPlt" desc="Designação">
 							<DAI name="ldNs">
-								<Val>IEC 61850-7-4:2007B</Val>
+								<Val>IEC 61850-7-4:2007</Val>
 							</DAI>
 						</DOI>
 						<DOI name="GrRef" desc="GrRef">
 							<DAI name="setSrcRef">
 								<Val>@Application</Val>
-							</DAI>
-						</DOI>
-						<DOI name="SetMod" desc="Modo">
-							<DAI name="setVal">
-								<Val>on</Val>
 							</DAI>
 						</DOI>
 					</LN0>
@@ -572,20 +568,19 @@
 					<LN0 lnClass="LLN0" inst="" lnType="SIPROTEC5_LNType_LLN0_LDevice_Generic_Ctrl" desc="Geral">
 						<Private type="Siemens-MasterId">27287642-d324-4158-92fd-7d1d5e59688e</Private>
 						<DataSet name="DataSet">
-							<Private type="Siemens-GUID">33d0681a7ae747f5a94e6c8af85967c8</Private>
+							<Private type="Siemens-GUID">f0ffd858fd144212bda4987149879205</Private>
 							<Private type="Siemens-SysConItem" />
-							<Private type="Siemens-IsPartOfSedExport">Yes</Private>
-							<FCDA ldInst="BinIO_BinaryInputs" prefix="" lnClass="LPDI" lnInst="3" doName="In" daName="stVal" fc="ST" />
-							<FCDA ldInst="BinIO_BinaryInputs" prefix="" lnClass="LPDI" lnInst="3" doName="In" daName="q" fc="ST" />
 							<FCDA ldInst="BinIO_BinaryInputs" prefix="" lnClass="LPDI" lnInst="4" doName="In" daName="stVal" fc="ST" />
 							<FCDA ldInst="BinIO_BinaryInputs" prefix="" lnClass="LPDI" lnInst="4" doName="In" daName="q" fc="ST" />
+							<FCDA ldInst="BinIO_BinaryInputs" prefix="" lnClass="LPDI" lnInst="3" doName="In" daName="stVal" fc="ST" />
+							<FCDA ldInst="BinIO_BinaryInputs" prefix="" lnClass="LPDI" lnInst="3" doName="In" daName="q" fc="ST" />
 						</DataSet>
 						<DOI name="Mod" desc="Modo (controlável)" />
 						<DOI name="Beh" desc="Estado" />
 						<DOI name="Health" desc="Prontidão" />
 						<DOI name="NamPlt" desc="Designação">
 							<DAI name="ldNs">
-								<Val>IEC 61850-7-4:2007B</Val>
+								<Val>IEC 61850-7-4:2007</Val>
 							</DAI>
 						</DOI>
 						<DOI name="GrRef" desc="GrRef">
@@ -593,12 +588,7 @@
 								<Val>@BinIO</Val>
 							</DAI>
 						</DOI>
-						<DOI name="SetMod" desc="Modo">
-							<DAI name="setVal">
-								<Val>on</Val>
-							</DAI>
-						</DOI>
-						<GSEControl datSet="DataSet" confRev="10001" appID="VMU/BinIO_BinaryInputs/LLN0/Control_DataSet" name="Control_DataSet" />
+						<GSEControl datSet="DataSet" confRev="10001" appID="MU/BinIO_BinaryInputs/LLN0/Control_DataSet" name="Control_DataSet" />
 					</LN0>
 					<LN prefix="" lnClass="LPDI" inst="3" lnType="SIPROTEC5_LNType_LPDI_BinaryInput" desc="Binary input  1.3">
 						<Private type="Siemens-MasterId">ea69b887-ae34-484f-a025-e7d95bd92e2c</Private>
@@ -620,17 +610,12 @@
 						<DOI name="Health" desc="Prontidão" />
 						<DOI name="NamPlt" desc="Designação">
 							<DAI name="ldNs">
-								<Val>IEC 61850-7-4:2007B</Val>
+								<Val>IEC 61850-7-4:2007</Val>
 							</DAI>
 						</DOI>
 						<DOI name="GrRef" desc="GrRef">
 							<DAI name="setSrcRef">
 								<Val>@BinIO</Val>
-							</DAI>
-						</DOI>
-						<DOI name="SetMod" desc="Modo">
-							<DAI name="setVal">
-								<Val>on</Val>
 							</DAI>
 						</DOI>
 					</LN0>
@@ -644,7 +629,6 @@
 								<Val>2024-03-28 18:48:47</Val>
 							</DAI>
 						</DOI>
-						<DOI name="OutSPS" desc="Digital output" />
 					</LN>
 					<LN prefix="" lnClass="LPDO" inst="2" lnType="SIPROTEC5_LNType_LPDO_BinaryOutput" desc="Binary output  1.2">
 						<Private type="Siemens-MasterId">adfb5314-8cc3-44e0-a889-1923b59fd05c</Private>
@@ -656,7 +640,6 @@
 								<Val>2024-03-28 18:48:47</Val>
 							</DAI>
 						</DOI>
-						<DOI name="OutSPS" desc="Digital output" />
 					</LN>
 					<LN prefix="" lnClass="LPDO" inst="3" lnType="SIPROTEC5_LNType_LPDO_BinaryOutput" desc="Binary output  1.3">
 						<Private type="Siemens-MasterId">659c3007-df11-42c6-8ec2-a40ee8ec73f5</Private>
@@ -668,7 +651,6 @@
 								<Val>2024-03-28 18:48:47</Val>
 							</DAI>
 						</DOI>
-						<DOI name="OutSPS" desc="Digital output" />
 					</LN>
 					<LN prefix="" lnClass="LPDO" inst="4" lnType="SIPROTEC5_LNType_LPDO_BinaryOutput" desc="Binary output  1.4">
 						<Private type="Siemens-MasterId">acba6aee-9dfa-48ae-9971-32573225086f</Private>
@@ -680,7 +662,6 @@
 								<Val>2024-03-28 18:48:47</Val>
 							</DAI>
 						</DOI>
-						<DOI name="OutSPS" desc="Digital output" />
 					</LN>
 					<LN prefix="" lnClass="LPDO" inst="5" lnType="SIPROTEC5_LNType_LPDO_BinaryOutput" desc="Binary output  1.5">
 						<Private type="Siemens-MasterId">600d9639-4c38-40c3-94ed-6beaa55499c3</Private>
@@ -692,7 +673,6 @@
 								<Val>2024-03-28 18:48:47</Val>
 							</DAI>
 						</DOI>
-						<DOI name="OutSPS" desc="Digital output" />
 					</LN>
 					<LN prefix="" lnClass="LPDO" inst="6" lnType="SIPROTEC5_LNType_LPDO_BinaryOutput" desc="Binary output  1.6">
 						<Private type="Siemens-MasterId">8adef9b5-1adb-4704-b804-2cd98c33dbcf</Private>
@@ -704,7 +684,403 @@
 								<Val>2024-03-28 18:48:47</Val>
 							</DAI>
 						</DOI>
-						<DOI name="OutSPS" desc="Digital output" />
+					</LN>
+				</LDevice>
+				<LDevice desc="Disjuntor potência 1" inst="CB1">
+					<Private type="Siemens-MasterId">b2fe1adc-6242-403e-b60e-1d9141911d55</Private>
+					<LN0 lnClass="LLN0" inst="" lnType="SIPROTEC5_LNType_LLN0_LDevice_Generic_Ctrl" desc="Geral">
+						<Private type="Siemens-MasterId">a7ec8e72-5e7a-4614-9f93-f4be81738946</Private>
+						<DOI name="Mod" desc="Modo (controlável)" />
+						<DOI name="Beh" desc="Estado" />
+						<DOI name="Health" desc="Prontidão" />
+						<DOI name="NamPlt" desc="Designação">
+							<DAI name="ldNs">
+								<Val>IEC 61850-7-4:2007</Val>
+							</DAI>
+						</DOI>
+						<DOI name="GrRef" desc="GrRef">
+							<DAI name="setSrcRef">
+								<Val>@Application</Val>
+							</DAI>
+						</DOI>
+					</LN0>
+					<LN prefix="" lnClass="GAPC" inst="1" lnType="SIPROTEC5_LNType_ResetLed" desc="Geral">
+						<Private type="Siemens-MasterId">d98379b9-69d8-4f43-ac4d-8a39024f0667</Private>
+						<DOI name="Mod" desc="Modo (somente estad.)" />
+						<DOI name="Beh" desc="Estado" />
+						<DOI name="Health" desc="Prontidão" />
+						<DOI name="NamPlt" desc="Designação">
+							<DAI name="configRev">
+								<Val>2024-03-28 18:48:47</Val>
+							</DAI>
+						</DOI>
+					</LN>
+					<LN prefix="" lnClass="PTRC" inst="1" lnType="SIPROTEC5_LNType_PTRC_Trip_1_3pol" desc="Lógica disparo">
+						<Private type="Siemens-MasterId">24fcf848-0296-4797-b065-1924933873c5</Private>
+						<DOI name="Mod" desc="Modo (somente estad.)" />
+						<DOI name="Beh" desc="Estado" />
+						<DOI name="Health" desc="Prontidão" />
+						<DOI name="NamPlt" desc="Designação">
+							<DAI name="configRev">
+								<Val>2024-03-28 18:48:47</Val>
+							</DAI>
+						</DOI>
+						<DOI name="Tr" desc="Avis. comand partida" />
+						<DOI name="Op" desc="Disparo" />
+						<DOI name="Str" desc="Partida" />
+					</LN>
+					<LN prefix="" lnClass="XCBR" inst="4" lnType="SIPROTEC5_LNType_XCBR_1pol_Ctl" desc="Disjuntor pot.">
+						<Private type="Siemens-MasterId">ed493503-c67c-4f74-81d4-e86290927fca</Private>
+						<DOI name="Mod" desc="Modo (somente estad.)" />
+						<DOI name="Beh" desc="Estado" />
+						<DOI name="Health" desc="Prontidão" />
+						<DOI name="NamPlt" desc="Designação">
+							<DAI name="configRev">
+								<Val>2024-03-28 18:48:47</Val>
+							</DAI>
+						</DOI>
+						<DOI name="Loc" desc="Aut. p/ comut no local" />
+						<DOI name="EEHealth" desc="Prontidão externa" />
+						<DOI name="OpCnt" desc="C.ci.co." />
+						<DOI name="Pos" desc="Posição tripolar">
+							<SDI name="pulseConfig">
+								<DAI name="cmdQual">
+									<Val>pulse</Val>
+								</DAI>
+								<DAI name="onDur">
+									<Val>100</Val>
+								</DAI>
+								<DAI name="offDur">
+									<Val>0</Val>
+								</DAI>
+								<DAI name="numPls">
+									<Val>1</Val>
+								</DAI>
+							</SDI>
+						</DOI>
+						<DOI name="BlkOpn" desc="Bloqueio abrindo" />
+						<DOI name="BlkCls" desc="Bloqueio fechando" />
+						<DOI name="SumSwARs" desc="ΣI di/ab">
+							<SDI name="units">
+								<DAI name="SIUnit">
+									<Val>A</Val>
+								</DAI>
+							</SDI>
+							<DAI name="pulsQty">
+								<Val>0.001</Val>
+							</DAI>
+						</DOI>
+						<DOI name="POWCap" desc="PoW capability" />
+					</LN>
+					<LN prefix="" lnClass="XCBR" inst="1" lnType="SIPROTEC5_LNType_XCBR_1pol_PhsX" desc="DJ A">
+						<Private type="Siemens-MasterId">a31c9ab3-bf5c-4c6d-ab88-d0c059e936fc</Private>
+						<DOI name="Mod" desc="Modo (somente estad.)" />
+						<DOI name="Beh" desc="Estado" />
+						<DOI name="Health" desc="Prontidão" />
+						<DOI name="NamPlt" desc="Designação">
+							<DAI name="configRev">
+								<Val>2024-03-28 18:48:47</Val>
+							</DAI>
+						</DOI>
+						<DOI name="Loc" desc="Aut. p/ comut no local" />
+						<DOI name="OpCnt" desc="C.ci.co." />
+						<DOI name="Pos" desc="Comand. c/ reação" />
+						<DOI name="BlkOpn" desc="Bloqueio abrindo" />
+						<DOI name="BlkCls" desc="Bloqueio fechando" />
+						<DOI name="SumSwARs" desc="ΣI di/ab">
+							<SDI name="units">
+								<DAI name="SIUnit">
+									<Val>A</Val>
+								</DAI>
+							</SDI>
+						</DOI>
+					</LN>
+					<LN prefix="" lnClass="XCBR" inst="2" lnType="SIPROTEC5_LNType_XCBR_1pol_PhsX" desc="DJ B">
+						<Private type="Siemens-MasterId">120ce106-ce77-4904-b6cb-90492f5caed6</Private>
+						<DOI name="Mod" desc="Modo (somente estad.)" />
+						<DOI name="Beh" desc="Estado" />
+						<DOI name="Health" desc="Prontidão" />
+						<DOI name="NamPlt" desc="Designação">
+							<DAI name="configRev">
+								<Val>2024-03-28 18:48:47</Val>
+							</DAI>
+						</DOI>
+						<DOI name="Loc" desc="Aut. p/ comut no local" />
+						<DOI name="OpCnt" desc="C.ci.co." />
+						<DOI name="Pos" desc="Comand. c/ reação" />
+						<DOI name="BlkOpn" desc="Bloqueio abrindo" />
+						<DOI name="BlkCls" desc="Bloqueio fechando" />
+						<DOI name="SumSwARs" desc="ΣI di/ab">
+							<SDI name="units">
+								<DAI name="SIUnit">
+									<Val>A</Val>
+								</DAI>
+							</SDI>
+						</DOI>
+					</LN>
+					<LN prefix="" lnClass="XCBR" inst="3" lnType="SIPROTEC5_LNType_XCBR_1pol_PhsX" desc="DJ C">
+						<Private type="Siemens-MasterId">13c395d6-2017-4394-9c13-edd04e0d6819</Private>
+						<DOI name="Mod" desc="Modo (somente estad.)" />
+						<DOI name="Beh" desc="Estado" />
+						<DOI name="Health" desc="Prontidão" />
+						<DOI name="NamPlt" desc="Designação">
+							<DAI name="configRev">
+								<Val>2024-03-28 18:48:47</Val>
+							</DAI>
+						</DOI>
+						<DOI name="Loc" desc="Aut. p/ comut no local" />
+						<DOI name="OpCnt" desc="C.ci.co." />
+						<DOI name="Pos" desc="Comand. c/ reação" />
+						<DOI name="BlkOpn" desc="Bloqueio abrindo" />
+						<DOI name="BlkCls" desc="Bloqueio fechando" />
+						<DOI name="SumSwARs" desc="ΣI di/ab">
+							<SDI name="units">
+								<DAI name="SIUnit">
+									<Val>A</Val>
+								</DAI>
+							</SDI>
+						</DOI>
+					</LN>
+					<LN prefix="" lnClass="GAPC" inst="2" lnType="SIPROTEC5_LNType_GAPC_ManualClose" desc="Manual ON">
+						<Private type="Siemens-MasterId">09a911a3-86ea-45c5-a195-066a97398948</Private>
+						<DOI name="Mod" desc="Modo (controlável)" />
+						<DOI name="Beh" desc="Estado" />
+						<DOI name="Health" desc="Prontidão" />
+						<DOI name="NamPlt" desc="Designação">
+							<DAI name="configRev">
+								<Val>2024-03-28 18:48:47</Val>
+							</DAI>
+						</DOI>
+						<DOI name="Blk" desc="&gt;Bloq. manual ON" />
+					</LN>
+					<LN prefix="RSLED" lnClass="GAPC" inst="1" lnType="SIPROTEC5_LNType_ResetLed" desc="Reset LED GF">
+						<Private type="Siemens-MasterId">6edbe1ac-a229-4585-a349-05526e2fc3f2</Private>
+						<DOI name="Mod" desc="Modo (somente estad.)" />
+						<DOI name="Beh" desc="Estado" />
+						<DOI name="Health" desc="Prontidão" />
+						<DOI name="NamPlt" desc="Designação">
+							<DAI name="configRev">
+								<Val>2024-03-28 18:48:47</Val>
+							</DAI>
+						</DOI>
+					</LN>
+					<LN prefix="" lnClass="CSWI" inst="1" lnType="SIPROTEC5_LNType_CSWI" desc="Comando">
+						<Private type="Siemens-MasterId">4c6384a7-c7c5-44a5-ba32-58ed87db17ff</Private>
+						<Private type="Siemens-LN-Dependency" />
+						<DOI name="Mod" desc="Modo (somente estad.)" />
+						<DOI name="Beh" desc="Estado" />
+						<DOI name="Health" desc="Prontidão" />
+						<DOI name="NamPlt" desc="Designação">
+							<DAI name="configRev">
+								<Val>2024-03-28 18:48:47</Val>
+							</DAI>
+						</DOI>
+						<DOI name="Loc" desc="Aut. p/ comut no local" />
+						<DOI name="Pos" desc="Comand. c/ reação">
+							<DAI name="ctlModel">
+								<Val>sbo-with-enhanced-security</Val>
+							</DAI>
+							<DAI name="sboTimeout">
+								<Val>30000</Val>
+							</DAI>
+							<DAI name="operTimeout">
+								<Val>1000</Val>
+							</DAI>
+						</DOI>
+						<DOI name="LocKey" desc="Chave aut. comutaç." />
+						<DOI name="LocSta" desc="Estaç. autoriz. p comut.">
+							<DAI name="ctlModel">
+								<Val>status-only</Val>
+							</DAI>
+						</DOI>
+					</LN>
+					<LN prefix="" lnClass="CILO" inst="1" lnType="SIPROTEC5_LNType_CILO" desc="Intertravam.">
+						<Private type="Siemens-MasterId">a145cce1-6046-4f95-a3bd-71e3f1c88575</Private>
+						<DOI name="Mod" desc="Modo (somente estad.)" />
+						<DOI name="Beh" desc="Estado" />
+						<DOI name="Health" desc="Prontidão" />
+						<DOI name="NamPlt" desc="Designação">
+							<DAI name="configRev">
+								<Val>2024-03-28 18:48:47</Val>
+							</DAI>
+						</DOI>
+						<DOI name="EnaOpn" desc="&gt;Habilitar abert." />
+						<DOI name="EnaCls" desc="&gt;Habilitar fecho" />
+					</LN>
+					<LN prefix="CBT_" lnClass="GAPC" inst="1" lnType="SIPROTEC5_LNType_ResetLed" desc="Test.Disj.pot.">
+						<Private type="Siemens-MasterId">8511033f-3b8a-4740-894b-1ee112adad22</Private>
+						<DOI name="Mod" desc="Modo (somente estad.)" />
+						<DOI name="Beh" desc="Estado" />
+						<DOI name="Health" desc="Prontidão" />
+						<DOI name="NamPlt" desc="Designação">
+							<DAI name="configRev">
+								<Val>2024-03-28 18:48:47</Val>
+							</DAI>
+						</DOI>
+					</LN>
+				</LDevice>
+				<LDevice desc="Disjuntor potência 1_FdVMop" inst="CB1_Fundamental">
+					<Private type="Siemens-MasterId">8648dddd-0432-41fa-b2c8-145fcfdef4b3</Private>
+					<LN0 lnClass="LLN0" inst="" lnType="SIPROTEC5_LNType_LLN0_LDevice_Generic_Ctrl" desc="Geral">
+						<Private type="Siemens-MasterId">5714eea1-e626-440d-8d5a-f9317036e5a8</Private>
+						<DOI name="Mod" desc="Modo (controlável)" />
+						<DOI name="Beh" desc="Estado" />
+						<DOI name="Health" desc="Prontidão" />
+						<DOI name="NamPlt" desc="Designação">
+							<DAI name="ldNs">
+								<Val>IEC 61850-7-4:2007</Val>
+							</DAI>
+						</DOI>
+						<DOI name="GrRef" desc="GrRef">
+							<DAI name="setSrcRef">
+								<Val>@CB1</Val>
+							</DAI>
+						</DOI>
+					</LN0>
+					<LN prefix="FPRE_" lnClass="MMXU" inst="1" lnType="SIPROTEC5_LNType_MMXU_OpMeas_Fund_3ph_Pres" desc="1ª har.">
+						<Private type="Siemens-MasterId">1b9029d0-6d00-4745-a2db-06658a208374</Private>
+						<DOI name="Mod" desc="Modo (somente estad.)" />
+						<DOI name="Beh" desc="Estado" />
+						<DOI name="Health" desc="Prontidão" />
+						<DOI name="NamPlt" desc="Designação">
+							<DAI name="configRev">
+								<Val>2024-03-28 18:48:47</Val>
+							</DAI>
+						</DOI>
+						<DOI name="PPV" desc="Upp">
+							<SDI name="phsAB" desc="Upp:AB">
+								<SDI name="units">
+									<DAI name="SIUnit">
+										<Val>V</Val>
+									</DAI>
+									<DAI name="multiplier">
+										<Val>k</Val>
+									</DAI>
+								</SDI>
+								<DAI name="db">
+									<Val>2000</Val>
+								</DAI>
+							</SDI>
+							<SDI name="phsBC" desc="Upp:BC">
+								<SDI name="units">
+									<DAI name="SIUnit">
+										<Val>V</Val>
+									</DAI>
+									<DAI name="multiplier">
+										<Val>k</Val>
+									</DAI>
+								</SDI>
+								<DAI name="db">
+									<Val>2000</Val>
+								</DAI>
+							</SDI>
+							<SDI name="phsCA" desc="Upp:CA">
+								<SDI name="units">
+									<DAI name="SIUnit">
+										<Val>V</Val>
+									</DAI>
+									<DAI name="multiplier">
+										<Val>k</Val>
+									</DAI>
+								</SDI>
+								<DAI name="db">
+									<Val>2000</Val>
+								</DAI>
+							</SDI>
+						</DOI>
+						<DOI name="PhV" desc="Uph">
+							<SDI name="phsA" desc="Uph:A">
+								<SDI name="units">
+									<DAI name="SIUnit">
+										<Val>V</Val>
+									</DAI>
+									<DAI name="multiplier">
+										<Val>k</Val>
+									</DAI>
+								</SDI>
+								<DAI name="db">
+									<Val>2000</Val>
+								</DAI>
+							</SDI>
+							<SDI name="phsB" desc="Uph:B">
+								<SDI name="units">
+									<DAI name="SIUnit">
+										<Val>V</Val>
+									</DAI>
+									<DAI name="multiplier">
+										<Val>k</Val>
+									</DAI>
+								</SDI>
+								<DAI name="db">
+									<Val>2000</Val>
+								</DAI>
+							</SDI>
+							<SDI name="phsC" desc="Uph:C">
+								<SDI name="units">
+									<DAI name="SIUnit">
+										<Val>V</Val>
+									</DAI>
+									<DAI name="multiplier">
+										<Val>k</Val>
+									</DAI>
+								</SDI>
+								<DAI name="db">
+									<Val>2000</Val>
+								</DAI>
+							</SDI>
+							<SDI name="res" desc="Uph:Soma">
+								<SDI name="units">
+									<DAI name="SIUnit">
+										<Val>V</Val>
+									</DAI>
+								</SDI>
+								<DAI name="db">
+									<Val>20000</Val>
+								</DAI>
+							</SDI>
+						</DOI>
+						<DOI name="A" desc="Iph">
+							<SDI name="phsA" desc="Iph:A">
+								<SDI name="units">
+									<DAI name="SIUnit">
+										<Val>A</Val>
+									</DAI>
+								</SDI>
+								<DAI name="db">
+									<Val>10000</Val>
+								</DAI>
+							</SDI>
+							<SDI name="phsB" desc="Iph:B">
+								<SDI name="units">
+									<DAI name="SIUnit">
+										<Val>A</Val>
+									</DAI>
+								</SDI>
+								<DAI name="db">
+									<Val>10000</Val>
+								</DAI>
+							</SDI>
+							<SDI name="phsC" desc="Iph:C">
+								<SDI name="units">
+									<DAI name="SIUnit">
+										<Val>A</Val>
+									</DAI>
+								</SDI>
+								<DAI name="db">
+									<Val>10000</Val>
+								</DAI>
+							</SDI>
+							<SDI name="res" desc="Iph:Soma">
+								<SDI name="units">
+									<DAI name="SIUnit">
+										<Val>A</Val>
+									</DAI>
+								</SDI>
+								<DAI name="db">
+									<Val>100000</Val>
+								</DAI>
+							</SDI>
+						</DOI>
 					</LN>
 				</LDevice>
 				<LDevice desc="Com. supervision" inst="ComSupervision">
@@ -716,17 +1092,12 @@
 						<DOI name="Health" desc="Prontidão" />
 						<DOI name="NamPlt" desc="Designação">
 							<DAI name="ldNs">
-								<Val>IEC 61850-7-4:2007B</Val>
+								<Val>IEC 61850-7-4:2007</Val>
 							</DAI>
 						</DOI>
 						<DOI name="GrRef" desc="GrRef">
 							<DAI name="setSrcRef">
 								<Val>@Application</Val>
-							</DAI>
-						</DOI>
-						<DOI name="SetMod" desc="Modo">
-							<DAI name="setVal">
-								<Val>on</Val>
 							</DAI>
 						</DOI>
 						<DOI name="RxTr" desc="RxTr">
@@ -750,26 +1121,26 @@
 							</DAI>
 						</DOI>
 						<Inputs>
-							<ExtRef desc="RxTr" intAddr="RxTr;/Op/general" pServT="GOOSE" pDO="Op" pDA="general" />
-							<ExtRef desc="RxTr" intAddr="RxTr;/Op/phsA" pServT="GOOSE" pDO="Op" pDA="phsA" />
-							<ExtRef desc="RxTr" intAddr="RxTr;/Op/phsB" pServT="GOOSE" pDO="Op" pDA="phsB" />
-							<ExtRef desc="RxTr" intAddr="RxTr;/Op/phsC" pServT="GOOSE" pDO="Op" pDA="phsC" />
-							<ExtRef desc="RxTr" intAddr="RxTr;/Op/neut" pServT="GOOSE" pDO="Op" pDA="neut" />
-							<ExtRef desc="RxTr" intAddr="RxTr;/Op/q" pServT="GOOSE" pDO="Op" pDA="q" />
-							<ExtRef desc="RxTr" intAddr="RxTr;/Op/t" pServT="GOOSE" pDO="Op" pDA="t" />
-							<ExtRef desc="RxOpEx" intAddr="RxOpEx;/Op/general" pServT="GOOSE" pDO="Op" pDA="general" />
-							<ExtRef desc="RxOpEx" intAddr="RxOpEx;/Op/phsA" pServT="GOOSE" pDO="Op" pDA="phsA" />
-							<ExtRef desc="RxOpEx" intAddr="RxOpEx;/Op/phsB" pServT="GOOSE" pDO="Op" pDA="phsB" />
-							<ExtRef desc="RxOpEx" intAddr="RxOpEx;/Op/phsC" pServT="GOOSE" pDO="Op" pDA="phsC" />
-							<ExtRef desc="RxOpEx" intAddr="RxOpEx;/Op/neut" pServT="GOOSE" pDO="Op" pDA="neut" />
-							<ExtRef desc="RxOpEx" intAddr="RxOpEx;/Op/q" pServT="GOOSE" pDO="Op" pDA="q" />
-							<ExtRef desc="RxOpEx" intAddr="RxOpEx;/Op/t" pServT="GOOSE" pDO="Op" pDA="t" />
-							<ExtRef desc="RxInd10" intAddr="RxInd10;/Ind/stVal" pServT="GOOSE" pDO="Ind" pDA="stVal" />
-							<ExtRef desc="RxInd10" intAddr="RxInd10;/Ind/q" pServT="GOOSE" pDO="Ind" pDA="q" />
-							<ExtRef desc="RxInd10" intAddr="RxInd10;/Ind/t" pServT="GOOSE" pDO="Ind" pDA="t" />
-							<ExtRef desc="RxInd11" intAddr="RxInd11;/Ind/stVal" pServT="GOOSE" pDO="Ind" pDA="stVal" />
-							<ExtRef desc="RxInd11" intAddr="RxInd11;/Ind/q" pServT="GOOSE" pDO="Ind" pDA="q" />
-							<ExtRef desc="RxInd11" intAddr="RxInd11;/Ind/t" pServT="GOOSE" pDO="Ind" pDA="t" />
+							<ExtRef desc="RxTr" intAddr="RxTr;/Op/general" serviceType="GOOSE" />
+							<ExtRef desc="RxTr" intAddr="RxTr;/Op/phsA" serviceType="GOOSE" />
+							<ExtRef desc="RxTr" intAddr="RxTr;/Op/phsB" serviceType="GOOSE" />
+							<ExtRef desc="RxTr" intAddr="RxTr;/Op/phsC" serviceType="GOOSE" />
+							<ExtRef desc="RxTr" intAddr="RxTr;/Op/neut" serviceType="GOOSE" />
+							<ExtRef desc="RxTr" intAddr="RxTr;/Op/q" serviceType="GOOSE" />
+							<ExtRef desc="RxTr" intAddr="RxTr;/Op/t" serviceType="GOOSE" />
+							<ExtRef desc="RxOpEx" intAddr="RxOpEx;/Op/general" serviceType="GOOSE" />
+							<ExtRef desc="RxOpEx" intAddr="RxOpEx;/Op/phsA" serviceType="GOOSE" />
+							<ExtRef desc="RxOpEx" intAddr="RxOpEx;/Op/phsB" serviceType="GOOSE" />
+							<ExtRef desc="RxOpEx" intAddr="RxOpEx;/Op/phsC" serviceType="GOOSE" />
+							<ExtRef desc="RxOpEx" intAddr="RxOpEx;/Op/neut" serviceType="GOOSE" />
+							<ExtRef desc="RxOpEx" intAddr="RxOpEx;/Op/q" serviceType="GOOSE" />
+							<ExtRef desc="RxOpEx" intAddr="RxOpEx;/Op/t" serviceType="GOOSE" />
+							<ExtRef desc="RxInd10" intAddr="RxInd10;/Ind/stVal" serviceType="GOOSE" />
+							<ExtRef desc="RxInd10" intAddr="RxInd10;/Ind/q" serviceType="GOOSE" />
+							<ExtRef desc="RxInd10" intAddr="RxInd10;/Ind/t" serviceType="GOOSE" />
+							<ExtRef desc="RxInd11" intAddr="RxInd11;/Ind/stVal" serviceType="GOOSE" />
+							<ExtRef desc="RxInd11" intAddr="RxInd11;/Ind/q" serviceType="GOOSE" />
+							<ExtRef desc="RxInd11" intAddr="RxInd11;/Ind/t" serviceType="GOOSE" />
 						</Inputs>
 					</LN0>
 				</LDevice>
@@ -782,17 +1153,12 @@
 						<DOI name="Health" desc="Prontidão" />
 						<DOI name="NamPlt" desc="Designação">
 							<DAI name="ldNs">
-								<Val>IEC 61850-7-4:2007B</Val>
+								<Val>IEC 61850-7-4:2007</Val>
 							</DAI>
 						</DOI>
 						<DOI name="GrRef" desc="GrRef">
 							<DAI name="setSrcRef">
 								<Val>@ComSupervision</Val>
-							</DAI>
-						</DOI>
-						<DOI name="SetMod" desc="Modo">
-							<DAI name="setVal">
-								<Val>on</Val>
 							</DAI>
 						</DOI>
 					</LN0>
@@ -831,9 +1197,9 @@
 							</DAI>
 						</DOI>
 						<Inputs>
-							<ExtRef desc="RxSPS1" intAddr="RxSPS1;/Ind/stVal" pServT="GOOSE" pDO="Ind" pDA="stVal" />
-							<ExtRef desc="RxSPS1" intAddr="RxSPS1;/Ind/q" pServT="GOOSE" pDO="Ind" pDA="q" />
-							<ExtRef desc="RxSPS1" intAddr="RxSPS1;/Ind/t" pServT="GOOSE" pDO="Ind" pDA="t" />
+							<ExtRef desc="RxSPS1" intAddr="RxSPS1;/Ind/stVal" serviceType="GOOSE" />
+							<ExtRef desc="RxSPS1" intAddr="RxSPS1;/Ind/q" serviceType="GOOSE" />
+							<ExtRef desc="RxSPS1" intAddr="RxSPS1;/Ind/t" serviceType="GOOSE" />
 						</Inputs>
 					</LN>
 				</LDevice>
@@ -846,17 +1212,12 @@
 						<DOI name="Health" desc="Prontidão" />
 						<DOI name="NamPlt" desc="Designação">
 							<DAI name="ldNs">
-								<Val>IEC 61850-7-4:2007B</Val>
+								<Val>IEC 61850-7-4:2007</Val>
 							</DAI>
 						</DOI>
 						<DOI name="GrRef" desc="GrRef">
 							<DAI name="setSrcRef">
 								<Val>@Application</Val>
-							</DAI>
-						</DOI>
-						<DOI name="SetMod" desc="Modo">
-							<DAI name="setVal">
-								<Val>on</Val>
 							</DAI>
 						</DOI>
 					</LN0>
@@ -905,17 +1266,12 @@
 						<DOI name="Health" desc="Prontidão" />
 						<DOI name="NamPlt" desc="Designação">
 							<DAI name="ldNs">
-								<Val>IEC 61850-7-4:2007B</Val>
+								<Val>IEC 61850-7-4:2007</Val>
 							</DAI>
 						</DOI>
 						<DOI name="GrRef" desc="GrRef">
 							<DAI name="setSrcRef">
 								<Val>@Ln1</Val>
-							</DAI>
-						</DOI>
-						<DOI name="SetMod" desc="Modo">
-							<DAI name="setVal">
-								<Val>on</Val>
 							</DAI>
 						</DOI>
 					</LN0>
@@ -992,17 +1348,12 @@
 						<DOI name="Health" desc="Prontidão" />
 						<DOI name="NamPlt" desc="Designação">
 							<DAI name="ldNs">
-								<Val>IEC 61850-7-4:2007B</Val>
+								<Val>IEC 61850-7-4:2007</Val>
 							</DAI>
 						</DOI>
 						<DOI name="GrRef" desc="GrRef">
 							<DAI name="setSrcRef">
 								<Val>@Ln1</Val>
-							</DAI>
-						</DOI>
-						<DOI name="SetMod" desc="Modo">
-							<DAI name="setVal">
-								<Val>on</Val>
 							</DAI>
 						</DOI>
 					</LN0>
@@ -1029,9 +1380,6 @@
 								<DAI name="db">
 									<Val>2000</Val>
 								</DAI>
-								<DAI name="dbRef">
-									<Val>400</Val>
-								</DAI>
 							</SDI>
 							<SDI name="phsBC" desc="Upp:BC">
 								<SDI name="units">
@@ -1045,9 +1393,6 @@
 								<DAI name="db">
 									<Val>2000</Val>
 								</DAI>
-								<DAI name="dbRef">
-									<Val>400</Val>
-								</DAI>
 							</SDI>
 							<SDI name="phsCA" desc="Upp:CA">
 								<SDI name="units">
@@ -1060,9 +1405,6 @@
 								</SDI>
 								<DAI name="db">
 									<Val>2000</Val>
-								</DAI>
-								<DAI name="dbRef">
-									<Val>400</Val>
 								</DAI>
 							</SDI>
 						</DOI>
@@ -1079,9 +1421,6 @@
 								<DAI name="db">
 									<Val>2000</Val>
 								</DAI>
-								<DAI name="dbRef">
-									<Val>230.946884</Val>
-								</DAI>
 							</SDI>
 							<SDI name="phsB" desc="Uph:B">
 								<SDI name="units">
@@ -1094,9 +1433,6 @@
 								</SDI>
 								<DAI name="db">
 									<Val>2000</Val>
-								</DAI>
-								<DAI name="dbRef">
-									<Val>230.946884</Val>
 								</DAI>
 							</SDI>
 							<SDI name="phsC" desc="Uph:C">
@@ -1111,9 +1447,6 @@
 								<DAI name="db">
 									<Val>2000</Val>
 								</DAI>
-								<DAI name="dbRef">
-									<Val>230.946884</Val>
-								</DAI>
 							</SDI>
 							<SDI name="res" desc="Uph:Soma">
 								<SDI name="units">
@@ -1123,9 +1456,6 @@
 								</SDI>
 								<DAI name="db">
 									<Val>20000</Val>
-								</DAI>
-								<DAI name="dbRef">
-									<Val>230.946884</Val>
 								</DAI>
 							</SDI>
 						</DOI>
@@ -1139,9 +1469,6 @@
 								<DAI name="db">
 									<Val>10000</Val>
 								</DAI>
-								<DAI name="dbRef">
-									<Val>1000</Val>
-								</DAI>
 							</SDI>
 							<SDI name="phsB" desc="Iph:B">
 								<SDI name="units">
@@ -1151,9 +1478,6 @@
 								</SDI>
 								<DAI name="db">
 									<Val>10000</Val>
-								</DAI>
-								<DAI name="dbRef">
-									<Val>1000</Val>
 								</DAI>
 							</SDI>
 							<SDI name="phsC" desc="Iph:C">
@@ -1165,9 +1489,6 @@
 								<DAI name="db">
 									<Val>10000</Val>
 								</DAI>
-								<DAI name="dbRef">
-									<Val>1000</Val>
-								</DAI>
 							</SDI>
 							<SDI name="res" desc="Iph:Soma">
 								<SDI name="units">
@@ -1177,9 +1498,6 @@
 								</SDI>
 								<DAI name="db">
 									<Val>100000</Val>
-								</DAI>
-								<DAI name="dbRef">
-									<Val>1000</Val>
 								</DAI>
 							</SDI>
 						</DOI>
@@ -1215,9 +1533,6 @@
 								<DAI name="db">
 									<Val>10000</Val>
 								</DAI>
-								<DAI name="dbRef">
-									<Val>1000</Val>
-								</DAI>
 							</SDI>
 							<SDI name="c2" desc="Iseq:2">
 								<SDI name="units">
@@ -1228,9 +1543,6 @@
 								<DAI name="db">
 									<Val>10000</Val>
 								</DAI>
-								<DAI name="dbRef">
-									<Val>1000</Val>
-								</DAI>
 							</SDI>
 							<SDI name="c3" desc="Iseq:0">
 								<SDI name="units">
@@ -1240,9 +1552,6 @@
 								</SDI>
 								<DAI name="db">
 									<Val>10000</Val>
-								</DAI>
-								<DAI name="dbRef">
-									<Val>1000</Val>
 								</DAI>
 							</SDI>
 						</DOI>
@@ -1259,9 +1568,6 @@
 								<DAI name="db">
 									<Val>2000</Val>
 								</DAI>
-								<DAI name="dbRef">
-									<Val>230.946884</Val>
-								</DAI>
 							</SDI>
 							<SDI name="c2" desc="Vseq:2">
 								<SDI name="units">
@@ -1274,9 +1580,6 @@
 								</SDI>
 								<DAI name="db">
 									<Val>2000</Val>
-								</DAI>
-								<DAI name="dbRef">
-									<Val>230.946884</Val>
 								</DAI>
 							</SDI>
 							<SDI name="c3" desc="Vseq:0">
@@ -1291,9 +1594,6 @@
 								<DAI name="db">
 									<Val>2000</Val>
 								</DAI>
-								<DAI name="dbRef">
-									<Val>230.946884</Val>
-								</DAI>
 							</SDI>
 						</DOI>
 					</LN>
@@ -1307,17 +1607,12 @@
 						<DOI name="Health" desc="Prontidão" />
 						<DOI name="NamPlt" desc="Designação">
 							<DAI name="ldNs">
-								<Val>IEC 61850-7-4:2007B</Val>
+								<Val>IEC 61850-7-4:2007</Val>
 							</DAI>
 						</DOI>
 						<DOI name="GrRef" desc="GrRef">
 							<DAI name="setSrcRef">
 								<Val>@Ln1</Val>
-							</DAI>
-						</DOI>
-						<DOI name="SetMod" desc="Modo">
-							<DAI name="setVal">
-								<Val>on</Val>
 							</DAI>
 						</DOI>
 					</LN0>
@@ -1344,9 +1639,6 @@
 								<DAI name="db">
 									<Val>2000</Val>
 								</DAI>
-								<DAI name="dbRef">
-									<Val>400</Val>
-								</DAI>
 							</SDI>
 							<SDI name="phsBC" desc="Upp:BC">
 								<SDI name="units">
@@ -1360,9 +1652,6 @@
 								<DAI name="db">
 									<Val>2000</Val>
 								</DAI>
-								<DAI name="dbRef">
-									<Val>400</Val>
-								</DAI>
 							</SDI>
 							<SDI name="phsCA" desc="Upp:CA">
 								<SDI name="units">
@@ -1375,9 +1664,6 @@
 								</SDI>
 								<DAI name="db">
 									<Val>2000</Val>
-								</DAI>
-								<DAI name="dbRef">
-									<Val>400</Val>
 								</DAI>
 							</SDI>
 						</DOI>
@@ -1394,9 +1680,6 @@
 								<DAI name="db">
 									<Val>2000</Val>
 								</DAI>
-								<DAI name="dbRef">
-									<Val>230.946884</Val>
-								</DAI>
 							</SDI>
 							<SDI name="phsB" desc="Uph:B">
 								<SDI name="units">
@@ -1409,9 +1692,6 @@
 								</SDI>
 								<DAI name="db">
 									<Val>2000</Val>
-								</DAI>
-								<DAI name="dbRef">
-									<Val>230.946884</Val>
 								</DAI>
 							</SDI>
 							<SDI name="phsC" desc="Uph:C">
@@ -1426,9 +1706,6 @@
 								<DAI name="db">
 									<Val>2000</Val>
 								</DAI>
-								<DAI name="dbRef">
-									<Val>230.946884</Val>
-								</DAI>
 							</SDI>
 							<SDI name="res" desc="Uph:Soma">
 								<SDI name="units">
@@ -1438,9 +1715,6 @@
 								</SDI>
 								<DAI name="db">
 									<Val>20000</Val>
-								</DAI>
-								<DAI name="dbRef">
-									<Val>230.946884</Val>
 								</DAI>
 							</SDI>
 						</DOI>
@@ -1454,9 +1728,6 @@
 								<DAI name="db">
 									<Val>10000</Val>
 								</DAI>
-								<DAI name="dbRef">
-									<Val>1000</Val>
-								</DAI>
 							</SDI>
 							<SDI name="phsB" desc="Iph:B">
 								<SDI name="units">
@@ -1466,9 +1737,6 @@
 								</SDI>
 								<DAI name="db">
 									<Val>10000</Val>
-								</DAI>
-								<DAI name="dbRef">
-									<Val>1000</Val>
 								</DAI>
 							</SDI>
 							<SDI name="phsC" desc="Iph:C">
@@ -1480,9 +1748,6 @@
 								<DAI name="db">
 									<Val>10000</Val>
 								</DAI>
-								<DAI name="dbRef">
-									<Val>1000</Val>
-								</DAI>
 							</SDI>
 							<SDI name="res" desc="Iph:Soma">
 								<SDI name="units">
@@ -1492,9 +1757,6 @@
 								</SDI>
 								<DAI name="db">
 									<Val>100000</Val>
-								</DAI>
-								<DAI name="dbRef">
-									<Val>1000</Val>
 								</DAI>
 							</SDI>
 						</DOI>
@@ -1532,9 +1794,6 @@
 							<DAI name="db">
 								<Val>10000</Val>
 							</DAI>
-							<DAI name="dbRef">
-								<Val>692820.3</Val>
-							</DAI>
 						</DOI>
 						<DOI name="TotVAr" desc="Q tot">
 							<SDI name="units">
@@ -1548,9 +1807,6 @@
 							<DAI name="db">
 								<Val>10000</Val>
 							</DAI>
-							<DAI name="dbRef">
-								<Val>692820.3</Val>
-							</DAI>
 						</DOI>
 						<DOI name="TotVA" desc="S tot">
 							<SDI name="units">
@@ -1563,9 +1819,6 @@
 							</SDI>
 							<DAI name="db">
 								<Val>10000</Val>
-							</DAI>
-							<DAI name="dbRef">
-								<Val>692820.3</Val>
 							</DAI>
 						</DOI>
 						<DOI name="TotPF" desc="cosφ">
@@ -1587,9 +1840,6 @@
 							<DAI name="db">
 								<Val>100</Val>
 							</DAI>
-							<DAI name="dbRef">
-								<Val>60</Val>
-							</DAI>
 						</DOI>
 						<DOI name="W" desc="P">
 							<SDI name="phsA" desc="P:A">
@@ -1604,9 +1854,6 @@
 								<DAI name="db">
 									<Val>10000</Val>
 								</DAI>
-								<DAI name="dbRef">
-									<Val>230940.1</Val>
-								</DAI>
 							</SDI>
 							<SDI name="phsB" desc="P:B">
 								<SDI name="units">
@@ -1620,9 +1867,6 @@
 								<DAI name="db">
 									<Val>10000</Val>
 								</DAI>
-								<DAI name="dbRef">
-									<Val>230940.1</Val>
-								</DAI>
 							</SDI>
 							<SDI name="phsC" desc="P:C">
 								<SDI name="units">
@@ -1635,9 +1879,6 @@
 								</SDI>
 								<DAI name="db">
 									<Val>10000</Val>
-								</DAI>
-								<DAI name="dbRef">
-									<Val>230940.1</Val>
 								</DAI>
 							</SDI>
 						</DOI>
@@ -1654,9 +1895,6 @@
 								<DAI name="db">
 									<Val>10000</Val>
 								</DAI>
-								<DAI name="dbRef">
-									<Val>230940.1</Val>
-								</DAI>
 							</SDI>
 							<SDI name="phsB" desc="Q:B">
 								<SDI name="units">
@@ -1670,9 +1908,6 @@
 								<DAI name="db">
 									<Val>10000</Val>
 								</DAI>
-								<DAI name="dbRef">
-									<Val>230940.1</Val>
-								</DAI>
 							</SDI>
 							<SDI name="phsC" desc="Q:C">
 								<SDI name="units">
@@ -1685,9 +1920,6 @@
 								</SDI>
 								<DAI name="db">
 									<Val>10000</Val>
-								</DAI>
-								<DAI name="dbRef">
-									<Val>230940.1</Val>
 								</DAI>
 							</SDI>
 						</DOI>
@@ -1704,9 +1936,6 @@
 								<DAI name="db">
 									<Val>10000</Val>
 								</DAI>
-								<DAI name="dbRef">
-									<Val>230940.1</Val>
-								</DAI>
 							</SDI>
 							<SDI name="phsB" desc="R:B">
 								<SDI name="units">
@@ -1719,9 +1948,6 @@
 								</SDI>
 								<DAI name="db">
 									<Val>10000</Val>
-								</DAI>
-								<DAI name="dbRef">
-									<Val>230940.1</Val>
 								</DAI>
 							</SDI>
 							<SDI name="phsC" desc="R:C">
@@ -1736,9 +1962,6 @@
 								<DAI name="db">
 									<Val>10000</Val>
 								</DAI>
-								<DAI name="dbRef">
-									<Val>230940.1</Val>
-								</DAI>
 							</SDI>
 						</DOI>
 					</LN>
@@ -1752,17 +1975,12 @@
 						<DOI name="Health" desc="Prontidão" />
 						<DOI name="NamPlt" desc="Designação">
 							<DAI name="ldNs">
-								<Val>IEC 61850-7-4:2007B</Val>
+								<Val>IEC 61850-7-4:2007</Val>
 							</DAI>
 						</DOI>
 						<DOI name="GrRef" desc="GrRef">
 							<DAI name="setSrcRef">
 								<Val>@Ln1</Val>
-							</DAI>
-						</DOI>
-						<DOI name="SetMod" desc="Modo">
-							<DAI name="setVal">
-								<Val>on</Val>
 							</DAI>
 						</DOI>
 					</LN0>
@@ -1776,17 +1994,12 @@
 						<DOI name="Health" desc="Prontidão" />
 						<DOI name="NamPlt" desc="Designação">
 							<DAI name="ldNs">
-								<Val>IEC 61850-7-4:2007B</Val>
+								<Val>IEC 61850-7-4:2007</Val>
 							</DAI>
 						</DOI>
 						<DOI name="GrRef" desc="GrRef">
 							<DAI name="setSrcRef">
 								<Val>@Application</Val>
-							</DAI>
-						</DOI>
-						<DOI name="SetMod" desc="Modo">
-							<DAI name="setVal">
-								<Val>on</Val>
 							</DAI>
 						</DOI>
 					</LN0>
@@ -1800,17 +2013,12 @@
 						<DOI name="Health" desc="Prontidão" />
 						<DOI name="NamPlt" desc="Designação">
 							<DAI name="ldNs">
-								<Val>IEC 61850-7-4:2007B</Val>
+								<Val>IEC 61850-7-4:2007</Val>
 							</DAI>
 						</DOI>
 						<DOI name="GrRef" desc="GrRef">
 							<DAI name="setSrcRef">
 								<Val>@Mod1</Val>
-							</DAI>
-						</DOI>
-						<DOI name="SetMod" desc="Modo">
-							<DAI name="setVal">
-								<Val>on</Val>
 							</DAI>
 						</DOI>
 					</LN0>
@@ -1824,17 +2032,12 @@
 						<DOI name="Health" desc="Prontidão" />
 						<DOI name="NamPlt" desc="Designação">
 							<DAI name="ldNs">
-								<Val>IEC 61850-7-4:2007B</Val>
+								<Val>IEC 61850-7-4:2007</Val>
 							</DAI>
 						</DOI>
 						<DOI name="GrRef" desc="GrRef">
 							<DAI name="setSrcRef">
 								<Val>@Application</Val>
-							</DAI>
-						</DOI>
-						<DOI name="SetMod" desc="Modo">
-							<DAI name="setVal">
-								<Val>on</Val>
 							</DAI>
 						</DOI>
 					</LN0>
@@ -1848,17 +2051,12 @@
 						<DOI name="Health" desc="Prontidão" />
 						<DOI name="NamPlt" desc="Designação">
 							<DAI name="ldNs">
-								<Val>IEC 61850-7-4:2007B</Val>
+								<Val>IEC 61850-7-4:2007</Val>
 							</DAI>
 						</DOI>
 						<DOI name="GrRef" desc="GrRef">
 							<DAI name="setSrcRef">
 								<Val>@Mod2</Val>
-							</DAI>
-						</DOI>
-						<DOI name="SetMod" desc="Modo">
-							<DAI name="setVal">
-								<Val>on</Val>
 							</DAI>
 						</DOI>
 					</LN0>
@@ -1872,17 +2070,12 @@
 						<DOI name="Health" desc="Prontidão" />
 						<DOI name="NamPlt" desc="Designação">
 							<DAI name="ldNs">
-								<Val>IEC 61850-7-4:2007B</Val>
+								<Val>IEC 61850-7-4:2007</Val>
 							</DAI>
 						</DOI>
 						<DOI name="GrRef" desc="GrRef">
 							<DAI name="setSrcRef">
 								<Val>@Application</Val>
-							</DAI>
-						</DOI>
-						<DOI name="SetMod" desc="Modo">
-							<DAI name="setVal">
-								<Val>on</Val>
 							</DAI>
 						</DOI>
 					</LN0>
@@ -1896,17 +2089,12 @@
 						<DOI name="Health" desc="Prontidão" />
 						<DOI name="NamPlt" desc="Designação">
 							<DAI name="ldNs">
-								<Val>IEC 61850-7-4:2007B</Val>
+								<Val>IEC 61850-7-4:2007</Val>
 							</DAI>
 						</DOI>
 						<DOI name="GrRef" desc="GrRef">
 							<DAI name="setSrcRef">
 								<Val>@Mod3</Val>
-							</DAI>
-						</DOI>
-						<DOI name="SetMod" desc="Modo">
-							<DAI name="setVal">
-								<Val>on</Val>
 							</DAI>
 						</DOI>
 					</LN0>
@@ -1927,9 +2115,9 @@
 							</DAI>
 						</DOI>
 						<Inputs>
-							<ExtRef desc="RxSPS1" intAddr="RxSPS1;/Ind/stVal" pServT="GOOSE" pDO="Ind" pDA="stVal" />
-							<ExtRef desc="RxSPS1" intAddr="RxSPS1;/Ind/q" pServT="GOOSE" pDO="Ind" pDA="q" />
-							<ExtRef desc="RxSPS1" intAddr="RxSPS1;/Ind/t" pServT="GOOSE" pDO="Ind" pDA="t" />
+							<ExtRef desc="RxSPS1" intAddr="RxSPS1;/Ind/stVal" serviceType="GOOSE" />
+							<ExtRef desc="RxSPS1" intAddr="RxSPS1;/Ind/q" serviceType="GOOSE" />
+							<ExtRef desc="RxSPS1" intAddr="RxSPS1;/Ind/t" serviceType="GOOSE" />
 						</Inputs>
 					</LN>
 					<LN prefix="PRP_" lnClass="LCCH" inst="1" lnType="SIPROTEC5_LNType_LCCH_PRP" desc="PRP">
@@ -1963,7 +2151,7 @@
 					<LN0 lnClass="LLN0" inst="" lnType="SIPROTEC5_LNType_LLN0_LDevice_Generic_Ctrl" desc="Geral">
 						<Private type="Siemens-MasterId">ae1c58e2-4ce3-453a-955b-618f246c74e9</Private>
 						<DataSet name="PhsMeas1">
-							<Private type="Siemens-GUID">8c0e2d4d818549659cb453f50c92eb3c</Private>
+							<Private type="Siemens-GUID">7c7dcf689cf246688ef56cf8c2cfd294</Private>
 							<FCDA ldInst="Mod3_MU2" prefix="I01A" lnClass="TCTR" lnInst="1" doName="AmpSv" daName="instMag.i" fc="MX" />
 							<FCDA ldInst="Mod3_MU2" prefix="I01A" lnClass="TCTR" lnInst="1" doName="AmpSv" daName="q" fc="MX" />
 							<FCDA ldInst="Mod3_MU2" prefix="I01B" lnClass="TCTR" lnInst="2" doName="AmpSv" daName="instMag.i" fc="MX" />
@@ -1989,7 +2177,7 @@
 								<Val>2024-06-11 19:04:31</Val>
 							</DAI>
 							<DAI name="ldNs">
-								<Val>IEC 61850-7-4:2007B</Val>
+								<Val>IEC 61850-7-4:2007</Val>
 							</DAI>
 						</DOI>
 						<DOI name="GrRef" desc="GrRef">
@@ -1997,14 +2185,9 @@
 								<Val>@Mod3</Val>
 							</DAI>
 						</DOI>
-						<DOI name="SetMod" desc="Modo">
-							<DAI name="setVal">
-								<Val>on</Val>
-							</DAI>
-						</DOI>
 						<SampledValueControl datSet="PhsMeas1" confRev="1" smvID="ST2" multicast="true" smpRate="80" nofASDU="1" smpMod="SmpPerPeriod" name="MSVCB01">
 							<Private type="Siemens-DirectionIN">IN = +3I0</Private>
-							<SmvOpts refreshTime="false" sampleSynchronized="true" sampleRate="false" dataSet="false" security="false" synchSourceId="true" />
+							<SmvOpts refreshTime="false" sampleSynchronized="true" sampleRate="false" dataSet="false" security="false" />
 						</SampledValueControl>
 					</LN0>
 					<LN prefix="" lnClass="LPHD" inst="1" lnType="SIPROTEC5_LNType_LPHD_LD_PBMergingUnit" desc="Device MU">
@@ -2014,7 +2197,7 @@
 								<Val>2024-06-06 13:55:33</Val>
 							</DAI>
 							<DAI name="lnNs">
-								<Val>IEC 61869-9:2016A</Val>
+								<Val>IEC_61850-7-4:2007B</Val>
 							</DAI>
 						</DOI>
 						<DOI name="PhyNam" desc="Nome fís. dispositivo">
@@ -2027,26 +2210,6 @@
 						</DOI>
 						<DOI name="PhyHealth" desc="Status do dispositivo" />
 						<DOI name="Proxy" desc="Proxy" />
-						<DOI name="NamVariant" desc="NamVariant">
-							<DAI name="val">
-								<Val>F4000S1I0-24U0-24;F4800S1-2I0-24U0-24;F12800S8I0-16U0-16;F14400S6I0-24U0-24;F15360S8I0-16U0-16;</Val>
-							</DAI>
-						</DOI>
-						<DOI name="NamHzRtg" desc="NamHzRtg">
-							<DAI name="val">
-								<Val>50;60</Val>
-							</DAI>
-						</DOI>
-						<DOI name="NamHoldRtg" desc="NamHoldRtg">
-							<DAI name="val">
-								<Val>0-3600</Val>
-							</DAI>
-						</DOI>
-						<DOI name="NamMaxDlRtg" desc="NamMaxDlRtg">
-							<DAI name="val">
-								<Val>1150</Val>
-							</DAI>
-						</DOI>
 						<DOI name="MaxDl" desc="Max.delay time of samples">
 							<DAI name="setVal">
 								<Val>1150</Val>
@@ -2077,7 +2240,7 @@
 								<Val>2024-06-11 19:04:31</Val>
 							</DAI>
 							<DAI name="lnNs">
-								<Val>IEC 61869-9:2016A</Val>
+								<Val>IEC_61850-7-4:2007B</Val>
 							</DAI>
 						</DOI>
 						<DOI name="ARtg" desc="CorrNom, primária">
@@ -2237,21 +2400,6 @@
 							</DAI>
 							<DAI name="maxVal">
 								<Val>90000</Val>
-							</DAI>
-						</DOI>
-						<DOI name="NamAccRtg" desc="NamAccRtg">
-							<DAI name="val">
-								<Val>0,5S/5P20</Val>
-							</DAI>
-						</DOI>
-						<DOI name="NamARtg" desc="NamARtg">
-							<DAI name="val">
-								<Val>200;400;800</Val>
-							</DAI>
-						</DOI>
-						<DOI name="NamClipRtg" desc="NamClipRtg">
-							<DAI name="val">
-								<Val>20</Val>
 							</DAI>
 						</DOI>
 					</LN>
@@ -2265,7 +2413,7 @@
 								<Val>2024-06-11 19:04:31</Val>
 							</DAI>
 							<DAI name="lnNs">
-								<Val>IEC 61869-9:2016A</Val>
+								<Val>IEC_61850-7-4:2007B</Val>
 							</DAI>
 						</DOI>
 						<DOI name="ARtg" desc="CorrNom, primária">
@@ -2425,21 +2573,6 @@
 							</DAI>
 							<DAI name="maxVal">
 								<Val>90000</Val>
-							</DAI>
-						</DOI>
-						<DOI name="NamAccRtg" desc="NamAccRtg">
-							<DAI name="val">
-								<Val>0,5S/5P20</Val>
-							</DAI>
-						</DOI>
-						<DOI name="NamARtg" desc="NamARtg">
-							<DAI name="val">
-								<Val>200;400;800</Val>
-							</DAI>
-						</DOI>
-						<DOI name="NamClipRtg" desc="NamClipRtg">
-							<DAI name="val">
-								<Val>20</Val>
 							</DAI>
 						</DOI>
 					</LN>
@@ -2453,7 +2586,7 @@
 								<Val>2024-06-11 19:04:31</Val>
 							</DAI>
 							<DAI name="lnNs">
-								<Val>IEC 61869-9:2016A</Val>
+								<Val>IEC_61850-7-4:2007B</Val>
 							</DAI>
 						</DOI>
 						<DOI name="ARtg" desc="CorrNom, primária">
@@ -2613,21 +2746,6 @@
 							</DAI>
 							<DAI name="maxVal">
 								<Val>90000</Val>
-							</DAI>
-						</DOI>
-						<DOI name="NamAccRtg" desc="NamAccRtg">
-							<DAI name="val">
-								<Val>0,5S/5P20</Val>
-							</DAI>
-						</DOI>
-						<DOI name="NamARtg" desc="NamARtg">
-							<DAI name="val">
-								<Val>200;400;800</Val>
-							</DAI>
-						</DOI>
-						<DOI name="NamClipRtg" desc="NamClipRtg">
-							<DAI name="val">
-								<Val>20</Val>
 							</DAI>
 						</DOI>
 					</LN>
@@ -2641,7 +2759,7 @@
 								<Val>2024-06-11 19:04:31</Val>
 							</DAI>
 							<DAI name="lnNs">
-								<Val>IEC 61869-9:2016A</Val>
+								<Val>IEC_61850-7-4:2007B</Val>
 							</DAI>
 						</DOI>
 						<DOI name="ARtg" desc="CorrNom, primária">
@@ -2803,21 +2921,6 @@
 								<Val>90000</Val>
 							</DAI>
 						</DOI>
-						<DOI name="NamAccRtg" desc="NamAccRtg">
-							<DAI name="val">
-								<Val>0,5S/5P20</Val>
-							</DAI>
-						</DOI>
-						<DOI name="NamARtg" desc="NamARtg">
-							<DAI name="val">
-								<Val>200;400;800</Val>
-							</DAI>
-						</DOI>
-						<DOI name="NamClipRtg" desc="NamClipRtg">
-							<DAI name="val">
-								<Val>20</Val>
-							</DAI>
-						</DOI>
 					</LN>
 					<LN prefix="U01A" lnClass="TVTR" inst="1" lnType="SIPROTEC5_LNType_TVTR" desc="TransfTensão 1">
 						<Private type="Siemens-MasterId">65bbd6a7-0b90-4e8e-84a3-80dd13aa79d1</Private>
@@ -2829,7 +2932,7 @@
 								<Val>2024-06-11 19:04:31</Val>
 							</DAI>
 							<DAI name="lnNs">
-								<Val>IEC 61869-9:2016A</Val>
+								<Val>IEC_61850-7-4:2007B</Val>
 							</DAI>
 						</DOI>
 						<DOI name="VolSv" desc="Val exploração tensão">
@@ -2976,21 +3079,6 @@
 							</DAI>
 							<DAI name="maxVal">
 								<Val>90000</Val>
-							</DAI>
-						</DOI>
-						<DOI name="NamAccRtg" desc="NamAccRtg">
-							<DAI name="val">
-								<Val>0,5/3P</Val>
-							</DAI>
-						</DOI>
-						<DOI name="NamVRtg" desc="NamVRtg">
-							<DAI name="val">
-								<Val>173000</Val>
-							</DAI>
-						</DOI>
-						<DOI name="NamClipRtg" desc="NamClipRtg">
-							<DAI name="val">
-								<Val>2</Val>
 							</DAI>
 						</DOI>
 					</LN>
@@ -3004,7 +3092,7 @@
 								<Val>2024-06-11 19:04:31</Val>
 							</DAI>
 							<DAI name="lnNs">
-								<Val>IEC 61869-9:2016A</Val>
+								<Val>IEC_61850-7-4:2007B</Val>
 							</DAI>
 						</DOI>
 						<DOI name="VolSv" desc="Val exploração tensão">
@@ -3151,21 +3239,6 @@
 							</DAI>
 							<DAI name="maxVal">
 								<Val>90000</Val>
-							</DAI>
-						</DOI>
-						<DOI name="NamAccRtg" desc="NamAccRtg">
-							<DAI name="val">
-								<Val>0,5/3P</Val>
-							</DAI>
-						</DOI>
-						<DOI name="NamVRtg" desc="NamVRtg">
-							<DAI name="val">
-								<Val>173000</Val>
-							</DAI>
-						</DOI>
-						<DOI name="NamClipRtg" desc="NamClipRtg">
-							<DAI name="val">
-								<Val>2</Val>
 							</DAI>
 						</DOI>
 					</LN>
@@ -3179,7 +3252,7 @@
 								<Val>2024-06-11 19:04:31</Val>
 							</DAI>
 							<DAI name="lnNs">
-								<Val>IEC 61869-9:2016A</Val>
+								<Val>IEC_61850-7-4:2007B</Val>
 							</DAI>
 						</DOI>
 						<DOI name="VolSv" desc="Val exploração tensão">
@@ -3328,21 +3401,6 @@
 								<Val>90000</Val>
 							</DAI>
 						</DOI>
-						<DOI name="NamAccRtg" desc="NamAccRtg">
-							<DAI name="val">
-								<Val>0,5/3P</Val>
-							</DAI>
-						</DOI>
-						<DOI name="NamVRtg" desc="NamVRtg">
-							<DAI name="val">
-								<Val>173000</Val>
-							</DAI>
-						</DOI>
-						<DOI name="NamClipRtg" desc="NamClipRtg">
-							<DAI name="val">
-								<Val>2</Val>
-							</DAI>
-						</DOI>
 					</LN>
 					<LN prefix="U01N" lnClass="TVTR" inst="4" lnType="SIPROTEC5_LNType_TVTR" desc="TransfTensão 4">
 						<Private type="Siemens-MasterId">9e864d08-4db0-4f85-858e-19b7bb2cf757</Private>
@@ -3354,7 +3412,7 @@
 								<Val>2024-06-11 19:04:31</Val>
 							</DAI>
 							<DAI name="lnNs">
-								<Val>IEC 61869-9:2016A</Val>
+								<Val>IEC_61850-7-4:2007B</Val>
 							</DAI>
 						</DOI>
 						<DOI name="VolSv" desc="Val exploração tensão">
@@ -3503,21 +3561,6 @@
 								<Val>90000</Val>
 							</DAI>
 						</DOI>
-						<DOI name="NamAccRtg" desc="NamAccRtg">
-							<DAI name="val">
-								<Val>0,5/3P</Val>
-							</DAI>
-						</DOI>
-						<DOI name="NamVRtg" desc="NamVRtg">
-							<DAI name="val">
-								<Val>173000</Val>
-							</DAI>
-						</DOI>
-						<DOI name="NamClipRtg" desc="NamClipRtg">
-							<DAI name="val">
-								<Val>2</Val>
-							</DAI>
-						</DOI>
 					</LN>
 				</LDevice>
 				<LDevice desc="DadSis" inst="PowS">
@@ -3529,17 +3572,12 @@
 						<DOI name="Health" desc="Prontidão" />
 						<DOI name="NamPlt" desc="Designação">
 							<DAI name="ldNs">
-								<Val>IEC 61850-7-4:2007B</Val>
+								<Val>IEC 61850-7-4:2007</Val>
 							</DAI>
 						</DOI>
 						<DOI name="GrRef" desc="GrRef">
 							<DAI name="setSrcRef">
 								<Val>@Application</Val>
-							</DAI>
-						</DOI>
-						<DOI name="SetMod" desc="Modo">
-							<DAI name="setVal">
-								<Val>on</Val>
 							</DAI>
 						</DOI>
 					</LN0>
@@ -3575,17 +3613,12 @@
 						<DOI name="Health" desc="Prontidão" />
 						<DOI name="NamPlt" desc="Designação">
 							<DAI name="ldNs">
-								<Val>IEC 61850-7-4:2007B</Val>
+								<Val>IEC 61850-7-4:2007</Val>
 							</DAI>
 						</DOI>
 						<DOI name="GrRef" desc="GrRef">
 							<DAI name="setSrcRef">
 								<Val>@PowS</Val>
-							</DAI>
-						</DOI>
-						<DOI name="SetMod" desc="Modo">
-							<DAI name="setVal">
-								<Val>on</Val>
 							</DAI>
 						</DOI>
 					</LN0>
@@ -3610,17 +3643,12 @@
 						<DOI name="Health" desc="Prontidão" />
 						<DOI name="NamPlt" desc="Designação">
 							<DAI name="ldNs">
-								<Val>IEC 61850-7-4:2007B</Val>
+								<Val>IEC 61850-7-4:2007</Val>
 							</DAI>
 						</DOI>
 						<DOI name="GrRef" desc="GrRef">
 							<DAI name="setSrcRef">
 								<Val>@PowS</Val>
-							</DAI>
-						</DOI>
-						<DOI name="SetMod" desc="Modo">
-							<DAI name="setVal">
-								<Val>on</Val>
 							</DAI>
 						</DOI>
 					</LN0>
@@ -3645,17 +3673,12 @@
 						<DOI name="Health" desc="Prontidão" />
 						<DOI name="NamPlt" desc="Designação">
 							<DAI name="ldNs">
-								<Val>IEC 61850-7-4:2007B</Val>
+								<Val>IEC 61850-7-4:2007</Val>
 							</DAI>
 						</DOI>
 						<DOI name="GrRef" desc="GrRef">
 							<DAI name="setSrcRef">
 								<Val>@Application</Val>
-							</DAI>
-						</DOI>
-						<DOI name="SetMod" desc="Modo">
-							<DAI name="setVal">
-								<Val>on</Val>
 							</DAI>
 						</DOI>
 					</LN0>
@@ -3691,17 +3714,12 @@
 						<DOI name="Health" desc="Prontidão" />
 						<DOI name="NamPlt" desc="Designação">
 							<DAI name="ldNs">
-								<Val>IEC 61850-7-4:2007B</Val>
+								<Val>IEC 61850-7-4:2007</Val>
 							</DAI>
 						</DOI>
 						<DOI name="GrRef" desc="GrRef">
 							<DAI name="setSrcRef">
 								<Val>@Rec</Val>
-							</DAI>
-						</DOI>
-						<DOI name="SetMod" desc="Modo">
-							<DAI name="setVal">
-								<Val>on</Val>
 							</DAI>
 						</DOI>
 					</LN0>
@@ -3818,7 +3836,6 @@
 			<DO name="Health" type="SIPROTEC5_DOType_ENS_Health_V09.71.01_V09.71.01" />
 			<DO name="NamPlt" type="SIPROTEC5_DOType_LPL_NamPlt_for_LLN0_V09.71.01_V09.71.01" />
 			<DO name="GrRef" type="SIPROTEC5_DOType_ORG_V09.71.01_V09.71.01" />
-			<DO name="SetMod" type="SIPROTEC5_DOType_ENG_TextList_Mode_On_Off_edit_with_dataNs_V09.71.01_V09.71.01" />
 		</LNodeType>
 		<LNodeType id="SIPROTEC5_LNType_LPDI_BinaryInput" lnClass="LPDI">
 			<DO name="Beh" type="SIPROTEC5_DOType_ENS_Behavior_V09.71.01_V09.71.01" />
@@ -3829,7 +3846,75 @@
 			<DO name="Beh" type="SIPROTEC5_DOType_ENS_Behavior_V09.71.01_V09.71.01" />
 			<DO name="Health" type="SIPROTEC5_DOType_ENS_Health_V09.71.01_V09.71.01" />
 			<DO name="NamPlt" type="SIPROTEC5_DOType_LPL_NamPlt_for_SIEMENS_LN_V09.71.01_V09.71.01" />
-			<DO name="OutSPS" type="SIPROTEC5_DOType_SPS_with_dataNs_V09.71.01_V09.71.01" />
+		</LNodeType>
+		<LNodeType id="SIPROTEC5_LNType_PTRC_Trip_1_3pol" lnClass="PTRC">
+			<DO name="Mod" type="SIPROTEC5_DOType_Mod_status_only_with_InitVal_V09.71.01_V09.71.01" />
+			<DO name="Beh" type="SIPROTEC5_DOType_ENS_Behavior_V09.71.01_V09.71.01" />
+			<DO name="Health" type="SIPROTEC5_DOType_ENS_Health_V09.71.01_V09.71.01" />
+			<DO name="NamPlt" type="SIPROTEC5_DOType_LPL_NamPlt_V09.71.01_V09.71.01" />
+			<DO name="Tr" type="SIPROTEC5_DOType_ACT_1_3pol_GABC_V09.71.01_V09.71.01" />
+			<DO name="Op" type="SIPROTEC5_DOType_ACT_1_3pol_GABC_V09.71.01_V09.71.01" />
+			<DO name="Str" type="SIPROTEC5_DOType_ACD_PhsSel_GABCN_Without_DirRouting_V09.71.01_V09.71.01" />
+		</LNodeType>
+		<LNodeType id="SIPROTEC5_LNType_XCBR_1pol_Ctl" lnClass="XCBR">
+			<DO name="Mod" type="SIPROTEC5_DOType_Mod_status_only_with_InitVal_V09.71.01_V09.71.01" />
+			<DO name="Beh" type="SIPROTEC5_DOType_ENS_Behavior_V09.71.01_V09.71.01" />
+			<DO name="Health" type="SIPROTEC5_DOType_ENS_Health_V09.71.01_V09.71.01" />
+			<DO name="NamPlt" type="SIPROTEC5_DOType_LPL_NamPlt_for_Ed2_LN_V09.71.01_V09.71.01" />
+			<DO name="Loc" type="SIPROTEC5_DOType_SPS_V09.71.01_V09.71.01" />
+			<DO name="EEHealth" type="SIPROTEC5_DOType_ENS_Health_V09.71.01_V09.71.01" />
+			<DO name="OpCnt" type="SIPROTEC5_DOType_INS_INT32_V09.71.01_V09.71.01" />
+			<DO name="Pos" type="SIPROTEC5_DOType_DPC_XCBR_Pos_V09.71.01_V09.71.01" />
+			<DO name="BlkOpn" type="SIPROTEC5_DOType_SPC_status_only_V09.71.01_V09.71.01" />
+			<DO name="BlkCls" type="SIPROTEC5_DOType_SPC_status_only_V09.71.01_V09.71.01" />
+			<DO name="SumSwARs" type="SIPROTEC5_DOType_BCR_noFreeze_V09.71.01_V09.71.01" />
+			<DO name="POWCap" type="SIPROTEC5_DOType_ENS_TextList_POWCap_V09.71.01_V09.71.01" />
+		</LNodeType>
+		<LNodeType id="SIPROTEC5_LNType_XCBR_1pol_PhsX" lnClass="XCBR">
+			<DO name="Mod" type="SIPROTEC5_DOType_Mod_status_only_with_InitVal_V09.71.01_V09.71.01" />
+			<DO name="Beh" type="SIPROTEC5_DOType_ENS_Behavior_V09.71.01_V09.71.01" />
+			<DO name="Health" type="SIPROTEC5_DOType_ENS_Health_V09.71.01_V09.71.01" />
+			<DO name="NamPlt" type="SIPROTEC5_DOType_LPL_NamPlt_for_Ed2_LN_V09.71.01_V09.71.01" />
+			<DO name="Loc" type="SIPROTEC5_DOType_SPS_V09.71.01_V09.71.01" />
+			<DO name="OpCnt" type="SIPROTEC5_DOType_INS_INT32_V09.71.01_V09.71.01" />
+			<DO name="Pos" type="SIPROTEC5_DOType_DPC_Pos_status_only_V09.71.01_V09.71.01" />
+			<DO name="BlkOpn" type="SIPROTEC5_DOType_SPC_status_only_V09.71.01_V09.71.01" />
+			<DO name="BlkCls" type="SIPROTEC5_DOType_SPC_status_only_V09.71.01_V09.71.01" />
+			<DO name="SumSwARs" type="SIPROTEC5_DOType_BCR_noFreeze_V09.71.01_V09.71.01" />
+		</LNodeType>
+		<LNodeType id="SIPROTEC5_LNType_GAPC_ManualClose" lnClass="GAPC">
+			<DO name="Mod" type="SIPROTEC5_DOType_Mod_controllable_with_InitVal_VisibleAsProperty_V09.71.01_V09.71.01" />
+			<DO name="Beh" type="SIPROTEC5_DOType_ENS_Behavior_V09.71.01_V09.71.01" />
+			<DO name="Health" type="SIPROTEC5_DOType_ENS_Health_V09.71.01_V09.71.01" />
+			<DO name="NamPlt" type="SIPROTEC5_DOType_LPL_NamPlt_for_Ed2_LN_V09.71.01_V09.71.01" />
+			<DO name="Blk" type="SIPROTEC5_DOType_SPS_for_Input_V09.71.01_V09.71.01" />
+		</LNodeType>
+		<LNodeType id="SIPROTEC5_LNType_CSWI" lnClass="CSWI">
+			<DO name="Mod" type="SIPROTEC5_DOType_Mod_status_only_with_InitVal_V09.71.01_V09.71.01" />
+			<DO name="Beh" type="SIPROTEC5_DOType_ENS_Behavior_V09.71.01_V09.71.01" />
+			<DO name="Health" type="SIPROTEC5_DOType_ENS_Health_V09.71.01_V09.71.01" />
+			<DO name="NamPlt" type="SIPROTEC5_DOType_LPL_NamPlt_for_Ed2_LN_V09.71.01_V09.71.01" />
+			<DO name="Loc" type="SIPROTEC5_DOType_SPS_V09.71.01_V09.71.01" />
+			<DO name="Pos" type="SIPROTEC5_DOType_DPC_CSWI_Pos_V09.71.01_V09.71.01" />
+			<DO name="LocKey" type="SIPROTEC5_DOType_SPS_V09.71.01_V09.71.01" />
+			<DO name="LocSta" type="SIPROTEC5_DOType_SPC_statusOnly_and_dir_with_nor_sec_V09.71.01_V09.71.01" />
+		</LNodeType>
+		<LNodeType id="SIPROTEC5_LNType_CILO" lnClass="CILO">
+			<DO name="Mod" type="SIPROTEC5_DOType_Mod_status_only_with_InitVal_V09.71.01_V09.71.01" />
+			<DO name="Beh" type="SIPROTEC5_DOType_ENS_Behavior_V09.71.01_V09.71.01" />
+			<DO name="Health" type="SIPROTEC5_DOType_ENS_Health_V09.71.01_V09.71.01" />
+			<DO name="NamPlt" type="SIPROTEC5_DOType_LPL_NamPlt_V09.71.01_V09.71.01" />
+			<DO name="EnaOpn" type="SIPROTEC5_DOType_SPS_V09.71.01_V09.71.01" />
+			<DO name="EnaCls" type="SIPROTEC5_DOType_SPS_V09.71.01_V09.71.01" />
+		</LNodeType>
+		<LNodeType id="SIPROTEC5_LNType_MMXU_OpMeas_Fund_3ph_Pres" lnClass="MMXU">
+			<DO name="Mod" type="SIPROTEC5_DOType_Mod_status_only_with_InitVal_V09.71.01_V09.71.01" />
+			<DO name="Beh" type="SIPROTEC5_DOType_ENS_Behavior_V09.71.01_V09.71.01" />
+			<DO name="Health" type="SIPROTEC5_DOType_ENS_Health_V09.71.01_V09.71.01" />
+			<DO name="NamPlt" type="SIPROTEC5_DOType_LPL_NamPlt_for_Ed2_LN_V09.71.01_V09.71.01" />
+			<DO name="PPV" type="SIPROTEC5_DOType_DEL_V09.71.01_V09.71.01" />
+			<DO name="PhV" type="SIPROTEC5_DOType_WYE_ABCRes_V09.71.01_V09.71.01" />
+			<DO name="A" type="SIPROTEC5_DOType_WYE_ABCRes_V09.71.01_V09.71.01" />
 		</LNodeType>
 		<LNodeType id="SIPROTEC5_LNType_LLN0_LDevice_Generic_Ctrl_1" lnClass="LLN0">
 			<DO name="Mod" type="SIPROTEC5_DOType_Mod_controllable_with_InitVal_VisibleAsProperty_V09.71.01_V09.71.01" />
@@ -3837,7 +3922,6 @@
 			<DO name="Health" type="SIPROTEC5_DOType_ENS_Health_V09.71.01_V09.71.01" />
 			<DO name="NamPlt" type="SIPROTEC5_DOType_LPL_NamPlt_for_LLN0_V09.71.01_V09.71.01" />
 			<DO name="GrRef" type="SIPROTEC5_DOType_ORG_V09.71.01_V09.71.01" />
-			<DO name="SetMod" type="SIPROTEC5_DOType_ENG_TextList_Mode_On_Off_edit_with_dataNs_V09.71.01_V09.71.01" />
 			<DO name="RxTr" type="SIPROTEC5_DOType_ComProxy_ACT_V09.71.01_V09.71.01" />
 			<DO name="RxOpEx" type="SIPROTEC5_DOType_ComProxy_ACT_V09.71.01_V09.71.01" />
 			<DO name="RxInd10" type="SIPROTEC5_DOType_SPS_with_dataNs_V09.71.01_V09.71.01" />
@@ -3859,8 +3943,8 @@
 			<DO name="NdsCom" type="SIPROTEC5_DOType_SPS_V09.71.01_V09.71.01" />
 			<DO name="St" type="SIPROTEC5_DOType_SPS_V09.71.01_V09.71.01" />
 			<DO name="SimSt" type="SIPROTEC5_DOType_SPS_V09.71.01_V09.71.01" />
-			<DO name="ConfRevNum" type="SIPROTEC5_DOType_INS_V09.71.01_V09.71.01" />
-			<DO name="RxConfRevNum" type="SIPROTEC5_DOType_INS_V09.71.01_V09.71.01" />
+			<DO name="ConfRevNum" type="SIPROTEC5_DOType_INS_INT32_V09.71.01_V09.71.01" />
+			<DO name="RxConfRevNum" type="SIPROTEC5_DOType_INS_INT32_V09.71.01_V09.71.01" />
 			<DO name="GoCBRef" type="SIPROTEC5_DOType_ORG_external_V09.71.01_V09.71.01" />
 			<DO name="RxSPS1" type="SIPROTEC5_DOType_SPS_with_dataNs_V09.71.01_V09.71.01" />
 		</LNodeType>
@@ -3875,8 +3959,8 @@
 			<DO name="Beh" type="SIPROTEC5_DOType_ENS_Behavior_V09.71.01_V09.71.01" />
 			<DO name="Health" type="SIPROTEC5_DOType_ENS_Health_V09.71.01_V09.71.01" />
 			<DO name="NamPlt" type="SIPROTEC5_DOType_LPL_NamPlt_V09.71.01_V09.71.01" />
-			<DO name="Op" type="SIPROTEC5_DOType_ACT_1_3pol_GABC_simpleConversions_V09.71.01_V09.71.01" />
-			<DO name="Str" type="SIPROTEC5_DOType_ACD_PhsSel_GABCN_V09.71.01_V09.71.01" />
+			<DO name="Op" type="SIPROTEC5_DOType_ACT_1_3pol_GABC_V09.71.01_V09.71.01" />
+			<DO name="Str" type="SIPROTEC5_DOType_ACD_PhsSel_GABCN_Without_DirRouting_V09.71.01_V09.71.01" />
 		</LNodeType>
 		<LNodeType id="SIPROTEC5_LNType_MMTR_OpMeas_Energy_3ph" lnClass="MMTR">
 			<DO name="Mod" type="SIPROTEC5_DOType_Mod_status_only_with_InitVal_V09.71.01_V09.71.01" />
@@ -3887,15 +3971,6 @@
 			<DO name="SupVArh" type="SIPROTEC5_DOType_BCR_V09.71.01_V09.71.01" />
 			<DO name="DmdWh" type="SIPROTEC5_DOType_BCR_V09.71.01_V09.71.01" />
 			<DO name="DmdVArh" type="SIPROTEC5_DOType_BCR_V09.71.01_V09.71.01" />
-		</LNodeType>
-		<LNodeType id="SIPROTEC5_LNType_MMXU_OpMeas_Fund_3ph_Pres" lnClass="MMXU">
-			<DO name="Mod" type="SIPROTEC5_DOType_Mod_status_only_with_InitVal_V09.71.01_V09.71.01" />
-			<DO name="Beh" type="SIPROTEC5_DOType_ENS_Behavior_V09.71.01_V09.71.01" />
-			<DO name="Health" type="SIPROTEC5_DOType_ENS_Health_V09.71.01_V09.71.01" />
-			<DO name="NamPlt" type="SIPROTEC5_DOType_LPL_NamPlt_for_Ed2_LN_V09.71.01_V09.71.01" />
-			<DO name="PPV" type="SIPROTEC5_DOType_DEL_V09.71.01_V09.71.01" />
-			<DO name="PhV" type="SIPROTEC5_DOType_WYE_ABCRes_V09.71.01_V09.71.01" />
-			<DO name="A" type="SIPROTEC5_DOType_WYE_ABCRes_V09.71.01_V09.71.01" />
 		</LNodeType>
 		<LNodeType id="SIPROTEC5_LNType_MMXN_OpMeas_Fund_1ph_Pres" lnClass="MMXN">
 			<DO name="Mod" type="SIPROTEC5_DOType_Mod_status_only_with_InitVal_V09.71.01_V09.71.01" />
@@ -3962,10 +4037,6 @@
 			<DO name="PhyNam" type="SIPROTEC5_DOType_DPL_V09.71.01_V09.71.01" />
 			<DO name="PhyHealth" type="SIPROTEC5_DOType_ENS_Health_V09.71.01_V09.71.01" />
 			<DO name="Proxy" type="SIPROTEC5_DOType_SPS_V09.71.01_V09.71.01" />
-			<DO name="NamVariant" type="SIPROTEC5_DOType_VSD_readOnly_V09.71.01_V09.71.01" />
-			<DO name="NamHzRtg" type="SIPROTEC5_DOType_VSD_readOnly_V09.71.01_V09.71.01" />
-			<DO name="NamHoldRtg" type="SIPROTEC5_DOType_VSD_readOnly_V09.71.01_V09.71.01" />
-			<DO name="NamMaxDlRtg" type="SIPROTEC5_DOType_VSD_readOnly_V09.71.01_V09.71.01" />
 			<DO name="MaxDl" type="SIPROTEC5_DOType_ING_INT32_edit_V09.71.01_V09.71.01" />
 		</LNodeType>
 		<LNodeType id="SIPROTEC5_LNType_TCTR" lnClass="TCTR">
@@ -3984,9 +4055,6 @@
 			<DO name="AccMeas" type="SIPROTEC5_DOType_ENG_TextList_AccMeas_edit_V09.71.01_V09.71.01" />
 			<DO name="AccPro" type="SIPROTEC5_DOType_ENG_TextList_AccPro_edit_V09.71.01_V09.71.01" />
 			<DO name="HoldTmms" type="SIPROTEC5_DOType_ING_INT32_div_readOnly_V09.71.01_V09.71.01" />
-			<DO name="NamAccRtg" type="SIPROTEC5_DOType_VSD_readOnly_V09.71.01_V09.71.01" />
-			<DO name="NamARtg" type="SIPROTEC5_DOType_VSD_readOnly_V09.71.01_V09.71.01" />
-			<DO name="NamClipRtg" type="SIPROTEC5_DOType_VSD_readOnly_V09.71.01_V09.71.01" />
 		</LNodeType>
 		<LNodeType id="SIPROTEC5_LNType_TVTR" lnClass="TVTR">
 			<DO name="Mod" type="SIPROTEC5_DOType_Mod_status_only_with_InitVal_V09.71.01_V09.71.01" />
@@ -4002,9 +4070,6 @@
 			<DO name="AccMeas" type="SIPROTEC5_DOType_ENG_TextList_AccMeas_edit_V09.71.01_V09.71.01" />
 			<DO name="AccPro" type="SIPROTEC5_DOType_ENG_TextList_AccPro_edit_V09.71.01_V09.71.01" />
 			<DO name="HoldTmms" type="SIPROTEC5_DOType_ING_INT32_div_readOnly_V09.71.01_V09.71.01" />
-			<DO name="NamAccRtg" type="SIPROTEC5_DOType_VSD_readOnly_V09.71.01_V09.71.01" />
-			<DO name="NamVRtg" type="SIPROTEC5_DOType_VSD_readOnly_V09.71.01_V09.71.01" />
-			<DO name="NamClipRtg" type="SIPROTEC5_DOType_VSD_readOnly_V09.71.01_V09.71.01" />
 		</LNodeType>
 		<LNodeType id="SIPROTEC5_LNType_RDRE_DEF" lnClass="RDRE">
 			<DO name="Mod" type="SIPROTEC5_DOType_Mod_status_only_with_InitVal_V09.71.01_V09.71.01" />
@@ -4015,7 +4080,7 @@
 			<DO name="MemRs" type="SIPROTEC5_DOType_SPC_dir_with_enh_sec_FnKey_on_V09.71.01_V09.71.01" />
 			<DO name="MemClr" type="SIPROTEC5_DOType_SPC_dir_with_enh_sec_FnKey_on_V09.71.01_V09.71.01" />
 			<DO name="RcdMade" type="SIPROTEC5_DOType_SPS_V09.71.01_V09.71.01" />
-			<DO name="FltNum" type="SIPROTEC5_DOType_INS_V09.71.01_V09.71.01" />
+			<DO name="FltNum" type="SIPROTEC5_DOType_INS_INT32_V09.71.01_V09.71.01" />
 			<DO name="RcdStr" type="SIPROTEC5_DOType_SPS_V09.71.01_V09.71.01" />
 		</LNodeType>
 		<DOType id="SIPROTEC5_DOType_SPG_readOnly_with_dataNs_V09.71.01_V09.71.01" cdc="SPG">
@@ -4237,12 +4302,6 @@
 			<DA fc="SR" name="originatorID" bType="Octet64" />
 			<DA fc="SR" name="t" bType="Timestamp" />
 		</DOType>
-		<DOType id="SIPROTEC5_DOType_ENG_TextList_Mode_On_Off_edit_with_dataNs_V09.71.01_V09.71.01" cdc="ENG">
-			<DA fc="SE" name="setVal" bType="Enum" valKind="Set" type="SIPROTEC5_Textlist_Mode_On_Off_V09.71.01_V09.71.01" />
-			<DA fc="EX" name="dataNs" bType="VisString255" valKind="RO">
-				<Val>SIPROTEC5</Val>
-			</DA>
-		</DOType>
 		<DOType id="SIPROTEC5_DOType_ORG_V09.71.01_V09.71.01" cdc="ORG">
 			<DA dchg="true" fc="SP" name="setSrcRef" bType="ObjRef" valKind="RO" />
 		</DOType>
@@ -4268,6 +4327,177 @@
 				<Val>SIPROTEC5</Val>
 			</DA>
 		</DOType>
+		<DOType id="SIPROTEC5_DOType_ACD_PhsSel_GABCN_Without_DirRouting_V09.71.01_V09.71.01" cdc="ACD">
+			<DA dchg="true" fc="ST" name="general" bType="BOOLEAN" />
+			<DA dchg="true" fc="ST" name="dirGeneral" bType="Enum" type="SIPROTEC5_Textlist_DirectionGeneral_V09.71.01_V09.71.01" />
+			<DA dchg="true" fc="ST" name="phsA" bType="BOOLEAN" />
+			<DA dchg="true" fc="ST" name="dirPhsA" bType="Enum" type="SIPROTEC5_Textlist_DirectionPhase_V09.71.01_V09.71.01" />
+			<DA dchg="true" fc="ST" name="phsB" bType="BOOLEAN" />
+			<DA dchg="true" fc="ST" name="dirPhsB" bType="Enum" type="SIPROTEC5_Textlist_DirectionPhase_V09.71.01_V09.71.01" />
+			<DA dchg="true" fc="ST" name="phsC" bType="BOOLEAN" />
+			<DA dchg="true" fc="ST" name="dirPhsC" bType="Enum" type="SIPROTEC5_Textlist_DirectionPhase_V09.71.01_V09.71.01" />
+			<DA dchg="true" fc="ST" name="neut" bType="BOOLEAN" />
+			<DA dchg="true" fc="ST" name="dirNeut" bType="Enum" type="SIPROTEC5_Textlist_DirectionPhase_V09.71.01_V09.71.01" />
+			<DA qchg="true" fc="ST" name="q" bType="Quality" />
+			<DA fc="ST" name="t" bType="Timestamp" />
+		</DOType>
+		<DOType id="SIPROTEC5_DOType_ACT_1_3pol_GABC_V09.71.01_V09.71.01" cdc="ACT">
+			<DA dchg="true" fc="ST" name="general" bType="BOOLEAN" />
+			<DA dchg="true" fc="ST" name="phsA" bType="BOOLEAN" />
+			<DA dchg="true" fc="ST" name="phsB" bType="BOOLEAN" />
+			<DA dchg="true" fc="ST" name="phsC" bType="BOOLEAN" />
+			<DA qchg="true" fc="ST" name="q" bType="Quality" />
+			<DA fc="ST" name="t" bType="Timestamp" />
+		</DOType>
+		<DOType id="SIPROTEC5_DOType_LPL_NamPlt_V09.71.01_V09.71.01" cdc="LPL">
+			<DA fc="DC" name="vendor" bType="VisString255" valKind="RO">
+				<Val>SIEMENS</Val>
+			</DA>
+			<DA fc="DC" name="swRev" bType="VisString255" valKind="RO" />
+			<DA fc="DC" name="d" bType="VisString255" valKind="RO" />
+			<DA fc="DC" name="configRev" bType="VisString255" valKind="RO" />
+		</DOType>
+		<DOType id="SIPROTEC5_DOType_ENS_TextList_POWCap_V09.71.01_V09.71.01" cdc="ENS">
+			<DA dchg="true" fc="ST" name="stVal" bType="Enum" type="SIPROTEC5_Textlist_POWCap_V09.71.01_V09.71.01" />
+			<DA qchg="true" fc="ST" name="q" bType="Quality" />
+			<DA fc="ST" name="t" bType="Timestamp" />
+		</DOType>
+		<DOType id="SIPROTEC5_DOType_BCR_noFreeze_V09.71.01_V09.71.01" cdc="BCR">
+			<DA dchg="true" fc="ST" name="actVal" bType="INT64" />
+			<DA qchg="true" fc="ST" name="q" bType="Quality" />
+			<DA fc="ST" name="t" bType="Timestamp" />
+			<DA dchg="true" fc="CF" name="units" bType="Struct" type="SIPROTEC5_DAType_Units_1_V09.71.01_V09.71.01" />
+			<DA dchg="true" fc="CF" name="pulsQty" bType="FLOAT32" valKind="RO">
+				<Val>1</Val>
+			</DA>
+		</DOType>
+		<DOType id="SIPROTEC5_DOType_SPC_status_only_V09.71.01_V09.71.01" cdc="SPC">
+			<DA dchg="true" fc="ST" name="stVal" bType="BOOLEAN" />
+			<DA qchg="true" fc="ST" name="q" bType="Quality" />
+			<DA fc="ST" name="t" bType="Timestamp" />
+			<DA dchg="true" fc="OR" name="opRcvd" bType="BOOLEAN" />
+			<DA dchg="true" fc="OR" name="opOk" bType="BOOLEAN" />
+			<DA fc="OR" name="tOpOk" bType="Timestamp" />
+			<DA dchg="true" fc="CF" name="ctlModel" bType="Enum" valKind="RO" type="SIPROTEC5_Textlist_ctlModel_status_only_V09.71.01_V09.71.01">
+				<Val>status-only</Val>
+			</DA>
+		</DOType>
+		<DOType id="SIPROTEC5_DOType_DPC_XCBR_Pos_V09.71.01_V09.71.01" cdc="DPC">
+			<DA fc="ST" name="origin" bType="Struct" type="SIPROTEC5_DAType_origin_V09.71.01_V09.71.01" />
+			<DA fc="ST" name="ctlNum" bType="INT8U" />
+			<DA dchg="true" fc="ST" name="stVal" bType="Dbpos" />
+			<DA qchg="true" fc="ST" name="q" bType="Quality" />
+			<DA fc="ST" name="t" bType="Timestamp" />
+			<DA dchg="true" fc="ST" name="stSeld" bType="BOOLEAN" />
+			<DA dchg="true" fc="OR" name="opRcvd" bType="BOOLEAN" />
+			<DA dchg="true" fc="OR" name="opOk" bType="BOOLEAN" />
+			<DA fc="OR" name="tOpOk" bType="Timestamp" />
+			<DA fc="SV" name="subEna" bType="BOOLEAN" />
+			<DA fc="SV" name="subVal" bType="Dbpos" />
+			<DA fc="SV" name="subQ" bType="Quality" />
+			<DA fc="SV" name="subID" bType="VisString64" />
+			<DA fc="BL" name="blkEna" bType="BOOLEAN" />
+			<DA dchg="true" fc="CF" name="pulseConfig" bType="Struct" type="SIPROTEC5_DAType_PulseConfig_XCBR_V09.71.01_V09.71.01" />
+			<DA dchg="true" fc="CF" name="ctlModel" bType="Enum" valKind="RO" type="SIPROTEC5_Textlist_ctlModel_status_only_V09.71.01_V09.71.01">
+				<Val>status-only</Val>
+			</DA>
+		</DOType>
+		<DOType id="SIPROTEC5_DOType_INS_INT32_V09.71.01_V09.71.01" cdc="INS">
+			<DA dchg="true" fc="ST" name="stVal" bType="INT32" />
+			<DA qchg="true" fc="ST" name="q" bType="Quality" />
+			<DA fc="ST" name="t" bType="Timestamp" />
+		</DOType>
+		<DOType id="SIPROTEC5_DOType_DPC_Pos_status_only_V09.71.01_V09.71.01" cdc="DPC">
+			<DA fc="ST" name="origin" bType="Struct" type="SIPROTEC5_DAType_origin_V09.71.01_V09.71.01" />
+			<DA fc="ST" name="ctlNum" bType="INT8U" />
+			<DA dchg="true" fc="ST" name="stVal" bType="Dbpos" />
+			<DA qchg="true" fc="ST" name="q" bType="Quality" />
+			<DA fc="ST" name="t" bType="Timestamp" />
+			<DA dchg="true" fc="OR" name="opRcvd" bType="BOOLEAN" />
+			<DA dchg="true" fc="OR" name="opOk" bType="BOOLEAN" />
+			<DA fc="OR" name="tOpOk" bType="Timestamp" />
+			<DA fc="SV" name="subEna" bType="BOOLEAN" />
+			<DA fc="SV" name="subVal" bType="Dbpos" />
+			<DA fc="SV" name="subQ" bType="Quality" />
+			<DA fc="SV" name="subID" bType="VisString64" />
+			<DA fc="BL" name="blkEna" bType="BOOLEAN" />
+			<DA dchg="true" fc="CF" name="ctlModel" bType="Enum" valKind="RO" type="SIPROTEC5_Textlist_ctlModel_status_only_V09.71.01_V09.71.01">
+				<Val>status-only</Val>
+			</DA>
+		</DOType>
+		<DOType id="SIPROTEC5_DOType_SPS_for_Input_V09.71.01_V09.71.01" cdc="SPS">
+			<DA dchg="true" fc="ST" name="stVal" bType="BOOLEAN" />
+			<DA qchg="true" fc="ST" name="q" bType="Quality" />
+			<DA fc="ST" name="t" bType="Timestamp" />
+			<DA fc="SV" name="subEna" bType="BOOLEAN" />
+			<DA fc="SV" name="subVal" bType="BOOLEAN" />
+			<DA fc="SV" name="subQ" bType="Quality" />
+			<DA fc="SV" name="subID" bType="VisString64" />
+		</DOType>
+		<DOType id="SIPROTEC5_DOType_SPC_statusOnly_and_dir_with_nor_sec_V09.71.01_V09.71.01" cdc="SPC">
+			<DA fc="ST" name="origin" bType="Struct" type="SIPROTEC5_DAType_origin_V09.71.01_V09.71.01" />
+			<DA fc="ST" name="ctlNum" bType="INT8U" />
+			<DA dchg="true" fc="ST" name="stVal" bType="BOOLEAN" />
+			<DA qchg="true" fc="ST" name="q" bType="Quality" />
+			<DA fc="ST" name="t" bType="Timestamp" />
+			<DA dchg="true" fc="OR" name="opRcvd" bType="BOOLEAN" />
+			<DA dchg="true" fc="OR" name="opOk" bType="BOOLEAN" />
+			<DA fc="OR" name="tOpOk" bType="Timestamp" />
+			<DA dchg="true" fc="CF" name="ctlModel" bType="Enum" valKind="RO" type="SIPROTEC5_Textlist_ctlModel_status_only_and_dir_with_nor_sec_V09.71.01_V09.71.01">
+				<Val>direct-with-normal-security</Val>
+			</DA>
+			<DA fc="CO" name="Oper" bType="Struct" type="SIPROTEC5_DAType_Oper_Boolean_V09.71.01_V09.71.01" />
+		</DOType>
+		<DOType id="SIPROTEC5_DOType_DPC_CSWI_Pos_V09.71.01_V09.71.01" cdc="DPC">
+			<DA fc="ST" name="origin" bType="Struct" type="SIPROTEC5_DAType_origin_V09.71.01_V09.71.01" />
+			<DA fc="ST" name="ctlNum" bType="INT8U" />
+			<DA dchg="true" fc="ST" name="stVal" bType="Dbpos" />
+			<DA qchg="true" fc="ST" name="q" bType="Quality" />
+			<DA fc="ST" name="t" bType="Timestamp" />
+			<DA dchg="true" fc="ST" name="stSeld" bType="BOOLEAN" />
+			<DA dchg="true" fc="OR" name="opRcvd" bType="BOOLEAN" />
+			<DA dchg="true" fc="OR" name="opOk" bType="BOOLEAN" />
+			<DA fc="OR" name="tOpOk" bType="Timestamp" />
+			<DA dchg="true" fc="CF" name="ctlModel" bType="Enum" valKind="RO" type="SIPROTEC5_Textlist_ctlModel_V09.71.01_V09.71.01">
+				<Val>status-only</Val>
+			</DA>
+			<DA dchg="true" fc="CF" name="sboTimeout" bType="INT32U" valKind="RO">
+				<Val>0</Val>
+			</DA>
+			<DA dchg="true" fc="CF" name="operTimeout" bType="INT32U" valKind="RO">
+				<Val>0</Val>
+			</DA>
+			<DA fc="CO" name="SBO" bType="VisString129">
+				<ProtNs type="8-MMS">IEC 61850-8-1:2003</ProtNs>
+			</DA>
+			<DA fc="CO" name="SBOw" bType="Struct" type="SIPROTEC5_DAType_Oper_Boolean_V09.71.01_V09.71.01" />
+			<DA fc="CO" name="Oper" bType="Struct" type="SIPROTEC5_DAType_Oper_Boolean_V09.71.01_V09.71.01" />
+			<DA fc="CO" name="Cancel" bType="Struct" type="SIPROTEC5_DAType_Cancel_Boolean_V09.71.01_V09.71.01" />
+		</DOType>
+		<DOType id="SIPROTEC5_DOType_WYE_ABCRes_V09.71.01_V09.71.01" cdc="WYE">
+			<SDO name="phsA" type="SIPROTEC5_DOType_CMV_without_convertions_V09.71.01_V09.71.01" />
+			<SDO name="phsB" type="SIPROTEC5_DOType_CMV_without_convertions_V09.71.01_V09.71.01" />
+			<SDO name="phsC" type="SIPROTEC5_DOType_CMV_without_convertions_V09.71.01_V09.71.01" />
+			<SDO name="res" type="SIPROTEC5_DOType_CMV_without_convertions_V09.71.01_V09.71.01" />
+		</DOType>
+		<DOType id="SIPROTEC5_DOType_CMV_without_convertions_V09.71.01_V09.71.01" cdc="CMV">
+			<DA fc="MX" name="instCVal" bType="Struct" type="SIPROTEC5_DAType_Vector_V09.71.01_V09.71.01" />
+			<DA dchg="true" fc="MX" name="cVal" bType="Struct" type="SIPROTEC5_DAType_Vector_V09.71.01_V09.71.01" />
+			<DA qchg="true" fc="MX" name="q" bType="Quality" />
+			<DA fc="MX" name="t" bType="Timestamp" />
+			<DA dchg="true" fc="CF" name="units" bType="Struct" type="SIPROTEC5_DAType_Units_1_V09.71.01_V09.71.01" />
+			<DA dchg="true" fc="CF" name="db" bType="INT32U" valKind="Set">
+				<Val>0</Val>
+			</DA>
+			<DA dchg="true" fc="CF" name="dbAng" bType="INT32U" valKind="Set">
+				<Val>333</Val>
+			</DA>
+		</DOType>
+		<DOType id="SIPROTEC5_DOType_DEL_V09.71.01_V09.71.01" cdc="DEL">
+			<SDO name="phsAB" type="SIPROTEC5_DOType_CMV_without_convertions_V09.71.01_V09.71.01" />
+			<SDO name="phsBC" type="SIPROTEC5_DOType_CMV_without_convertions_V09.71.01_V09.71.01" />
+			<SDO name="phsCA" type="SIPROTEC5_DOType_CMV_without_convertions_V09.71.01_V09.71.01" />
+		</DOType>
 		<DOType id="SIPROTEC5_DOType_ComProxy_ACT_V09.71.01_V09.71.01" cdc="ACT">
 			<DA dchg="true" fc="ST" name="general" bType="BOOLEAN" />
 			<DA dchg="true" fc="ST" name="phsA" bType="BOOLEAN" />
@@ -4283,11 +4513,6 @@
 		<DOType id="SIPROTEC5_DOType_ORG_external_V09.71.01_V09.71.01" cdc="ORG">
 			<DA dchg="true" fc="SP" name="setSrcRef" bType="ObjRef" valKind="RO" valImport="true" />
 		</DOType>
-		<DOType id="SIPROTEC5_DOType_INS_V09.71.01_V09.71.01" cdc="INS">
-			<DA dchg="true" fc="ST" name="stVal" bType="INT32" />
-			<DA qchg="true" fc="ST" name="q" bType="Quality" />
-			<DA fc="ST" name="t" bType="Timestamp" />
-		</DOType>
 		<DOType id="SIPROTEC5_DOType_Mod_controllable_OnOff_with_InitVal_V09.71.01_V09.71.01" cdc="ENC">
 			<DA fc="ST" name="origin" bType="Struct" type="SIPROTEC5_DAType_origin_V09.71.01_V09.71.01" />
 			<DA fc="ST" name="ctlNum" bType="INT8U" />
@@ -4298,36 +4523,6 @@
 				<Val>direct-with-normal-security</Val>
 			</DA>
 			<DA fc="CO" name="Oper" bType="Struct" type="SIPROTEC5_DAType_Oper_Mod_OnOff_V09.71.01_V09.71.01" />
-		</DOType>
-		<DOType id="SIPROTEC5_DOType_ACD_PhsSel_GABCN_V09.71.01_V09.71.01" cdc="ACD">
-			<DA dchg="true" fc="ST" name="general" bType="BOOLEAN" />
-			<DA dchg="true" fc="ST" name="dirGeneral" bType="Enum" type="SIPROTEC5_Textlist_DirectionGeneral_V09.71.01_V09.71.01" />
-			<DA dchg="true" fc="ST" name="phsA" bType="BOOLEAN" />
-			<DA dchg="true" fc="ST" name="dirPhsA" bType="Enum" type="SIPROTEC5_Textlist_DirectionPhase_V09.71.01_V09.71.01" />
-			<DA dchg="true" fc="ST" name="phsB" bType="BOOLEAN" />
-			<DA dchg="true" fc="ST" name="dirPhsB" bType="Enum" type="SIPROTEC5_Textlist_DirectionPhase_V09.71.01_V09.71.01" />
-			<DA dchg="true" fc="ST" name="phsC" bType="BOOLEAN" />
-			<DA dchg="true" fc="ST" name="dirPhsC" bType="Enum" type="SIPROTEC5_Textlist_DirectionPhase_V09.71.01_V09.71.01" />
-			<DA dchg="true" fc="ST" name="neut" bType="BOOLEAN" />
-			<DA dchg="true" fc="ST" name="dirNeut" bType="Enum" type="SIPROTEC5_Textlist_DirectionPhase_V09.71.01_V09.71.01" />
-			<DA qchg="true" fc="ST" name="q" bType="Quality" />
-			<DA fc="ST" name="t" bType="Timestamp" />
-		</DOType>
-		<DOType id="SIPROTEC5_DOType_ACT_1_3pol_GABC_simpleConversions_V09.71.01_V09.71.01" cdc="ACT">
-			<DA dchg="true" fc="ST" name="general" bType="BOOLEAN" />
-			<DA dchg="true" fc="ST" name="phsA" bType="BOOLEAN" />
-			<DA dchg="true" fc="ST" name="phsB" bType="BOOLEAN" />
-			<DA dchg="true" fc="ST" name="phsC" bType="BOOLEAN" />
-			<DA qchg="true" fc="ST" name="q" bType="Quality" />
-			<DA fc="ST" name="t" bType="Timestamp" />
-		</DOType>
-		<DOType id="SIPROTEC5_DOType_LPL_NamPlt_V09.71.01_V09.71.01" cdc="LPL">
-			<DA fc="DC" name="vendor" bType="VisString255" valKind="RO">
-				<Val>SIEMENS</Val>
-			</DA>
-			<DA fc="DC" name="swRev" bType="VisString255" valKind="RO" />
-			<DA fc="DC" name="d" bType="VisString255" valKind="RO" />
-			<DA fc="DC" name="configRev" bType="VisString255" valKind="RO" />
 		</DOType>
 		<DOType id="SIPROTEC5_DOType_BCR_V09.71.01_V09.71.01" cdc="BCR">
 			<DA dchg="true" fc="ST" name="actVal" bType="INT64" />
@@ -4350,36 +4545,6 @@
 				<Val>false</Val>
 			</DA>
 		</DOType>
-		<DOType id="SIPROTEC5_DOType_WYE_ABCRes_V09.71.01_V09.71.01" cdc="WYE">
-			<SDO name="phsA" type="SIPROTEC5_DOType_CMV_without_convertions_V09.71.01_V09.71.01" />
-			<SDO name="phsB" type="SIPROTEC5_DOType_CMV_without_convertions_V09.71.01_V09.71.01" />
-			<SDO name="phsC" type="SIPROTEC5_DOType_CMV_without_convertions_V09.71.01_V09.71.01" />
-			<SDO name="res" type="SIPROTEC5_DOType_CMV_without_convertions_V09.71.01_V09.71.01" />
-		</DOType>
-		<DOType id="SIPROTEC5_DOType_CMV_without_convertions_V09.71.01_V09.71.01" cdc="CMV">
-			<DA fc="MX" name="instCVal" bType="Struct" type="SIPROTEC5_DAType_Vector_V09.71.01_V09.71.01" />
-			<DA dchg="true" fc="MX" name="cVal" bType="Struct" type="SIPROTEC5_DAType_Vector_V09.71.01_V09.71.01" />
-			<DA qchg="true" fc="MX" name="q" bType="Quality" />
-			<DA fc="MX" name="t" bType="Timestamp" />
-			<DA dchg="true" fc="CF" name="units" bType="Struct" type="SIPROTEC5_DAType_Units_1_V09.71.01_V09.71.01" />
-			<DA dchg="true" fc="CF" name="db" bType="INT32U" valKind="Set">
-				<Val>0</Val>
-			</DA>
-			<DA dchg="true" fc="CF" name="dbAng" bType="INT32U" valKind="Set">
-				<Val>333</Val>
-			</DA>
-			<DA dchg="true" fc="CF" name="dbRef" bType="FLOAT32" valKind="Set">
-				<Val>0</Val>
-			</DA>
-			<DA dchg="true" fc="CF" name="dbAngRef" bType="FLOAT32" valKind="Set">
-				<Val>360</Val>
-			</DA>
-		</DOType>
-		<DOType id="SIPROTEC5_DOType_DEL_V09.71.01_V09.71.01" cdc="DEL">
-			<SDO name="phsAB" type="SIPROTEC5_DOType_CMV_without_convertions_V09.71.01_V09.71.01" />
-			<SDO name="phsBC" type="SIPROTEC5_DOType_CMV_without_convertions_V09.71.01_V09.71.01" />
-			<SDO name="phsCA" type="SIPROTEC5_DOType_CMV_without_convertions_V09.71.01_V09.71.01" />
-		</DOType>
 		<DOType id="SIPROTEC5_DOType_SEQ_V09.71.01_V09.71.01" cdc="SEQ">
 			<SDO name="c1" type="SIPROTEC5_DOType_CMV_without_convertions_V09.71.01_V09.71.01" />
 			<SDO name="c2" type="SIPROTEC5_DOType_CMV_without_convertions_V09.71.01_V09.71.01" />
@@ -4399,9 +4564,6 @@
 			<DA fc="MX" name="t" bType="Timestamp" />
 			<DA dchg="true" fc="CF" name="units" bType="Struct" type="SIPROTEC5_DAType_Units_1_V09.71.01_V09.71.01" />
 			<DA dchg="true" fc="CF" name="db" bType="INT32U" valKind="Set">
-				<Val>0</Val>
-			</DA>
-			<DA dchg="true" fc="CF" name="dbRef" bType="FLOAT32" valKind="Set">
 				<Val>0</Val>
 			</DA>
 		</DOType>
@@ -4424,12 +4586,6 @@
 			<DA dchg="true" fc="CF" name="db" bType="INT32U" valKind="Set">
 				<Val>0</Val>
 			</DA>
-			<DA dchg="true" fc="CF" name="dbRef" bType="FLOAT32" valKind="Set">
-				<Val>0</Val>
-			</DA>
-		</DOType>
-		<DOType id="SIPROTEC5_DOType_VSD_readOnly_V09.71.01_V09.71.01" cdc="VSD">
-			<DA fc="DC" name="val" bType="VisString255" valKind="RO" />
 		</DOType>
 		<DOType id="SIPROTEC5_DOType_ING_INT32_div_readOnly_V09.71.01_V09.71.01" cdc="ING">
 			<DA fc="SE" name="setVal" bType="INT32" valKind="RO" />
@@ -4535,13 +4691,18 @@
 			<BDA name="Check" bType="Check" />
 			<ProtNs type="8-MMS">IEC 61850-8-1:2003</ProtNs>
 		</DAType>
-		<DAType id="SIPROTEC5_DAType_Oper_Mod_OnOff_V09.71.01_V09.71.01">
-			<BDA name="ctlVal" bType="Enum" type="SIPROTEC5_Textlist_Behavior_OnOff_V09.71.01_V09.71.01" />
+		<DAType id="SIPROTEC5_DAType_PulseConfig_XCBR_V09.71.01_V09.71.01">
+			<BDA name="cmdQual" bType="Enum" valKind="RO" type="SIPROTEC5_Textlist_PulseConfigCmdQual_V09.71.01_V09.71.01" />
+			<BDA name="onDur" bType="INT32U" valKind="RO" />
+			<BDA name="offDur" bType="INT32U" valKind="RO" />
+			<BDA name="numPls" bType="INT32U" valKind="RO" />
+		</DAType>
+		<DAType id="SIPROTEC5_DAType_Cancel_Boolean_V09.71.01_V09.71.01">
+			<BDA name="ctlVal" bType="BOOLEAN" />
 			<BDA name="origin" bType="Struct" type="SIPROTEC5_DAType_origin_V09.71.01_V09.71.01" />
 			<BDA name="ctlNum" bType="INT8U" />
 			<BDA name="T" bType="Timestamp" />
 			<BDA name="Test" bType="BOOLEAN" />
-			<BDA name="Check" bType="Check" />
 			<ProtNs type="8-MMS">IEC 61850-8-1:2003</ProtNs>
 		</DAType>
 		<DAType id="SIPROTEC5_DAType_Vector_V09.71.01_V09.71.01">
@@ -4552,6 +4713,15 @@
 			<BDA name="f" bType="FLOAT32" valKind="Set">
 				<Val>0</Val>
 			</BDA>
+		</DAType>
+		<DAType id="SIPROTEC5_DAType_Oper_Mod_OnOff_V09.71.01_V09.71.01">
+			<BDA name="ctlVal" bType="Enum" type="SIPROTEC5_Textlist_Behavior_OnOff_V09.71.01_V09.71.01" />
+			<BDA name="origin" bType="Struct" type="SIPROTEC5_DAType_origin_V09.71.01_V09.71.01" />
+			<BDA name="ctlNum" bType="INT8U" />
+			<BDA name="T" bType="Timestamp" />
+			<BDA name="Test" bType="BOOLEAN" />
+			<BDA name="Check" bType="Check" />
+			<ProtNs type="8-MMS">IEC 61850-8-1:2003</ProtNs>
 		</DAType>
 		<DAType id="SIPROTEC5_DAType_Vector_mag_V09.71.01_V09.71.01">
 			<BDA name="mag" bType="Struct" type="SIPROTEC5_DAType_AnalogValue_FLOAT32_V09.71.01_V09.71.01" />
@@ -4875,17 +5045,9 @@
 			<EnumVal ord="11">failed-due-to-communications-constraint</EnumVal>
 			<EnumVal ord="12">failed-due-to-server-constraint</EnumVal>
 		</EnumType>
-		<EnumType id="SIPROTEC5_Textlist_Mode_On_Off_V09.71.01_V09.71.01">
-			<EnumVal ord="5">off</EnumVal>
-			<EnumVal ord="1">on</EnumVal>
-		</EnumType>
 		<EnumType id="SIPROTEC5_Textlist_ctlModel_status_only_and_dir_with_nor_sec_V09.71.01_V09.71.01">
 			<EnumVal ord="0">status-only</EnumVal>
 			<EnumVal ord="1">direct-with-normal-security</EnumVal>
-		</EnumType>
-		<EnumType id="SIPROTEC5_Textlist_Behavior_OnOff_V09.71.01_V09.71.01">
-			<EnumVal ord="1">on</EnumVal>
-			<EnumVal ord="5">off</EnumVal>
 		</EnumType>
 		<EnumType id="SIPROTEC5_Textlist_DirectionGeneral_V09.71.01_V09.71.01">
 			<EnumVal ord="0">unknown</EnumVal>
@@ -4897,6 +5059,27 @@
 			<EnumVal ord="0">unknown</EnumVal>
 			<EnumVal ord="1">forward</EnumVal>
 			<EnumVal ord="2">backward</EnumVal>
+		</EnumType>
+		<EnumType id="SIPROTEC5_Textlist_POWCap_V09.71.01_V09.71.01">
+			<EnumVal ord="1">None</EnumVal>
+			<EnumVal ord="2">Close</EnumVal>
+			<EnumVal ord="3">Open</EnumVal>
+			<EnumVal ord="4">Close and Open</EnumVal>
+		</EnumType>
+		<EnumType id="SIPROTEC5_Textlist_PulseConfigCmdQual_V09.71.01_V09.71.01">
+			<EnumVal ord="0">pulse</EnumVal>
+			<EnumVal ord="1">persistent</EnumVal>
+		</EnumType>
+		<EnumType id="SIPROTEC5_Textlist_ctlModel_V09.71.01_V09.71.01">
+			<EnumVal ord="0">status-only</EnumVal>
+			<EnumVal ord="1">direct-with-normal-security</EnumVal>
+			<EnumVal ord="2">sbo-with-normal-security</EnumVal>
+			<EnumVal ord="3">direct-with-enhanced-security</EnumVal>
+			<EnumVal ord="4">sbo-with-enhanced-security</EnumVal>
+		</EnumType>
+		<EnumType id="SIPROTEC5_Textlist_Behavior_OnOff_V09.71.01_V09.71.01">
+			<EnumVal ord="1">on</EnumVal>
+			<EnumVal ord="5">off</EnumVal>
 		</EnumType>
 		<EnumType id="SIPROTEC5_Textlist_SEQtype_V09.71.01_V09.71.01">
 			<EnumVal ord="0">pos-neg-zero</EnumVal>

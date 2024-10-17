@@ -31154,7 +31154,7 @@ DataObject iedModel_Mod3_MU2_LPHD1_Proxy = {
     DataObjectModelType,
     "Proxy",
     (ModelNode*) &iedModel_Mod3_MU2_LPHD1,
-    (ModelNode*) &iedModel_Mod3_MU2_LPHD1_MaxDl,
+    (ModelNode*) &iedModel_Mod3_MU2_LPHD1_NamVariant,
     (ModelNode*) &iedModel_Mod3_MU2_LPHD1_Proxy_stVal,
     0
 };
@@ -31194,6 +31194,94 @@ DataAttribute iedModel_Mod3_MU2_LPHD1_Proxy_t = {
     0,
     IEC61850_FC_ST,
     IEC61850_TIMESTAMP,
+    0,
+    NULL,
+    0};
+
+DataObject iedModel_Mod3_MU2_LPHD1_NamVariant = {
+    DataObjectModelType,
+    "NamVariant",
+    (ModelNode*) &iedModel_Mod3_MU2_LPHD1,
+    (ModelNode*) &iedModel_Mod3_MU2_LPHD1_NamHzRtg,
+    (ModelNode*) &iedModel_Mod3_MU2_LPHD1_NamVariant_val,
+    0
+};
+
+DataAttribute iedModel_Mod3_MU2_LPHD1_NamVariant_val = {
+    DataAttributeModelType,
+    "val",
+    (ModelNode*) &iedModel_Mod3_MU2_LPHD1_NamVariant,
+    NULL,
+    NULL,
+    0,
+    IEC61850_FC_DC,
+    IEC61850_VISIBLE_STRING_255,
+    0,
+    NULL,
+    0};
+
+DataObject iedModel_Mod3_MU2_LPHD1_NamHzRtg = {
+    DataObjectModelType,
+    "NamHzRtg",
+    (ModelNode*) &iedModel_Mod3_MU2_LPHD1,
+    (ModelNode*) &iedModel_Mod3_MU2_LPHD1_NamHoldRtg,
+    (ModelNode*) &iedModel_Mod3_MU2_LPHD1_NamHzRtg_val,
+    0
+};
+
+DataAttribute iedModel_Mod3_MU2_LPHD1_NamHzRtg_val = {
+    DataAttributeModelType,
+    "val",
+    (ModelNode*) &iedModel_Mod3_MU2_LPHD1_NamHzRtg,
+    NULL,
+    NULL,
+    0,
+    IEC61850_FC_DC,
+    IEC61850_VISIBLE_STRING_255,
+    0,
+    NULL,
+    0};
+
+DataObject iedModel_Mod3_MU2_LPHD1_NamHoldRtg = {
+    DataObjectModelType,
+    "NamHoldRtg",
+    (ModelNode*) &iedModel_Mod3_MU2_LPHD1,
+    (ModelNode*) &iedModel_Mod3_MU2_LPHD1_NamMaxDlRtg,
+    (ModelNode*) &iedModel_Mod3_MU2_LPHD1_NamHoldRtg_val,
+    0
+};
+
+DataAttribute iedModel_Mod3_MU2_LPHD1_NamHoldRtg_val = {
+    DataAttributeModelType,
+    "val",
+    (ModelNode*) &iedModel_Mod3_MU2_LPHD1_NamHoldRtg,
+    NULL,
+    NULL,
+    0,
+    IEC61850_FC_DC,
+    IEC61850_VISIBLE_STRING_255,
+    0,
+    NULL,
+    0};
+
+DataObject iedModel_Mod3_MU2_LPHD1_NamMaxDlRtg = {
+    DataObjectModelType,
+    "NamMaxDlRtg",
+    (ModelNode*) &iedModel_Mod3_MU2_LPHD1,
+    (ModelNode*) &iedModel_Mod3_MU2_LPHD1_MaxDl,
+    (ModelNode*) &iedModel_Mod3_MU2_LPHD1_NamMaxDlRtg_val,
+    0
+};
+
+DataAttribute iedModel_Mod3_MU2_LPHD1_NamMaxDlRtg_val = {
+    DataAttributeModelType,
+    "val",
+    (ModelNode*) &iedModel_Mod3_MU2_LPHD1_NamMaxDlRtg,
+    NULL,
+    NULL,
+    0,
+    IEC61850_FC_DC,
+    IEC61850_VISIBLE_STRING_255,
     0,
     NULL,
     0};
@@ -32762,7 +32850,7 @@ DataObject iedModel_Mod3_MU2_I01ATCTR1_HoldTmms = {
     DataObjectModelType,
     "HoldTmms",
     (ModelNode*) &iedModel_Mod3_MU2_I01ATCTR1,
-    NULL,
+    (ModelNode*) &iedModel_Mod3_MU2_I01ATCTR1_NamAccRtg,
     (ModelNode*) &iedModel_Mod3_MU2_I01ATCTR1_HoldTmms_setVal,
     0
 };
@@ -32829,6 +32917,72 @@ DataAttribute iedModel_Mod3_MU2_I01ATCTR1_HoldTmms_stepSize = {
     IEC61850_FC_CF,
     IEC61850_INT32U,
     0 + TRG_OPT_DATA_CHANGED,
+    NULL,
+    0};
+
+DataObject iedModel_Mod3_MU2_I01ATCTR1_NamAccRtg = {
+    DataObjectModelType,
+    "NamAccRtg",
+    (ModelNode*) &iedModel_Mod3_MU2_I01ATCTR1,
+    (ModelNode*) &iedModel_Mod3_MU2_I01ATCTR1_NamARtg,
+    (ModelNode*) &iedModel_Mod3_MU2_I01ATCTR1_NamAccRtg_val,
+    0
+};
+
+DataAttribute iedModel_Mod3_MU2_I01ATCTR1_NamAccRtg_val = {
+    DataAttributeModelType,
+    "val",
+    (ModelNode*) &iedModel_Mod3_MU2_I01ATCTR1_NamAccRtg,
+    NULL,
+    NULL,
+    0,
+    IEC61850_FC_DC,
+    IEC61850_VISIBLE_STRING_255,
+    0,
+    NULL,
+    0};
+
+DataObject iedModel_Mod3_MU2_I01ATCTR1_NamARtg = {
+    DataObjectModelType,
+    "NamARtg",
+    (ModelNode*) &iedModel_Mod3_MU2_I01ATCTR1,
+    (ModelNode*) &iedModel_Mod3_MU2_I01ATCTR1_NamClipRtg,
+    (ModelNode*) &iedModel_Mod3_MU2_I01ATCTR1_NamARtg_val,
+    0
+};
+
+DataAttribute iedModel_Mod3_MU2_I01ATCTR1_NamARtg_val = {
+    DataAttributeModelType,
+    "val",
+    (ModelNode*) &iedModel_Mod3_MU2_I01ATCTR1_NamARtg,
+    NULL,
+    NULL,
+    0,
+    IEC61850_FC_DC,
+    IEC61850_VISIBLE_STRING_255,
+    0,
+    NULL,
+    0};
+
+DataObject iedModel_Mod3_MU2_I01ATCTR1_NamClipRtg = {
+    DataObjectModelType,
+    "NamClipRtg",
+    (ModelNode*) &iedModel_Mod3_MU2_I01ATCTR1,
+    NULL,
+    (ModelNode*) &iedModel_Mod3_MU2_I01ATCTR1_NamClipRtg_val,
+    0
+};
+
+DataAttribute iedModel_Mod3_MU2_I01ATCTR1_NamClipRtg_val = {
+    DataAttributeModelType,
+    "val",
+    (ModelNode*) &iedModel_Mod3_MU2_I01ATCTR1_NamClipRtg,
+    NULL,
+    NULL,
+    0,
+    IEC61850_FC_DC,
+    IEC61850_VISIBLE_STRING_255,
+    0,
     NULL,
     0};
 
@@ -34283,7 +34437,7 @@ DataObject iedModel_Mod3_MU2_I01BTCTR2_HoldTmms = {
     DataObjectModelType,
     "HoldTmms",
     (ModelNode*) &iedModel_Mod3_MU2_I01BTCTR2,
-    NULL,
+    (ModelNode*) &iedModel_Mod3_MU2_I01BTCTR2_NamAccRtg,
     (ModelNode*) &iedModel_Mod3_MU2_I01BTCTR2_HoldTmms_setVal,
     0
 };
@@ -34350,6 +34504,72 @@ DataAttribute iedModel_Mod3_MU2_I01BTCTR2_HoldTmms_stepSize = {
     IEC61850_FC_CF,
     IEC61850_INT32U,
     0 + TRG_OPT_DATA_CHANGED,
+    NULL,
+    0};
+
+DataObject iedModel_Mod3_MU2_I01BTCTR2_NamAccRtg = {
+    DataObjectModelType,
+    "NamAccRtg",
+    (ModelNode*) &iedModel_Mod3_MU2_I01BTCTR2,
+    (ModelNode*) &iedModel_Mod3_MU2_I01BTCTR2_NamARtg,
+    (ModelNode*) &iedModel_Mod3_MU2_I01BTCTR2_NamAccRtg_val,
+    0
+};
+
+DataAttribute iedModel_Mod3_MU2_I01BTCTR2_NamAccRtg_val = {
+    DataAttributeModelType,
+    "val",
+    (ModelNode*) &iedModel_Mod3_MU2_I01BTCTR2_NamAccRtg,
+    NULL,
+    NULL,
+    0,
+    IEC61850_FC_DC,
+    IEC61850_VISIBLE_STRING_255,
+    0,
+    NULL,
+    0};
+
+DataObject iedModel_Mod3_MU2_I01BTCTR2_NamARtg = {
+    DataObjectModelType,
+    "NamARtg",
+    (ModelNode*) &iedModel_Mod3_MU2_I01BTCTR2,
+    (ModelNode*) &iedModel_Mod3_MU2_I01BTCTR2_NamClipRtg,
+    (ModelNode*) &iedModel_Mod3_MU2_I01BTCTR2_NamARtg_val,
+    0
+};
+
+DataAttribute iedModel_Mod3_MU2_I01BTCTR2_NamARtg_val = {
+    DataAttributeModelType,
+    "val",
+    (ModelNode*) &iedModel_Mod3_MU2_I01BTCTR2_NamARtg,
+    NULL,
+    NULL,
+    0,
+    IEC61850_FC_DC,
+    IEC61850_VISIBLE_STRING_255,
+    0,
+    NULL,
+    0};
+
+DataObject iedModel_Mod3_MU2_I01BTCTR2_NamClipRtg = {
+    DataObjectModelType,
+    "NamClipRtg",
+    (ModelNode*) &iedModel_Mod3_MU2_I01BTCTR2,
+    NULL,
+    (ModelNode*) &iedModel_Mod3_MU2_I01BTCTR2_NamClipRtg_val,
+    0
+};
+
+DataAttribute iedModel_Mod3_MU2_I01BTCTR2_NamClipRtg_val = {
+    DataAttributeModelType,
+    "val",
+    (ModelNode*) &iedModel_Mod3_MU2_I01BTCTR2_NamClipRtg,
+    NULL,
+    NULL,
+    0,
+    IEC61850_FC_DC,
+    IEC61850_VISIBLE_STRING_255,
+    0,
     NULL,
     0};
 
@@ -35804,7 +36024,7 @@ DataObject iedModel_Mod3_MU2_I01CTCTR3_HoldTmms = {
     DataObjectModelType,
     "HoldTmms",
     (ModelNode*) &iedModel_Mod3_MU2_I01CTCTR3,
-    NULL,
+    (ModelNode*) &iedModel_Mod3_MU2_I01CTCTR3_NamAccRtg,
     (ModelNode*) &iedModel_Mod3_MU2_I01CTCTR3_HoldTmms_setVal,
     0
 };
@@ -35871,6 +36091,72 @@ DataAttribute iedModel_Mod3_MU2_I01CTCTR3_HoldTmms_stepSize = {
     IEC61850_FC_CF,
     IEC61850_INT32U,
     0 + TRG_OPT_DATA_CHANGED,
+    NULL,
+    0};
+
+DataObject iedModel_Mod3_MU2_I01CTCTR3_NamAccRtg = {
+    DataObjectModelType,
+    "NamAccRtg",
+    (ModelNode*) &iedModel_Mod3_MU2_I01CTCTR3,
+    (ModelNode*) &iedModel_Mod3_MU2_I01CTCTR3_NamARtg,
+    (ModelNode*) &iedModel_Mod3_MU2_I01CTCTR3_NamAccRtg_val,
+    0
+};
+
+DataAttribute iedModel_Mod3_MU2_I01CTCTR3_NamAccRtg_val = {
+    DataAttributeModelType,
+    "val",
+    (ModelNode*) &iedModel_Mod3_MU2_I01CTCTR3_NamAccRtg,
+    NULL,
+    NULL,
+    0,
+    IEC61850_FC_DC,
+    IEC61850_VISIBLE_STRING_255,
+    0,
+    NULL,
+    0};
+
+DataObject iedModel_Mod3_MU2_I01CTCTR3_NamARtg = {
+    DataObjectModelType,
+    "NamARtg",
+    (ModelNode*) &iedModel_Mod3_MU2_I01CTCTR3,
+    (ModelNode*) &iedModel_Mod3_MU2_I01CTCTR3_NamClipRtg,
+    (ModelNode*) &iedModel_Mod3_MU2_I01CTCTR3_NamARtg_val,
+    0
+};
+
+DataAttribute iedModel_Mod3_MU2_I01CTCTR3_NamARtg_val = {
+    DataAttributeModelType,
+    "val",
+    (ModelNode*) &iedModel_Mod3_MU2_I01CTCTR3_NamARtg,
+    NULL,
+    NULL,
+    0,
+    IEC61850_FC_DC,
+    IEC61850_VISIBLE_STRING_255,
+    0,
+    NULL,
+    0};
+
+DataObject iedModel_Mod3_MU2_I01CTCTR3_NamClipRtg = {
+    DataObjectModelType,
+    "NamClipRtg",
+    (ModelNode*) &iedModel_Mod3_MU2_I01CTCTR3,
+    NULL,
+    (ModelNode*) &iedModel_Mod3_MU2_I01CTCTR3_NamClipRtg_val,
+    0
+};
+
+DataAttribute iedModel_Mod3_MU2_I01CTCTR3_NamClipRtg_val = {
+    DataAttributeModelType,
+    "val",
+    (ModelNode*) &iedModel_Mod3_MU2_I01CTCTR3_NamClipRtg,
+    NULL,
+    NULL,
+    0,
+    IEC61850_FC_DC,
+    IEC61850_VISIBLE_STRING_255,
+    0,
     NULL,
     0};
 
@@ -37325,7 +37611,7 @@ DataObject iedModel_Mod3_MU2_I01NTCTR4_HoldTmms = {
     DataObjectModelType,
     "HoldTmms",
     (ModelNode*) &iedModel_Mod3_MU2_I01NTCTR4,
-    NULL,
+    (ModelNode*) &iedModel_Mod3_MU2_I01NTCTR4_NamAccRtg,
     (ModelNode*) &iedModel_Mod3_MU2_I01NTCTR4_HoldTmms_setVal,
     0
 };
@@ -37392,6 +37678,72 @@ DataAttribute iedModel_Mod3_MU2_I01NTCTR4_HoldTmms_stepSize = {
     IEC61850_FC_CF,
     IEC61850_INT32U,
     0 + TRG_OPT_DATA_CHANGED,
+    NULL,
+    0};
+
+DataObject iedModel_Mod3_MU2_I01NTCTR4_NamAccRtg = {
+    DataObjectModelType,
+    "NamAccRtg",
+    (ModelNode*) &iedModel_Mod3_MU2_I01NTCTR4,
+    (ModelNode*) &iedModel_Mod3_MU2_I01NTCTR4_NamARtg,
+    (ModelNode*) &iedModel_Mod3_MU2_I01NTCTR4_NamAccRtg_val,
+    0
+};
+
+DataAttribute iedModel_Mod3_MU2_I01NTCTR4_NamAccRtg_val = {
+    DataAttributeModelType,
+    "val",
+    (ModelNode*) &iedModel_Mod3_MU2_I01NTCTR4_NamAccRtg,
+    NULL,
+    NULL,
+    0,
+    IEC61850_FC_DC,
+    IEC61850_VISIBLE_STRING_255,
+    0,
+    NULL,
+    0};
+
+DataObject iedModel_Mod3_MU2_I01NTCTR4_NamARtg = {
+    DataObjectModelType,
+    "NamARtg",
+    (ModelNode*) &iedModel_Mod3_MU2_I01NTCTR4,
+    (ModelNode*) &iedModel_Mod3_MU2_I01NTCTR4_NamClipRtg,
+    (ModelNode*) &iedModel_Mod3_MU2_I01NTCTR4_NamARtg_val,
+    0
+};
+
+DataAttribute iedModel_Mod3_MU2_I01NTCTR4_NamARtg_val = {
+    DataAttributeModelType,
+    "val",
+    (ModelNode*) &iedModel_Mod3_MU2_I01NTCTR4_NamARtg,
+    NULL,
+    NULL,
+    0,
+    IEC61850_FC_DC,
+    IEC61850_VISIBLE_STRING_255,
+    0,
+    NULL,
+    0};
+
+DataObject iedModel_Mod3_MU2_I01NTCTR4_NamClipRtg = {
+    DataObjectModelType,
+    "NamClipRtg",
+    (ModelNode*) &iedModel_Mod3_MU2_I01NTCTR4,
+    NULL,
+    (ModelNode*) &iedModel_Mod3_MU2_I01NTCTR4_NamClipRtg_val,
+    0
+};
+
+DataAttribute iedModel_Mod3_MU2_I01NTCTR4_NamClipRtg_val = {
+    DataAttributeModelType,
+    "val",
+    (ModelNode*) &iedModel_Mod3_MU2_I01NTCTR4_NamClipRtg,
+    NULL,
+    NULL,
+    0,
+    IEC61850_FC_DC,
+    IEC61850_VISIBLE_STRING_255,
+    0,
     NULL,
     0};
 
@@ -38737,7 +39089,7 @@ DataObject iedModel_Mod3_MU2_U01ATVTR1_HoldTmms = {
     DataObjectModelType,
     "HoldTmms",
     (ModelNode*) &iedModel_Mod3_MU2_U01ATVTR1,
-    NULL,
+    (ModelNode*) &iedModel_Mod3_MU2_U01ATVTR1_NamAccRtg,
     (ModelNode*) &iedModel_Mod3_MU2_U01ATVTR1_HoldTmms_setVal,
     0
 };
@@ -38804,6 +39156,72 @@ DataAttribute iedModel_Mod3_MU2_U01ATVTR1_HoldTmms_stepSize = {
     IEC61850_FC_CF,
     IEC61850_INT32U,
     0 + TRG_OPT_DATA_CHANGED,
+    NULL,
+    0};
+
+DataObject iedModel_Mod3_MU2_U01ATVTR1_NamAccRtg = {
+    DataObjectModelType,
+    "NamAccRtg",
+    (ModelNode*) &iedModel_Mod3_MU2_U01ATVTR1,
+    (ModelNode*) &iedModel_Mod3_MU2_U01ATVTR1_NamVRtg,
+    (ModelNode*) &iedModel_Mod3_MU2_U01ATVTR1_NamAccRtg_val,
+    0
+};
+
+DataAttribute iedModel_Mod3_MU2_U01ATVTR1_NamAccRtg_val = {
+    DataAttributeModelType,
+    "val",
+    (ModelNode*) &iedModel_Mod3_MU2_U01ATVTR1_NamAccRtg,
+    NULL,
+    NULL,
+    0,
+    IEC61850_FC_DC,
+    IEC61850_VISIBLE_STRING_255,
+    0,
+    NULL,
+    0};
+
+DataObject iedModel_Mod3_MU2_U01ATVTR1_NamVRtg = {
+    DataObjectModelType,
+    "NamVRtg",
+    (ModelNode*) &iedModel_Mod3_MU2_U01ATVTR1,
+    (ModelNode*) &iedModel_Mod3_MU2_U01ATVTR1_NamClipRtg,
+    (ModelNode*) &iedModel_Mod3_MU2_U01ATVTR1_NamVRtg_val,
+    0
+};
+
+DataAttribute iedModel_Mod3_MU2_U01ATVTR1_NamVRtg_val = {
+    DataAttributeModelType,
+    "val",
+    (ModelNode*) &iedModel_Mod3_MU2_U01ATVTR1_NamVRtg,
+    NULL,
+    NULL,
+    0,
+    IEC61850_FC_DC,
+    IEC61850_VISIBLE_STRING_255,
+    0,
+    NULL,
+    0};
+
+DataObject iedModel_Mod3_MU2_U01ATVTR1_NamClipRtg = {
+    DataObjectModelType,
+    "NamClipRtg",
+    (ModelNode*) &iedModel_Mod3_MU2_U01ATVTR1,
+    NULL,
+    (ModelNode*) &iedModel_Mod3_MU2_U01ATVTR1_NamClipRtg_val,
+    0
+};
+
+DataAttribute iedModel_Mod3_MU2_U01ATVTR1_NamClipRtg_val = {
+    DataAttributeModelType,
+    "val",
+    (ModelNode*) &iedModel_Mod3_MU2_U01ATVTR1_NamClipRtg,
+    NULL,
+    NULL,
+    0,
+    IEC61850_FC_DC,
+    IEC61850_VISIBLE_STRING_255,
+    0,
     NULL,
     0};
 
@@ -40149,7 +40567,7 @@ DataObject iedModel_Mod3_MU2_U01BTVTR2_HoldTmms = {
     DataObjectModelType,
     "HoldTmms",
     (ModelNode*) &iedModel_Mod3_MU2_U01BTVTR2,
-    NULL,
+    (ModelNode*) &iedModel_Mod3_MU2_U01BTVTR2_NamAccRtg,
     (ModelNode*) &iedModel_Mod3_MU2_U01BTVTR2_HoldTmms_setVal,
     0
 };
@@ -40216,6 +40634,72 @@ DataAttribute iedModel_Mod3_MU2_U01BTVTR2_HoldTmms_stepSize = {
     IEC61850_FC_CF,
     IEC61850_INT32U,
     0 + TRG_OPT_DATA_CHANGED,
+    NULL,
+    0};
+
+DataObject iedModel_Mod3_MU2_U01BTVTR2_NamAccRtg = {
+    DataObjectModelType,
+    "NamAccRtg",
+    (ModelNode*) &iedModel_Mod3_MU2_U01BTVTR2,
+    (ModelNode*) &iedModel_Mod3_MU2_U01BTVTR2_NamVRtg,
+    (ModelNode*) &iedModel_Mod3_MU2_U01BTVTR2_NamAccRtg_val,
+    0
+};
+
+DataAttribute iedModel_Mod3_MU2_U01BTVTR2_NamAccRtg_val = {
+    DataAttributeModelType,
+    "val",
+    (ModelNode*) &iedModel_Mod3_MU2_U01BTVTR2_NamAccRtg,
+    NULL,
+    NULL,
+    0,
+    IEC61850_FC_DC,
+    IEC61850_VISIBLE_STRING_255,
+    0,
+    NULL,
+    0};
+
+DataObject iedModel_Mod3_MU2_U01BTVTR2_NamVRtg = {
+    DataObjectModelType,
+    "NamVRtg",
+    (ModelNode*) &iedModel_Mod3_MU2_U01BTVTR2,
+    (ModelNode*) &iedModel_Mod3_MU2_U01BTVTR2_NamClipRtg,
+    (ModelNode*) &iedModel_Mod3_MU2_U01BTVTR2_NamVRtg_val,
+    0
+};
+
+DataAttribute iedModel_Mod3_MU2_U01BTVTR2_NamVRtg_val = {
+    DataAttributeModelType,
+    "val",
+    (ModelNode*) &iedModel_Mod3_MU2_U01BTVTR2_NamVRtg,
+    NULL,
+    NULL,
+    0,
+    IEC61850_FC_DC,
+    IEC61850_VISIBLE_STRING_255,
+    0,
+    NULL,
+    0};
+
+DataObject iedModel_Mod3_MU2_U01BTVTR2_NamClipRtg = {
+    DataObjectModelType,
+    "NamClipRtg",
+    (ModelNode*) &iedModel_Mod3_MU2_U01BTVTR2,
+    NULL,
+    (ModelNode*) &iedModel_Mod3_MU2_U01BTVTR2_NamClipRtg_val,
+    0
+};
+
+DataAttribute iedModel_Mod3_MU2_U01BTVTR2_NamClipRtg_val = {
+    DataAttributeModelType,
+    "val",
+    (ModelNode*) &iedModel_Mod3_MU2_U01BTVTR2_NamClipRtg,
+    NULL,
+    NULL,
+    0,
+    IEC61850_FC_DC,
+    IEC61850_VISIBLE_STRING_255,
+    0,
     NULL,
     0};
 
@@ -41561,7 +42045,7 @@ DataObject iedModel_Mod3_MU2_U01CTVTR3_HoldTmms = {
     DataObjectModelType,
     "HoldTmms",
     (ModelNode*) &iedModel_Mod3_MU2_U01CTVTR3,
-    NULL,
+    (ModelNode*) &iedModel_Mod3_MU2_U01CTVTR3_NamAccRtg,
     (ModelNode*) &iedModel_Mod3_MU2_U01CTVTR3_HoldTmms_setVal,
     0
 };
@@ -41628,6 +42112,72 @@ DataAttribute iedModel_Mod3_MU2_U01CTVTR3_HoldTmms_stepSize = {
     IEC61850_FC_CF,
     IEC61850_INT32U,
     0 + TRG_OPT_DATA_CHANGED,
+    NULL,
+    0};
+
+DataObject iedModel_Mod3_MU2_U01CTVTR3_NamAccRtg = {
+    DataObjectModelType,
+    "NamAccRtg",
+    (ModelNode*) &iedModel_Mod3_MU2_U01CTVTR3,
+    (ModelNode*) &iedModel_Mod3_MU2_U01CTVTR3_NamVRtg,
+    (ModelNode*) &iedModel_Mod3_MU2_U01CTVTR3_NamAccRtg_val,
+    0
+};
+
+DataAttribute iedModel_Mod3_MU2_U01CTVTR3_NamAccRtg_val = {
+    DataAttributeModelType,
+    "val",
+    (ModelNode*) &iedModel_Mod3_MU2_U01CTVTR3_NamAccRtg,
+    NULL,
+    NULL,
+    0,
+    IEC61850_FC_DC,
+    IEC61850_VISIBLE_STRING_255,
+    0,
+    NULL,
+    0};
+
+DataObject iedModel_Mod3_MU2_U01CTVTR3_NamVRtg = {
+    DataObjectModelType,
+    "NamVRtg",
+    (ModelNode*) &iedModel_Mod3_MU2_U01CTVTR3,
+    (ModelNode*) &iedModel_Mod3_MU2_U01CTVTR3_NamClipRtg,
+    (ModelNode*) &iedModel_Mod3_MU2_U01CTVTR3_NamVRtg_val,
+    0
+};
+
+DataAttribute iedModel_Mod3_MU2_U01CTVTR3_NamVRtg_val = {
+    DataAttributeModelType,
+    "val",
+    (ModelNode*) &iedModel_Mod3_MU2_U01CTVTR3_NamVRtg,
+    NULL,
+    NULL,
+    0,
+    IEC61850_FC_DC,
+    IEC61850_VISIBLE_STRING_255,
+    0,
+    NULL,
+    0};
+
+DataObject iedModel_Mod3_MU2_U01CTVTR3_NamClipRtg = {
+    DataObjectModelType,
+    "NamClipRtg",
+    (ModelNode*) &iedModel_Mod3_MU2_U01CTVTR3,
+    NULL,
+    (ModelNode*) &iedModel_Mod3_MU2_U01CTVTR3_NamClipRtg_val,
+    0
+};
+
+DataAttribute iedModel_Mod3_MU2_U01CTVTR3_NamClipRtg_val = {
+    DataAttributeModelType,
+    "val",
+    (ModelNode*) &iedModel_Mod3_MU2_U01CTVTR3_NamClipRtg,
+    NULL,
+    NULL,
+    0,
+    IEC61850_FC_DC,
+    IEC61850_VISIBLE_STRING_255,
+    0,
     NULL,
     0};
 
@@ -42973,7 +43523,7 @@ DataObject iedModel_Mod3_MU2_U01NTVTR4_HoldTmms = {
     DataObjectModelType,
     "HoldTmms",
     (ModelNode*) &iedModel_Mod3_MU2_U01NTVTR4,
-    NULL,
+    (ModelNode*) &iedModel_Mod3_MU2_U01NTVTR4_NamAccRtg,
     (ModelNode*) &iedModel_Mod3_MU2_U01NTVTR4_HoldTmms_setVal,
     0
 };
@@ -43040,6 +43590,72 @@ DataAttribute iedModel_Mod3_MU2_U01NTVTR4_HoldTmms_stepSize = {
     IEC61850_FC_CF,
     IEC61850_INT32U,
     0 + TRG_OPT_DATA_CHANGED,
+    NULL,
+    0};
+
+DataObject iedModel_Mod3_MU2_U01NTVTR4_NamAccRtg = {
+    DataObjectModelType,
+    "NamAccRtg",
+    (ModelNode*) &iedModel_Mod3_MU2_U01NTVTR4,
+    (ModelNode*) &iedModel_Mod3_MU2_U01NTVTR4_NamVRtg,
+    (ModelNode*) &iedModel_Mod3_MU2_U01NTVTR4_NamAccRtg_val,
+    0
+};
+
+DataAttribute iedModel_Mod3_MU2_U01NTVTR4_NamAccRtg_val = {
+    DataAttributeModelType,
+    "val",
+    (ModelNode*) &iedModel_Mod3_MU2_U01NTVTR4_NamAccRtg,
+    NULL,
+    NULL,
+    0,
+    IEC61850_FC_DC,
+    IEC61850_VISIBLE_STRING_255,
+    0,
+    NULL,
+    0};
+
+DataObject iedModel_Mod3_MU2_U01NTVTR4_NamVRtg = {
+    DataObjectModelType,
+    "NamVRtg",
+    (ModelNode*) &iedModel_Mod3_MU2_U01NTVTR4,
+    (ModelNode*) &iedModel_Mod3_MU2_U01NTVTR4_NamClipRtg,
+    (ModelNode*) &iedModel_Mod3_MU2_U01NTVTR4_NamVRtg_val,
+    0
+};
+
+DataAttribute iedModel_Mod3_MU2_U01NTVTR4_NamVRtg_val = {
+    DataAttributeModelType,
+    "val",
+    (ModelNode*) &iedModel_Mod3_MU2_U01NTVTR4_NamVRtg,
+    NULL,
+    NULL,
+    0,
+    IEC61850_FC_DC,
+    IEC61850_VISIBLE_STRING_255,
+    0,
+    NULL,
+    0};
+
+DataObject iedModel_Mod3_MU2_U01NTVTR4_NamClipRtg = {
+    DataObjectModelType,
+    "NamClipRtg",
+    (ModelNode*) &iedModel_Mod3_MU2_U01NTVTR4,
+    NULL,
+    (ModelNode*) &iedModel_Mod3_MU2_U01NTVTR4_NamClipRtg_val,
+    0
+};
+
+DataAttribute iedModel_Mod3_MU2_U01NTVTR4_NamClipRtg_val = {
+    DataAttributeModelType,
+    "val",
+    (ModelNode*) &iedModel_Mod3_MU2_U01NTVTR4_NamClipRtg,
+    NULL,
+    NULL,
+    0,
+    IEC61850_FC_DC,
+    IEC61850_VISIBLE_STRING_255,
+    0,
     NULL,
     0};
 
@@ -49725,6 +50341,14 @@ iedModel_Mod3_MU2_LPHD1_PhyNam_vendor.mmsValue = MmsValue_newVisibleString("SIEM
 
 iedModel_Mod3_MU2_LPHD1_PhyNam_d.mmsValue = MmsValue_newVisibleString("SIEMENS SIPROTEC 5 Merging unit");
 
+iedModel_Mod3_MU2_LPHD1_NamVariant_val.mmsValue = MmsValue_newVisibleString("F4000S1I0-24U0-24;F4800S1-2I0-24U0-24;F12800S8I0-16U0-16;F14400S6I0-24U0-24;F15360S8I0-16U0-16;");
+
+iedModel_Mod3_MU2_LPHD1_NamHzRtg_val.mmsValue = MmsValue_newVisibleString("50;60");
+
+iedModel_Mod3_MU2_LPHD1_NamHoldRtg_val.mmsValue = MmsValue_newVisibleString("0-3600");
+
+iedModel_Mod3_MU2_LPHD1_NamMaxDlRtg_val.mmsValue = MmsValue_newVisibleString("1150");
+
 iedModel_Mod3_MU2_LPHD1_MaxDl_setVal.mmsValue = MmsValue_newIntegerFromInt32(1150);
 
 iedModel_Mod3_MU2_LPHD1_MaxDl_minVal.mmsValue = MmsValue_newIntegerFromInt32(0);
@@ -49829,6 +50453,12 @@ iedModel_Mod3_MU2_I01ATCTR1_HoldTmms_maxVal.mmsValue = MmsValue_newIntegerFromIn
 
 iedModel_Mod3_MU2_I01ATCTR1_HoldTmms_stepSize.mmsValue = MmsValue_newUnsignedFromUint32(0);
 
+iedModel_Mod3_MU2_I01ATCTR1_NamAccRtg_val.mmsValue = MmsValue_newVisibleString("0,5S/5P20");
+
+iedModel_Mod3_MU2_I01ATCTR1_NamARtg_val.mmsValue = MmsValue_newVisibleString("200;400;800");
+
+iedModel_Mod3_MU2_I01ATCTR1_NamClipRtg_val.mmsValue = MmsValue_newVisibleString("20");
+
 iedModel_Mod3_MU2_I01BTCTR2_Mod_stVal.mmsValue = MmsValue_newIntegerFromInt32(1);
 
 iedModel_Mod3_MU2_I01BTCTR2_Mod_ctlModel.mmsValue = MmsValue_newIntegerFromInt32(0);
@@ -49920,6 +50550,12 @@ iedModel_Mod3_MU2_I01BTCTR2_HoldTmms_minVal.mmsValue = MmsValue_newIntegerFromIn
 iedModel_Mod3_MU2_I01BTCTR2_HoldTmms_maxVal.mmsValue = MmsValue_newIntegerFromInt32(90000);
 
 iedModel_Mod3_MU2_I01BTCTR2_HoldTmms_stepSize.mmsValue = MmsValue_newUnsignedFromUint32(0);
+
+iedModel_Mod3_MU2_I01BTCTR2_NamAccRtg_val.mmsValue = MmsValue_newVisibleString("0,5S/5P20");
+
+iedModel_Mod3_MU2_I01BTCTR2_NamARtg_val.mmsValue = MmsValue_newVisibleString("200;400;800");
+
+iedModel_Mod3_MU2_I01BTCTR2_NamClipRtg_val.mmsValue = MmsValue_newVisibleString("20");
 
 iedModel_Mod3_MU2_I01CTCTR3_Mod_stVal.mmsValue = MmsValue_newIntegerFromInt32(1);
 
@@ -50013,6 +50649,12 @@ iedModel_Mod3_MU2_I01CTCTR3_HoldTmms_maxVal.mmsValue = MmsValue_newIntegerFromIn
 
 iedModel_Mod3_MU2_I01CTCTR3_HoldTmms_stepSize.mmsValue = MmsValue_newUnsignedFromUint32(0);
 
+iedModel_Mod3_MU2_I01CTCTR3_NamAccRtg_val.mmsValue = MmsValue_newVisibleString("0,5S/5P20");
+
+iedModel_Mod3_MU2_I01CTCTR3_NamARtg_val.mmsValue = MmsValue_newVisibleString("200;400;800");
+
+iedModel_Mod3_MU2_I01CTCTR3_NamClipRtg_val.mmsValue = MmsValue_newVisibleString("20");
+
 iedModel_Mod3_MU2_I01NTCTR4_Mod_stVal.mmsValue = MmsValue_newIntegerFromInt32(1);
 
 iedModel_Mod3_MU2_I01NTCTR4_Mod_ctlModel.mmsValue = MmsValue_newIntegerFromInt32(0);
@@ -50105,6 +50747,12 @@ iedModel_Mod3_MU2_I01NTCTR4_HoldTmms_maxVal.mmsValue = MmsValue_newIntegerFromIn
 
 iedModel_Mod3_MU2_I01NTCTR4_HoldTmms_stepSize.mmsValue = MmsValue_newUnsignedFromUint32(0);
 
+iedModel_Mod3_MU2_I01NTCTR4_NamAccRtg_val.mmsValue = MmsValue_newVisibleString("0,5S/5P20");
+
+iedModel_Mod3_MU2_I01NTCTR4_NamARtg_val.mmsValue = MmsValue_newVisibleString("200;400;800");
+
+iedModel_Mod3_MU2_I01NTCTR4_NamClipRtg_val.mmsValue = MmsValue_newVisibleString("20");
+
 iedModel_Mod3_MU2_U01ATVTR1_Mod_stVal.mmsValue = MmsValue_newIntegerFromInt32(1);
 
 iedModel_Mod3_MU2_U01ATVTR1_Mod_ctlModel.mmsValue = MmsValue_newIntegerFromInt32(0);
@@ -50188,6 +50836,12 @@ iedModel_Mod3_MU2_U01ATVTR1_HoldTmms_minVal.mmsValue = MmsValue_newIntegerFromIn
 iedModel_Mod3_MU2_U01ATVTR1_HoldTmms_maxVal.mmsValue = MmsValue_newIntegerFromInt32(90000);
 
 iedModel_Mod3_MU2_U01ATVTR1_HoldTmms_stepSize.mmsValue = MmsValue_newUnsignedFromUint32(0);
+
+iedModel_Mod3_MU2_U01ATVTR1_NamAccRtg_val.mmsValue = MmsValue_newVisibleString("0,5/3P");
+
+iedModel_Mod3_MU2_U01ATVTR1_NamVRtg_val.mmsValue = MmsValue_newVisibleString("173000");
+
+iedModel_Mod3_MU2_U01ATVTR1_NamClipRtg_val.mmsValue = MmsValue_newVisibleString("2");
 
 iedModel_Mod3_MU2_U01BTVTR2_Mod_stVal.mmsValue = MmsValue_newIntegerFromInt32(1);
 
@@ -50273,6 +50927,12 @@ iedModel_Mod3_MU2_U01BTVTR2_HoldTmms_maxVal.mmsValue = MmsValue_newIntegerFromIn
 
 iedModel_Mod3_MU2_U01BTVTR2_HoldTmms_stepSize.mmsValue = MmsValue_newUnsignedFromUint32(0);
 
+iedModel_Mod3_MU2_U01BTVTR2_NamAccRtg_val.mmsValue = MmsValue_newVisibleString("0,5/3P");
+
+iedModel_Mod3_MU2_U01BTVTR2_NamVRtg_val.mmsValue = MmsValue_newVisibleString("173000");
+
+iedModel_Mod3_MU2_U01BTVTR2_NamClipRtg_val.mmsValue = MmsValue_newVisibleString("2");
+
 iedModel_Mod3_MU2_U01CTVTR3_Mod_stVal.mmsValue = MmsValue_newIntegerFromInt32(1);
 
 iedModel_Mod3_MU2_U01CTVTR3_Mod_ctlModel.mmsValue = MmsValue_newIntegerFromInt32(0);
@@ -50357,6 +51017,12 @@ iedModel_Mod3_MU2_U01CTVTR3_HoldTmms_maxVal.mmsValue = MmsValue_newIntegerFromIn
 
 iedModel_Mod3_MU2_U01CTVTR3_HoldTmms_stepSize.mmsValue = MmsValue_newUnsignedFromUint32(0);
 
+iedModel_Mod3_MU2_U01CTVTR3_NamAccRtg_val.mmsValue = MmsValue_newVisibleString("0,5/3P");
+
+iedModel_Mod3_MU2_U01CTVTR3_NamVRtg_val.mmsValue = MmsValue_newVisibleString("173000");
+
+iedModel_Mod3_MU2_U01CTVTR3_NamClipRtg_val.mmsValue = MmsValue_newVisibleString("2");
+
 iedModel_Mod3_MU2_U01NTVTR4_Mod_stVal.mmsValue = MmsValue_newIntegerFromInt32(1);
 
 iedModel_Mod3_MU2_U01NTVTR4_Mod_ctlModel.mmsValue = MmsValue_newIntegerFromInt32(0);
@@ -50440,6 +51106,12 @@ iedModel_Mod3_MU2_U01NTVTR4_HoldTmms_minVal.mmsValue = MmsValue_newIntegerFromIn
 iedModel_Mod3_MU2_U01NTVTR4_HoldTmms_maxVal.mmsValue = MmsValue_newIntegerFromInt32(90000);
 
 iedModel_Mod3_MU2_U01NTVTR4_HoldTmms_stepSize.mmsValue = MmsValue_newUnsignedFromUint32(0);
+
+iedModel_Mod3_MU2_U01NTVTR4_NamAccRtg_val.mmsValue = MmsValue_newVisibleString("0,5/3P");
+
+iedModel_Mod3_MU2_U01NTVTR4_NamVRtg_val.mmsValue = MmsValue_newVisibleString("173000");
+
+iedModel_Mod3_MU2_U01NTVTR4_NamClipRtg_val.mmsValue = MmsValue_newVisibleString("2");
 
 iedModel_PowS_LLN0_Mod_ctlModel.mmsValue = MmsValue_newIntegerFromInt32(1);
 

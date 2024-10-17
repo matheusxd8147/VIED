@@ -1,41 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<SCL version="2007" revision="B" xmlns="http://www.iec.ch/61850/2003/SCL" xsi:schemaLocation="http://www.iec.ch/61850/2003/SCL SCL.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:IEC_60870_5_104="http://www.iec.ch/61850-80-1/2007/SCL" xmlns:siebase="http://www.siemens.com/energy/2009/09/siprotec5/SieBase" eIEC61850-6-100:version="2019" eIEC61850-6-100:revision="B" eIEC61850-6-100:release="9" xmlns:siedig="http://www.siemens.com/energy/2011/11/Siedig" xmlns:eIEC61850-6-100="http://www.iec.ch/61850/2019/SCL/6-100">
+<SCL version="2007" revision="B" release="4" xmlns="http://www.iec.ch/61850/2003/SCL" xsi:schemaLocation="http://www.iec.ch/61850/2003/SCL SCL.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:IEC_60870_5_104="http://www.iec.ch/61850-80-1/2007/SCL" xmlns:siebase="http://www.siemens.com/energy/2009/09/siprotec5/SieBase" eIEC61850-6-100:version="2019" eIEC61850-6-100:revision="B" eIEC61850-6-100:release="9" xmlns:siedig="http://www.siemens.com/energy/2011/11/Siedig" xmlns:eIEC61850-6-100="http://www.iec.ch/61850/2019/SCL/6-100">
 	<Private type="Siemens-SclLib-V5-Version">V09.80.14.000</Private>
-	<Private type="Siemens-SclLib-V5-EditTime">15.10.2024 19:21:26</Private>
+	<Private type="Siemens-SclLib-V5-EditTime">15.10.2024 19:06:07</Private>
 	<Private type="Siemens-Configurator-Version">7.80.71</Private>
-	<Private type="Siemens_SiedigGooseApplicationStorage">
-		<siedig:GooseApplicationStorage>
-			<siedig:GooseApplication name="GOOSE_VMU" desc="" profileName="PriorityDetailedSetting">
-				<siedig:AppId>0001</siedig:AppId>
-				<siedig:MinTime unit="s" multiplier="m">4</siedig:MinTime>
-				<siedig:MaxTime unit="s" multiplier="m">1000</siedig:MaxTime>
-				<siedig:VLanId>005</siedig:VLanId>
-				<siedig:VLanPriority>4</siedig:VLanPriority>
-			</siedig:GooseApplication>
-		</siedig:GooseApplicationStorage>
-	</Private>
-	<Private type="Siemens_SiedigSMVApplicationStorage">
-		<siedig:SMVApplicationStorage>
-			<siedig:SMVApplication name="MU/Mod3_MU2/LLN0/PhsMeas1" desc="" profileName="">
-				<siedig:SmvId>4000</siedig:SmvId>
-				<siedig:DataSet guidRef="2529c0ce5c9d412f8917da9754704145" />
-			</siedig:SMVApplication>
-		</siedig:SMVApplicationStorage>
-	</Private>
 	<Header id="MU" version="1" revision="21" toolID="IEC 61850 System Configurator, Version: 7.80.71" nameStructure="IEDName">
 		<Text>Cid-File for device: MU</Text>
 		<History>
-			<Hitem version="1" revision="21" when="Tuesday, October 15, 2024 7:21:25 PM" who="Licenced User:  GREI Machine: DESKTOP-N6EBMG4 User: GREI" what="Device MU is exported as Edition2B CID file." why="IEC 61850 System Configurator User Action" />
+			<Hitem version="1" revision="21" when="Tuesday, October 15, 2024 7:06:07 PM" who="Licenced User:  GREI Machine: DESKTOP-N6EBMG4 User: GREI" what="Device MU is exported as Edition2B4 CID file." why="IEC 61850 System Configurator User Action" />
 		</History>
 	</Header>
 	<Communication>
 		<SubNetwork name="Subnet" type="8-MMS">
-			<Private type="Siemens-Start-Address">10.102.76.2</Private>
+			<Private type="Siemens-Start-Address">172.16.0.1</Private>
 			<ConnectedAP iedName="MU" apName="E" redProt="prp">
 				<Address>
-					<P type="IP" xsi:type="tP_IP">10.102.76.51</P>
-					<P type="IP-SUBNET" xsi:type="tP_IP-SUBNET">255.255.255.0</P>
-					<P type="IP-GATEWAY" xsi:type="tP_IP-GATEWAY">10.102.76.1</P>
+					<P type="IP">10.102.76.51</P>
+					<P type="IP-SUBNET">255.255.255.0</P>
+					<P type="IP-GATEWAY">10.102.76.1</P>
 					<P type="OSI-AP-Title">1,3,9999,23</P>
 					<P type="OSI-AE-Qualifier">23</P>
 					<P type="OSI-PSEL">00000001</P>
@@ -44,13 +25,13 @@
 				</Address>
 				<GSE ldInst="BinIO_BinaryInputs" cbName="Control_DataSet">
 					<Address>
-						<P type="MAC-Address" xsi:type="tP_MAC-Address">01-0C-CD-01-00-00</P>
-						<P type="VLAN-ID" xsi:type="tP_VLAN-ID">005</P>
-						<P type="VLAN-PRIORITY" xsi:type="tP_VLAN-PRIORITY">4</P>
-						<P type="APPID" xsi:type="tP_APPID">0001</P>
+						<P type="MAC-Address">01-0C-CD-01-00-00</P>
+						<P type="VLAN-ID">005</P>
+						<P type="VLAN-PRIORITY">4</P>
+						<P type="APPID">0001</P>
 					</Address>
-					<MinTime unit="s" multiplier="m">4</MinTime>
-					<MaxTime unit="s" multiplier="m">1000</MaxTime>
+					<MinTime unit="s" >4</MinTime>
+					<MaxTime unit="s" >1000</MaxTime>
 				</GSE>
 				<SMV ldInst="Mod3_MU2" cbName="MSVCB01">
 					<Address>
@@ -63,7 +44,7 @@
 			</ConnectedAP>
 		</SubNetwork>
 	</Communication>
-	<IED desc="MU_1" name="MU" type="7SL87" manufacturer="SIEMENS" configVersion="V09.71.01" originalSclVersion="2007" originalSclRevision="B">
+	<IED desc="MU_1" name="MU" type="7SL87" manufacturer="SIEMENS" configVersion="V09.71.01" originalSclVersion="2007" originalSclRevision="B" originalSclRelease="4">
 		<Private type="Siemens-MasterId">974c8526-54ca-4849-8f64-681fa6f53f96</Private>
 		<Private type="Siemens-s7ManagerName">MU_1</Private>
 		<Private type="Siemens-ICD-Language">pt-BR</Private>
@@ -74,12 +55,12 @@
 		<Private type="Siemens-IsSiprotec5IED" />
 		<Private type="Siemens-IED-Id">974c8526-54ca-4849-8f64-681fa6f53f96</Private>
 		<Private type="Siemens-NoOfSmvsConfigured">6</Private>
-		<Private type="Siemens-ModifiedDate">10/15/2024 22:19:02</Private>
-		<Private type="Siemens-ModificationCounter">8</Private>
+		<Private type="Siemens-ModifiedDate">10/15/2024 21:29:11</Private>
+		<Private type="Siemens-ModificationCounter">6</Private>
 		<Private type="Siemens-CID-MainIED" />
 		<Services nameLength="64">
-			<ClientServices goose="true" gsse="false" bufReport="false" unbufReport="false" readLog="false" sv="false" supportsLdName="true" maxGOOSE="128">
-				<TimeSyncProt sntp="true" c37_238="false" other="false" />
+			<ClientServices goose="true" gsse="false" bufReport="false" unbufReport="false" readLog="false" sv="false" supportsLdName="true" maxGOOSE="128" rGOOSE="false" rSV="false" noIctBinding="false">
+				<TimeSyncProt sntp="true" c37_238="false" other="false" iec61850_9_3="true" />
 			</ClientServices>
 			<DynAssociation max="6" />
 			<SettingGroups>
@@ -96,16 +77,16 @@
 			<ConfReportControl max="60" bufMode="both" bufConf="true" />
 			<GetCBValues />
 			<ReportSettings cbName="Conf" datSet="Dyn" rptID="Dyn" optFields="Dyn" bufTime="Dyn" trgOps="Dyn" intgPd="Dyn" resvTms="true" owner="true" />
-			<GSESettings cbName="Conf" datSet="Conf" appID="Conf" dataLabel="Fix" />
+			<GSESettings cbName="Conf" datSet="Conf" appID="Conf" dataLabel="Fix" kdaParticipant="false" />
 			<ConfLNs fixPrefix="false" fixLnInst="false" />
 			<ConfLdName />
-			<GOOSE max="16" fixedOffs="false" />
+			<GOOSE max="16" fixedOffs="false" goose="true" rGOOSE="false" />
 			<FileHandling />
 			<SupSubscription maxGo="128" maxSv="0" />
 			<ValueHandling setToRO="false" />
 			<RedProt hsr="true" prp="true" rstp="true" />
 			<CommProt ipv6="false" />
-			<SMVSettings cbName="Conf" datSet="Fix" svID="Conf" optFields="Fix" smpRate="Fix" samplesPerSec="true">
+			<SMVSettings cbName="Conf" datSet="Fix" svID="Conf" optFields="Fix" smpRate="Fix" samplesPerSec="true" synchSrcId="true" nofASDU="Fix" kdaParticipant="false">
 				<SmpRate>80</SmpRate>
 				<SmpRate>256</SmpRate>
 				<SamplesPerSec>4000</SamplesPerSec>
@@ -114,7 +95,7 @@
 				<SamplesPerSec>14400</SamplesPerSec>
 				<SamplesPerSec>15360</SamplesPerSec>
 			</SMVSettings>
-			<SMVsc max="1" delivery="multicast" deliveryConf="false" />
+			<SMVsc max="1" delivery="multicast" deliveryConf="false" sv="true" rSV="false" />
 		</Services>
 		<AccessPoint desc="Port E" name="E" router="false" clock="false">
 			<Server timeout="0">
@@ -617,7 +598,22 @@
 								<Val>on</Val>
 							</DAI>
 						</DOI>
-						<GSEControl datSet="DataSet" confRev="10001" appID="VMU/BinIO_BinaryInputs/LLN0/Control_DataSet" name="Control_DataSet" />
+						<GSEControl datSet="DataSet" confRev="10001" appID="VMU_02" name="Control_DataSet">
+						<Private type="SEL_GOOSETXAddress">
+               						<esel:Address>
+                  <esel:P type="MAC-Address">01-0C-CD-01-00-00</esel:P>
+                  <esel:P type="APPID">0001</esel:P>
+                  <esel:P type="VLAN-ID">005</esel:P>
+                  <esel:P type="VLAN-PRIORITY">4</esel:P>
+                </esel:Address>
+              </Private>
+              <Private type="SEL_GOOSETXMinTime">
+                <esel:MinTime>4</esel:MinTime>
+              </Private>
+              <Private type="SEL_GOOSETXMaxTime">
+                <esel:MaxTime>1000</esel:MaxTime>
+              </Private>
+            </GSEControl>
 					</LN0>
 					<LN prefix="" lnClass="LPDI" inst="3" lnType="SIPROTEC5_LNType_LPDI_BinaryInput" desc="Binary input  1.3">
 						<Private type="Siemens-MasterId">ea69b887-ae34-484f-a025-e7d95bd92e2c</Private>
@@ -769,26 +765,26 @@
 							</DAI>
 						</DOI>
 						<Inputs>
-							<ExtRef desc="RxTr" intAddr="RxTr;/Op/general" serviceType="GOOSE" />
-							<ExtRef desc="RxTr" intAddr="RxTr;/Op/phsA" serviceType="GOOSE" />
-							<ExtRef desc="RxTr" intAddr="RxTr;/Op/phsB" serviceType="GOOSE" />
-							<ExtRef desc="RxTr" intAddr="RxTr;/Op/phsC" serviceType="GOOSE" />
-							<ExtRef desc="RxTr" intAddr="RxTr;/Op/neut" serviceType="GOOSE" />
-							<ExtRef desc="RxTr" intAddr="RxTr;/Op/q" serviceType="GOOSE" />
-							<ExtRef desc="RxTr" intAddr="RxTr;/Op/t" serviceType="GOOSE" />
-							<ExtRef desc="RxOpEx" intAddr="RxOpEx;/Op/general" serviceType="GOOSE" />
-							<ExtRef desc="RxOpEx" intAddr="RxOpEx;/Op/phsA" serviceType="GOOSE" />
-							<ExtRef desc="RxOpEx" intAddr="RxOpEx;/Op/phsB" serviceType="GOOSE" />
-							<ExtRef desc="RxOpEx" intAddr="RxOpEx;/Op/phsC" serviceType="GOOSE" />
-							<ExtRef desc="RxOpEx" intAddr="RxOpEx;/Op/neut" serviceType="GOOSE" />
-							<ExtRef desc="RxOpEx" intAddr="RxOpEx;/Op/q" serviceType="GOOSE" />
-							<ExtRef desc="RxOpEx" intAddr="RxOpEx;/Op/t" serviceType="GOOSE" />
-							<ExtRef desc="RxInd10" intAddr="RxInd10;/Ind/stVal" serviceType="GOOSE" />
-							<ExtRef desc="RxInd10" intAddr="RxInd10;/Ind/q" serviceType="GOOSE" />
-							<ExtRef desc="RxInd10" intAddr="RxInd10;/Ind/t" serviceType="GOOSE" />
-							<ExtRef desc="RxInd11" intAddr="RxInd11;/Ind/stVal" serviceType="GOOSE" />
-							<ExtRef desc="RxInd11" intAddr="RxInd11;/Ind/q" serviceType="GOOSE" />
-							<ExtRef desc="RxInd11" intAddr="RxInd11;/Ind/t" serviceType="GOOSE" />
+							<ExtRef desc="RxTr" intAddr="RxTr;/Op/general" pServT="GOOSE" pDO="Op" pDA="general" />
+							<ExtRef desc="RxTr" intAddr="RxTr;/Op/phsA" pServT="GOOSE" pDO="Op" pDA="phsA" />
+							<ExtRef desc="RxTr" intAddr="RxTr;/Op/phsB" pServT="GOOSE" pDO="Op" pDA="phsB" />
+							<ExtRef desc="RxTr" intAddr="RxTr;/Op/phsC" pServT="GOOSE" pDO="Op" pDA="phsC" />
+							<ExtRef desc="RxTr" intAddr="RxTr;/Op/neut" pServT="GOOSE" pDO="Op" pDA="neut" />
+							<ExtRef desc="RxTr" intAddr="RxTr;/Op/q" pServT="GOOSE" pDO="Op" pDA="q" />
+							<ExtRef desc="RxTr" intAddr="RxTr;/Op/t" pServT="GOOSE" pDO="Op" pDA="t" />
+							<ExtRef desc="RxOpEx" intAddr="RxOpEx;/Op/general" pServT="GOOSE" pDO="Op" pDA="general" />
+							<ExtRef desc="RxOpEx" intAddr="RxOpEx;/Op/phsA" pServT="GOOSE" pDO="Op" pDA="phsA" />
+							<ExtRef desc="RxOpEx" intAddr="RxOpEx;/Op/phsB" pServT="GOOSE" pDO="Op" pDA="phsB" />
+							<ExtRef desc="RxOpEx" intAddr="RxOpEx;/Op/phsC" pServT="GOOSE" pDO="Op" pDA="phsC" />
+							<ExtRef desc="RxOpEx" intAddr="RxOpEx;/Op/neut" pServT="GOOSE" pDO="Op" pDA="neut" />
+							<ExtRef desc="RxOpEx" intAddr="RxOpEx;/Op/q" pServT="GOOSE" pDO="Op" pDA="q" />
+							<ExtRef desc="RxOpEx" intAddr="RxOpEx;/Op/t" pServT="GOOSE" pDO="Op" pDA="t" />
+							<ExtRef desc="RxInd10" intAddr="RxInd10;/Ind/stVal" pServT="GOOSE" pDO="Ind" pDA="stVal" />
+							<ExtRef desc="RxInd10" intAddr="RxInd10;/Ind/q" pServT="GOOSE" pDO="Ind" pDA="q" />
+							<ExtRef desc="RxInd10" intAddr="RxInd10;/Ind/t" pServT="GOOSE" pDO="Ind" pDA="t" />
+							<ExtRef desc="RxInd11" intAddr="RxInd11;/Ind/stVal" pServT="GOOSE" pDO="Ind" pDA="stVal" />
+							<ExtRef desc="RxInd11" intAddr="RxInd11;/Ind/q" pServT="GOOSE" pDO="Ind" pDA="q" />
+							<ExtRef desc="RxInd11" intAddr="RxInd11;/Ind/t" pServT="GOOSE" pDO="Ind" pDA="t" />
 						</Inputs>
 					</LN0>
 				</LDevice>
@@ -850,9 +846,9 @@
 							</DAI>
 						</DOI>
 						<Inputs>
-							<ExtRef desc="RxSPS1" intAddr="RxSPS1;/Ind/stVal" serviceType="GOOSE" />
-							<ExtRef desc="RxSPS1" intAddr="RxSPS1;/Ind/q" serviceType="GOOSE" />
-							<ExtRef desc="RxSPS1" intAddr="RxSPS1;/Ind/t" serviceType="GOOSE" />
+							<ExtRef desc="RxSPS1" intAddr="RxSPS1;/Ind/stVal" pServT="GOOSE" pDO="Ind" pDA="stVal" />
+							<ExtRef desc="RxSPS1" intAddr="RxSPS1;/Ind/q" pServT="GOOSE" pDO="Ind" pDA="q" />
+							<ExtRef desc="RxSPS1" intAddr="RxSPS1;/Ind/t" pServT="GOOSE" pDO="Ind" pDA="t" />
 						</Inputs>
 					</LN>
 				</LDevice>
@@ -1946,9 +1942,9 @@
 							</DAI>
 						</DOI>
 						<Inputs>
-							<ExtRef desc="RxSPS1" intAddr="RxSPS1;/Ind/stVal" serviceType="GOOSE" />
-							<ExtRef desc="RxSPS1" intAddr="RxSPS1;/Ind/q" serviceType="GOOSE" />
-							<ExtRef desc="RxSPS1" intAddr="RxSPS1;/Ind/t" serviceType="GOOSE" />
+							<ExtRef desc="RxSPS1" intAddr="RxSPS1;/Ind/stVal" pServT="GOOSE" pDO="Ind" pDA="stVal" />
+							<ExtRef desc="RxSPS1" intAddr="RxSPS1;/Ind/q" pServT="GOOSE" pDO="Ind" pDA="q" />
+							<ExtRef desc="RxSPS1" intAddr="RxSPS1;/Ind/t" pServT="GOOSE" pDO="Ind" pDA="t" />
 						</Inputs>
 					</LN>
 					<LN prefix="PRP_" lnClass="LCCH" inst="1" lnType="SIPROTEC5_LNType_LCCH_PRP" desc="PRP">
@@ -1982,7 +1978,7 @@
 					<LN0 lnClass="LLN0" inst="" lnType="SIPROTEC5_LNType_LLN0_LDevice_Generic_Ctrl" desc="Geral">
 						<Private type="Siemens-MasterId">ae1c58e2-4ce3-453a-955b-618f246c74e9</Private>
 						<DataSet name="PhsMeas1">
-							<Private type="Siemens-GUID">2529c0ce5c9d412f8917da9754704145</Private>
+							<Private type="Siemens-GUID">8c0e2d4d818549659cb453f50c92eb3c</Private>
 							<FCDA ldInst="Mod3_MU2" prefix="I01A" lnClass="TCTR" lnInst="1" doName="AmpSv" daName="instMag.i" fc="MX" />
 							<FCDA ldInst="Mod3_MU2" prefix="I01A" lnClass="TCTR" lnInst="1" doName="AmpSv" daName="q" fc="MX" />
 							<FCDA ldInst="Mod3_MU2" prefix="I01B" lnClass="TCTR" lnInst="2" doName="AmpSv" daName="instMag.i" fc="MX" />
@@ -2023,7 +2019,7 @@
 						</DOI>
 						<SampledValueControl datSet="PhsMeas1" confRev="1" smvID="ST2" multicast="true" smpRate="80" nofASDU="1" smpMod="SmpPerPeriod" name="MSVCB01">
 							<Private type="Siemens-DirectionIN">IN = +3I0</Private>
-							<SmvOpts refreshTime="false" sampleSynchronized="true" sampleRate="false" dataSet="false" security="false" />
+							<SmvOpts refreshTime="false" sampleSynchronized="true" sampleRate="false" dataSet="false" security="false" synchSourceId="true" />
 						</SampledValueControl>
 					</LN0>
 					<LN prefix="" lnClass="LPHD" inst="1" lnType="SIPROTEC5_LNType_LPHD_LD_PBMergingUnit" desc="Device MU">
@@ -2046,6 +2042,26 @@
 						</DOI>
 						<DOI name="PhyHealth" desc="Status do dispositivo" />
 						<DOI name="Proxy" desc="Proxy" />
+						<DOI name="NamVariant" desc="NamVariant">
+							<DAI name="val">
+								<Val>F4000S1I0-24U0-24;F4800S1-2I0-24U0-24;F12800S8I0-16U0-16;F14400S6I0-24U0-24;F15360S8I0-16U0-16;</Val>
+							</DAI>
+						</DOI>
+						<DOI name="NamHzRtg" desc="NamHzRtg">
+							<DAI name="val">
+								<Val>50;60</Val>
+							</DAI>
+						</DOI>
+						<DOI name="NamHoldRtg" desc="NamHoldRtg">
+							<DAI name="val">
+								<Val>0-3600</Val>
+							</DAI>
+						</DOI>
+						<DOI name="NamMaxDlRtg" desc="NamMaxDlRtg">
+							<DAI name="val">
+								<Val>1150</Val>
+							</DAI>
+						</DOI>
 						<DOI name="MaxDl" desc="Max.delay time of samples">
 							<DAI name="setVal">
 								<Val>1150</Val>
@@ -2238,6 +2254,21 @@
 								<Val>90000</Val>
 							</DAI>
 						</DOI>
+						<DOI name="NamAccRtg" desc="NamAccRtg">
+							<DAI name="val">
+								<Val>0,5S/5P20</Val>
+							</DAI>
+						</DOI>
+						<DOI name="NamARtg" desc="NamARtg">
+							<DAI name="val">
+								<Val>200;400;800</Val>
+							</DAI>
+						</DOI>
+						<DOI name="NamClipRtg" desc="NamClipRtg">
+							<DAI name="val">
+								<Val>20</Val>
+							</DAI>
+						</DOI>
 					</LN>
 					<LN prefix="I01B" lnClass="TCTR" inst="2" lnType="SIPROTEC5_LNType_TCTR" desc="Transf. corr 2">
 						<Private type="Siemens-MasterId">3f2c1900-f896-4815-9615-74bc388031b7</Private>
@@ -2409,6 +2440,21 @@
 							</DAI>
 							<DAI name="maxVal">
 								<Val>90000</Val>
+							</DAI>
+						</DOI>
+						<DOI name="NamAccRtg" desc="NamAccRtg">
+							<DAI name="val">
+								<Val>0,5S/5P20</Val>
+							</DAI>
+						</DOI>
+						<DOI name="NamARtg" desc="NamARtg">
+							<DAI name="val">
+								<Val>200;400;800</Val>
+							</DAI>
+						</DOI>
+						<DOI name="NamClipRtg" desc="NamClipRtg">
+							<DAI name="val">
+								<Val>20</Val>
 							</DAI>
 						</DOI>
 					</LN>
@@ -2584,6 +2630,21 @@
 								<Val>90000</Val>
 							</DAI>
 						</DOI>
+						<DOI name="NamAccRtg" desc="NamAccRtg">
+							<DAI name="val">
+								<Val>0,5S/5P20</Val>
+							</DAI>
+						</DOI>
+						<DOI name="NamARtg" desc="NamARtg">
+							<DAI name="val">
+								<Val>200;400;800</Val>
+							</DAI>
+						</DOI>
+						<DOI name="NamClipRtg" desc="NamClipRtg">
+							<DAI name="val">
+								<Val>20</Val>
+							</DAI>
+						</DOI>
 					</LN>
 					<LN prefix="I01N" lnClass="TCTR" inst="4" lnType="SIPROTEC5_LNType_TCTR" desc="Transf. corr 4">
 						<Private type="Siemens-MasterId">8029dd09-bda1-4740-a18b-8f6535f28a33</Private>
@@ -2757,6 +2818,21 @@
 								<Val>90000</Val>
 							</DAI>
 						</DOI>
+						<DOI name="NamAccRtg" desc="NamAccRtg">
+							<DAI name="val">
+								<Val>0,5S/5P20</Val>
+							</DAI>
+						</DOI>
+						<DOI name="NamARtg" desc="NamARtg">
+							<DAI name="val">
+								<Val>200;400;800</Val>
+							</DAI>
+						</DOI>
+						<DOI name="NamClipRtg" desc="NamClipRtg">
+							<DAI name="val">
+								<Val>20</Val>
+							</DAI>
+						</DOI>
 					</LN>
 					<LN prefix="U01A" lnClass="TVTR" inst="1" lnType="SIPROTEC5_LNType_TVTR" desc="TransfTensão 1">
 						<Private type="Siemens-MasterId">65bbd6a7-0b90-4e8e-84a3-80dd13aa79d1</Private>
@@ -2915,6 +2991,21 @@
 							</DAI>
 							<DAI name="maxVal">
 								<Val>90000</Val>
+							</DAI>
+						</DOI>
+						<DOI name="NamAccRtg" desc="NamAccRtg">
+							<DAI name="val">
+								<Val>0,5/3P</Val>
+							</DAI>
+						</DOI>
+						<DOI name="NamVRtg" desc="NamVRtg">
+							<DAI name="val">
+								<Val>173000</Val>
+							</DAI>
+						</DOI>
+						<DOI name="NamClipRtg" desc="NamClipRtg">
+							<DAI name="val">
+								<Val>2</Val>
 							</DAI>
 						</DOI>
 					</LN>
@@ -3077,6 +3168,21 @@
 								<Val>90000</Val>
 							</DAI>
 						</DOI>
+						<DOI name="NamAccRtg" desc="NamAccRtg">
+							<DAI name="val">
+								<Val>0,5/3P</Val>
+							</DAI>
+						</DOI>
+						<DOI name="NamVRtg" desc="NamVRtg">
+							<DAI name="val">
+								<Val>173000</Val>
+							</DAI>
+						</DOI>
+						<DOI name="NamClipRtg" desc="NamClipRtg">
+							<DAI name="val">
+								<Val>2</Val>
+							</DAI>
+						</DOI>
 					</LN>
 					<LN prefix="U01C" lnClass="TVTR" inst="3" lnType="SIPROTEC5_LNType_TVTR" desc="TransfTensão 3">
 						<Private type="Siemens-MasterId">5530bd6f-a3d2-403b-89a1-8567667ae8fa</Private>
@@ -3237,6 +3343,21 @@
 								<Val>90000</Val>
 							</DAI>
 						</DOI>
+						<DOI name="NamAccRtg" desc="NamAccRtg">
+							<DAI name="val">
+								<Val>0,5/3P</Val>
+							</DAI>
+						</DOI>
+						<DOI name="NamVRtg" desc="NamVRtg">
+							<DAI name="val">
+								<Val>173000</Val>
+							</DAI>
+						</DOI>
+						<DOI name="NamClipRtg" desc="NamClipRtg">
+							<DAI name="val">
+								<Val>2</Val>
+							</DAI>
+						</DOI>
 					</LN>
 					<LN prefix="U01N" lnClass="TVTR" inst="4" lnType="SIPROTEC5_LNType_TVTR" desc="TransfTensão 4">
 						<Private type="Siemens-MasterId">9e864d08-4db0-4f85-858e-19b7bb2cf757</Private>
@@ -3395,6 +3516,21 @@
 							</DAI>
 							<DAI name="maxVal">
 								<Val>90000</Val>
+							</DAI>
+						</DOI>
+						<DOI name="NamAccRtg" desc="NamAccRtg">
+							<DAI name="val">
+								<Val>0,5/3P</Val>
+							</DAI>
+						</DOI>
+						<DOI name="NamVRtg" desc="NamVRtg">
+							<DAI name="val">
+								<Val>173000</Val>
+							</DAI>
+						</DOI>
+						<DOI name="NamClipRtg" desc="NamClipRtg">
+							<DAI name="val">
+								<Val>2</Val>
 							</DAI>
 						</DOI>
 					</LN>
@@ -3841,6 +3977,10 @@
 			<DO name="PhyNam" type="SIPROTEC5_DOType_DPL_V09.71.01_V09.71.01" />
 			<DO name="PhyHealth" type="SIPROTEC5_DOType_ENS_Health_V09.71.01_V09.71.01" />
 			<DO name="Proxy" type="SIPROTEC5_DOType_SPS_V09.71.01_V09.71.01" />
+			<DO name="NamVariant" type="SIPROTEC5_DOType_VSD_readOnly_V09.71.01_V09.71.01" />
+			<DO name="NamHzRtg" type="SIPROTEC5_DOType_VSD_readOnly_V09.71.01_V09.71.01" />
+			<DO name="NamHoldRtg" type="SIPROTEC5_DOType_VSD_readOnly_V09.71.01_V09.71.01" />
+			<DO name="NamMaxDlRtg" type="SIPROTEC5_DOType_VSD_readOnly_V09.71.01_V09.71.01" />
 			<DO name="MaxDl" type="SIPROTEC5_DOType_ING_INT32_edit_V09.71.01_V09.71.01" />
 		</LNodeType>
 		<LNodeType id="SIPROTEC5_LNType_TCTR" lnClass="TCTR">
@@ -3859,6 +3999,9 @@
 			<DO name="AccMeas" type="SIPROTEC5_DOType_ENG_TextList_AccMeas_edit_V09.71.01_V09.71.01" />
 			<DO name="AccPro" type="SIPROTEC5_DOType_ENG_TextList_AccPro_edit_V09.71.01_V09.71.01" />
 			<DO name="HoldTmms" type="SIPROTEC5_DOType_ING_INT32_div_readOnly_V09.71.01_V09.71.01" />
+			<DO name="NamAccRtg" type="SIPROTEC5_DOType_VSD_readOnly_V09.71.01_V09.71.01" />
+			<DO name="NamARtg" type="SIPROTEC5_DOType_VSD_readOnly_V09.71.01_V09.71.01" />
+			<DO name="NamClipRtg" type="SIPROTEC5_DOType_VSD_readOnly_V09.71.01_V09.71.01" />
 		</LNodeType>
 		<LNodeType id="SIPROTEC5_LNType_TVTR" lnClass="TVTR">
 			<DO name="Mod" type="SIPROTEC5_DOType_Mod_status_only_with_InitVal_V09.71.01_V09.71.01" />
@@ -3874,6 +4017,9 @@
 			<DO name="AccMeas" type="SIPROTEC5_DOType_ENG_TextList_AccMeas_edit_V09.71.01_V09.71.01" />
 			<DO name="AccPro" type="SIPROTEC5_DOType_ENG_TextList_AccPro_edit_V09.71.01_V09.71.01" />
 			<DO name="HoldTmms" type="SIPROTEC5_DOType_ING_INT32_div_readOnly_V09.71.01_V09.71.01" />
+			<DO name="NamAccRtg" type="SIPROTEC5_DOType_VSD_readOnly_V09.71.01_V09.71.01" />
+			<DO name="NamVRtg" type="SIPROTEC5_DOType_VSD_readOnly_V09.71.01_V09.71.01" />
+			<DO name="NamClipRtg" type="SIPROTEC5_DOType_VSD_readOnly_V09.71.01_V09.71.01" />
 		</LNodeType>
 		<LNodeType id="SIPROTEC5_LNType_RDRE_DEF" lnClass="RDRE">
 			<DO name="Mod" type="SIPROTEC5_DOType_Mod_status_only_with_InitVal_V09.71.01_V09.71.01" />
@@ -4296,6 +4442,9 @@
 			<DA dchg="true" fc="CF" name="dbRef" bType="FLOAT32" valKind="Set">
 				<Val>0</Val>
 			</DA>
+		</DOType>
+		<DOType id="SIPROTEC5_DOType_VSD_readOnly_V09.71.01_V09.71.01" cdc="VSD">
+			<DA fc="DC" name="val" bType="VisString255" valKind="RO" />
 		</DOType>
 		<DOType id="SIPROTEC5_DOType_ING_INT32_div_readOnly_V09.71.01_V09.71.01" cdc="ING">
 			<DA fc="SE" name="setVal" bType="INT32" valKind="RO" />
