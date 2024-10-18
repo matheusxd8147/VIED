@@ -7,60 +7,60 @@
 
 static void initializeValues();
 
-extern DataSet iedModelds_BinIO_BinaryInputs_LLN0_Status_BI;
+extern DataSet iedModelds_BinIO_BinaryInputs_LLN0_DataSet;
 extern DataSet iedModelds_Mod3_MU2_LLN0_PhsMeas1;
 
 
-extern DataSetEntry iedModelds_BinIO_BinaryInputs_LLN0_Status_BI_fcda0;
-extern DataSetEntry iedModelds_BinIO_BinaryInputs_LLN0_Status_BI_fcda1;
-extern DataSetEntry iedModelds_BinIO_BinaryInputs_LLN0_Status_BI_fcda2;
-extern DataSetEntry iedModelds_BinIO_BinaryInputs_LLN0_Status_BI_fcda3;
+extern DataSetEntry iedModelds_BinIO_BinaryInputs_LLN0_DataSet_fcda0;
+extern DataSetEntry iedModelds_BinIO_BinaryInputs_LLN0_DataSet_fcda1;
+extern DataSetEntry iedModelds_BinIO_BinaryInputs_LLN0_DataSet_fcda2;
+extern DataSetEntry iedModelds_BinIO_BinaryInputs_LLN0_DataSet_fcda3;
 
-DataSetEntry iedModelds_BinIO_BinaryInputs_LLN0_Status_BI_fcda0 = {
-  "BinIO_BinaryInputs",
-  false,
-  "LPDI3$ST$In$stVal", 
-  -1,
-  NULL,
-  NULL,
-  &iedModelds_BinIO_BinaryInputs_LLN0_Status_BI_fcda1
-};
-
-DataSetEntry iedModelds_BinIO_BinaryInputs_LLN0_Status_BI_fcda1 = {
-  "BinIO_BinaryInputs",
-  false,
-  "LPDI3$ST$In$q", 
-  -1,
-  NULL,
-  NULL,
-  &iedModelds_BinIO_BinaryInputs_LLN0_Status_BI_fcda2
-};
-
-DataSetEntry iedModelds_BinIO_BinaryInputs_LLN0_Status_BI_fcda2 = {
+DataSetEntry iedModelds_BinIO_BinaryInputs_LLN0_DataSet_fcda0 = {
   "BinIO_BinaryInputs",
   false,
   "LPDI4$ST$In$stVal", 
   -1,
   NULL,
   NULL,
-  &iedModelds_BinIO_BinaryInputs_LLN0_Status_BI_fcda3
+  &iedModelds_BinIO_BinaryInputs_LLN0_DataSet_fcda1
 };
 
-DataSetEntry iedModelds_BinIO_BinaryInputs_LLN0_Status_BI_fcda3 = {
+DataSetEntry iedModelds_BinIO_BinaryInputs_LLN0_DataSet_fcda1 = {
   "BinIO_BinaryInputs",
   false,
   "LPDI4$ST$In$q", 
   -1,
   NULL,
   NULL,
+  &iedModelds_BinIO_BinaryInputs_LLN0_DataSet_fcda2
+};
+
+DataSetEntry iedModelds_BinIO_BinaryInputs_LLN0_DataSet_fcda2 = {
+  "BinIO_BinaryInputs",
+  false,
+  "LPDI3$ST$In$stVal", 
+  -1,
+  NULL,
+  NULL,
+  &iedModelds_BinIO_BinaryInputs_LLN0_DataSet_fcda3
+};
+
+DataSetEntry iedModelds_BinIO_BinaryInputs_LLN0_DataSet_fcda3 = {
+  "BinIO_BinaryInputs",
+  false,
+  "LPDI3$ST$In$q", 
+  -1,
+  NULL,
+  NULL,
   NULL
 };
 
-DataSet iedModelds_BinIO_BinaryInputs_LLN0_Status_BI = {
+DataSet iedModelds_BinIO_BinaryInputs_LLN0_DataSet = {
   "BinIO_BinaryInputs",
-  "LLN0$Status_BI",
+  "LLN0$DataSet",
   4,
-  &iedModelds_BinIO_BinaryInputs_LLN0_Status_BI_fcda0,
+  &iedModelds_BinIO_BinaryInputs_LLN0_DataSet_fcda0,
   &iedModelds_Mod3_MU2_LLN0_PhsMeas1
 };
 
@@ -17257,37 +17257,11 @@ DataAttribute iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsAB_dbAng = {
     DataAttributeModelType,
     "dbAng",
     (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsAB,
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsAB_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsAB_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsAB,
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsAB_dbAngRef,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsAB_dbAngRef = {
-    DataAttributeModelType,
-    "dbAngRef",
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsAB,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -17513,37 +17487,11 @@ DataAttribute iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsBC_dbAng = {
     DataAttributeModelType,
     "dbAng",
     (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsBC,
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsBC_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsBC_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsBC,
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsBC_dbAngRef,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsBC_dbAngRef = {
-    DataAttributeModelType,
-    "dbAngRef",
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsBC,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -17769,37 +17717,11 @@ DataAttribute iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsCA_dbAng = {
     DataAttributeModelType,
     "dbAng",
     (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsCA,
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsCA_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsCA_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsCA,
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsCA_dbAngRef,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsCA_dbAngRef = {
-    DataAttributeModelType,
-    "dbAngRef",
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsCA,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -18034,37 +17956,11 @@ DataAttribute iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsA_dbAng = {
     DataAttributeModelType,
     "dbAng",
     (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsA,
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsA_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsA_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsA,
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsA_dbAngRef,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsA_dbAngRef = {
-    DataAttributeModelType,
-    "dbAngRef",
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsA,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -18290,37 +18186,11 @@ DataAttribute iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsB_dbAng = {
     DataAttributeModelType,
     "dbAng",
     (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsB,
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsB_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsB_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsB,
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsB_dbAngRef,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsB_dbAngRef = {
-    DataAttributeModelType,
-    "dbAngRef",
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsB,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -18546,37 +18416,11 @@ DataAttribute iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsC_dbAng = {
     DataAttributeModelType,
     "dbAng",
     (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsC,
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsC_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsC_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsC,
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsC_dbAngRef,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsC_dbAngRef = {
-    DataAttributeModelType,
-    "dbAngRef",
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsC,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -18802,37 +18646,11 @@ DataAttribute iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_res_dbAng = {
     DataAttributeModelType,
     "dbAng",
     (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_res,
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_res_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_res_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_res,
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_res_dbAngRef,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_res_dbAngRef = {
-    DataAttributeModelType,
-    "dbAngRef",
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_res,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -19067,37 +18885,11 @@ DataAttribute iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsA_dbAng = {
     DataAttributeModelType,
     "dbAng",
     (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsA,
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsA_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsA_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsA,
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsA_dbAngRef,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsA_dbAngRef = {
-    DataAttributeModelType,
-    "dbAngRef",
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsA,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -19323,37 +19115,11 @@ DataAttribute iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsB_dbAng = {
     DataAttributeModelType,
     "dbAng",
     (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsB,
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsB_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsB_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsB,
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsB_dbAngRef,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsB_dbAngRef = {
-    DataAttributeModelType,
-    "dbAngRef",
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsB,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -19579,37 +19345,11 @@ DataAttribute iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsC_dbAng = {
     DataAttributeModelType,
     "dbAng",
     (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsC,
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsC_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsC_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsC,
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsC_dbAngRef,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsC_dbAngRef = {
-    DataAttributeModelType,
-    "dbAngRef",
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsC,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -19835,37 +19575,11 @@ DataAttribute iedModel_CB1_Fundamental_FPRE_MMXU1_A_res_dbAng = {
     DataAttributeModelType,
     "dbAng",
     (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_A_res,
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_A_res_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_CB1_Fundamental_FPRE_MMXU1_A_res_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_A_res,
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_A_res_dbAngRef,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_CB1_Fundamental_FPRE_MMXU1_A_res_dbAngRef = {
-    DataAttributeModelType,
-    "dbAngRef",
-    (ModelNode*) &iedModel_CB1_Fundamental_FPRE_MMXU1_A_res,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -25842,37 +25556,11 @@ DataAttribute iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsAB_dbAng = {
     DataAttributeModelType,
     "dbAng",
     (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsAB,
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsAB_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsAB_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsAB,
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsAB_dbAngRef,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsAB_dbAngRef = {
-    DataAttributeModelType,
-    "dbAngRef",
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsAB,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -26098,37 +25786,11 @@ DataAttribute iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsBC_dbAng = {
     DataAttributeModelType,
     "dbAng",
     (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsBC,
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsBC_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsBC_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsBC,
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsBC_dbAngRef,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsBC_dbAngRef = {
-    DataAttributeModelType,
-    "dbAngRef",
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsBC,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -26354,37 +26016,11 @@ DataAttribute iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsCA_dbAng = {
     DataAttributeModelType,
     "dbAng",
     (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsCA,
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsCA_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsCA_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsCA,
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsCA_dbAngRef,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsCA_dbAngRef = {
-    DataAttributeModelType,
-    "dbAngRef",
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsCA,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -26619,37 +26255,11 @@ DataAttribute iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsA_dbAng = {
     DataAttributeModelType,
     "dbAng",
     (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsA,
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsA_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsA_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsA,
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsA_dbAngRef,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsA_dbAngRef = {
-    DataAttributeModelType,
-    "dbAngRef",
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsA,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -26875,37 +26485,11 @@ DataAttribute iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsB_dbAng = {
     DataAttributeModelType,
     "dbAng",
     (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsB,
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsB_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsB_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsB,
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsB_dbAngRef,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsB_dbAngRef = {
-    DataAttributeModelType,
-    "dbAngRef",
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsB,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -27131,37 +26715,11 @@ DataAttribute iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsC_dbAng = {
     DataAttributeModelType,
     "dbAng",
     (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsC,
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsC_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsC_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsC,
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsC_dbAngRef,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsC_dbAngRef = {
-    DataAttributeModelType,
-    "dbAngRef",
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsC,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -27387,37 +26945,11 @@ DataAttribute iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_res_dbAng = {
     DataAttributeModelType,
     "dbAng",
     (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_res,
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_res_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_res_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_res,
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_res_dbAngRef,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_res_dbAngRef = {
-    DataAttributeModelType,
-    "dbAngRef",
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_res,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -27652,37 +27184,11 @@ DataAttribute iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsA_dbAng = {
     DataAttributeModelType,
     "dbAng",
     (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsA,
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsA_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsA_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsA,
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsA_dbAngRef,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsA_dbAngRef = {
-    DataAttributeModelType,
-    "dbAngRef",
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsA,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -27908,37 +27414,11 @@ DataAttribute iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsB_dbAng = {
     DataAttributeModelType,
     "dbAng",
     (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsB,
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsB_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsB_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsB,
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsB_dbAngRef,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsB_dbAngRef = {
-    DataAttributeModelType,
-    "dbAngRef",
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsB,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -28164,37 +27644,11 @@ DataAttribute iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsC_dbAng = {
     DataAttributeModelType,
     "dbAng",
     (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsC,
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsC_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsC_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsC,
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsC_dbAngRef,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsC_dbAngRef = {
-    DataAttributeModelType,
-    "dbAngRef",
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsC,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -28420,37 +27874,11 @@ DataAttribute iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_res_dbAng = {
     DataAttributeModelType,
     "dbAng",
     (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_res,
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_res_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_res_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_res,
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_res_dbAngRef,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_res_dbAngRef = {
-    DataAttributeModelType,
-    "dbAngRef",
-    (ModelNode*) &iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_res,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -29163,37 +28591,11 @@ DataAttribute iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c1_dbAng = {
     DataAttributeModelType,
     "dbAng",
     (ModelNode*) &iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c1,
-    (ModelNode*) &iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c1_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c1_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c1,
-    (ModelNode*) &iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c1_dbAngRef,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c1_dbAngRef = {
-    DataAttributeModelType,
-    "dbAngRef",
-    (ModelNode*) &iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c1,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -29419,37 +28821,11 @@ DataAttribute iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c2_dbAng = {
     DataAttributeModelType,
     "dbAng",
     (ModelNode*) &iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c2,
-    (ModelNode*) &iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c2_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c2_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c2,
-    (ModelNode*) &iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c2_dbAngRef,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c2_dbAngRef = {
-    DataAttributeModelType,
-    "dbAngRef",
-    (ModelNode*) &iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c2,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -29675,37 +29051,11 @@ DataAttribute iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c3_dbAng = {
     DataAttributeModelType,
     "dbAng",
     (ModelNode*) &iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c3,
-    (ModelNode*) &iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c3_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c3_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c3,
-    (ModelNode*) &iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c3_dbAngRef,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c3_dbAngRef = {
-    DataAttributeModelType,
-    "dbAngRef",
-    (ModelNode*) &iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c3,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -29953,37 +29303,11 @@ DataAttribute iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c1_dbAng = {
     DataAttributeModelType,
     "dbAng",
     (ModelNode*) &iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c1,
-    (ModelNode*) &iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c1_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c1_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c1,
-    (ModelNode*) &iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c1_dbAngRef,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c1_dbAngRef = {
-    DataAttributeModelType,
-    "dbAngRef",
-    (ModelNode*) &iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c1,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -30209,37 +29533,11 @@ DataAttribute iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c2_dbAng = {
     DataAttributeModelType,
     "dbAng",
     (ModelNode*) &iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c2,
-    (ModelNode*) &iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c2_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c2_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c2,
-    (ModelNode*) &iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c2_dbAngRef,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c2_dbAngRef = {
-    DataAttributeModelType,
-    "dbAngRef",
-    (ModelNode*) &iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c2,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -30465,37 +29763,11 @@ DataAttribute iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c3_dbAng = {
     DataAttributeModelType,
     "dbAng",
     (ModelNode*) &iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c3,
-    (ModelNode*) &iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c3_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c3_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c3,
-    (ModelNode*) &iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c3_dbAngRef,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c3_dbAngRef = {
-    DataAttributeModelType,
-    "dbAngRef",
-    (ModelNode*) &iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c3,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -31356,24 +30628,11 @@ DataAttribute iedModel_Ln1_OperationalValues_RPRE_MMXU1_PPV_phsAB_db = {
     DataAttributeModelType,
     "db",
     (ModelNode*) &iedModel_Ln1_OperationalValues_RPRE_MMXU1_PPV_phsAB,
-    (ModelNode*) &iedModel_Ln1_OperationalValues_RPRE_MMXU1_PPV_phsAB_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_OperationalValues_RPRE_MMXU1_PPV_phsAB_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_OperationalValues_RPRE_MMXU1_PPV_phsAB,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -31534,24 +30793,11 @@ DataAttribute iedModel_Ln1_OperationalValues_RPRE_MMXU1_PPV_phsBC_db = {
     DataAttributeModelType,
     "db",
     (ModelNode*) &iedModel_Ln1_OperationalValues_RPRE_MMXU1_PPV_phsBC,
-    (ModelNode*) &iedModel_Ln1_OperationalValues_RPRE_MMXU1_PPV_phsBC_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_OperationalValues_RPRE_MMXU1_PPV_phsBC_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_OperationalValues_RPRE_MMXU1_PPV_phsBC,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -31712,24 +30958,11 @@ DataAttribute iedModel_Ln1_OperationalValues_RPRE_MMXU1_PPV_phsCA_db = {
     DataAttributeModelType,
     "db",
     (ModelNode*) &iedModel_Ln1_OperationalValues_RPRE_MMXU1_PPV_phsCA,
-    (ModelNode*) &iedModel_Ln1_OperationalValues_RPRE_MMXU1_PPV_phsCA_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_OperationalValues_RPRE_MMXU1_PPV_phsCA_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_OperationalValues_RPRE_MMXU1_PPV_phsCA,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -31899,24 +31132,11 @@ DataAttribute iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_phsA_db = {
     DataAttributeModelType,
     "db",
     (ModelNode*) &iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_phsA,
-    (ModelNode*) &iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_phsA_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_phsA_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_phsA,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -32077,24 +31297,11 @@ DataAttribute iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_phsB_db = {
     DataAttributeModelType,
     "db",
     (ModelNode*) &iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_phsB,
-    (ModelNode*) &iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_phsB_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_phsB_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_phsB,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -32255,24 +31462,11 @@ DataAttribute iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_phsC_db = {
     DataAttributeModelType,
     "db",
     (ModelNode*) &iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_phsC,
-    (ModelNode*) &iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_phsC_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_phsC_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_phsC,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -32433,24 +31627,11 @@ DataAttribute iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_res_db = {
     DataAttributeModelType,
     "db",
     (ModelNode*) &iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_res,
-    (ModelNode*) &iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_res_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_res_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_res,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -32620,24 +31801,11 @@ DataAttribute iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_phsA_db = {
     DataAttributeModelType,
     "db",
     (ModelNode*) &iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_phsA,
-    (ModelNode*) &iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_phsA_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_phsA_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_phsA,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -32798,24 +31966,11 @@ DataAttribute iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_phsB_db = {
     DataAttributeModelType,
     "db",
     (ModelNode*) &iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_phsB,
-    (ModelNode*) &iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_phsB_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_phsB_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_phsB,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -32976,24 +32131,11 @@ DataAttribute iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_phsC_db = {
     DataAttributeModelType,
     "db",
     (ModelNode*) &iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_phsC,
-    (ModelNode*) &iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_phsC_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_phsC_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_phsC,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -33154,24 +32296,11 @@ DataAttribute iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_res_db = {
     DataAttributeModelType,
     "db",
     (ModelNode*) &iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_res,
-    (ModelNode*) &iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_res_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_res_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_res,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -33784,24 +32913,11 @@ DataAttribute iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotW_db = {
     DataAttributeModelType,
     "db",
     (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotW,
-    (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotW_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotW_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotW,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -33936,24 +33052,11 @@ DataAttribute iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotVAr_db = {
     DataAttributeModelType,
     "db",
     (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotVAr,
-    (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotVAr_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotVAr_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotVAr,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -34088,24 +33191,11 @@ DataAttribute iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotVA_db = {
     DataAttributeModelType,
     "db",
     (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotVA,
-    (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotVA_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotVA_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotVA,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -34240,24 +33330,11 @@ DataAttribute iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotPF_db = {
     DataAttributeModelType,
     "db",
     (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotPF,
-    (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotPF_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotPF_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotPF,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -34392,24 +33469,11 @@ DataAttribute iedModel_Ln1_OperationalValues_PPRE_MMXU1_Hz_db = {
     DataAttributeModelType,
     "db",
     (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_Hz,
-    (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_Hz_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_OperationalValues_PPRE_MMXU1_Hz_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_Hz,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -34579,24 +33643,11 @@ DataAttribute iedModel_Ln1_OperationalValues_PPRE_MMXU1_W_phsA_db = {
     DataAttributeModelType,
     "db",
     (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_W_phsA,
-    (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_W_phsA_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_OperationalValues_PPRE_MMXU1_W_phsA_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_W_phsA,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -34757,24 +33808,11 @@ DataAttribute iedModel_Ln1_OperationalValues_PPRE_MMXU1_W_phsB_db = {
     DataAttributeModelType,
     "db",
     (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_W_phsB,
-    (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_W_phsB_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_OperationalValues_PPRE_MMXU1_W_phsB_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_W_phsB,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -34935,24 +33973,11 @@ DataAttribute iedModel_Ln1_OperationalValues_PPRE_MMXU1_W_phsC_db = {
     DataAttributeModelType,
     "db",
     (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_W_phsC,
-    (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_W_phsC_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_OperationalValues_PPRE_MMXU1_W_phsC_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_W_phsC,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -35122,24 +34147,11 @@ DataAttribute iedModel_Ln1_OperationalValues_PPRE_MMXU1_VAr_phsA_db = {
     DataAttributeModelType,
     "db",
     (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_VAr_phsA,
-    (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_VAr_phsA_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_OperationalValues_PPRE_MMXU1_VAr_phsA_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_VAr_phsA,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -35300,24 +34312,11 @@ DataAttribute iedModel_Ln1_OperationalValues_PPRE_MMXU1_VAr_phsB_db = {
     DataAttributeModelType,
     "db",
     (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_VAr_phsB,
-    (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_VAr_phsB_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_OperationalValues_PPRE_MMXU1_VAr_phsB_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_VAr_phsB,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -35478,24 +34477,11 @@ DataAttribute iedModel_Ln1_OperationalValues_PPRE_MMXU1_VAr_phsC_db = {
     DataAttributeModelType,
     "db",
     (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_VAr_phsC,
-    (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_VAr_phsC_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_OperationalValues_PPRE_MMXU1_VAr_phsC_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_VAr_phsC,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -35665,24 +34651,11 @@ DataAttribute iedModel_Ln1_OperationalValues_PPRE_MMXU1_VA_phsA_db = {
     DataAttributeModelType,
     "db",
     (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_VA_phsA,
-    (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_VA_phsA_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_OperationalValues_PPRE_MMXU1_VA_phsA_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_VA_phsA,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -35843,24 +34816,11 @@ DataAttribute iedModel_Ln1_OperationalValues_PPRE_MMXU1_VA_phsB_db = {
     DataAttributeModelType,
     "db",
     (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_VA_phsB,
-    (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_VA_phsB_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_OperationalValues_PPRE_MMXU1_VA_phsB_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_VA_phsB,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -36021,24 +34981,11 @@ DataAttribute iedModel_Ln1_OperationalValues_PPRE_MMXU1_VA_phsC_db = {
     DataAttributeModelType,
     "db",
     (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_VA_phsC,
-    (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_VA_phsC_dbRef,
+    NULL,
     NULL,
     0,
     IEC61850_FC_CF,
     IEC61850_INT32U,
-    0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataAttribute iedModel_Ln1_OperationalValues_PPRE_MMXU1_VA_phsC_dbRef = {
-    DataAttributeModelType,
-    "dbRef",
-    (ModelNode*) &iedModel_Ln1_OperationalValues_PPRE_MMXU1_VA_phsC,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_CF,
-    IEC61850_FLOAT32,
     0 + TRG_OPT_DATA_CHANGED,
     NULL,
     0};
@@ -40772,7 +39719,7 @@ DataObject iedModel_Mod3_MU2_LPHD1_Proxy = {
     DataObjectModelType,
     "Proxy",
     (ModelNode*) &iedModel_Mod3_MU2_LPHD1,
-    (ModelNode*) &iedModel_Mod3_MU2_LPHD1_NamVariant,
+    (ModelNode*) &iedModel_Mod3_MU2_LPHD1_MaxDl,
     (ModelNode*) &iedModel_Mod3_MU2_LPHD1_Proxy_stVal,
     0
 };
@@ -40812,94 +39759,6 @@ DataAttribute iedModel_Mod3_MU2_LPHD1_Proxy_t = {
     0,
     IEC61850_FC_ST,
     IEC61850_TIMESTAMP,
-    0,
-    NULL,
-    0};
-
-DataObject iedModel_Mod3_MU2_LPHD1_NamVariant = {
-    DataObjectModelType,
-    "NamVariant",
-    (ModelNode*) &iedModel_Mod3_MU2_LPHD1,
-    (ModelNode*) &iedModel_Mod3_MU2_LPHD1_NamHzRtg,
-    (ModelNode*) &iedModel_Mod3_MU2_LPHD1_NamVariant_val,
-    0
-};
-
-DataAttribute iedModel_Mod3_MU2_LPHD1_NamVariant_val = {
-    DataAttributeModelType,
-    "val",
-    (ModelNode*) &iedModel_Mod3_MU2_LPHD1_NamVariant,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_DC,
-    IEC61850_VISIBLE_STRING_255,
-    0,
-    NULL,
-    0};
-
-DataObject iedModel_Mod3_MU2_LPHD1_NamHzRtg = {
-    DataObjectModelType,
-    "NamHzRtg",
-    (ModelNode*) &iedModel_Mod3_MU2_LPHD1,
-    (ModelNode*) &iedModel_Mod3_MU2_LPHD1_NamHoldRtg,
-    (ModelNode*) &iedModel_Mod3_MU2_LPHD1_NamHzRtg_val,
-    0
-};
-
-DataAttribute iedModel_Mod3_MU2_LPHD1_NamHzRtg_val = {
-    DataAttributeModelType,
-    "val",
-    (ModelNode*) &iedModel_Mod3_MU2_LPHD1_NamHzRtg,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_DC,
-    IEC61850_VISIBLE_STRING_255,
-    0,
-    NULL,
-    0};
-
-DataObject iedModel_Mod3_MU2_LPHD1_NamHoldRtg = {
-    DataObjectModelType,
-    "NamHoldRtg",
-    (ModelNode*) &iedModel_Mod3_MU2_LPHD1,
-    (ModelNode*) &iedModel_Mod3_MU2_LPHD1_NamMaxDlRtg,
-    (ModelNode*) &iedModel_Mod3_MU2_LPHD1_NamHoldRtg_val,
-    0
-};
-
-DataAttribute iedModel_Mod3_MU2_LPHD1_NamHoldRtg_val = {
-    DataAttributeModelType,
-    "val",
-    (ModelNode*) &iedModel_Mod3_MU2_LPHD1_NamHoldRtg,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_DC,
-    IEC61850_VISIBLE_STRING_255,
-    0,
-    NULL,
-    0};
-
-DataObject iedModel_Mod3_MU2_LPHD1_NamMaxDlRtg = {
-    DataObjectModelType,
-    "NamMaxDlRtg",
-    (ModelNode*) &iedModel_Mod3_MU2_LPHD1,
-    (ModelNode*) &iedModel_Mod3_MU2_LPHD1_MaxDl,
-    (ModelNode*) &iedModel_Mod3_MU2_LPHD1_NamMaxDlRtg_val,
-    0
-};
-
-DataAttribute iedModel_Mod3_MU2_LPHD1_NamMaxDlRtg_val = {
-    DataAttributeModelType,
-    "val",
-    (ModelNode*) &iedModel_Mod3_MU2_LPHD1_NamMaxDlRtg,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_DC,
-    IEC61850_VISIBLE_STRING_255,
     0,
     NULL,
     0};
@@ -42468,7 +41327,7 @@ DataObject iedModel_Mod3_MU2_I01ATCTR1_HoldTmms = {
     DataObjectModelType,
     "HoldTmms",
     (ModelNode*) &iedModel_Mod3_MU2_I01ATCTR1,
-    (ModelNode*) &iedModel_Mod3_MU2_I01ATCTR1_NamAccRtg,
+    NULL,
     (ModelNode*) &iedModel_Mod3_MU2_I01ATCTR1_HoldTmms_setVal,
     0
 };
@@ -42535,72 +41394,6 @@ DataAttribute iedModel_Mod3_MU2_I01ATCTR1_HoldTmms_stepSize = {
     IEC61850_FC_CF,
     IEC61850_INT32U,
     0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataObject iedModel_Mod3_MU2_I01ATCTR1_NamAccRtg = {
-    DataObjectModelType,
-    "NamAccRtg",
-    (ModelNode*) &iedModel_Mod3_MU2_I01ATCTR1,
-    (ModelNode*) &iedModel_Mod3_MU2_I01ATCTR1_NamARtg,
-    (ModelNode*) &iedModel_Mod3_MU2_I01ATCTR1_NamAccRtg_val,
-    0
-};
-
-DataAttribute iedModel_Mod3_MU2_I01ATCTR1_NamAccRtg_val = {
-    DataAttributeModelType,
-    "val",
-    (ModelNode*) &iedModel_Mod3_MU2_I01ATCTR1_NamAccRtg,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_DC,
-    IEC61850_VISIBLE_STRING_255,
-    0,
-    NULL,
-    0};
-
-DataObject iedModel_Mod3_MU2_I01ATCTR1_NamARtg = {
-    DataObjectModelType,
-    "NamARtg",
-    (ModelNode*) &iedModel_Mod3_MU2_I01ATCTR1,
-    (ModelNode*) &iedModel_Mod3_MU2_I01ATCTR1_NamClipRtg,
-    (ModelNode*) &iedModel_Mod3_MU2_I01ATCTR1_NamARtg_val,
-    0
-};
-
-DataAttribute iedModel_Mod3_MU2_I01ATCTR1_NamARtg_val = {
-    DataAttributeModelType,
-    "val",
-    (ModelNode*) &iedModel_Mod3_MU2_I01ATCTR1_NamARtg,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_DC,
-    IEC61850_VISIBLE_STRING_255,
-    0,
-    NULL,
-    0};
-
-DataObject iedModel_Mod3_MU2_I01ATCTR1_NamClipRtg = {
-    DataObjectModelType,
-    "NamClipRtg",
-    (ModelNode*) &iedModel_Mod3_MU2_I01ATCTR1,
-    NULL,
-    (ModelNode*) &iedModel_Mod3_MU2_I01ATCTR1_NamClipRtg_val,
-    0
-};
-
-DataAttribute iedModel_Mod3_MU2_I01ATCTR1_NamClipRtg_val = {
-    DataAttributeModelType,
-    "val",
-    (ModelNode*) &iedModel_Mod3_MU2_I01ATCTR1_NamClipRtg,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_DC,
-    IEC61850_VISIBLE_STRING_255,
-    0,
     NULL,
     0};
 
@@ -44055,7 +42848,7 @@ DataObject iedModel_Mod3_MU2_I01BTCTR2_HoldTmms = {
     DataObjectModelType,
     "HoldTmms",
     (ModelNode*) &iedModel_Mod3_MU2_I01BTCTR2,
-    (ModelNode*) &iedModel_Mod3_MU2_I01BTCTR2_NamAccRtg,
+    NULL,
     (ModelNode*) &iedModel_Mod3_MU2_I01BTCTR2_HoldTmms_setVal,
     0
 };
@@ -44122,72 +42915,6 @@ DataAttribute iedModel_Mod3_MU2_I01BTCTR2_HoldTmms_stepSize = {
     IEC61850_FC_CF,
     IEC61850_INT32U,
     0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataObject iedModel_Mod3_MU2_I01BTCTR2_NamAccRtg = {
-    DataObjectModelType,
-    "NamAccRtg",
-    (ModelNode*) &iedModel_Mod3_MU2_I01BTCTR2,
-    (ModelNode*) &iedModel_Mod3_MU2_I01BTCTR2_NamARtg,
-    (ModelNode*) &iedModel_Mod3_MU2_I01BTCTR2_NamAccRtg_val,
-    0
-};
-
-DataAttribute iedModel_Mod3_MU2_I01BTCTR2_NamAccRtg_val = {
-    DataAttributeModelType,
-    "val",
-    (ModelNode*) &iedModel_Mod3_MU2_I01BTCTR2_NamAccRtg,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_DC,
-    IEC61850_VISIBLE_STRING_255,
-    0,
-    NULL,
-    0};
-
-DataObject iedModel_Mod3_MU2_I01BTCTR2_NamARtg = {
-    DataObjectModelType,
-    "NamARtg",
-    (ModelNode*) &iedModel_Mod3_MU2_I01BTCTR2,
-    (ModelNode*) &iedModel_Mod3_MU2_I01BTCTR2_NamClipRtg,
-    (ModelNode*) &iedModel_Mod3_MU2_I01BTCTR2_NamARtg_val,
-    0
-};
-
-DataAttribute iedModel_Mod3_MU2_I01BTCTR2_NamARtg_val = {
-    DataAttributeModelType,
-    "val",
-    (ModelNode*) &iedModel_Mod3_MU2_I01BTCTR2_NamARtg,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_DC,
-    IEC61850_VISIBLE_STRING_255,
-    0,
-    NULL,
-    0};
-
-DataObject iedModel_Mod3_MU2_I01BTCTR2_NamClipRtg = {
-    DataObjectModelType,
-    "NamClipRtg",
-    (ModelNode*) &iedModel_Mod3_MU2_I01BTCTR2,
-    NULL,
-    (ModelNode*) &iedModel_Mod3_MU2_I01BTCTR2_NamClipRtg_val,
-    0
-};
-
-DataAttribute iedModel_Mod3_MU2_I01BTCTR2_NamClipRtg_val = {
-    DataAttributeModelType,
-    "val",
-    (ModelNode*) &iedModel_Mod3_MU2_I01BTCTR2_NamClipRtg,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_DC,
-    IEC61850_VISIBLE_STRING_255,
-    0,
     NULL,
     0};
 
@@ -45642,7 +44369,7 @@ DataObject iedModel_Mod3_MU2_I01CTCTR3_HoldTmms = {
     DataObjectModelType,
     "HoldTmms",
     (ModelNode*) &iedModel_Mod3_MU2_I01CTCTR3,
-    (ModelNode*) &iedModel_Mod3_MU2_I01CTCTR3_NamAccRtg,
+    NULL,
     (ModelNode*) &iedModel_Mod3_MU2_I01CTCTR3_HoldTmms_setVal,
     0
 };
@@ -45709,72 +44436,6 @@ DataAttribute iedModel_Mod3_MU2_I01CTCTR3_HoldTmms_stepSize = {
     IEC61850_FC_CF,
     IEC61850_INT32U,
     0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataObject iedModel_Mod3_MU2_I01CTCTR3_NamAccRtg = {
-    DataObjectModelType,
-    "NamAccRtg",
-    (ModelNode*) &iedModel_Mod3_MU2_I01CTCTR3,
-    (ModelNode*) &iedModel_Mod3_MU2_I01CTCTR3_NamARtg,
-    (ModelNode*) &iedModel_Mod3_MU2_I01CTCTR3_NamAccRtg_val,
-    0
-};
-
-DataAttribute iedModel_Mod3_MU2_I01CTCTR3_NamAccRtg_val = {
-    DataAttributeModelType,
-    "val",
-    (ModelNode*) &iedModel_Mod3_MU2_I01CTCTR3_NamAccRtg,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_DC,
-    IEC61850_VISIBLE_STRING_255,
-    0,
-    NULL,
-    0};
-
-DataObject iedModel_Mod3_MU2_I01CTCTR3_NamARtg = {
-    DataObjectModelType,
-    "NamARtg",
-    (ModelNode*) &iedModel_Mod3_MU2_I01CTCTR3,
-    (ModelNode*) &iedModel_Mod3_MU2_I01CTCTR3_NamClipRtg,
-    (ModelNode*) &iedModel_Mod3_MU2_I01CTCTR3_NamARtg_val,
-    0
-};
-
-DataAttribute iedModel_Mod3_MU2_I01CTCTR3_NamARtg_val = {
-    DataAttributeModelType,
-    "val",
-    (ModelNode*) &iedModel_Mod3_MU2_I01CTCTR3_NamARtg,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_DC,
-    IEC61850_VISIBLE_STRING_255,
-    0,
-    NULL,
-    0};
-
-DataObject iedModel_Mod3_MU2_I01CTCTR3_NamClipRtg = {
-    DataObjectModelType,
-    "NamClipRtg",
-    (ModelNode*) &iedModel_Mod3_MU2_I01CTCTR3,
-    NULL,
-    (ModelNode*) &iedModel_Mod3_MU2_I01CTCTR3_NamClipRtg_val,
-    0
-};
-
-DataAttribute iedModel_Mod3_MU2_I01CTCTR3_NamClipRtg_val = {
-    DataAttributeModelType,
-    "val",
-    (ModelNode*) &iedModel_Mod3_MU2_I01CTCTR3_NamClipRtg,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_DC,
-    IEC61850_VISIBLE_STRING_255,
-    0,
     NULL,
     0};
 
@@ -47229,7 +45890,7 @@ DataObject iedModel_Mod3_MU2_I01NTCTR4_HoldTmms = {
     DataObjectModelType,
     "HoldTmms",
     (ModelNode*) &iedModel_Mod3_MU2_I01NTCTR4,
-    (ModelNode*) &iedModel_Mod3_MU2_I01NTCTR4_NamAccRtg,
+    NULL,
     (ModelNode*) &iedModel_Mod3_MU2_I01NTCTR4_HoldTmms_setVal,
     0
 };
@@ -47296,72 +45957,6 @@ DataAttribute iedModel_Mod3_MU2_I01NTCTR4_HoldTmms_stepSize = {
     IEC61850_FC_CF,
     IEC61850_INT32U,
     0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataObject iedModel_Mod3_MU2_I01NTCTR4_NamAccRtg = {
-    DataObjectModelType,
-    "NamAccRtg",
-    (ModelNode*) &iedModel_Mod3_MU2_I01NTCTR4,
-    (ModelNode*) &iedModel_Mod3_MU2_I01NTCTR4_NamARtg,
-    (ModelNode*) &iedModel_Mod3_MU2_I01NTCTR4_NamAccRtg_val,
-    0
-};
-
-DataAttribute iedModel_Mod3_MU2_I01NTCTR4_NamAccRtg_val = {
-    DataAttributeModelType,
-    "val",
-    (ModelNode*) &iedModel_Mod3_MU2_I01NTCTR4_NamAccRtg,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_DC,
-    IEC61850_VISIBLE_STRING_255,
-    0,
-    NULL,
-    0};
-
-DataObject iedModel_Mod3_MU2_I01NTCTR4_NamARtg = {
-    DataObjectModelType,
-    "NamARtg",
-    (ModelNode*) &iedModel_Mod3_MU2_I01NTCTR4,
-    (ModelNode*) &iedModel_Mod3_MU2_I01NTCTR4_NamClipRtg,
-    (ModelNode*) &iedModel_Mod3_MU2_I01NTCTR4_NamARtg_val,
-    0
-};
-
-DataAttribute iedModel_Mod3_MU2_I01NTCTR4_NamARtg_val = {
-    DataAttributeModelType,
-    "val",
-    (ModelNode*) &iedModel_Mod3_MU2_I01NTCTR4_NamARtg,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_DC,
-    IEC61850_VISIBLE_STRING_255,
-    0,
-    NULL,
-    0};
-
-DataObject iedModel_Mod3_MU2_I01NTCTR4_NamClipRtg = {
-    DataObjectModelType,
-    "NamClipRtg",
-    (ModelNode*) &iedModel_Mod3_MU2_I01NTCTR4,
-    NULL,
-    (ModelNode*) &iedModel_Mod3_MU2_I01NTCTR4_NamClipRtg_val,
-    0
-};
-
-DataAttribute iedModel_Mod3_MU2_I01NTCTR4_NamClipRtg_val = {
-    DataAttributeModelType,
-    "val",
-    (ModelNode*) &iedModel_Mod3_MU2_I01NTCTR4_NamClipRtg,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_DC,
-    IEC61850_VISIBLE_STRING_255,
-    0,
     NULL,
     0};
 
@@ -48707,7 +47302,7 @@ DataObject iedModel_Mod3_MU2_U01ATVTR1_HoldTmms = {
     DataObjectModelType,
     "HoldTmms",
     (ModelNode*) &iedModel_Mod3_MU2_U01ATVTR1,
-    (ModelNode*) &iedModel_Mod3_MU2_U01ATVTR1_NamAccRtg,
+    NULL,
     (ModelNode*) &iedModel_Mod3_MU2_U01ATVTR1_HoldTmms_setVal,
     0
 };
@@ -48774,72 +47369,6 @@ DataAttribute iedModel_Mod3_MU2_U01ATVTR1_HoldTmms_stepSize = {
     IEC61850_FC_CF,
     IEC61850_INT32U,
     0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataObject iedModel_Mod3_MU2_U01ATVTR1_NamAccRtg = {
-    DataObjectModelType,
-    "NamAccRtg",
-    (ModelNode*) &iedModel_Mod3_MU2_U01ATVTR1,
-    (ModelNode*) &iedModel_Mod3_MU2_U01ATVTR1_NamVRtg,
-    (ModelNode*) &iedModel_Mod3_MU2_U01ATVTR1_NamAccRtg_val,
-    0
-};
-
-DataAttribute iedModel_Mod3_MU2_U01ATVTR1_NamAccRtg_val = {
-    DataAttributeModelType,
-    "val",
-    (ModelNode*) &iedModel_Mod3_MU2_U01ATVTR1_NamAccRtg,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_DC,
-    IEC61850_VISIBLE_STRING_255,
-    0,
-    NULL,
-    0};
-
-DataObject iedModel_Mod3_MU2_U01ATVTR1_NamVRtg = {
-    DataObjectModelType,
-    "NamVRtg",
-    (ModelNode*) &iedModel_Mod3_MU2_U01ATVTR1,
-    (ModelNode*) &iedModel_Mod3_MU2_U01ATVTR1_NamClipRtg,
-    (ModelNode*) &iedModel_Mod3_MU2_U01ATVTR1_NamVRtg_val,
-    0
-};
-
-DataAttribute iedModel_Mod3_MU2_U01ATVTR1_NamVRtg_val = {
-    DataAttributeModelType,
-    "val",
-    (ModelNode*) &iedModel_Mod3_MU2_U01ATVTR1_NamVRtg,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_DC,
-    IEC61850_VISIBLE_STRING_255,
-    0,
-    NULL,
-    0};
-
-DataObject iedModel_Mod3_MU2_U01ATVTR1_NamClipRtg = {
-    DataObjectModelType,
-    "NamClipRtg",
-    (ModelNode*) &iedModel_Mod3_MU2_U01ATVTR1,
-    NULL,
-    (ModelNode*) &iedModel_Mod3_MU2_U01ATVTR1_NamClipRtg_val,
-    0
-};
-
-DataAttribute iedModel_Mod3_MU2_U01ATVTR1_NamClipRtg_val = {
-    DataAttributeModelType,
-    "val",
-    (ModelNode*) &iedModel_Mod3_MU2_U01ATVTR1_NamClipRtg,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_DC,
-    IEC61850_VISIBLE_STRING_255,
-    0,
     NULL,
     0};
 
@@ -50185,7 +48714,7 @@ DataObject iedModel_Mod3_MU2_U01BTVTR2_HoldTmms = {
     DataObjectModelType,
     "HoldTmms",
     (ModelNode*) &iedModel_Mod3_MU2_U01BTVTR2,
-    (ModelNode*) &iedModel_Mod3_MU2_U01BTVTR2_NamAccRtg,
+    NULL,
     (ModelNode*) &iedModel_Mod3_MU2_U01BTVTR2_HoldTmms_setVal,
     0
 };
@@ -50252,72 +48781,6 @@ DataAttribute iedModel_Mod3_MU2_U01BTVTR2_HoldTmms_stepSize = {
     IEC61850_FC_CF,
     IEC61850_INT32U,
     0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataObject iedModel_Mod3_MU2_U01BTVTR2_NamAccRtg = {
-    DataObjectModelType,
-    "NamAccRtg",
-    (ModelNode*) &iedModel_Mod3_MU2_U01BTVTR2,
-    (ModelNode*) &iedModel_Mod3_MU2_U01BTVTR2_NamVRtg,
-    (ModelNode*) &iedModel_Mod3_MU2_U01BTVTR2_NamAccRtg_val,
-    0
-};
-
-DataAttribute iedModel_Mod3_MU2_U01BTVTR2_NamAccRtg_val = {
-    DataAttributeModelType,
-    "val",
-    (ModelNode*) &iedModel_Mod3_MU2_U01BTVTR2_NamAccRtg,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_DC,
-    IEC61850_VISIBLE_STRING_255,
-    0,
-    NULL,
-    0};
-
-DataObject iedModel_Mod3_MU2_U01BTVTR2_NamVRtg = {
-    DataObjectModelType,
-    "NamVRtg",
-    (ModelNode*) &iedModel_Mod3_MU2_U01BTVTR2,
-    (ModelNode*) &iedModel_Mod3_MU2_U01BTVTR2_NamClipRtg,
-    (ModelNode*) &iedModel_Mod3_MU2_U01BTVTR2_NamVRtg_val,
-    0
-};
-
-DataAttribute iedModel_Mod3_MU2_U01BTVTR2_NamVRtg_val = {
-    DataAttributeModelType,
-    "val",
-    (ModelNode*) &iedModel_Mod3_MU2_U01BTVTR2_NamVRtg,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_DC,
-    IEC61850_VISIBLE_STRING_255,
-    0,
-    NULL,
-    0};
-
-DataObject iedModel_Mod3_MU2_U01BTVTR2_NamClipRtg = {
-    DataObjectModelType,
-    "NamClipRtg",
-    (ModelNode*) &iedModel_Mod3_MU2_U01BTVTR2,
-    NULL,
-    (ModelNode*) &iedModel_Mod3_MU2_U01BTVTR2_NamClipRtg_val,
-    0
-};
-
-DataAttribute iedModel_Mod3_MU2_U01BTVTR2_NamClipRtg_val = {
-    DataAttributeModelType,
-    "val",
-    (ModelNode*) &iedModel_Mod3_MU2_U01BTVTR2_NamClipRtg,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_DC,
-    IEC61850_VISIBLE_STRING_255,
-    0,
     NULL,
     0};
 
@@ -51663,7 +50126,7 @@ DataObject iedModel_Mod3_MU2_U01CTVTR3_HoldTmms = {
     DataObjectModelType,
     "HoldTmms",
     (ModelNode*) &iedModel_Mod3_MU2_U01CTVTR3,
-    (ModelNode*) &iedModel_Mod3_MU2_U01CTVTR3_NamAccRtg,
+    NULL,
     (ModelNode*) &iedModel_Mod3_MU2_U01CTVTR3_HoldTmms_setVal,
     0
 };
@@ -51730,72 +50193,6 @@ DataAttribute iedModel_Mod3_MU2_U01CTVTR3_HoldTmms_stepSize = {
     IEC61850_FC_CF,
     IEC61850_INT32U,
     0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataObject iedModel_Mod3_MU2_U01CTVTR3_NamAccRtg = {
-    DataObjectModelType,
-    "NamAccRtg",
-    (ModelNode*) &iedModel_Mod3_MU2_U01CTVTR3,
-    (ModelNode*) &iedModel_Mod3_MU2_U01CTVTR3_NamVRtg,
-    (ModelNode*) &iedModel_Mod3_MU2_U01CTVTR3_NamAccRtg_val,
-    0
-};
-
-DataAttribute iedModel_Mod3_MU2_U01CTVTR3_NamAccRtg_val = {
-    DataAttributeModelType,
-    "val",
-    (ModelNode*) &iedModel_Mod3_MU2_U01CTVTR3_NamAccRtg,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_DC,
-    IEC61850_VISIBLE_STRING_255,
-    0,
-    NULL,
-    0};
-
-DataObject iedModel_Mod3_MU2_U01CTVTR3_NamVRtg = {
-    DataObjectModelType,
-    "NamVRtg",
-    (ModelNode*) &iedModel_Mod3_MU2_U01CTVTR3,
-    (ModelNode*) &iedModel_Mod3_MU2_U01CTVTR3_NamClipRtg,
-    (ModelNode*) &iedModel_Mod3_MU2_U01CTVTR3_NamVRtg_val,
-    0
-};
-
-DataAttribute iedModel_Mod3_MU2_U01CTVTR3_NamVRtg_val = {
-    DataAttributeModelType,
-    "val",
-    (ModelNode*) &iedModel_Mod3_MU2_U01CTVTR3_NamVRtg,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_DC,
-    IEC61850_VISIBLE_STRING_255,
-    0,
-    NULL,
-    0};
-
-DataObject iedModel_Mod3_MU2_U01CTVTR3_NamClipRtg = {
-    DataObjectModelType,
-    "NamClipRtg",
-    (ModelNode*) &iedModel_Mod3_MU2_U01CTVTR3,
-    NULL,
-    (ModelNode*) &iedModel_Mod3_MU2_U01CTVTR3_NamClipRtg_val,
-    0
-};
-
-DataAttribute iedModel_Mod3_MU2_U01CTVTR3_NamClipRtg_val = {
-    DataAttributeModelType,
-    "val",
-    (ModelNode*) &iedModel_Mod3_MU2_U01CTVTR3_NamClipRtg,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_DC,
-    IEC61850_VISIBLE_STRING_255,
-    0,
     NULL,
     0};
 
@@ -53141,7 +51538,7 @@ DataObject iedModel_Mod3_MU2_U01NTVTR4_HoldTmms = {
     DataObjectModelType,
     "HoldTmms",
     (ModelNode*) &iedModel_Mod3_MU2_U01NTVTR4,
-    (ModelNode*) &iedModel_Mod3_MU2_U01NTVTR4_NamAccRtg,
+    NULL,
     (ModelNode*) &iedModel_Mod3_MU2_U01NTVTR4_HoldTmms_setVal,
     0
 };
@@ -53208,72 +51605,6 @@ DataAttribute iedModel_Mod3_MU2_U01NTVTR4_HoldTmms_stepSize = {
     IEC61850_FC_CF,
     IEC61850_INT32U,
     0 + TRG_OPT_DATA_CHANGED,
-    NULL,
-    0};
-
-DataObject iedModel_Mod3_MU2_U01NTVTR4_NamAccRtg = {
-    DataObjectModelType,
-    "NamAccRtg",
-    (ModelNode*) &iedModel_Mod3_MU2_U01NTVTR4,
-    (ModelNode*) &iedModel_Mod3_MU2_U01NTVTR4_NamVRtg,
-    (ModelNode*) &iedModel_Mod3_MU2_U01NTVTR4_NamAccRtg_val,
-    0
-};
-
-DataAttribute iedModel_Mod3_MU2_U01NTVTR4_NamAccRtg_val = {
-    DataAttributeModelType,
-    "val",
-    (ModelNode*) &iedModel_Mod3_MU2_U01NTVTR4_NamAccRtg,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_DC,
-    IEC61850_VISIBLE_STRING_255,
-    0,
-    NULL,
-    0};
-
-DataObject iedModel_Mod3_MU2_U01NTVTR4_NamVRtg = {
-    DataObjectModelType,
-    "NamVRtg",
-    (ModelNode*) &iedModel_Mod3_MU2_U01NTVTR4,
-    (ModelNode*) &iedModel_Mod3_MU2_U01NTVTR4_NamClipRtg,
-    (ModelNode*) &iedModel_Mod3_MU2_U01NTVTR4_NamVRtg_val,
-    0
-};
-
-DataAttribute iedModel_Mod3_MU2_U01NTVTR4_NamVRtg_val = {
-    DataAttributeModelType,
-    "val",
-    (ModelNode*) &iedModel_Mod3_MU2_U01NTVTR4_NamVRtg,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_DC,
-    IEC61850_VISIBLE_STRING_255,
-    0,
-    NULL,
-    0};
-
-DataObject iedModel_Mod3_MU2_U01NTVTR4_NamClipRtg = {
-    DataObjectModelType,
-    "NamClipRtg",
-    (ModelNode*) &iedModel_Mod3_MU2_U01NTVTR4,
-    NULL,
-    (ModelNode*) &iedModel_Mod3_MU2_U01NTVTR4_NamClipRtg_val,
-    0
-};
-
-DataAttribute iedModel_Mod3_MU2_U01NTVTR4_NamClipRtg_val = {
-    DataAttributeModelType,
-    "val",
-    (ModelNode*) &iedModel_Mod3_MU2_U01NTVTR4_NamClipRtg,
-    NULL,
-    NULL,
-    0,
-    IEC61850_FC_DC,
-    IEC61850_VISIBLE_STRING_255,
-    0,
     NULL,
     0};
 
@@ -58466,13 +56797,14 @@ SVControlBlock iedModel_Mod3_MU2_LLN0_smv0 = {&iedModel_Mod3_MU2_LLN0, "MSVCB01"
 extern GSEControlBlock iedModel_BinIO_BinaryInputs_LLN0_gse0;
 
 static PhyComAddress iedModel_BinIO_BinaryInputs_LLN0_gse0_address = {
-  4, /*VLAN PRIORITY*/
-  5, /*VLAN ID*/
-  1, /*APP ID*/
-  {0x1, 0xc, 0xcd, 0x1, 0x0, 0x0} /*MAC ADDRESS*/
+  4,
+  0,
+  1,
+  {0x1, 0xc, 0xcd, 0x1, 0x0, 0x0}
 };
 
-GSEControlBlock iedModel_BinIO_BinaryInputs_LLN0_gse0 = {&iedModel_BinIO_BinaryInputs_LLN0, "VMU_01_GOOSE", "VMU_01", "Status_BI", 1, false, &iedModel_BinIO_BinaryInputs_LLN0_gse0_address, 4, 1000, NULL};
+GSEControlBlock iedModel_BinIO_BinaryInputs_LLN0_gse0 = {&iedModel_BinIO_BinaryInputs_LLN0, "VMU_01_GOOSE", "VMU_01", "DataSet", 1, false, &iedModel_BinIO_BinaryInputs_LLN0_gse0_address, 4, 1000, NULL};
+
 
 extern SettingGroupControlBlock iedModel_Application_LLN0_sgcb;
 
@@ -58484,7 +56816,7 @@ SettingGroupControlBlock iedModel_Application_LLN0_sgcb = {&iedModel_Application
 IedModel iedModel = {
     "MU",
     &iedModel_Application,
-    &iedModelds_BinIO_BinaryInputs_LLN0_Status_BI,
+    &iedModelds_BinIO_BinaryInputs_LLN0_DataSet,
     &iedModel_Application_LLN0_report0,
     &iedModel_BinIO_BinaryInputs_LLN0_gse0,
     &iedModel_Mod3_MU2_LLN0_smv0,
@@ -58504,7 +56836,7 @@ iedModel_Application_LLN0_NamPlt_vendor.mmsValue = MmsValue_newVisibleString("SI
 
 iedModel_Application_LLN0_NamPlt_configRev.mmsValue = MmsValue_newVisibleString("2024-03-28 18:48:47");
 
-iedModel_Application_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007B");
+iedModel_Application_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007");
 
 iedModel_Application_LLN0_LEDRs_ctlModel.mmsValue = MmsValue_newIntegerFromInt32(1);
 
@@ -58638,7 +56970,7 @@ iedModel_BinIO_LLN0_Mod_ctlModel.mmsValue = MmsValue_newIntegerFromInt32(1);
 
 iedModel_BinIO_LLN0_NamPlt_vendor.mmsValue = MmsValue_newVisibleString("SIEMENS");
 
-iedModel_BinIO_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007B");
+iedModel_BinIO_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007");
 
 iedModel_BinIO_LLN0_GrRef_setSrcRef.mmsValue = MmsValue_newVisibleString("@Application");
 
@@ -58646,7 +56978,7 @@ iedModel_BinIO_BinaryInputs_LLN0_Mod_ctlModel.mmsValue = MmsValue_newIntegerFrom
 
 iedModel_BinIO_BinaryInputs_LLN0_NamPlt_vendor.mmsValue = MmsValue_newVisibleString("SIEMENS");
 
-iedModel_BinIO_BinaryInputs_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007B");
+iedModel_BinIO_BinaryInputs_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007");
 
 iedModel_BinIO_BinaryInputs_LLN0_GrRef_setSrcRef.mmsValue = MmsValue_newVisibleString("@BinIO");
 
@@ -58658,7 +56990,7 @@ iedModel_BinIO_BinaryOutputs_LLN0_Mod_ctlModel.mmsValue = MmsValue_newIntegerFro
 
 iedModel_BinIO_BinaryOutputs_LLN0_NamPlt_vendor.mmsValue = MmsValue_newVisibleString("SIEMENS");
 
-iedModel_BinIO_BinaryOutputs_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007B");
+iedModel_BinIO_BinaryOutputs_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007");
 
 iedModel_BinIO_BinaryOutputs_LLN0_GrRef_setSrcRef.mmsValue = MmsValue_newVisibleString("@BinIO");
 
@@ -58714,7 +57046,7 @@ iedModel_CB1_LLN0_Mod_ctlModel.mmsValue = MmsValue_newIntegerFromInt32(1);
 
 iedModel_CB1_LLN0_NamPlt_vendor.mmsValue = MmsValue_newVisibleString("SIEMENS");
 
-iedModel_CB1_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007B");
+iedModel_CB1_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007");
 
 iedModel_CB1_LLN0_GrRef_setSrcRef.mmsValue = MmsValue_newVisibleString("@Application");
 
@@ -58882,7 +57214,7 @@ iedModel_CB1_Fundamental_LLN0_Mod_ctlModel.mmsValue = MmsValue_newIntegerFromInt
 
 iedModel_CB1_Fundamental_LLN0_NamPlt_vendor.mmsValue = MmsValue_newVisibleString("SIEMENS");
 
-iedModel_CB1_Fundamental_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007B");
+iedModel_CB1_Fundamental_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007");
 
 iedModel_CB1_Fundamental_LLN0_GrRef_setSrcRef.mmsValue = MmsValue_newVisibleString("@CB1");
 
@@ -58912,10 +57244,6 @@ iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsAB_db.mmsValue = MmsValue_newUnsigned
 
 iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsAB_dbAng.mmsValue = MmsValue_newUnsignedFromUint32(333);
 
-iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsAB_dbRef.mmsValue = MmsValue_newFloat(400.0);
-
-iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsAB_dbAngRef.mmsValue = MmsValue_newFloat(360.0);
-
 iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsBC_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
 iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsBC_instCVal_ang_f.mmsValue = MmsValue_newFloat(0.0);
@@ -58931,10 +57259,6 @@ iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsBC_units_multiplier.mmsValue = MmsVal
 iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsBC_db.mmsValue = MmsValue_newUnsignedFromUint32(2000);
 
 iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsBC_dbAng.mmsValue = MmsValue_newUnsignedFromUint32(333);
-
-iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsBC_dbRef.mmsValue = MmsValue_newFloat(400.0);
-
-iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsBC_dbAngRef.mmsValue = MmsValue_newFloat(360.0);
 
 iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsCA_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
@@ -58952,10 +57276,6 @@ iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsCA_db.mmsValue = MmsValue_newUnsigned
 
 iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsCA_dbAng.mmsValue = MmsValue_newUnsignedFromUint32(333);
 
-iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsCA_dbRef.mmsValue = MmsValue_newFloat(400.0);
-
-iedModel_CB1_Fundamental_FPRE_MMXU1_PPV_phsCA_dbAngRef.mmsValue = MmsValue_newFloat(360.0);
-
 iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsA_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
 iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsA_instCVal_ang_f.mmsValue = MmsValue_newFloat(0.0);
@@ -58971,10 +57291,6 @@ iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsA_units_multiplier.mmsValue = MmsValu
 iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsA_db.mmsValue = MmsValue_newUnsignedFromUint32(2000);
 
 iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsA_dbAng.mmsValue = MmsValue_newUnsignedFromUint32(333);
-
-iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsA_dbRef.mmsValue = MmsValue_newFloat(230.94688);
-
-iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsA_dbAngRef.mmsValue = MmsValue_newFloat(360.0);
 
 iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsB_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
@@ -58992,10 +57308,6 @@ iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsB_db.mmsValue = MmsValue_newUnsignedF
 
 iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsB_dbAng.mmsValue = MmsValue_newUnsignedFromUint32(333);
 
-iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsB_dbRef.mmsValue = MmsValue_newFloat(230.94688);
-
-iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsB_dbAngRef.mmsValue = MmsValue_newFloat(360.0);
-
 iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsC_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
 iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsC_instCVal_ang_f.mmsValue = MmsValue_newFloat(0.0);
@@ -59012,10 +57324,6 @@ iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsC_db.mmsValue = MmsValue_newUnsignedF
 
 iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsC_dbAng.mmsValue = MmsValue_newUnsignedFromUint32(333);
 
-iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsC_dbRef.mmsValue = MmsValue_newFloat(230.94688);
-
-iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_phsC_dbAngRef.mmsValue = MmsValue_newFloat(360.0);
-
 iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_res_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
 iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_res_instCVal_ang_f.mmsValue = MmsValue_newFloat(0.0);
@@ -59029,10 +57337,6 @@ iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_res_units_SIUnit.mmsValue = MmsValue_new
 iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_res_db.mmsValue = MmsValue_newUnsignedFromUint32(20000);
 
 iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_res_dbAng.mmsValue = MmsValue_newUnsignedFromUint32(333);
-
-iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_res_dbRef.mmsValue = MmsValue_newFloat(230.94688);
-
-iedModel_CB1_Fundamental_FPRE_MMXU1_PhV_res_dbAngRef.mmsValue = MmsValue_newFloat(360.0);
 
 iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsA_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
@@ -59048,10 +57352,6 @@ iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsA_db.mmsValue = MmsValue_newUnsignedFro
 
 iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsA_dbAng.mmsValue = MmsValue_newUnsignedFromUint32(333);
 
-iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsA_dbRef.mmsValue = MmsValue_newFloat(1000.0);
-
-iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsA_dbAngRef.mmsValue = MmsValue_newFloat(360.0);
-
 iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsB_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
 iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsB_instCVal_ang_f.mmsValue = MmsValue_newFloat(0.0);
@@ -59065,10 +57365,6 @@ iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsB_units_SIUnit.mmsValue = MmsValue_newI
 iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsB_db.mmsValue = MmsValue_newUnsignedFromUint32(10000);
 
 iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsB_dbAng.mmsValue = MmsValue_newUnsignedFromUint32(333);
-
-iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsB_dbRef.mmsValue = MmsValue_newFloat(1000.0);
-
-iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsB_dbAngRef.mmsValue = MmsValue_newFloat(360.0);
 
 iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsC_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
@@ -59084,10 +57380,6 @@ iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsC_db.mmsValue = MmsValue_newUnsignedFro
 
 iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsC_dbAng.mmsValue = MmsValue_newUnsignedFromUint32(333);
 
-iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsC_dbRef.mmsValue = MmsValue_newFloat(1000.0);
-
-iedModel_CB1_Fundamental_FPRE_MMXU1_A_phsC_dbAngRef.mmsValue = MmsValue_newFloat(360.0);
-
 iedModel_CB1_Fundamental_FPRE_MMXU1_A_res_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
 iedModel_CB1_Fundamental_FPRE_MMXU1_A_res_instCVal_ang_f.mmsValue = MmsValue_newFloat(0.0);
@@ -59102,15 +57394,11 @@ iedModel_CB1_Fundamental_FPRE_MMXU1_A_res_db.mmsValue = MmsValue_newUnsignedFrom
 
 iedModel_CB1_Fundamental_FPRE_MMXU1_A_res_dbAng.mmsValue = MmsValue_newUnsignedFromUint32(333);
 
-iedModel_CB1_Fundamental_FPRE_MMXU1_A_res_dbRef.mmsValue = MmsValue_newFloat(1000.0);
-
-iedModel_CB1_Fundamental_FPRE_MMXU1_A_res_dbAngRef.mmsValue = MmsValue_newFloat(360.0);
-
 iedModel_ComSupervision_LLN0_Mod_ctlModel.mmsValue = MmsValue_newIntegerFromInt32(1);
 
 iedModel_ComSupervision_LLN0_NamPlt_vendor.mmsValue = MmsValue_newVisibleString("SIEMENS");
 
-iedModel_ComSupervision_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007B");
+iedModel_ComSupervision_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007");
 
 iedModel_ComSupervision_LLN0_GrRef_setSrcRef.mmsValue = MmsValue_newVisibleString("@Application");
 
@@ -59126,7 +57414,7 @@ iedModel_ComSupervision_GOOSE_LLN0_Mod_ctlModel.mmsValue = MmsValue_newIntegerFr
 
 iedModel_ComSupervision_GOOSE_LLN0_NamPlt_vendor.mmsValue = MmsValue_newVisibleString("SIEMENS");
 
-iedModel_ComSupervision_GOOSE_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007B");
+iedModel_ComSupervision_GOOSE_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007");
 
 iedModel_ComSupervision_GOOSE_LLN0_GrRef_setSrcRef.mmsValue = MmsValue_newVisibleString("@ComSupervision");
 
@@ -59154,7 +57442,7 @@ iedModel_Ln1_LLN0_Mod_ctlModel.mmsValue = MmsValue_newIntegerFromInt32(1);
 
 iedModel_Ln1_LLN0_NamPlt_vendor.mmsValue = MmsValue_newVisibleString("SIEMENS");
 
-iedModel_Ln1_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007B");
+iedModel_Ln1_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007");
 
 iedModel_Ln1_LLN0_GrRef_setSrcRef.mmsValue = MmsValue_newVisibleString("@Application");
 
@@ -59190,7 +57478,7 @@ iedModel_Ln1_Energy_LLN0_Mod_ctlModel.mmsValue = MmsValue_newIntegerFromInt32(1)
 
 iedModel_Ln1_Energy_LLN0_NamPlt_vendor.mmsValue = MmsValue_newVisibleString("SIEMENS");
 
-iedModel_Ln1_Energy_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007B");
+iedModel_Ln1_Energy_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007");
 
 iedModel_Ln1_Energy_LLN0_GrRef_setSrcRef.mmsValue = MmsValue_newVisibleString("@Ln1");
 
@@ -59254,7 +57542,7 @@ iedModel_Ln1_FundSymComp_LLN0_Mod_ctlModel.mmsValue = MmsValue_newIntegerFromInt
 
 iedModel_Ln1_FundSymComp_LLN0_NamPlt_vendor.mmsValue = MmsValue_newVisibleString("SIEMENS");
 
-iedModel_Ln1_FundSymComp_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007B");
+iedModel_Ln1_FundSymComp_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007");
 
 iedModel_Ln1_FundSymComp_LLN0_GrRef_setSrcRef.mmsValue = MmsValue_newVisibleString("@Ln1");
 
@@ -59284,10 +57572,6 @@ iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsAB_db.mmsValue = MmsValue_newUnsigned
 
 iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsAB_dbAng.mmsValue = MmsValue_newUnsignedFromUint32(333);
 
-iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsAB_dbRef.mmsValue = MmsValue_newFloat(400.0);
-
-iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsAB_dbAngRef.mmsValue = MmsValue_newFloat(360.0);
-
 iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsBC_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
 iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsBC_instCVal_ang_f.mmsValue = MmsValue_newFloat(0.0);
@@ -59303,10 +57587,6 @@ iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsBC_units_multiplier.mmsValue = MmsVal
 iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsBC_db.mmsValue = MmsValue_newUnsignedFromUint32(2000);
 
 iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsBC_dbAng.mmsValue = MmsValue_newUnsignedFromUint32(333);
-
-iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsBC_dbRef.mmsValue = MmsValue_newFloat(400.0);
-
-iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsBC_dbAngRef.mmsValue = MmsValue_newFloat(360.0);
 
 iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsCA_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
@@ -59324,10 +57604,6 @@ iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsCA_db.mmsValue = MmsValue_newUnsigned
 
 iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsCA_dbAng.mmsValue = MmsValue_newUnsignedFromUint32(333);
 
-iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsCA_dbRef.mmsValue = MmsValue_newFloat(400.0);
-
-iedModel_Ln1_FundSymComp_FPRE_MMXU1_PPV_phsCA_dbAngRef.mmsValue = MmsValue_newFloat(360.0);
-
 iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsA_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
 iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsA_instCVal_ang_f.mmsValue = MmsValue_newFloat(0.0);
@@ -59343,10 +57619,6 @@ iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsA_units_multiplier.mmsValue = MmsValu
 iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsA_db.mmsValue = MmsValue_newUnsignedFromUint32(2000);
 
 iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsA_dbAng.mmsValue = MmsValue_newUnsignedFromUint32(333);
-
-iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsA_dbRef.mmsValue = MmsValue_newFloat(230.94688);
-
-iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsA_dbAngRef.mmsValue = MmsValue_newFloat(360.0);
 
 iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsB_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
@@ -59364,10 +57636,6 @@ iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsB_db.mmsValue = MmsValue_newUnsignedF
 
 iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsB_dbAng.mmsValue = MmsValue_newUnsignedFromUint32(333);
 
-iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsB_dbRef.mmsValue = MmsValue_newFloat(230.94688);
-
-iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsB_dbAngRef.mmsValue = MmsValue_newFloat(360.0);
-
 iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsC_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
 iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsC_instCVal_ang_f.mmsValue = MmsValue_newFloat(0.0);
@@ -59384,10 +57652,6 @@ iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsC_db.mmsValue = MmsValue_newUnsignedF
 
 iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsC_dbAng.mmsValue = MmsValue_newUnsignedFromUint32(333);
 
-iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsC_dbRef.mmsValue = MmsValue_newFloat(230.94688);
-
-iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_phsC_dbAngRef.mmsValue = MmsValue_newFloat(360.0);
-
 iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_res_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
 iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_res_instCVal_ang_f.mmsValue = MmsValue_newFloat(0.0);
@@ -59401,10 +57665,6 @@ iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_res_units_SIUnit.mmsValue = MmsValue_new
 iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_res_db.mmsValue = MmsValue_newUnsignedFromUint32(20000);
 
 iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_res_dbAng.mmsValue = MmsValue_newUnsignedFromUint32(333);
-
-iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_res_dbRef.mmsValue = MmsValue_newFloat(230.94688);
-
-iedModel_Ln1_FundSymComp_FPRE_MMXU1_PhV_res_dbAngRef.mmsValue = MmsValue_newFloat(360.0);
 
 iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsA_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
@@ -59420,10 +57680,6 @@ iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsA_db.mmsValue = MmsValue_newUnsignedFro
 
 iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsA_dbAng.mmsValue = MmsValue_newUnsignedFromUint32(333);
 
-iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsA_dbRef.mmsValue = MmsValue_newFloat(1000.0);
-
-iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsA_dbAngRef.mmsValue = MmsValue_newFloat(360.0);
-
 iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsB_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
 iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsB_instCVal_ang_f.mmsValue = MmsValue_newFloat(0.0);
@@ -59437,10 +57693,6 @@ iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsB_units_SIUnit.mmsValue = MmsValue_newI
 iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsB_db.mmsValue = MmsValue_newUnsignedFromUint32(10000);
 
 iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsB_dbAng.mmsValue = MmsValue_newUnsignedFromUint32(333);
-
-iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsB_dbRef.mmsValue = MmsValue_newFloat(1000.0);
-
-iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsB_dbAngRef.mmsValue = MmsValue_newFloat(360.0);
 
 iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsC_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
@@ -59456,10 +57708,6 @@ iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsC_db.mmsValue = MmsValue_newUnsignedFro
 
 iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsC_dbAng.mmsValue = MmsValue_newUnsignedFromUint32(333);
 
-iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsC_dbRef.mmsValue = MmsValue_newFloat(1000.0);
-
-iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_phsC_dbAngRef.mmsValue = MmsValue_newFloat(360.0);
-
 iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_res_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
 iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_res_instCVal_ang_f.mmsValue = MmsValue_newFloat(0.0);
@@ -59473,10 +57721,6 @@ iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_res_units_SIUnit.mmsValue = MmsValue_newIn
 iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_res_db.mmsValue = MmsValue_newUnsignedFromUint32(100000);
 
 iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_res_dbAng.mmsValue = MmsValue_newUnsignedFromUint32(333);
-
-iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_res_dbRef.mmsValue = MmsValue_newFloat(1000.0);
-
-iedModel_Ln1_FundSymComp_FPRE_MMXU1_A_res_dbAngRef.mmsValue = MmsValue_newFloat(360.0);
 
 iedModel_Ln1_FundSymComp_FPRE_MMXN1_Mod_stVal.mmsValue = MmsValue_newIntegerFromInt32(1);
 
@@ -59512,10 +57756,6 @@ iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c1_db.mmsValue = MmsValue_newUnsignedFr
 
 iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c1_dbAng.mmsValue = MmsValue_newUnsignedFromUint32(333);
 
-iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c1_dbRef.mmsValue = MmsValue_newFloat(1000.0);
-
-iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c1_dbAngRef.mmsValue = MmsValue_newFloat(360.0);
-
 iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c2_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
 iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c2_instCVal_ang_f.mmsValue = MmsValue_newFloat(0.0);
@@ -59530,10 +57770,6 @@ iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c2_db.mmsValue = MmsValue_newUnsignedFr
 
 iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c2_dbAng.mmsValue = MmsValue_newUnsignedFromUint32(333);
 
-iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c2_dbRef.mmsValue = MmsValue_newFloat(1000.0);
-
-iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c2_dbAngRef.mmsValue = MmsValue_newFloat(360.0);
-
 iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c3_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
 iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c3_instCVal_ang_f.mmsValue = MmsValue_newFloat(0.0);
@@ -59547,10 +57783,6 @@ iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c3_units_SIUnit.mmsValue = MmsValue_new
 iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c3_db.mmsValue = MmsValue_newUnsignedFromUint32(10000);
 
 iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c3_dbAng.mmsValue = MmsValue_newUnsignedFromUint32(333);
-
-iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c3_dbRef.mmsValue = MmsValue_newFloat(1000.0);
-
-iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqA_c3_dbAngRef.mmsValue = MmsValue_newFloat(360.0);
 
 iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c1_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
@@ -59568,10 +57800,6 @@ iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c1_db.mmsValue = MmsValue_newUnsignedFr
 
 iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c1_dbAng.mmsValue = MmsValue_newUnsignedFromUint32(333);
 
-iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c1_dbRef.mmsValue = MmsValue_newFloat(230.94688);
-
-iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c1_dbAngRef.mmsValue = MmsValue_newFloat(360.0);
-
 iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c2_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
 iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c2_instCVal_ang_f.mmsValue = MmsValue_newFloat(0.0);
@@ -59587,10 +57815,6 @@ iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c2_units_multiplier.mmsValue = MmsValue
 iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c2_db.mmsValue = MmsValue_newUnsignedFromUint32(2000);
 
 iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c2_dbAng.mmsValue = MmsValue_newUnsignedFromUint32(333);
-
-iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c2_dbRef.mmsValue = MmsValue_newFloat(230.94688);
-
-iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c2_dbAngRef.mmsValue = MmsValue_newFloat(360.0);
 
 iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c3_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
@@ -59608,15 +57832,11 @@ iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c3_db.mmsValue = MmsValue_newUnsignedFr
 
 iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c3_dbAng.mmsValue = MmsValue_newUnsignedFromUint32(333);
 
-iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c3_dbRef.mmsValue = MmsValue_newFloat(230.94688);
-
-iedModel_Ln1_FundSymComp_XPRE_MSQI1_SeqV_c3_dbAngRef.mmsValue = MmsValue_newFloat(360.0);
-
 iedModel_Ln1_OperationalValues_LLN0_Mod_ctlModel.mmsValue = MmsValue_newIntegerFromInt32(1);
 
 iedModel_Ln1_OperationalValues_LLN0_NamPlt_vendor.mmsValue = MmsValue_newVisibleString("SIEMENS");
 
-iedModel_Ln1_OperationalValues_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007B");
+iedModel_Ln1_OperationalValues_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007");
 
 iedModel_Ln1_OperationalValues_LLN0_GrRef_setSrcRef.mmsValue = MmsValue_newVisibleString("@Ln1");
 
@@ -59640,8 +57860,6 @@ iedModel_Ln1_OperationalValues_RPRE_MMXU1_PPV_phsAB_units_multiplier.mmsValue = 
 
 iedModel_Ln1_OperationalValues_RPRE_MMXU1_PPV_phsAB_db.mmsValue = MmsValue_newUnsignedFromUint32(2000);
 
-iedModel_Ln1_OperationalValues_RPRE_MMXU1_PPV_phsAB_dbRef.mmsValue = MmsValue_newFloat(400.0);
-
 iedModel_Ln1_OperationalValues_RPRE_MMXU1_PPV_phsBC_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
 iedModel_Ln1_OperationalValues_RPRE_MMXU1_PPV_phsBC_cVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
@@ -59651,8 +57869,6 @@ iedModel_Ln1_OperationalValues_RPRE_MMXU1_PPV_phsBC_units_SIUnit.mmsValue = MmsV
 iedModel_Ln1_OperationalValues_RPRE_MMXU1_PPV_phsBC_units_multiplier.mmsValue = MmsValue_newIntegerFromInt32(3);
 
 iedModel_Ln1_OperationalValues_RPRE_MMXU1_PPV_phsBC_db.mmsValue = MmsValue_newUnsignedFromUint32(2000);
-
-iedModel_Ln1_OperationalValues_RPRE_MMXU1_PPV_phsBC_dbRef.mmsValue = MmsValue_newFloat(400.0);
 
 iedModel_Ln1_OperationalValues_RPRE_MMXU1_PPV_phsCA_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
@@ -59664,8 +57880,6 @@ iedModel_Ln1_OperationalValues_RPRE_MMXU1_PPV_phsCA_units_multiplier.mmsValue = 
 
 iedModel_Ln1_OperationalValues_RPRE_MMXU1_PPV_phsCA_db.mmsValue = MmsValue_newUnsignedFromUint32(2000);
 
-iedModel_Ln1_OperationalValues_RPRE_MMXU1_PPV_phsCA_dbRef.mmsValue = MmsValue_newFloat(400.0);
-
 iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_phsA_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
 iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_phsA_cVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
@@ -59675,8 +57889,6 @@ iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_phsA_units_SIUnit.mmsValue = MmsVa
 iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_phsA_units_multiplier.mmsValue = MmsValue_newIntegerFromInt32(3);
 
 iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_phsA_db.mmsValue = MmsValue_newUnsignedFromUint32(2000);
-
-iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_phsA_dbRef.mmsValue = MmsValue_newFloat(230.94688);
 
 iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_phsB_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
@@ -59688,8 +57900,6 @@ iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_phsB_units_multiplier.mmsValue = M
 
 iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_phsB_db.mmsValue = MmsValue_newUnsignedFromUint32(2000);
 
-iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_phsB_dbRef.mmsValue = MmsValue_newFloat(230.94688);
-
 iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_phsC_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
 iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_phsC_cVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
@@ -59700,8 +57910,6 @@ iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_phsC_units_multiplier.mmsValue = M
 
 iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_phsC_db.mmsValue = MmsValue_newUnsignedFromUint32(2000);
 
-iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_phsC_dbRef.mmsValue = MmsValue_newFloat(230.94688);
-
 iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_res_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
 iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_res_cVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
@@ -59709,8 +57917,6 @@ iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_res_cVal_mag_f.mmsValue = MmsValue
 iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_res_units_SIUnit.mmsValue = MmsValue_newIntegerFromInt32(29);
 
 iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_res_db.mmsValue = MmsValue_newUnsignedFromUint32(20000);
-
-iedModel_Ln1_OperationalValues_RPRE_MMXU1_PhV_res_dbRef.mmsValue = MmsValue_newFloat(230.94688);
 
 iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_phsA_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
@@ -59720,8 +57926,6 @@ iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_phsA_units_SIUnit.mmsValue = MmsValu
 
 iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_phsA_db.mmsValue = MmsValue_newUnsignedFromUint32(10000);
 
-iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_phsA_dbRef.mmsValue = MmsValue_newFloat(1000.0);
-
 iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_phsB_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
 iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_phsB_cVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
@@ -59729,8 +57933,6 @@ iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_phsB_cVal_mag_f.mmsValue = MmsValue_
 iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_phsB_units_SIUnit.mmsValue = MmsValue_newIntegerFromInt32(5);
 
 iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_phsB_db.mmsValue = MmsValue_newUnsignedFromUint32(10000);
-
-iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_phsB_dbRef.mmsValue = MmsValue_newFloat(1000.0);
 
 iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_phsC_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
@@ -59740,8 +57942,6 @@ iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_phsC_units_SIUnit.mmsValue = MmsValu
 
 iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_phsC_db.mmsValue = MmsValue_newUnsignedFromUint32(10000);
 
-iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_phsC_dbRef.mmsValue = MmsValue_newFloat(1000.0);
-
 iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_res_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
 iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_res_cVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
@@ -59749,8 +57949,6 @@ iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_res_cVal_mag_f.mmsValue = MmsValue_n
 iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_res_units_SIUnit.mmsValue = MmsValue_newIntegerFromInt32(5);
 
 iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_res_db.mmsValue = MmsValue_newUnsignedFromUint32(100000);
-
-iedModel_Ln1_OperationalValues_RPRE_MMXU1_A_res_dbRef.mmsValue = MmsValue_newFloat(1000.0);
 
 iedModel_Ln1_OperationalValues_RPRE_MMXN1_Mod_stVal.mmsValue = MmsValue_newIntegerFromInt32(1);
 
@@ -59782,8 +57980,6 @@ iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotW_units_multiplier.mmsValue = MmsVa
 
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotW_db.mmsValue = MmsValue_newUnsignedFromUint32(10000);
 
-iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotW_dbRef.mmsValue = MmsValue_newFloat(692820.3);
-
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotVAr_instMag_f.mmsValue = MmsValue_newFloat(0.0);
 
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotVAr_mag_f.mmsValue = MmsValue_newFloat(0.0);
@@ -59793,8 +57989,6 @@ iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotVAr_units_SIUnit.mmsValue = MmsValu
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotVAr_units_multiplier.mmsValue = MmsValue_newIntegerFromInt32(3);
 
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotVAr_db.mmsValue = MmsValue_newUnsignedFromUint32(10000);
-
-iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotVAr_dbRef.mmsValue = MmsValue_newFloat(692820.3);
 
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotVA_instMag_f.mmsValue = MmsValue_newFloat(0.0);
 
@@ -59806,8 +58000,6 @@ iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotVA_units_multiplier.mmsValue = MmsV
 
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotVA_db.mmsValue = MmsValue_newUnsignedFromUint32(10000);
 
-iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotVA_dbRef.mmsValue = MmsValue_newFloat(692820.3);
-
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotPF_instMag_f.mmsValue = MmsValue_newFloat(0.0);
 
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotPF_mag_f.mmsValue = MmsValue_newFloat(0.0);
@@ -59816,8 +58008,6 @@ iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotPF_units_SIUnit.mmsValue = MmsValue
 
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotPF_db.mmsValue = MmsValue_newUnsignedFromUint32(10000);
 
-iedModel_Ln1_OperationalValues_PPRE_MMXU1_TotPF_dbRef.mmsValue = MmsValue_newFloat(0.0);
-
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_Hz_instMag_f.mmsValue = MmsValue_newFloat(0.0);
 
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_Hz_mag_f.mmsValue = MmsValue_newFloat(0.0);
@@ -59825,8 +58015,6 @@ iedModel_Ln1_OperationalValues_PPRE_MMXU1_Hz_mag_f.mmsValue = MmsValue_newFloat(
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_Hz_units_SIUnit.mmsValue = MmsValue_newIntegerFromInt32(33);
 
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_Hz_db.mmsValue = MmsValue_newUnsignedFromUint32(100);
-
-iedModel_Ln1_OperationalValues_PPRE_MMXU1_Hz_dbRef.mmsValue = MmsValue_newFloat(60.0);
 
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_W_phsA_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
@@ -59838,8 +58026,6 @@ iedModel_Ln1_OperationalValues_PPRE_MMXU1_W_phsA_units_multiplier.mmsValue = Mms
 
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_W_phsA_db.mmsValue = MmsValue_newUnsignedFromUint32(10000);
 
-iedModel_Ln1_OperationalValues_PPRE_MMXU1_W_phsA_dbRef.mmsValue = MmsValue_newFloat(230940.1);
-
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_W_phsB_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_W_phsB_cVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
@@ -59849,8 +58035,6 @@ iedModel_Ln1_OperationalValues_PPRE_MMXU1_W_phsB_units_SIUnit.mmsValue = MmsValu
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_W_phsB_units_multiplier.mmsValue = MmsValue_newIntegerFromInt32(3);
 
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_W_phsB_db.mmsValue = MmsValue_newUnsignedFromUint32(10000);
-
-iedModel_Ln1_OperationalValues_PPRE_MMXU1_W_phsB_dbRef.mmsValue = MmsValue_newFloat(230940.1);
 
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_W_phsC_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
@@ -59862,8 +58046,6 @@ iedModel_Ln1_OperationalValues_PPRE_MMXU1_W_phsC_units_multiplier.mmsValue = Mms
 
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_W_phsC_db.mmsValue = MmsValue_newUnsignedFromUint32(10000);
 
-iedModel_Ln1_OperationalValues_PPRE_MMXU1_W_phsC_dbRef.mmsValue = MmsValue_newFloat(230940.1);
-
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_VAr_phsA_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_VAr_phsA_cVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
@@ -59873,8 +58055,6 @@ iedModel_Ln1_OperationalValues_PPRE_MMXU1_VAr_phsA_units_SIUnit.mmsValue = MmsVa
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_VAr_phsA_units_multiplier.mmsValue = MmsValue_newIntegerFromInt32(3);
 
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_VAr_phsA_db.mmsValue = MmsValue_newUnsignedFromUint32(10000);
-
-iedModel_Ln1_OperationalValues_PPRE_MMXU1_VAr_phsA_dbRef.mmsValue = MmsValue_newFloat(230940.1);
 
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_VAr_phsB_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
@@ -59886,8 +58066,6 @@ iedModel_Ln1_OperationalValues_PPRE_MMXU1_VAr_phsB_units_multiplier.mmsValue = M
 
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_VAr_phsB_db.mmsValue = MmsValue_newUnsignedFromUint32(10000);
 
-iedModel_Ln1_OperationalValues_PPRE_MMXU1_VAr_phsB_dbRef.mmsValue = MmsValue_newFloat(230940.1);
-
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_VAr_phsC_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_VAr_phsC_cVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
@@ -59897,8 +58075,6 @@ iedModel_Ln1_OperationalValues_PPRE_MMXU1_VAr_phsC_units_SIUnit.mmsValue = MmsVa
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_VAr_phsC_units_multiplier.mmsValue = MmsValue_newIntegerFromInt32(3);
 
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_VAr_phsC_db.mmsValue = MmsValue_newUnsignedFromUint32(10000);
-
-iedModel_Ln1_OperationalValues_PPRE_MMXU1_VAr_phsC_dbRef.mmsValue = MmsValue_newFloat(230940.1);
 
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_VA_phsA_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
@@ -59910,8 +58086,6 @@ iedModel_Ln1_OperationalValues_PPRE_MMXU1_VA_phsA_units_multiplier.mmsValue = Mm
 
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_VA_phsA_db.mmsValue = MmsValue_newUnsignedFromUint32(10000);
 
-iedModel_Ln1_OperationalValues_PPRE_MMXU1_VA_phsA_dbRef.mmsValue = MmsValue_newFloat(230940.1);
-
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_VA_phsB_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_VA_phsB_cVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
@@ -59921,8 +58095,6 @@ iedModel_Ln1_OperationalValues_PPRE_MMXU1_VA_phsB_units_SIUnit.mmsValue = MmsVal
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_VA_phsB_units_multiplier.mmsValue = MmsValue_newIntegerFromInt32(3);
 
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_VA_phsB_db.mmsValue = MmsValue_newUnsignedFromUint32(10000);
-
-iedModel_Ln1_OperationalValues_PPRE_MMXU1_VA_phsB_dbRef.mmsValue = MmsValue_newFloat(230940.1);
 
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_VA_phsC_instCVal_mag_f.mmsValue = MmsValue_newFloat(0.0);
 
@@ -59934,13 +58106,11 @@ iedModel_Ln1_OperationalValues_PPRE_MMXU1_VA_phsC_units_multiplier.mmsValue = Mm
 
 iedModel_Ln1_OperationalValues_PPRE_MMXU1_VA_phsC_db.mmsValue = MmsValue_newUnsignedFromUint32(10000);
 
-iedModel_Ln1_OperationalValues_PPRE_MMXU1_VA_phsC_dbRef.mmsValue = MmsValue_newFloat(230940.1);
-
 iedModel_Ln1_ProcessMonitor_LLN0_Mod_ctlModel.mmsValue = MmsValue_newIntegerFromInt32(1);
 
 iedModel_Ln1_ProcessMonitor_LLN0_NamPlt_vendor.mmsValue = MmsValue_newVisibleString("SIEMENS");
 
-iedModel_Ln1_ProcessMonitor_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007B");
+iedModel_Ln1_ProcessMonitor_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007");
 
 iedModel_Ln1_ProcessMonitor_LLN0_GrRef_setSrcRef.mmsValue = MmsValue_newVisibleString("@Ln1");
 
@@ -59948,7 +58118,7 @@ iedModel_Mod1_LLN0_Mod_ctlModel.mmsValue = MmsValue_newIntegerFromInt32(1);
 
 iedModel_Mod1_LLN0_NamPlt_vendor.mmsValue = MmsValue_newVisibleString("SIEMENS");
 
-iedModel_Mod1_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007B");
+iedModel_Mod1_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007");
 
 iedModel_Mod1_LLN0_GrRef_setSrcRef.mmsValue = MmsValue_newVisibleString("@Application");
 
@@ -59956,7 +58126,7 @@ iedModel_Mod1_Channel1_LLN0_Mod_ctlModel.mmsValue = MmsValue_newIntegerFromInt32
 
 iedModel_Mod1_Channel1_LLN0_NamPlt_vendor.mmsValue = MmsValue_newVisibleString("SIEMENS");
 
-iedModel_Mod1_Channel1_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007B");
+iedModel_Mod1_Channel1_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007");
 
 iedModel_Mod1_Channel1_LLN0_GrRef_setSrcRef.mmsValue = MmsValue_newVisibleString("@Mod1");
 
@@ -59964,7 +58134,7 @@ iedModel_Mod2_LLN0_Mod_ctlModel.mmsValue = MmsValue_newIntegerFromInt32(1);
 
 iedModel_Mod2_LLN0_NamPlt_vendor.mmsValue = MmsValue_newVisibleString("SIEMENS");
 
-iedModel_Mod2_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007B");
+iedModel_Mod2_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007");
 
 iedModel_Mod2_LLN0_GrRef_setSrcRef.mmsValue = MmsValue_newVisibleString("@Application");
 
@@ -59972,7 +58142,7 @@ iedModel_Mod2_Channel1_LLN0_Mod_ctlModel.mmsValue = MmsValue_newIntegerFromInt32
 
 iedModel_Mod2_Channel1_LLN0_NamPlt_vendor.mmsValue = MmsValue_newVisibleString("SIEMENS");
 
-iedModel_Mod2_Channel1_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007B");
+iedModel_Mod2_Channel1_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007");
 
 iedModel_Mod2_Channel1_LLN0_GrRef_setSrcRef.mmsValue = MmsValue_newVisibleString("@Mod2");
 
@@ -59980,7 +58150,7 @@ iedModel_Mod3_LLN0_Mod_ctlModel.mmsValue = MmsValue_newIntegerFromInt32(1);
 
 iedModel_Mod3_LLN0_NamPlt_vendor.mmsValue = MmsValue_newVisibleString("SIEMENS");
 
-iedModel_Mod3_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007B");
+iedModel_Mod3_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007");
 
 iedModel_Mod3_LLN0_GrRef_setSrcRef.mmsValue = MmsValue_newVisibleString("@Application");
 
@@ -59988,7 +58158,7 @@ iedModel_Mod3_Channel1_LLN0_Mod_ctlModel.mmsValue = MmsValue_newIntegerFromInt32
 
 iedModel_Mod3_Channel1_LLN0_NamPlt_vendor.mmsValue = MmsValue_newVisibleString("SIEMENS");
 
-iedModel_Mod3_Channel1_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007B");
+iedModel_Mod3_Channel1_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007");
 
 iedModel_Mod3_Channel1_LLN0_GrRef_setSrcRef.mmsValue = MmsValue_newVisibleString("@Mod3");
 
@@ -60030,7 +58200,7 @@ iedModel_Mod3_MU2_LLN0_NamPlt_vendor.mmsValue = MmsValue_newVisibleString("SIEME
 
 iedModel_Mod3_MU2_LLN0_NamPlt_configRev.mmsValue = MmsValue_newVisibleString("2024-06-11 19:04:31");
 
-iedModel_Mod3_MU2_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007B");
+iedModel_Mod3_MU2_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007");
 
 iedModel_Mod3_MU2_LLN0_GrRef_setSrcRef.mmsValue = MmsValue_newVisibleString("@Mod3");
 
@@ -60038,19 +58208,11 @@ iedModel_Mod3_MU2_LPHD1_NamPlt_vendor.mmsValue = MmsValue_newVisibleString("SIEM
 
 iedModel_Mod3_MU2_LPHD1_NamPlt_configRev.mmsValue = MmsValue_newVisibleString("2024-06-06 13:55:33");
 
-iedModel_Mod3_MU2_LPHD1_NamPlt_lnNs.mmsValue = MmsValue_newVisibleString("IEC 61869-9:2016A");
+iedModel_Mod3_MU2_LPHD1_NamPlt_lnNs.mmsValue = MmsValue_newVisibleString("IEC_61850-7-4:2007B");
 
 iedModel_Mod3_MU2_LPHD1_PhyNam_vendor.mmsValue = MmsValue_newVisibleString("SIEMENS");
 
 iedModel_Mod3_MU2_LPHD1_PhyNam_d.mmsValue = MmsValue_newVisibleString("SIEMENS SIPROTEC 5 Merging unit");
-
-iedModel_Mod3_MU2_LPHD1_NamVariant_val.mmsValue = MmsValue_newVisibleString("F4000S1I0-24U0-24;F4800S1-2I0-24U0-24;F12800S8I0-16U0-16;F14400S6I0-24U0-24;F15360S8I0-16U0-16;");
-
-iedModel_Mod3_MU2_LPHD1_NamHzRtg_val.mmsValue = MmsValue_newVisibleString("50;60");
-
-iedModel_Mod3_MU2_LPHD1_NamHoldRtg_val.mmsValue = MmsValue_newVisibleString("0-3600");
-
-iedModel_Mod3_MU2_LPHD1_NamMaxDlRtg_val.mmsValue = MmsValue_newVisibleString("1150");
 
 iedModel_Mod3_MU2_LPHD1_MaxDl_setVal.mmsValue = MmsValue_newIntegerFromInt32(1150);
 
@@ -60072,7 +58234,7 @@ iedModel_Mod3_MU2_I01ATCTR1_NamPlt_vendor.mmsValue = MmsValue_newVisibleString("
 
 iedModel_Mod3_MU2_I01ATCTR1_NamPlt_configRev.mmsValue = MmsValue_newVisibleString("2024-06-11 19:04:31");
 
-iedModel_Mod3_MU2_I01ATCTR1_NamPlt_lnNs.mmsValue = MmsValue_newVisibleString("IEC 61869-9:2016A");
+iedModel_Mod3_MU2_I01ATCTR1_NamPlt_lnNs.mmsValue = MmsValue_newVisibleString("IEC_61850-7-4:2007B");
 
 iedModel_Mod3_MU2_I01ATCTR1_ARtg_setMag_f.mmsValue = MmsValue_newFloat(20.0);
 
@@ -60156,12 +58318,6 @@ iedModel_Mod3_MU2_I01ATCTR1_HoldTmms_maxVal.mmsValue = MmsValue_newIntegerFromIn
 
 iedModel_Mod3_MU2_I01ATCTR1_HoldTmms_stepSize.mmsValue = MmsValue_newUnsignedFromUint32(0);
 
-iedModel_Mod3_MU2_I01ATCTR1_NamAccRtg_val.mmsValue = MmsValue_newVisibleString("0,5S/5P20");
-
-iedModel_Mod3_MU2_I01ATCTR1_NamARtg_val.mmsValue = MmsValue_newVisibleString("200;400;800");
-
-iedModel_Mod3_MU2_I01ATCTR1_NamClipRtg_val.mmsValue = MmsValue_newVisibleString("20");
-
 iedModel_Mod3_MU2_I01BTCTR2_Mod_stVal.mmsValue = MmsValue_newIntegerFromInt32(1);
 
 iedModel_Mod3_MU2_I01BTCTR2_Mod_ctlModel.mmsValue = MmsValue_newIntegerFromInt32(0);
@@ -60170,7 +58326,7 @@ iedModel_Mod3_MU2_I01BTCTR2_NamPlt_vendor.mmsValue = MmsValue_newVisibleString("
 
 iedModel_Mod3_MU2_I01BTCTR2_NamPlt_configRev.mmsValue = MmsValue_newVisibleString("2024-06-11 19:04:31");
 
-iedModel_Mod3_MU2_I01BTCTR2_NamPlt_lnNs.mmsValue = MmsValue_newVisibleString("IEC 61869-9:2016A");
+iedModel_Mod3_MU2_I01BTCTR2_NamPlt_lnNs.mmsValue = MmsValue_newVisibleString("IEC_61850-7-4:2007B");
 
 iedModel_Mod3_MU2_I01BTCTR2_ARtg_setMag_f.mmsValue = MmsValue_newFloat(20.0);
 
@@ -60254,12 +58410,6 @@ iedModel_Mod3_MU2_I01BTCTR2_HoldTmms_maxVal.mmsValue = MmsValue_newIntegerFromIn
 
 iedModel_Mod3_MU2_I01BTCTR2_HoldTmms_stepSize.mmsValue = MmsValue_newUnsignedFromUint32(0);
 
-iedModel_Mod3_MU2_I01BTCTR2_NamAccRtg_val.mmsValue = MmsValue_newVisibleString("0,5S/5P20");
-
-iedModel_Mod3_MU2_I01BTCTR2_NamARtg_val.mmsValue = MmsValue_newVisibleString("200;400;800");
-
-iedModel_Mod3_MU2_I01BTCTR2_NamClipRtg_val.mmsValue = MmsValue_newVisibleString("20");
-
 iedModel_Mod3_MU2_I01CTCTR3_Mod_stVal.mmsValue = MmsValue_newIntegerFromInt32(1);
 
 iedModel_Mod3_MU2_I01CTCTR3_Mod_ctlModel.mmsValue = MmsValue_newIntegerFromInt32(0);
@@ -60268,7 +58418,7 @@ iedModel_Mod3_MU2_I01CTCTR3_NamPlt_vendor.mmsValue = MmsValue_newVisibleString("
 
 iedModel_Mod3_MU2_I01CTCTR3_NamPlt_configRev.mmsValue = MmsValue_newVisibleString("2024-06-11 19:04:31");
 
-iedModel_Mod3_MU2_I01CTCTR3_NamPlt_lnNs.mmsValue = MmsValue_newVisibleString("IEC 61869-9:2016A");
+iedModel_Mod3_MU2_I01CTCTR3_NamPlt_lnNs.mmsValue = MmsValue_newVisibleString("IEC_61850-7-4:2007B");
 
 iedModel_Mod3_MU2_I01CTCTR3_ARtg_setMag_f.mmsValue = MmsValue_newFloat(20.0);
 
@@ -60352,12 +58502,6 @@ iedModel_Mod3_MU2_I01CTCTR3_HoldTmms_maxVal.mmsValue = MmsValue_newIntegerFromIn
 
 iedModel_Mod3_MU2_I01CTCTR3_HoldTmms_stepSize.mmsValue = MmsValue_newUnsignedFromUint32(0);
 
-iedModel_Mod3_MU2_I01CTCTR3_NamAccRtg_val.mmsValue = MmsValue_newVisibleString("0,5S/5P20");
-
-iedModel_Mod3_MU2_I01CTCTR3_NamARtg_val.mmsValue = MmsValue_newVisibleString("200;400;800");
-
-iedModel_Mod3_MU2_I01CTCTR3_NamClipRtg_val.mmsValue = MmsValue_newVisibleString("20");
-
 iedModel_Mod3_MU2_I01NTCTR4_Mod_stVal.mmsValue = MmsValue_newIntegerFromInt32(1);
 
 iedModel_Mod3_MU2_I01NTCTR4_Mod_ctlModel.mmsValue = MmsValue_newIntegerFromInt32(0);
@@ -60366,7 +58510,7 @@ iedModel_Mod3_MU2_I01NTCTR4_NamPlt_vendor.mmsValue = MmsValue_newVisibleString("
 
 iedModel_Mod3_MU2_I01NTCTR4_NamPlt_configRev.mmsValue = MmsValue_newVisibleString("2024-06-11 19:04:31");
 
-iedModel_Mod3_MU2_I01NTCTR4_NamPlt_lnNs.mmsValue = MmsValue_newVisibleString("IEC 61869-9:2016A");
+iedModel_Mod3_MU2_I01NTCTR4_NamPlt_lnNs.mmsValue = MmsValue_newVisibleString("IEC_61850-7-4:2007B");
 
 iedModel_Mod3_MU2_I01NTCTR4_ARtg_setMag_f.mmsValue = MmsValue_newFloat(20.0);
 
@@ -60450,12 +58594,6 @@ iedModel_Mod3_MU2_I01NTCTR4_HoldTmms_maxVal.mmsValue = MmsValue_newIntegerFromIn
 
 iedModel_Mod3_MU2_I01NTCTR4_HoldTmms_stepSize.mmsValue = MmsValue_newUnsignedFromUint32(0);
 
-iedModel_Mod3_MU2_I01NTCTR4_NamAccRtg_val.mmsValue = MmsValue_newVisibleString("0,5S/5P20");
-
-iedModel_Mod3_MU2_I01NTCTR4_NamARtg_val.mmsValue = MmsValue_newVisibleString("200;400;800");
-
-iedModel_Mod3_MU2_I01NTCTR4_NamClipRtg_val.mmsValue = MmsValue_newVisibleString("20");
-
 iedModel_Mod3_MU2_U01ATVTR1_Mod_stVal.mmsValue = MmsValue_newIntegerFromInt32(1);
 
 iedModel_Mod3_MU2_U01ATVTR1_Mod_ctlModel.mmsValue = MmsValue_newIntegerFromInt32(0);
@@ -60464,7 +58602,7 @@ iedModel_Mod3_MU2_U01ATVTR1_NamPlt_vendor.mmsValue = MmsValue_newVisibleString("
 
 iedModel_Mod3_MU2_U01ATVTR1_NamPlt_configRev.mmsValue = MmsValue_newVisibleString("2024-06-11 19:04:31");
 
-iedModel_Mod3_MU2_U01ATVTR1_NamPlt_lnNs.mmsValue = MmsValue_newVisibleString("IEC 61869-9:2016A");
+iedModel_Mod3_MU2_U01ATVTR1_NamPlt_lnNs.mmsValue = MmsValue_newVisibleString("IEC_61850-7-4:2007B");
 
 iedModel_Mod3_MU2_U01ATVTR1_VolSv_units_SIUnit.mmsValue = MmsValue_newIntegerFromInt32(29);
 
@@ -60540,12 +58678,6 @@ iedModel_Mod3_MU2_U01ATVTR1_HoldTmms_maxVal.mmsValue = MmsValue_newIntegerFromIn
 
 iedModel_Mod3_MU2_U01ATVTR1_HoldTmms_stepSize.mmsValue = MmsValue_newUnsignedFromUint32(0);
 
-iedModel_Mod3_MU2_U01ATVTR1_NamAccRtg_val.mmsValue = MmsValue_newVisibleString("0,5/3P");
-
-iedModel_Mod3_MU2_U01ATVTR1_NamVRtg_val.mmsValue = MmsValue_newVisibleString("173000");
-
-iedModel_Mod3_MU2_U01ATVTR1_NamClipRtg_val.mmsValue = MmsValue_newVisibleString("2");
-
 iedModel_Mod3_MU2_U01BTVTR2_Mod_stVal.mmsValue = MmsValue_newIntegerFromInt32(1);
 
 iedModel_Mod3_MU2_U01BTVTR2_Mod_ctlModel.mmsValue = MmsValue_newIntegerFromInt32(0);
@@ -60554,7 +58686,7 @@ iedModel_Mod3_MU2_U01BTVTR2_NamPlt_vendor.mmsValue = MmsValue_newVisibleString("
 
 iedModel_Mod3_MU2_U01BTVTR2_NamPlt_configRev.mmsValue = MmsValue_newVisibleString("2024-06-11 19:04:31");
 
-iedModel_Mod3_MU2_U01BTVTR2_NamPlt_lnNs.mmsValue = MmsValue_newVisibleString("IEC 61869-9:2016A");
+iedModel_Mod3_MU2_U01BTVTR2_NamPlt_lnNs.mmsValue = MmsValue_newVisibleString("IEC_61850-7-4:2007B");
 
 iedModel_Mod3_MU2_U01BTVTR2_VolSv_units_SIUnit.mmsValue = MmsValue_newIntegerFromInt32(29);
 
@@ -60630,12 +58762,6 @@ iedModel_Mod3_MU2_U01BTVTR2_HoldTmms_maxVal.mmsValue = MmsValue_newIntegerFromIn
 
 iedModel_Mod3_MU2_U01BTVTR2_HoldTmms_stepSize.mmsValue = MmsValue_newUnsignedFromUint32(0);
 
-iedModel_Mod3_MU2_U01BTVTR2_NamAccRtg_val.mmsValue = MmsValue_newVisibleString("0,5/3P");
-
-iedModel_Mod3_MU2_U01BTVTR2_NamVRtg_val.mmsValue = MmsValue_newVisibleString("173000");
-
-iedModel_Mod3_MU2_U01BTVTR2_NamClipRtg_val.mmsValue = MmsValue_newVisibleString("2");
-
 iedModel_Mod3_MU2_U01CTVTR3_Mod_stVal.mmsValue = MmsValue_newIntegerFromInt32(1);
 
 iedModel_Mod3_MU2_U01CTVTR3_Mod_ctlModel.mmsValue = MmsValue_newIntegerFromInt32(0);
@@ -60644,7 +58770,7 @@ iedModel_Mod3_MU2_U01CTVTR3_NamPlt_vendor.mmsValue = MmsValue_newVisibleString("
 
 iedModel_Mod3_MU2_U01CTVTR3_NamPlt_configRev.mmsValue = MmsValue_newVisibleString("2024-06-11 19:04:31");
 
-iedModel_Mod3_MU2_U01CTVTR3_NamPlt_lnNs.mmsValue = MmsValue_newVisibleString("IEC 61869-9:2016A");
+iedModel_Mod3_MU2_U01CTVTR3_NamPlt_lnNs.mmsValue = MmsValue_newVisibleString("IEC_61850-7-4:2007B");
 
 iedModel_Mod3_MU2_U01CTVTR3_VolSv_units_SIUnit.mmsValue = MmsValue_newIntegerFromInt32(29);
 
@@ -60720,12 +58846,6 @@ iedModel_Mod3_MU2_U01CTVTR3_HoldTmms_maxVal.mmsValue = MmsValue_newIntegerFromIn
 
 iedModel_Mod3_MU2_U01CTVTR3_HoldTmms_stepSize.mmsValue = MmsValue_newUnsignedFromUint32(0);
 
-iedModel_Mod3_MU2_U01CTVTR3_NamAccRtg_val.mmsValue = MmsValue_newVisibleString("0,5/3P");
-
-iedModel_Mod3_MU2_U01CTVTR3_NamVRtg_val.mmsValue = MmsValue_newVisibleString("173000");
-
-iedModel_Mod3_MU2_U01CTVTR3_NamClipRtg_val.mmsValue = MmsValue_newVisibleString("2");
-
 iedModel_Mod3_MU2_U01NTVTR4_Mod_stVal.mmsValue = MmsValue_newIntegerFromInt32(1);
 
 iedModel_Mod3_MU2_U01NTVTR4_Mod_ctlModel.mmsValue = MmsValue_newIntegerFromInt32(0);
@@ -60734,7 +58854,7 @@ iedModel_Mod3_MU2_U01NTVTR4_NamPlt_vendor.mmsValue = MmsValue_newVisibleString("
 
 iedModel_Mod3_MU2_U01NTVTR4_NamPlt_configRev.mmsValue = MmsValue_newVisibleString("2024-06-11 19:04:31");
 
-iedModel_Mod3_MU2_U01NTVTR4_NamPlt_lnNs.mmsValue = MmsValue_newVisibleString("IEC 61869-9:2016A");
+iedModel_Mod3_MU2_U01NTVTR4_NamPlt_lnNs.mmsValue = MmsValue_newVisibleString("IEC_61850-7-4:2007B");
 
 iedModel_Mod3_MU2_U01NTVTR4_VolSv_units_SIUnit.mmsValue = MmsValue_newIntegerFromInt32(29);
 
@@ -60810,17 +58930,11 @@ iedModel_Mod3_MU2_U01NTVTR4_HoldTmms_maxVal.mmsValue = MmsValue_newIntegerFromIn
 
 iedModel_Mod3_MU2_U01NTVTR4_HoldTmms_stepSize.mmsValue = MmsValue_newUnsignedFromUint32(0);
 
-iedModel_Mod3_MU2_U01NTVTR4_NamAccRtg_val.mmsValue = MmsValue_newVisibleString("0,5/3P");
-
-iedModel_Mod3_MU2_U01NTVTR4_NamVRtg_val.mmsValue = MmsValue_newVisibleString("173000");
-
-iedModel_Mod3_MU2_U01NTVTR4_NamClipRtg_val.mmsValue = MmsValue_newVisibleString("2");
-
 iedModel_PowS_LLN0_Mod_ctlModel.mmsValue = MmsValue_newIntegerFromInt32(1);
 
 iedModel_PowS_LLN0_NamPlt_vendor.mmsValue = MmsValue_newVisibleString("SIEMENS");
 
-iedModel_PowS_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007B");
+iedModel_PowS_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007");
 
 iedModel_PowS_LLN0_GrRef_setSrcRef.mmsValue = MmsValue_newVisibleString("@Application");
 
@@ -60848,7 +58962,7 @@ iedModel_PowS_MeasPointI3ph1_LLN0_Mod_ctlModel.mmsValue = MmsValue_newIntegerFro
 
 iedModel_PowS_MeasPointI3ph1_LLN0_NamPlt_vendor.mmsValue = MmsValue_newVisibleString("SIEMENS");
 
-iedModel_PowS_MeasPointI3ph1_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007B");
+iedModel_PowS_MeasPointI3ph1_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007");
 
 iedModel_PowS_MeasPointI3ph1_LLN0_GrRef_setSrcRef.mmsValue = MmsValue_newVisibleString("@PowS");
 
@@ -60866,7 +58980,7 @@ iedModel_PowS_MeasPointV3ph1_LLN0_Mod_ctlModel.mmsValue = MmsValue_newIntegerFro
 
 iedModel_PowS_MeasPointV3ph1_LLN0_NamPlt_vendor.mmsValue = MmsValue_newVisibleString("SIEMENS");
 
-iedModel_PowS_MeasPointV3ph1_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007B");
+iedModel_PowS_MeasPointV3ph1_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007");
 
 iedModel_PowS_MeasPointV3ph1_LLN0_GrRef_setSrcRef.mmsValue = MmsValue_newVisibleString("@PowS");
 
@@ -60884,7 +58998,7 @@ iedModel_Rec_LLN0_Mod_ctlModel.mmsValue = MmsValue_newIntegerFromInt32(1);
 
 iedModel_Rec_LLN0_NamPlt_vendor.mmsValue = MmsValue_newVisibleString("SIEMENS");
 
-iedModel_Rec_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007B");
+iedModel_Rec_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007");
 
 iedModel_Rec_LLN0_GrRef_setSrcRef.mmsValue = MmsValue_newVisibleString("@Application");
 
@@ -60912,7 +59026,7 @@ iedModel_Rec_FaultRecorder_LLN0_Mod_ctlModel.mmsValue = MmsValue_newIntegerFromI
 
 iedModel_Rec_FaultRecorder_LLN0_NamPlt_vendor.mmsValue = MmsValue_newVisibleString("SIEMENS");
 
-iedModel_Rec_FaultRecorder_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007B");
+iedModel_Rec_FaultRecorder_LLN0_NamPlt_ldNs.mmsValue = MmsValue_newVisibleString("IEC 61850-7-4:2007");
 
 iedModel_Rec_FaultRecorder_LLN0_GrRef_setSrcRef.mmsValue = MmsValue_newVisibleString("@Rec");
 
