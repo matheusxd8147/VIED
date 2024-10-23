@@ -21,6 +21,8 @@
  *  See COPYING file for the complete license text.
  */
 
+#include "goose_receiver.h"
+#include "goose_subscriber.h"
 #include "iec61850_server.h"
 #include "sv_publisher.h"
 #include "hal_thread.h"
@@ -118,6 +120,52 @@ goCbEventHandler(MmsGooseControlBlock goCb, int event, void* parameter)
     printf("         GoEna: %i\n", MmsGooseControlBlock_getGoEna(goCb));
 }
 
+static void
+gooseListener(GooseSubscriber subscriber, void* parameter)
+{
+    MmsValue* values = GooseSubscriber_getDataSetValues(subscriber);
+
+    char buffer[50];
+
+    MmsValue_printToBuffer(values, buffer, 50);
+
+
+    char b; char c; char d;
+
+    b = buffer[1];
+    c = buffer[6];
+    d = buffer[11];
+    uint64_t y = Hal_getTimeInMs();
+
+    printf("-------------------------------------------------------------------------------------------------------------\n");            
+    printf("                               PRIMEIRA MENSAGEM GOOSE ASSINADA VIED 1                                       \n");
+    printf("-------------------------------------------------------------------------------------------------------------\n");
+
+}
+
+static void
+gooseListener1(GooseSubscriber subscriber, void* parameter)
+{
+    MmsValue* values = GooseSubscriber_getDataSetValues(subscriber);
+
+    char buffer[50];
+
+    MmsValue_printToBuffer(values, buffer, 50);
+
+
+    char b; char c; char d;
+
+    b = buffer[1];
+    c = buffer[6];
+    d = buffer[11];
+    uint64_t y = Hal_getTimeInMs();
+
+    printf("-------------------------------------------------------------------------------------------------------------\n");            
+    printf("                               PRIMEIRA MENSAGEM GOOSE ASSINADA VIED 2                                       \n");
+    printf("-------------------------------------------------------------------------------------------------------------\n");
+
+}
+
 int 
 main(int argc, char** argv)
 {
@@ -147,7 +195,7 @@ main(int argc, char** argv)
 
     IedServer_enableGoosePublishing(iedServer);
 
-    /*GooseReceiver receiver = GooseReceiver_create();
+    GooseReceiver receiver = GooseReceiver_create();
 
     GooseReceiver_setInterfaceId(receiver, "eth0");
     
@@ -161,7 +209,7 @@ main(int argc, char** argv)
     GooseReceiver_addSubscriber(receiver, subscriber);
     GooseReceiver_addSubscriber(receiver, subscriber1); 
 
-    GooseReceiver_start(receiver);*/
+    GooseReceiver_start(receiver);
 
     IedServer_setGoCBHandler(iedServer, goCbEventHandler, NULL);
 
