@@ -244,7 +244,7 @@ main(int argc, char** argv)
         Quality q = QUALITY_VALIDITY_GOOD;
 
         int vol = (int) (6350.f * sqrt(2));
-        int amp = 0;
+        int amp = (int) (350.f);;
         float phaseAngle = 0.f;
 
         int voltageA;
