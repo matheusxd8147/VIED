@@ -90,6 +90,40 @@ void sigint_handler(int signalId)
 	running = 0;
 }
 
+void
+funcao_50(){
+
+}
+
+void
+funcao_50N(){
+
+}
+
+void
+funcao_51(){
+
+}
+
+void
+funcao_51V(){
+
+}
+
+void
+funcao_51N(){
+
+}
+
+void
+funcao_67(){
+
+}
+
+void
+funcao_67N(){
+
+}
 /* Callback handler for received SV messages */
 static void
 svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU asdu)
@@ -107,7 +141,7 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
         //exit(0);
     }
 
-    if ((strcmp(svID,"ST2"))== 0){      
+    if ((strcmp(svID,"VMU01"))== 0){      
         
         
         SVrms_deltaA = (SVrms_deltaA + pow((SVSubscriber_ASDU_getINT32 (asdu, 0)*0.001),2));
@@ -245,23 +279,6 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
 
 
         if(contadorSV3 == 60){
-            /*FILE *file;
-            file = fopen("VIEDeficaz.txt","w");
-            fprintf(file,"%f\n",tensao_primarioA);
-            fprintf(file,"%2.f\n",an[0]);
-            fprintf(file,"%2.f\n",tensao_primarioB);
-            fprintf(file,"%2.f\n",an[1]);
-            fprintf(file,"%2.f\n",tensao_primarioC);
-            fprintf(file,"%2.f\n",an[2]);
-            fprintf(file,"%2.f\n",corrente_primarioA);
-            fprintf(file,"%2.f\n",an[3]);
-            fprintf(file,"%2.f\n",corrente_primarioB);
-            fprintf(file,"%2.f\n",an[4]);
-            fprintf(file,"%2.f\n",corrente_primarioC);
-            fprintf(file,"%2.f\n",an[5]);
-
-            fclose(file);*/
-             
             system ("clear");
             printf("  svID=(%s)\n", svID);
             printf("  smpCnt: %i\n", SVSubscriber_ASDU_getSmpCnt(asdu));
@@ -491,7 +508,7 @@ main(int argc, char** argv)
     IedServer_setGoCBHandler(iedServer, goCbEventHandler, NULL);
 
     /* MMS server will be instructed to start listening to client connections. */
-    IedServer_start(iedServer, 102);
+    IedServer_start(iedServer, 103);
 
     IedServer_setControlHandler(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01, (ControlHandler) controlHandlerForBinaryOutput,
     IEDMODEL_CON_RBGGIO1_SPCSO01);

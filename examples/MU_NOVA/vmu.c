@@ -243,9 +243,28 @@ main(int argc, char** argv)
 
         Quality q = QUALITY_VALIDITY_GOOD;
 
-        int vol = (int) (6350.f * sqrt(2));
-        int amp = (int) (350.f);;
+        //int vol = (int) (6350.f * sqrt(2));
+        //int amp = (int) (350.f);
+        float vol10,vol20,vol30;
+        float amp10,amp20,amp30;
+        float an[6];
         float phaseAngle = 0.f;
+
+        FILE *file;
+        file = fopen("AjustesMU.txt","r");
+        fscanf(file,"%f\n",&amp10);
+        fscanf(file,"%f\n",&an[0]);
+        fscanf(file,"%f\n",&amp20);
+        fscanf(file,"%f\n",&an[1]);
+        fscanf(file,"%f\n",&amp30);
+        fscanf(file,"%f\n",&an[2]);
+        fscanf(file,"%f\n",&vol10);
+        fscanf(file,"%f\n",&an[3]);
+        fscanf(file,"%f\n",&vol20);
+        fscanf(file,"%f\n",&an[4]);
+        fscanf(file,"%f\n",&vol30);
+        fscanf(file,"%f\n",&an[5]);
+        fclose(file);
 
         int voltageA;
         int voltageB;
@@ -264,18 +283,26 @@ main(int argc, char** argv)
 
             int samplePoint = sampleCount % 80;
 
-            double angleA = (2 * M_PI / 80) * samplePoint;
+            /*double angleA = (2 * M_PI / 80) * samplePoint;
             double angleB = (2 * M_PI / 80) * samplePoint - ( 2 * M_PI / 3);
-            double angleC = (2 * M_PI / 80) * samplePoint - ( 4 * M_PI / 3);
+            double angleC = (2 * M_PI / 80) * samplePoint - ( 4 * M_PI / 3);*/
 
-            voltageA = (vol * sin(angleA)) * 100;
-            voltageB = (vol * sin(angleB)) * 100;
-            voltageC = (vol * sin(angleC)) * 100;
+            double angleA1 = (2 * M_PI / 80) * samplePoint + (an[3] * M_PI / 180);
+            double angleB1 = (2 * M_PI / 80) * samplePoint + (an[4] * M_PI / 180);
+            double angleC1 = (2 * M_PI / 80) * samplePoint + (an[5] * M_PI / 180);
+
+            double angleA2 = (2 * M_PI / 80) * samplePoint + (an[0] * M_PI / 180);
+            double angleB2 = (2 * M_PI / 80) * samplePoint + (an[1] * M_PI / 180);
+            double angleC2 = (2 * M_PI / 80) * samplePoint + (an[2] * M_PI / 180);
+
+            voltageA = (vol10 * sin(angleA1)) * 100;
+            voltageB = (vol20 * sin(angleB1)) * 100;
+            voltageC = (vol30 * sin(angleC1)) * 100;
             voltageN = voltageA + voltageB + voltageC;
 
-            currentA = (amp * sin(angleA - phaseAngle)) * 1000;
-            currentB = (amp * sin(angleB - phaseAngle)) * 1000;
-            currentC = (amp * sin(angleC - phaseAngle)) * 1000;
+            currentA = (amp10 * sin(angleA2 - phaseAngle)) * 1000;
+            currentB = (amp20 * sin(angleB2 - phaseAngle)) * 1000;
+            currentC = (amp30 * sin(angleC2 - phaseAngle)) * 1000;
             currentN = currentA + currentB + currentC;
 
             IedServer_lockDataModel(iedServer);
