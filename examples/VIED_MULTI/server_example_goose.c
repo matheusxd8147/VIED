@@ -22,6 +22,7 @@
 #include "static_model.h"
 #include <sys/timeb.h>
 #include <sys/time.h>
+#include <complex.h>
 #define MICRO_PER_SECOND 1000000
 #define pi 3.14
 
@@ -54,25 +55,31 @@ static IedServer iedServer = NULL;
 int contadorSV1 = 0;
 int contadorSV2 = 0;
 int contadorSV3 = 0;
-float Vn = 0, j = 0;
+float Vn = 0, atm = 0, j = 0;
 float SVrms_deltaA = 0;
 float SVrms_deltaB = 0;
 float SVrms_deltaC = 0;
+float SVrms_deltaN = 0;
 float SVrms_deltaA1 = 0;
 float SVrms_deltaB1 = 0;
 float SVrms_deltaC1 = 0;
+float SVrms_deltaN1 = 0;
 float max_corrente_a = 0;
 float max_corrente_b = 0;
 float max_corrente_c = 0;
+float max_corrente_n = 0;
 float max_tensao_a = 0;
 float max_tensao_b = 0;
 float max_tensao_c = 0;
+float max_tensao_n = 0;
 static float corrente_primarioA = 0;
 static float corrente_primarioB = 0;
 static float corrente_primarioC = 0;
+static float corrente_primarioN = 0;
 static float tensao_primarioA = 0;
 static float tensao_primarioB = 0;
 static float tensao_primarioC = 0;
+static float tensao_primarioN = 0;
 float teste[80];
 static float pick_up;
 static float M, M1, M2, K, a, t, t1, t2,T, B = 1;
@@ -83,46 +90,470 @@ struct timeval top_time, top1_time, top2_time;
 static float ang1, ang2, ang3, ang4, ang5, ang6, ang7, ang8;
 static float time_diff = 0, time_diff1 = 0, time_diff2 = 0;
 static float ime_diff = 0, ime_diff1 = 0, ime_diff2 = 0;
-float an[6], teta[6];
+double an[8], ar[6], br[6], teta, teta1, teta2, torque, torque1, torque2, tetaN, torqueN;
+double complex yr[6], Vbc, aVbc, mVbc,Vca, aVca, mVca, Vab, aVab, mVab;
 
 void sigint_handler(int signalId)
 {
 	running = 0;
 }
 
-void
-funcao_50(){
-
+void funcao_50()
+{
+    if (corrente_primarioA > pick_up)
+    {
+        printf("-------------------------------------------------------------------------------------------------------------\n");
+        printf("                         ATUAR FUNÇÃO 50: SOBRECORRENTE INSTANTÂNEA FASE A                                   \n");
+        printf("-------------------------------------------------------------------------------------------------------------\n");
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind04_stVal, true);
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
+    }
+    if (corrente_primarioB > pick_up)
+    {
+        printf("-------------------------------------------------------------------------------------------------------------\n");
+        printf("                         ATUAR FUNÇÃO 50: SOBRECORRENTE INSTANTÂNEA FASE B                                   \n");
+        printf("-------------------------------------------------------------------------------------------------------------\n");
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind05_stVal, true);
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
+    }
+    if (corrente_primarioC > pick_up)
+    {
+        printf("-------------------------------------------------------------------------------------------------------------\n");
+        printf("                         ATUAR FUNÇÃO 50: SOBRECORRENTE INSTANTÂNEA FASE C                                   \n");
+        printf("-------------------------------------------------------------------------------------------------------------\n");
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind06_stVal, true);
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
+    }
+    if (((corrente_primarioA) || (corrente_primarioB) || (corrente_primarioC)) > pick_up)
+    {
+        funcao_50_62BF();
+    }
 }
 
-void
-funcao_50N(){
-
+void funcao_50N()
+{
+    if ((corrente_primarioN) >= pick_up)
+    {
+        printf("-------------------------------------------------------------------------------------------------------------\n");
+        printf("                       ATUAR FUNÇÃO 50N: SOBRECORRENTE TEMPORIZADA DE NEUTRO                                 \n");
+        printf("-------------------------------------------------------------------------------------------------------------\n");
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind14_stVal, true);
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
+        funcao_50_62BF();
+    }
 }
 
-void
-funcao_51(){
+void funcao_51()
+{
+    M = corrente_primarioA / pick_up;
+    t = (T * (K / ((pow(M, a)) - B)));
 
+    M1 = corrente_primarioB / pick_up;
+    t1 = (T * (K / ((pow(M1, a)) - B)));
+
+    M2 = corrente_primarioC / pick_up;
+    t2 = (T * (K / ((pow(M2, a)) - B)));
+
+    if ((t > 0) && (corrente_primarioA > (pick_up * 50 / 100)))
+    {
+        if (contador == true)
+        {
+            gettimeofday(&start_time, NULL);
+            contador = false;
+        }
+        gettimeofday(&stop_time, NULL);
+        time_diff = (float)(stop_time.tv_sec - start_time.tv_sec);
+        time_diff += (stop_time.tv_usec - start_time.tv_usec) / (float)MICRO_PER_SECOND;
+        if ((time_diff) >= t)
+        {
+            if (funcao == 1)
+            {
+                // IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_ATPTOC20_Op_general, true);
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind20_stVal, true);
+                printf("-------------------------------------------------------------------------------------------------------------\n");
+                printf("                              ATUAR FUNÇÃO 51: SOBRECORRENTE TEMPORIZADA FASE A                              \n");
+                printf("-------------------------------------------------------------------------------------------------------------\n");
+            }
+            else
+            {
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind01_stVal, true);
+                printf("-------------------------------------------------------------------------------------------------------------\n");
+                printf("                   ATUAR FUNÇÃO 51V: SOBRECORRENTE TEMPORIZADA COM RESTRIÇÃO DE TENSÃO FASE A                \n");
+                printf("-------------------------------------------------------------------------------------------------------------\n");
+            }
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
+            if (contador9 == true)
+            {
+                gettimeofday(&tart_time, NULL);
+                contador9 = false;
+            }
+            gettimeofday(&top_time, NULL);
+            ime_diff = (float)(top_time.tv_sec - tart_time.tv_sec);
+            ime_diff += (top_time.tv_usec - tart_time.tv_usec) / (float)MICRO_PER_SECOND;
+            if ((ime_diff) >= 0.250)
+            {
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_BFR1RBRF1_OpEx_general, true);
+            }
+        }
+    }
+    if ((t1 > 0) && (corrente_primarioB > (pick_up * 50 / 100)))
+    {
+        if (contador7 == true)
+        {
+            gettimeofday(&start1_time, NULL);
+            contador7 = false;
+        }
+        gettimeofday(&stop1_time, NULL);
+        time_diff1 = (float)(stop1_time.tv_sec - start1_time.tv_sec);
+        time_diff1 += (stop1_time.tv_usec - start1_time.tv_usec) / (float)MICRO_PER_SECOND;
+        if ((time_diff1) >= t1)
+        {
+            if (funcao == 1)
+            {
+                // IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_BTPTOC21_Op_general, true);
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind21_stVal, true);
+                printf("-------------------------------------------------------------------------------------------------------------\n");
+                printf("                              ATUAR FUNÇÃO 51: SOBRECORRENTE TEMPORIZADA FASE B                              \n");
+                printf("-------------------------------------------------------------------------------------------------------------\n");
+            }
+            else
+            {
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind02_stVal, true);
+                printf("-------------------------------------------------------------------------------------------------------------\n");
+                printf("                   ATUAR FUNÇÃO 51V: SOBRECORRENTE TEMPORIZADA COM RESTRIÇÃO DE TENSÃO FASE B                \n");
+                printf("-------------------------------------------------------------------------------------------------------------\n");
+            }
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
+            if (contador10 == true)
+            {
+                gettimeofday(&tart1_time, NULL);
+                contador10 = false;
+            }
+            gettimeofday(&top1_time, NULL);
+            ime_diff1 = (float)(top1_time.tv_sec - tart1_time.tv_sec);
+            ime_diff1 += (top1_time.tv_usec - tart1_time.tv_usec) / (float)MICRO_PER_SECOND;
+            if ((ime_diff1) >= 0.250)
+            {
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_BFR1RBRF1_OpEx_general, true);
+            }
+        }
+    }
+    if ((t2 > 0) && (corrente_primarioC > (pick_up * 50 / 100)))
+    {
+        if (contador8 == true)
+        {
+            gettimeofday(&start2_time, NULL);
+            contador8 = false;
+        }
+        gettimeofday(&stop2_time, NULL);
+        time_diff2 = (float)(stop2_time.tv_sec - start2_time.tv_sec);
+        time_diff2 += (stop2_time.tv_usec - start2_time.tv_usec) / (float)MICRO_PER_SECOND;
+        if ((time_diff2) >= t2)
+        {
+            if (funcao == 1)
+            {
+                // IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_CTPTOC22_Op_general, true);
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind22_stVal, true);
+                printf("-------------------------------------------------------------------------------------------------------------\n");
+                printf("                              ATUAR FUNÇÃO 51: SOBRECORRENTE TEMPORIZADA FASE C                              \n");
+                printf("-------------------------------------------------------------------------------------------------------------\n");
+            }
+            else
+            {
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind03_stVal, true);
+                printf("-------------------------------------------------------------------------------------------------------------\n");
+                printf("                   ATUAR FUNÇÃO 51V: SOBRECORRENTE TEMPORIZADA COM RESTRIÇÃO DE TENSÃO FASE C                \n");
+                printf("-------------------------------------------------------------------------------------------------------------\n");
+            }
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
+            if (contador11 == true)
+            {
+                gettimeofday(&tart2_time, NULL);
+                contador11 = false;
+            }
+            gettimeofday(&top2_time, NULL);
+            ime_diff2 = (float)(top2_time.tv_sec - tart2_time.tv_sec);
+            ime_diff2 += (top2_time.tv_usec - tart2_time.tv_usec) / (float)MICRO_PER_SECOND;
+            if ((ime_diff2) >= 0.250)
+            {
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_BFR1RBRF1_OpEx_general, true);
+            }
+        }
+    }
 }
 
-void
-funcao_51V(){
+void funcao_51V()
+{
+    if (funcao == 1)
+    {
+        j = 1;
+    }
+    else
+    {
+        j = tensao_primarioA / Vn;
+    }
 
+    M = corrente_primarioA / (j * pick_up);
+    t = (T * (K / ((pow(M, a)) - B)));
+
+    M1 = corrente_primarioB / (j * pick_up);
+    t1 = (T * (K / ((pow(M1, a)) - B)));
+
+    M2 = corrente_primarioC / (j * pick_up);
+    t2 = (T * (K / ((pow(M2, a)) - B)));
 }
 
-void
-funcao_51N(){
+void funcao_51N()
+{
+    M = corrente_primarioN / (pick_up);
+    t = (T * (K / ((pow(M, a)) - B)));
 
+    if ((t > 0) && (corrente_primarioN > (pick_up * 50 / 100)))
+    {
+        if (contador == true)
+        {
+            gettimeofday(&start_time, NULL);
+            contador = false;
+        }
+        gettimeofday(&stop_time, NULL);
+        time_diff = (float)(stop_time.tv_sec - start_time.tv_sec);
+        time_diff += (stop_time.tv_usec - start_time.tv_usec) / (float)MICRO_PER_SECOND;
+        if ((time_diff) >= t)
+        {
+            printf("-------------------------------------------------------------------------------------------------------------\n");
+            printf("                       ATUAR FUNÇÃO 51N: SOBRECORRENTE TEMPORIZADA DE NEUTRO                                 \n");
+            printf("-------------------------------------------------------------------------------------------------------------\n");
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind13_stVal, true);
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
+            if (contador9 == true)
+            {
+                gettimeofday(&tart_time, NULL);
+                contador9 = false;
+            }
+            gettimeofday(&top_time, NULL);
+            ime_diff = (float)(top_time.tv_sec - tart_time.tv_sec);
+            ime_diff += (top_time.tv_usec - tart_time.tv_usec) / (float)MICRO_PER_SECOND;
+            if ((ime_diff) >= 0.250)
+            {
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_BFR1RBRF1_OpEx_general, true);
+            }
+        }
+    }
 }
 
-void
-funcao_67(){
+void funcao_67()
+{
+    ar[0] = max_tensao_a * cos(an[0]);
+    br[0] = max_tensao_a * sin(an[0]);
+    ar[1] = max_tensao_b * cos(an[1]);
+    br[1] = max_tensao_b * sin(an[1]);
+    ar[2] = max_tensao_c * cos(an[2]);
+    br[2] = max_tensao_c * sin(an[2]);
+    ar[3] = max_corrente_a * cos(an[3]);
+    br[3] = max_corrente_a * sin(an[3]);
+    ar[4] = max_corrente_b * cos(an[4]);
+    br[4] = max_corrente_b * sin(an[4]);
+    ar[5] = max_corrente_c * cos(an[5]);
+    br[5] = max_corrente_c * sin(an[5]);
+    yr[0] = ar[0] + br[0] * I;
+    yr[1] = ar[1] + br[1] * I;
+    yr[2] = ar[2] + br[2] * I;
+    yr[3] = ar[3] + br[3] * I;
+    yr[4] = ar[4] + br[4] * I;
+    yr[5] = ar[5] + br[5] * I;
 
+    Vbc = yr[1] - yr[2];
+    Vca = yr[2] - yr[0];
+    Vab = yr[0] - yr[1];
+    aVbc = atan(cimag(Vbc) / creal(Vbc));
+    aVca = atan(cimag(Vca) / creal(Vca));
+    aVab = atan(cimag(Vab) / creal(Vab));
+    mVbc = sqrt(pow(creal(Vbc), 2) + pow(cimag(Vbc), 2));
+    mVca = sqrt(pow(creal(Vca), 2) + pow(cimag(Vca), 2));
+    mVab = sqrt(pow(creal(Vab), 2) + pow(cimag(Vab), 2));
+    teta = an[3] - aVbc;
+    teta1 = an[4] - aVca;
+    teta2 = an[5] - aVab;
+    torque = max_corrente_a * mVbc * cos((atm - teta) * pi / 180);
+    torque1 = max_corrente_b * mVca * cos((atm - teta1) * pi / 180);
+    torque2 = max_corrente_c * mVab * cos((atm - teta2) * pi / 180);
+
+    contadorSV3++;
+
+    if (torque > 0)
+    {
+        M = corrente_primarioA / (pick_up);
+        t = (T * (K / ((pow(M, a)) - B)));
+        if ((t > 0) && (corrente_primarioA > (pick_up * 50 / 100)))
+        {
+            if (contador == true)
+            {
+                gettimeofday(&start_time, NULL);
+                contador = false;
+            }
+            gettimeofday(&stop_time, NULL);
+            time_diff = (float)(stop_time.tv_sec - start_time.tv_sec);
+            time_diff += (stop_time.tv_usec - start_time.tv_usec) / (float)MICRO_PER_SECOND;
+            if ((time_diff) >= t)
+            {
+                printf("-------------------------------------------------------------------------------------------------------------\n");
+                printf("                         ATUAR FUNÇÃO 67: SOBRECORRENTE DIRECIONAL TEMPORIZADA FASE A                        \n");
+                printf("-------------------------------------------------------------------------------------------------------------\n");
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind07_stVal, true);
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
+                if (contador9 == true)
+                {
+                    gettimeofday(&tart_time, NULL);
+                    contador9 = false;
+                }
+                gettimeofday(&top_time, NULL);
+                ime_diff = (float)(top_time.tv_sec - tart_time.tv_sec);
+                ime_diff += (top_time.tv_usec - tart_time.tv_usec) / (float)MICRO_PER_SECOND;
+                if ((ime_diff) >= 0.250)
+                {
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_BFR1RBRF1_OpEx_general, true);
+                }
+            }
+        }
+    }
+
+    if (torque1 > 0)
+    {
+        M1 = corrente_primarioB / (pick_up);
+        t1 = (T * (K / ((pow(M1, a)) - B)));
+        if ((t1 > 0) && (corrente_primarioB > (pick_up * 50 / 100)))
+        {
+            if (contador7 == true)
+            {
+                gettimeofday(&start1_time, NULL);
+                contador7 = false;
+            }
+            gettimeofday(&stop1_time, NULL);
+            time_diff1 = (float)(stop1_time.tv_sec - start1_time.tv_sec);
+            time_diff1 += (stop1_time.tv_usec - start1_time.tv_usec) / (float)MICRO_PER_SECOND;
+            if ((time_diff1) >= t1)
+            {
+                printf("-------------------------------------------------------------------------------------------------------------\n");
+                printf("                         ATUAR FUNÇÃO 67: SOBRECORRENTE DIRECIONAL TEMPORIZADA FASE B                        \n");
+                printf("-------------------------------------------------------------------------------------------------------------\n");
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind08_stVal, true);
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
+                if (contador10 == true)
+                {
+                    gettimeofday(&tart1_time, NULL);
+                    contador10 = false;
+                }
+                gettimeofday(&top1_time, NULL);
+                ime_diff1 = (float)(top1_time.tv_sec - tart1_time.tv_sec);
+                ime_diff1 += (top1_time.tv_usec - tart1_time.tv_usec) / (float)MICRO_PER_SECOND;
+                if ((ime_diff1) >= 0.250)
+                {
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_BFR1RBRF1_OpEx_general, true);
+                }
+            }
+        }
+    }
+
+    if (torque2 > 0)
+    {
+        M2 = corrente_primarioC / (pick_up);
+        t2 = (T * (K / ((pow(M2, a)) - B)));
+        if ((t2 > 0) && (corrente_primarioC > (pick_up * 50 / 100)))
+        {
+            if (contador8 == true)
+            {
+                gettimeofday(&start2_time, NULL);
+                contador8 = false;
+            }
+            gettimeofday(&stop2_time, NULL);
+            time_diff2 = (float)(stop2_time.tv_sec - start2_time.tv_sec);
+            time_diff2 += (stop2_time.tv_usec - start2_time.tv_usec) / (float)MICRO_PER_SECOND;
+            if ((time_diff2) >= t2)
+            {
+                printf("-------------------------------------------------------------------------------------------------------------\n");
+                printf("                         ATUAR FUNÇÃO 67: SOBRECORRENTE DIRECIONAL TEMPORIZADA FASE C                        \n");
+                printf("-------------------------------------------------------------------------------------------------------------\n");
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind09_stVal, true);
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
+                if (contador11 == true)
+                {
+                    gettimeofday(&tart2_time, NULL);
+                    contador11 = false;
+                }
+                gettimeofday(&top2_time, NULL);
+                ime_diff2 = (float)(top2_time.tv_sec - tart2_time.tv_sec);
+                ime_diff2 += (top2_time.tv_usec - tart2_time.tv_usec) / (float)MICRO_PER_SECOND;
+                if ((ime_diff2) >= 0.250)
+                {
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_BFR1RBRF1_OpEx_general, true);
+                }
+            }
+        }
+    }
 }
 
-void
-funcao_67N(){
+void funcao_67N()
+{
+    if ((tensao_primarioN > (Vn / 10)) && (corrente_primarioN > (pick_up / 10)))
+    {
+        tetaN = an[7] - (an[6]);
+        torqueN = max_tensao_n * max_corrente_n * cos((atm - tetaN) * pi / 180);
+    }
 
+    contadorSV3++;
+
+    if (torqueN > 0)
+    {
+        M = corrente_primarioN / (pick_up);
+        t = (T * (K / ((pow(M, a)) - B)));
+        if ((t > 0) && (corrente_primarioN > (pick_up * 50 / 100)))
+        {
+            if (contador == true)
+            {
+                gettimeofday(&start_time, NULL);
+                contador = false;
+            }
+            gettimeofday(&stop_time, NULL);
+            time_diff = (float)(stop_time.tv_sec - start_time.tv_sec);
+            time_diff += (stop_time.tv_usec - start_time.tv_usec) / (float)MICRO_PER_SECOND;
+            if ((time_diff) >= t)
+            {
+                printf("-------------------------------------------------------------------------------------------------------------\n");
+                printf("                       ATUAR FUNÇÃO 67N: DIRECIONAL DE SOBRECORRENTE TEMPORIZADA DE NEUTRO                   \n");
+                printf("-------------------------------------------------------------------------------------------------------------\n");
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind12_stVal, true);
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
+                if (contador9 == true)
+                {
+                    gettimeofday(&tart_time, NULL);
+                    contador9 = false;
+                }
+                gettimeofday(&top_time, NULL);
+                ime_diff = (float)(top_time.tv_sec - tart_time.tv_sec);
+                ime_diff += (top_time.tv_usec - tart_time.tv_usec) / (float)MICRO_PER_SECOND;
+                if ((ime_diff) >= 0.250)
+                {
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_BFR1RBRF1_OpEx_general, true);
+                }
+            }
+        }
+    }
+}
+
+void funcao_50_62BF()
+{
+    if (contador9 == true)
+    {
+        gettimeofday(&tart_time, NULL);
+        contador9 = false;
+    }
+    gettimeofday(&top_time, NULL);
+    ime_diff = (float)(top_time.tv_sec - tart_time.tv_sec);
+    ime_diff += (top_time.tv_usec - tart_time.tv_usec) / (float)MICRO_PER_SECOND;
+    if ((ime_diff) >= 0.250)
+    {
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_BFR1RBRF1_OpEx_general, true);
+    }
 }
 /* Callback handler for received SV messages */
 static void
@@ -146,13 +577,17 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
         
         SVrms_deltaA = (SVrms_deltaA + pow((SVSubscriber_ASDU_getINT32 (asdu, 0)*0.001),2));
         SVrms_deltaA1 = (SVrms_deltaA1 + pow((SVSubscriber_ASDU_getINT32 (asdu, 32)*0.01),2));
-        if((SVSubscriber_ASDU_getINT32 (asdu, 32)*0.01)>=0){
-            teste[contadorSV1] = (SVSubscriber_ASDU_getINT32 (asdu, 32)*0.01);
-        }
         SVrms_deltaB = (SVrms_deltaB + pow((SVSubscriber_ASDU_getINT32 (asdu, 8)*0.001),2));
         SVrms_deltaB1 = (SVrms_deltaB1 + pow((SVSubscriber_ASDU_getINT32 (asdu, 40)*0.01),2));
         SVrms_deltaC = (SVrms_deltaC + pow((SVSubscriber_ASDU_getINT32 (asdu, 16)*0.001),2));
         SVrms_deltaC1 = (SVrms_deltaC1 + pow((SVSubscriber_ASDU_getINT32 (asdu, 48)*0.01),2));
+        SVrms_deltaN = (SVrms_deltaN + pow((SVSubscriber_ASDU_getINT32 (asdu, 24)*0.001),2));
+        SVrms_deltaN1 = (SVrms_deltaN1 + pow((SVSubscriber_ASDU_getINT32 (asdu, 56)*0.01),2));
+
+        
+        if((SVSubscriber_ASDU_getINT32 (asdu, 32)*0.01)>=0){
+            teste[contadorSV1] = (SVSubscriber_ASDU_getINT32 (asdu, 32)*0.01);
+        }
 
         if ((contador1 == true)&&((SVSubscriber_ASDU_getINT32 (asdu, 32)*0.01)>=0)){
             max_tensao_a = (SVSubscriber_ASDU_getINT32 (asdu, 32)*0.01);
@@ -179,6 +614,16 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
         if((contador6 == true)&&((SVSubscriber_ASDU_getINT32 (asdu, 16)*0.01)>=0)){
             max_corrente_c = (SVSubscriber_ASDU_getINT32 (asdu, 16)*0.01);
             contador6 = false;
+        }
+
+        if((contador12 == true)&&((SVSubscriber_ASDU_getINT32 (asdu, 56)*0.01)>=0)){
+            max_tensao_n = (SVSubscriber_ASDU_getINT32 (asdu, 56)*0.01);
+            contador12 = false;
+        }
+
+        if((contador13 == true)&&((SVSubscriber_ASDU_getINT32 (asdu, 24)*0.001)>=0)){
+            max_corrente_n = (SVSubscriber_ASDU_getINT32 (asdu, 24)*0.001);
+            contador13 = false;
         }
 
         if(((SVSubscriber_ASDU_getINT32 (asdu, 32)*0.01)>=0)){
@@ -223,6 +668,20 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
                     ang6 = SVSubscriber_ASDU_getSmpCnt(asdu);
                 }   
         }
+
+        if(((SVSubscriber_ASDU_getINT32 (asdu, 56)*0.01)>=0)){
+                if((SVSubscriber_ASDU_getINT32 (asdu, 56)*0.01)>max_tensao_n){
+                    max_tensao_n = (SVSubscriber_ASDU_getINT32 (asdu, 56)*0.01);
+                    ang8 = SVSubscriber_ASDU_getSmpCnt(asdu);
+                }   
+        }
+
+        if(((SVSubscriber_ASDU_getINT32 (asdu, 24)*0.001)>=0)){
+                if((SVSubscriber_ASDU_getINT32 (asdu, 24)*0.001)>max_corrente_n){
+                    max_corrente_n = (SVSubscriber_ASDU_getINT32 (asdu, 24)*0.001);
+                    ang7 = SVSubscriber_ASDU_getSmpCnt(asdu);
+                }   
+        }
         contadorSV1 += 1;
     }    
 
@@ -254,20 +713,13 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
             an[5] = 360 + an[5];
         }
 
-        if(funcao == 1){
-            j = 1;
-        }else{
-            j = tensao_primarioA/Vn;
-        }    
- 
-        M = corrente_primarioA/(j*pick_up);
-        t=(T*(K/((pow(M,a))-B)));
-
-        M1 = corrente_primarioB/(j*pick_up);
-        t1=(T*(K/((pow(M1,a))-B)));
-
-        M2 = corrente_primarioC/(j*pick_up);
-        t2=(T*(K/((pow(M2,a))-B)));
+        funcao_50();
+        funcao_50N();
+        funcao_51();
+        funcao_51V();
+        funcao_51N();
+        funcao_67();
+        funcao_67N();
 
         contadorSV3 ++;
 
@@ -488,7 +940,7 @@ main(int argc, char** argv)
 
     GooseReceiver receiver = GooseReceiver_create();
 
-    GooseReceiver_setInterfaceId(receiver, "lo");
+    GooseReceiver_setInterfaceId(receiver, "eth0");
     
     GooseSubscriber subscriber = GooseSubscriber_create("SEL_751_1CFG/LLN0$GO$GOOSE_SL_1", NULL); //Especificação de quem o ied irá receber as mensagens goose
 
@@ -508,7 +960,7 @@ main(int argc, char** argv)
     IedServer_setGoCBHandler(iedServer, goCbEventHandler, NULL);
 
     /* MMS server will be instructed to start listening to client connections. */
-    IedServer_start(iedServer, 103);
+    IedServer_start(iedServer, 102);
 
     IedServer_setControlHandler(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01, (ControlHandler) controlHandlerForBinaryOutput,
     IEDMODEL_CON_RBGGIO1_SPCSO01);
