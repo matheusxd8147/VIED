@@ -81,7 +81,7 @@ static float tensao_primarioB = 0;
 static float tensao_primarioC = 0;
 static float tensao_primarioN = 0;
 float teste[80];
-static float pick_up;
+static float pick_up, pick_up_50, pick_up_51;
 static float M, M1, M2, K, a, t, t1, t2,T, B = 1;
 struct timeval start_time, start1_time, start2_time;
 struct timeval stop_time, stop1_time, stop2_time;
@@ -723,13 +723,6 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
 
         contadorSV3 ++;
 
-
-
-        
-
-        
-
-
         if(contadorSV3 == 60){
             system ("clear");
             printf("  svID=(%s)\n", svID);
@@ -998,9 +991,21 @@ main(int argc, char** argv)
 
     signal(SIGINT, sigint_handler);
 
+    bool inicializacao = true;
+
     while (running) {
         
-        Thread_sleep(1000);
+        if (inicializacao == true){
+
+            //funcaoativa50 = false;
+            //if (funcaoativa 50 == true){
+            //start50;
+            //}
+            //start50
+            inicializacao = false;
+        }
+
+        Thread_sleep(0.1667);
     }
 
     /* stop MMS server - close TCP server socket and all client sockets */
