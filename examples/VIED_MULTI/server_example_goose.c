@@ -81,7 +81,6 @@ static float tensao_primarioB = 0;
 static float tensao_primarioC = 0;
 static float tensao_primarioN = 0;
 float teste[80];
-static float pick_up, pick_up_50, pick_up_51;
 static float M, M1, M2, K, a, t, t1, t2,T, B = 1;
 struct timeval start_time, start1_time, start2_time;
 struct timeval stop_time, stop1_time, stop2_time;
@@ -93,12 +92,16 @@ static float ime_diff = 0, ime_diff1 = 0, ime_diff2 = 0;
 double an[8], ar[6], br[6], teta, teta1, teta2, torque, torque1, torque2, tetaN, torqueN;
 double complex yr[6], Vbc, aVbc, mVbc,Vca, aVca, mVca, Vab, aVab, mVab;
 
+static int funcoes, curva_51, curva_51V, tensao_51V, curva_51N, curva_67, curva_67N;
+static float pick_up_50, pick_up_50N, pick_up_51, pick_up_51V, pick_up_51N, pick_up_67, pick_up_67N, atm_67, atm_67N;
+static float dial_51, dial_51V, dial_51N, dial_67, dial_67N;
+
 void sigint_handler(int signalId)
 {
 	running = 0;
 }
 
-void funcao_50()
+/*void funcao_50()
 {
     if (corrente_primarioA > pick_up)
     {
@@ -554,7 +557,7 @@ void funcao_50_62BF()
     {
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_BFR1RBRF1_OpEx_general, true);
     }
-}
+}*/
 /* Callback handler for received SV messages */
 static void
 svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU asdu)
@@ -562,14 +565,9 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
     int i;
     const char* svID = SVSubscriber_ASDU_getSvId(asdu);
     if(resposta == true){
-        system ("clear");
-        printf("Parametrização de Função 50\n");
-        printf("Defina a corrente de Pick-Up:\n");
-        scanf("%f", &pick_up);
         resposta = false;
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind10_stVal, false);
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind11_stVal, false);
-        //exit(0);
     }
 
     if ((strcmp(svID,"VMU01"))== 0){      
@@ -713,13 +711,13 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
             an[5] = 360 + an[5];
         }
 
-        funcao_50();
+        /*funcao_50();
         funcao_50N();
         funcao_51();
         funcao_51V();
         funcao_51N();
         funcao_67();
-        funcao_67N();
+        funcao_67N();*/
 
         contadorSV3 ++;
 
@@ -923,29 +921,74 @@ main(int argc, char** argv)
         IedServer_setGooseInterfaceIdEx(iedServer, IEDMODEL_CFG_LLN0, "BRep0201", ethernetIfcID);
     }
 
+    FILE *file;
+    file = fopen("Ajustes_50.txt", "r");
+    fscanf(file, "%f\n", &pick_up_50);
+    fclose(file);
+
+    FILE *file1;
+    file1 = fopen("Ajustes_50N.txt", "r");
+    fscanf(file1, "%f\n", &pick_up_50N);
+    fclose(file1);
+
+    FILE *file2;
+    file2 = fopen("Ajustes_51.txt", "r");
+    fscanf(file2, "%f\n", &pick_up_51);
+    fscanf(file2, "%d\n", &curva_51);
+    fscanf(file2, "%f\n", &dial_51);
+    fclose(file2);
+
+    FILE *file3;
+    file3 = fopen("Ajustes_51V.txt", "r");
+    fscanf(file3, "%f\n", &pick_up_51V);
+    fscanf(file3, "%d\n", &curva_51V);
+    fscanf(file3, "%f\n", &dial_51V);
+    fclose(file3);
+
+    FILE *file4;
+    file4 = fopen("Ajustes_51N.txt", "r");
+    fscanf(file4, "%f\n", &pick_up_51N);
+    fscanf(file4, "%d\n", &curva_51N);
+    fscanf(file4, "%f\n", &dial_51N);
+    fclose(file4);
+
+    FILE *file5;
+    file5 = fopen("Ajustes_67.txt", "r");
+    fscanf(file5, "%f\n", &pick_up_67);
+    fscanf(file5, "%d\n", &curva_67);
+    fscanf(file5, "%f\n", &dial_67);
+    fscanf(file5, "%f\n", &atm_67);
+    fclose(file5);
+
+    FILE *file6;
+    file6 = fopen("Ajustes_67N.txt", "r");
+    fscanf(file6, "%f\n", &pick_up_67N);
+    fscanf(file6, "%d\n", &curva_67N);
+    fscanf(file6, "%f\n", &dial_67N);
+    fscanf(file6, "%f\n", &atm_67N);
+    fclose(file6);
+
     /*Preparando o código para receber mensagens SV*/
 
-        SVSubscriber subscriberSV = SVSubscriber_create(NULL, 0x4000);
-        SVSubscriber_setListener(subscriberSV, svUpdateListener, NULL);
-        SVReceiver_addSubscriber(receiverSV, subscriberSV);
+    SVSubscriber subscriberSV = SVSubscriber_create(NULL, 0x4000);
+    SVSubscriber_setListener(subscriberSV, svUpdateListener, NULL);
+    SVReceiver_addSubscriber(receiverSV, subscriberSV);
 
 
+    //Habilitando a publicação de mensagens GOOSE
     IedServer_enableGoosePublishing(iedServer);
 
+    //Recepção e Assinatura de mensagens GOOSE
     GooseReceiver receiver = GooseReceiver_create();
-
     GooseReceiver_setInterfaceId(receiver, "eth0");
-    
     GooseSubscriber subscriber = GooseSubscriber_create("SEL_751_1CFG/LLN0$GO$GOOSE_SL_1", NULL); //Especificação de quem o ied irá receber as mensagens goose
-
     GooseSubscriber subscriber1 = GooseSubscriber_create("VIED_50_2CFG/LLN0$GO$GOOSE_VIED_50_2", NULL); //Especificação de quem o ied irá receber as mensagens goose
-
     GooseSubscriber_setListener(subscriber, gooseListener, iedServer);
     GooseSubscriber_setListener(subscriber1, gooseListener1, iedServer);  
-
     GooseReceiver_addSubscriber(receiver, subscriber);
-    GooseReceiver_addSubscriber(receiver, subscriber1); 
+    GooseReceiver_addSubscriber(receiver, subscriber1);
 
+    //Ligação dos Servidores
     GooseReceiver_start(receiver);
     SVReceiver_start(receiverSV);
 
@@ -954,7 +997,7 @@ main(int argc, char** argv)
     IedServer_setGoCBHandler(iedServer, goCbEventHandler, NULL);
 
     /* MMS server will be instructed to start listening to client connections. */
-    IedServer_start(iedServer, 102);
+    IedServer_start(iedServer, 103);
 
     IedServer_setControlHandler(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01, (ControlHandler) controlHandlerForBinaryOutput,
     IEDMODEL_CON_RBGGIO1_SPCSO01);
@@ -978,9 +1021,6 @@ main(int argc, char** argv)
     IEDMODEL_CON_RBGGIO1_SPCSO07);
 
     IedServer_setControlHandler(iedServer, IEDMODEL_PRO_BKR1CSWI1_Pos, (ControlHandler) controlHandlerForBinaryOutput, IEDMODEL_PRO_BKR1CSWI1_Pos);
-
-    /*GooseReceiver_start(receiver);
-    SVReceiver_start(receiverSV);*/
 
     if (!IedServer_isRunning(iedServer)) {
         printf("Starting server failed! Exit.\n");
