@@ -902,6 +902,7 @@ main(int argc, char** argv)
     IedServerConfig_destroy(config);
 
     SVReceiver receiverSV = SVReceiver_create();
+    
 
     if (argc > 1) {
         char* ethernetIfcID = argv[1];

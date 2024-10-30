@@ -3,6 +3,7 @@
         "static_model.h": "c",
         "iec61850_client.h": "c",
         "stdlib.h": "c",
-        "goose_publisher.h": "c"
+        "goose_publisher.h": "c",
+        "goose_receiver.h": "c"
     }
 }
