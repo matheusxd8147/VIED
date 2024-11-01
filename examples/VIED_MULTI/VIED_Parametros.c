@@ -7,6 +7,12 @@
 int main()
 {
 
+    static float K_51, K_51N;
+    static float K_51_V;
+    static float K_67, K_67N;
+    static float alfa_51, alfa_51N;
+    static float alfa_51_V;
+    static float alfa_67, alfa_67N;
     int funcoes, curva_51, curva_51V, curva_51N, curva_67, curva_67N;
     float pick_up_50 = 0, pick_up_50N = 0, pick_up_51 = 0, pick_up_51V = 0, pick_up_51N = 0, pick_up_67 = 0, pick_up_67N = 0, atm_67, atm_67N;
     float dial_51, dial_51V, dial_51N, dial_67, dial_67N, tensao_51V;
@@ -57,10 +63,32 @@ int main()
             printf("\nDial: ");
             scanf("%f",&dial_51);
 
+            if (curva_51 == 1)
+            {
+                K_51 = 0.14;
+                alfa_51 = 0.02;
+            }
+            if (curva_51 == 2)
+            {
+                K_51 = 0.05;
+                alfa_51 = 0.04;
+            }
+            if (curva_51 == 3)
+            {
+                K_51 = 13.5;
+                alfa_51 = 1;
+            }
+            if (curva_51 == 4)
+            {
+                K_51 = 80;
+                alfa_51 = 2;
+            }
+
             FILE *file2;
             file2 = fopen("Ajustes_51.txt","w");
             fprintf(file2,"%f\n",pick_up_51);
-            fprintf(file2,"%d\n",curva_51);
+            fprintf(file2,"%f\n",K_51);
+            fprintf(file2,"%f\n",alfa_51);
             fprintf(file2,"%f\n",dial_51);
             fclose(file2);
         }
@@ -76,10 +104,33 @@ int main()
             printf("\nDial: ");
             scanf("%f",&dial_51V);
 
+            if (curva_51V == 1)
+            {
+                K_51_V = 0.14;
+                alfa_51_V = 0.02;
+            }
+            if (curva_51V == 2)
+            {
+                K_51_V = 0.05;
+                alfa_51_V = 0.04;
+            }
+            if (curva_51V == 3)
+            {
+                K_51_V = 13.5;
+                alfa_51_V = 1;
+            }
+            if (curva_51V == 4)
+            {
+                K_51_V = 80;
+                alfa_51_V = 2;
+            }
+
             FILE *file3;
             file3 = fopen("Ajustes_51V.txt","w");
             fprintf(file3,"%f\n",pick_up_51V);
-            fprintf(file3,"%d\n",curva_51V);
+            fprintf(file3,"%f\n",tensao_51V);
+            fprintf(file3,"%f\n",K_51_V);
+            fprintf(file3,"%f\n",alfa_51_V);
             fprintf(file3,"%f\n",dial_51V);
             fclose(file3);
         }
@@ -93,10 +144,32 @@ int main()
             printf("\nDial: ");
             scanf("%f",&dial_51N);
 
+            if (curva_51N == 1)
+            {
+                K_51N = 0.14;
+                alfa_51N = 0.02;
+            }
+            if (curva_51N == 2)
+            {
+                K_51N = 0.05;
+                alfa_51N = 0.04;
+            }
+            if (curva_51N == 3)
+            {
+                K_51N = 13.5;
+                alfa_51N = 1;
+            }
+            if (curva_51N == 4)
+            {
+                K_51N = 80;
+                alfa_51N = 2;
+            }
+
             FILE *file4;
             file4 = fopen("Ajustes_51N.txt","w");
             fprintf(file4,"%f\n",pick_up_51N);
-            fprintf(file4,"%d\n",curva_51N);
+            fprintf(file4,"%f\n",K_51N);
+            fprintf(file4,"%f\n",alfa_51N);
             fprintf(file4,"%f\n",dial_51N);
             fclose(file4);
         }
@@ -112,10 +185,32 @@ int main()
             printf("\nÂngulo de Torque Máximo:\n");
             scanf("%f",&atm_67);
 
+            if (curva_67 == 1)
+            {
+                K_67 = 0.14;
+                alfa_67 = 0.02;
+            }
+            if (curva_67 == 2)
+            {
+                K_67 = 0.05;
+                alfa_67 = 0.04;
+            }
+            if (curva_67 == 3)
+            {
+                K_67 = 13.5;
+                alfa_67 = 1;
+            }
+            if (curva_67 == 4)
+            {
+                K_67 = 80;
+                alfa_67 = 2;
+            }
+
             FILE *file5;
             file5 = fopen("Ajustes_67.txt","w");
             fprintf(file5,"%f\n",pick_up_67);
-            fprintf(file5,"%d\n",curva_67);
+            fprintf(file5,"%f\n",K_67);
+            fprintf(file5,"%f\n",alfa_67);
             fprintf(file5,"%f\n",dial_67);
             fprintf(file5,"%f\n",atm_67);
             fclose(file5);
@@ -132,10 +227,32 @@ int main()
             printf("\nÂngulo de Torque Máximo:\n");
             scanf("%f",&atm_67);
 
+            if (curva_67N == 1)
+            {
+                K_67N = 0.14;
+                alfa_67N = 0.02;
+            }
+            if (curva_67N == 2)
+            {
+                K_67N = 0.05;
+                alfa_67N = 0.04;
+            }
+            if (curva_67N == 3)
+            {
+                K_67N = 13.5;
+                alfa_67N = 1;
+            }
+            if (curva_67N == 4)
+            {
+                K_67N = 80;
+                alfa_67N = 2;
+            }
+
             FILE *file6;
             file6 = fopen("Ajustes_67N.txt","w");
             fprintf(file6,"%f\n",pick_up_67N);
-            fprintf(file6,"%d\n",curva_67N);
+            fprintf(file6,"%f\n",K_67N);
+            fprintf(file6,"%f\n",alfa_67N);
             fprintf(file6,"%f\n",dial_67N);
             fprintf(file6,"%f\n",atm_67N);
             fclose(file6);

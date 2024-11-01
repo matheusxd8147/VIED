@@ -26,6 +26,8 @@
 #define MICRO_PER_SECOND 1000000
 #define pi 3.14
 
+Thread thread_50, thread_50N, thread_51, thread_51V, thread_51N, thread_67, thread_67N;
+
 
 /* import IEC 61850 device model created from SCL-File */
 extern IedModel iedModel;
@@ -81,13 +83,42 @@ static float tensao_primarioB = 0;
 static float tensao_primarioC = 0;
 static float tensao_primarioN = 0;
 float teste[80];
-static float M, M1, M2, K, a, t, t1, t2,T, B = 1;
-struct timeval start_time, start1_time, start2_time;
-struct timeval stop_time, stop1_time, stop2_time;
-struct timeval tart_time, tart1_time, tart2_time;
-struct timeval top_time, top1_time, top2_time;
+static float K_51A, K_51B, K_51C, K_51N;
+static float K_51_V_A, K_51_V_B, K_51_V_C;
+static float K_67A, K_67B, K_67C, K_67N;
+static float alfa_51, alfa_51N;
+static float alfa_51_V;
+static float alfa_67, alfa_67N;
+static float M1_51A, M2_51B, M3_51C, a, t, t1, t2, B = 1;
+static float M1_51_V_A, M2_51_V_B, M3_51_V_C;
+static float M1_67A, M2_67B, M3_67C;
+static float M1_50N, M1_51N, M1_67N;
+static float act_51A, act_51B, act_51C, act_51N;
+static float act_51_V_A, act_51_V_B, act_51_V_C;
+static float act_67A, act_67B, act_67C, act_67N;
+static bool enable_51A = true;
+static bool enable_51B = true;
+static bool enable_51C = true; 
+static bool enable_51V_A = true;
+static bool enable_51V_B = true;
+static bool enable_51V_C = true;
+static bool enable_51N = true; 
+static bool enable_67A = true;
+static bool enable_67B = true;
+static bool enable_67C = true; 
+static bool enable_67N = true;
+struct timeval start_51A, start_51B, start_51C, start_51N;
+struct timeval stop_51A, stop_51B, stop_51C, stop_51N;
+struct timeval start_51V_A, start_51V_B, start_51V_C, start_51V_N;
+struct timeval stop_51V_A, stop_51V_B, stop_51V_C, stop_51V_N;
+struct timeval start_67A, start_67B, start_67C, start_67N;
+struct timeval stop_67A, stop_67B, stop_67C, stop_67N;
+struct timeval start_50_62BF;
+struct timeval stop_50_62BF;
 static float ang1, ang2, ang3, ang4, ang5, ang6, ang7, ang8;
-static float time_diff = 0, time_diff1 = 0, time_diff2 = 0;
+static float time_51A, time_51B, time_51C, time_51N, time_50_62BF;
+static float time_51_V_A, time_51_V_B, time_51_V_C, time_51_V_N;
+static float time_67A, time_67B, time_67C, time_67N;
 static float ime_diff = 0, ime_diff1 = 0, ime_diff2 = 0;
 double an[8], ar[6], br[6], teta, teta1, teta2, torque, torque1, torque2, tetaN, torqueN;
 double complex yr[6], Vbc, aVbc, mVbc,Vca, aVca, mVca, Vab, aVab, mVab;
@@ -101,41 +132,46 @@ void sigint_handler(int signalId)
 	running = 0;
 }
 
-/*void funcao_50()
+void funcao_50()
 {
-    if (corrente_primarioA > pick_up)
+    while (1)
     {
-        printf("-------------------------------------------------------------------------------------------------------------\n");
-        printf("                         ATUAR FUNÇÃO 50: SOBRECORRENTE INSTANTÂNEA FASE A                                   \n");
-        printf("-------------------------------------------------------------------------------------------------------------\n");
-        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind04_stVal, true);
-        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
-    }
-    if (corrente_primarioB > pick_up)
-    {
-        printf("-------------------------------------------------------------------------------------------------------------\n");
-        printf("                         ATUAR FUNÇÃO 50: SOBRECORRENTE INSTANTÂNEA FASE B                                   \n");
-        printf("-------------------------------------------------------------------------------------------------------------\n");
-        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind05_stVal, true);
-        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
-    }
-    if (corrente_primarioC > pick_up)
-    {
-        printf("-------------------------------------------------------------------------------------------------------------\n");
-        printf("                         ATUAR FUNÇÃO 50: SOBRECORRENTE INSTANTÂNEA FASE C                                   \n");
-        printf("-------------------------------------------------------------------------------------------------------------\n");
-        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind06_stVal, true);
-        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
-    }
-    if (((corrente_primarioA) || (corrente_primarioB) || (corrente_primarioC)) > pick_up)
-    {
-        funcao_50_62BF();
+
+        if (corrente_primarioA > pick_up_50)
+        {
+            printf("-------------------------------------------------------------------------------------------------------------\n");
+            printf("                         ATUAR FUNÇÃO 50: SOBRECORRENTE INSTANTÂNEA FASE A                                   \n");
+            printf("-------------------------------------------------------------------------------------------------------------\n");
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind04_stVal, true);
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
+        }
+        if (corrente_primarioB > pick_up_50)
+        {
+            printf("-------------------------------------------------------------------------------------------------------------\n");
+            printf("                         ATUAR FUNÇÃO 50: SOBRECORRENTE INSTANTÂNEA FASE B                                   \n");
+            printf("-------------------------------------------------------------------------------------------------------------\n");
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind05_stVal, true);
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
+        }
+        if (corrente_primarioC > pick_up_50)
+        {
+            printf("-------------------------------------------------------------------------------------------------------------\n");
+            printf("                         ATUAR FUNÇÃO 50: SOBRECORRENTE INSTANTÂNEA FASE C                                   \n");
+            printf("-------------------------------------------------------------------------------------------------------------\n");
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind06_stVal, true);
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
+        }
+        if (((corrente_primarioA) || (corrente_primarioB) || (corrente_primarioC)) > pick_up_50)
+        {
+            funcao_50_62BF();
+        }
+        Thread_sleep(0.1667);
     }
 }
 
 void funcao_50N()
 {
-    if ((corrente_primarioN) >= pick_up)
+    if ((corrente_primarioN) >= pick_up_50N)
     {
         printf("-------------------------------------------------------------------------------------------------------------\n");
         printf("                       ATUAR FUNÇÃO 50N: SOBRECORRENTE TEMPORIZADA DE NEUTRO                                 \n");
@@ -148,26 +184,26 @@ void funcao_50N()
 
 void funcao_51()
 {
-    M = corrente_primarioA / pick_up;
-    t = (T * (K / ((pow(M, a)) - B)));
+    M1_51A = corrente_primarioA / pick_up_51;
+    act_51A = (dial_51 * (K_51A / ((pow(M1_51A, a)) - B)));
 
-    M1 = corrente_primarioB / pick_up;
-    t1 = (T * (K / ((pow(M1, a)) - B)));
+    M2_51B = corrente_primarioB / pick_up_51;
+    act_51B = (dial_51 * (K_51B / ((pow(M2_51B, a)) - B)));
 
-    M2 = corrente_primarioC / pick_up;
-    t2 = (T * (K / ((pow(M2, a)) - B)));
+    M3_51C = corrente_primarioC / pick_up_51;
+    act_51C = (dial_51 * (K_51C / ((pow(M3_51C, a)) - B)));
 
-    if ((t > 0) && (corrente_primarioA > (pick_up * 50 / 100)))
+    if (act_51A > 0)
     {
-        if (contador == true)
+        if (enable_51A == true)
         {
-            gettimeofday(&start_time, NULL);
-            contador = false;
+            gettimeofday(&start_51A, NULL);
+            enable_51A = false;
         }
-        gettimeofday(&stop_time, NULL);
-        time_diff = (float)(stop_time.tv_sec - start_time.tv_sec);
-        time_diff += (stop_time.tv_usec - start_time.tv_usec) / (float)MICRO_PER_SECOND;
-        if ((time_diff) >= t)
+        gettimeofday(&stop_51A, NULL);
+        time_51A = (float)(stop_51A.tv_sec - start_51A.tv_sec);
+        time_51A += (stop_51A.tv_usec - start_51A.tv_usec) / (float)MICRO_PER_SECOND;
+        if ((time_51A) >= act_51A)
         {
             if (funcao == 1)
             {
@@ -185,31 +221,19 @@ void funcao_51()
                 printf("-------------------------------------------------------------------------------------------------------------\n");
             }
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
-            if (contador9 == true)
-            {
-                gettimeofday(&tart_time, NULL);
-                contador9 = false;
-            }
-            gettimeofday(&top_time, NULL);
-            ime_diff = (float)(top_time.tv_sec - tart_time.tv_sec);
-            ime_diff += (top_time.tv_usec - tart_time.tv_usec) / (float)MICRO_PER_SECOND;
-            if ((ime_diff) >= 0.250)
-            {
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_BFR1RBRF1_OpEx_general, true);
-            }
         }
     }
-    if ((t1 > 0) && (corrente_primarioB > (pick_up * 50 / 100)))
+    if (act_51B > 0)
     {
-        if (contador7 == true)
+        if (enable_51B == true)
         {
-            gettimeofday(&start1_time, NULL);
-            contador7 = false;
+            gettimeofday(&start_51B, NULL);
+            enable_51B = false;
         }
-        gettimeofday(&stop1_time, NULL);
-        time_diff1 = (float)(stop1_time.tv_sec - start1_time.tv_sec);
-        time_diff1 += (stop1_time.tv_usec - start1_time.tv_usec) / (float)MICRO_PER_SECOND;
-        if ((time_diff1) >= t1)
+        gettimeofday(&stop_51B, NULL);
+        time_51B = (float)(stop_51B.tv_sec - start_51B.tv_sec);
+        time_51B += (stop_51B.tv_usec - start_51B.tv_usec) / (float)MICRO_PER_SECOND;
+        if ((time_51B) >= act_51B)
         {
             if (funcao == 1)
             {
@@ -227,31 +251,19 @@ void funcao_51()
                 printf("-------------------------------------------------------------------------------------------------------------\n");
             }
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
-            if (contador10 == true)
-            {
-                gettimeofday(&tart1_time, NULL);
-                contador10 = false;
-            }
-            gettimeofday(&top1_time, NULL);
-            ime_diff1 = (float)(top1_time.tv_sec - tart1_time.tv_sec);
-            ime_diff1 += (top1_time.tv_usec - tart1_time.tv_usec) / (float)MICRO_PER_SECOND;
-            if ((ime_diff1) >= 0.250)
-            {
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_BFR1RBRF1_OpEx_general, true);
-            }
         }
     }
-    if ((t2 > 0) && (corrente_primarioC > (pick_up * 50 / 100)))
+    if (act_51C > 0)
     {
-        if (contador8 == true)
+        if (enable_51C == true)
         {
-            gettimeofday(&start2_time, NULL);
-            contador8 = false;
+            gettimeofday(&start_51C, NULL);
+            enable_51C = false;
         }
-        gettimeofday(&stop2_time, NULL);
-        time_diff2 = (float)(stop2_time.tv_sec - start2_time.tv_sec);
-        time_diff2 += (stop2_time.tv_usec - start2_time.tv_usec) / (float)MICRO_PER_SECOND;
-        if ((time_diff2) >= t2)
+        gettimeofday(&stop_51C, NULL);
+        time_51C = (float)(stop_51C.tv_sec - start_51C.tv_sec);
+        time_51C += (stop_51C.tv_usec - start_51C.tv_usec) / (float)MICRO_PER_SECOND;
+        if ((time_51C) >= act_51C)
         {
             if (funcao == 1)
             {
@@ -269,41 +281,113 @@ void funcao_51()
                 printf("-------------------------------------------------------------------------------------------------------------\n");
             }
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
-            if (contador11 == true)
-            {
-                gettimeofday(&tart2_time, NULL);
-                contador11 = false;
-            }
-            gettimeofday(&top2_time, NULL);
-            ime_diff2 = (float)(top2_time.tv_sec - tart2_time.tv_sec);
-            ime_diff2 += (top2_time.tv_usec - tart2_time.tv_usec) / (float)MICRO_PER_SECOND;
-            if ((ime_diff2) >= 0.250)
-            {
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_BFR1RBRF1_OpEx_general, true);
-            }
         }
     }
 }
 
 void funcao_51V()
 {
-    if (funcao == 1)
+    j = tensao_primarioA / Vn;
+
+    M1_51_V_A = corrente_primarioA / (j * pick_up_51V);
+    act_51_V_A = (dial_51V * (K_51_V_A / ((pow(M1_51_V_A, a)) - B)));
+
+    M2_51_V_B = corrente_primarioB / (j * pick_up_51V);
+    act_51_V_B = (dial_51V * (K_51_V_B / ((pow(M2_51_V_B, a)) - B)));
+
+    M3_51_V_C = corrente_primarioC / (j * pick_up_51V);
+    act_51_V_C = (dial_51V * (K_51_V_C / ((pow(M3_51_V_C, a)) - B)));
+
+    if (act_51_V_A > 0)
     {
-        j = 1;
+        if (enable_51V_A == true)
+        {
+            gettimeofday(&start_51V_A, NULL);
+            enable_51V_A = false;
+        }
+        gettimeofday(&stop_51V_A, NULL);
+        time_51_V_A = (float)(stop_51V_A.tv_sec - start_51V_A.tv_sec);
+        time_51_V_A += (stop_51V_A.tv_usec - start_51V_A.tv_usec) / (float)MICRO_PER_SECOND;
+        if ((time_51_V_A) >= act_51_V_A)
+        {
+            if (funcao == 1)
+            {
+                // IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_ATPTOC20_Op_general, true);
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind20_stVal, true);
+                printf("-------------------------------------------------------------------------------------------------------------\n");
+                printf("                              ATUAR FUNÇÃO 51: SOBRECORRENTE TEMPORIZADA FASE A                              \n");
+                printf("-------------------------------------------------------------------------------------------------------------\n");
+            }
+            else
+            {
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind01_stVal, true);
+                printf("-------------------------------------------------------------------------------------------------------------\n");
+                printf("                   ATUAR FUNÇÃO 51V: SOBRECORRENTE TEMPORIZADA COM RESTRIÇÃO DE TENSÃO FASE A                \n");
+                printf("-------------------------------------------------------------------------------------------------------------\n");
+            }
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
+        }
     }
-    else
+    if (act_51_V_B > 0)
     {
-        j = tensao_primarioA / Vn;
+        if (enable_51V_B == true)
+        {
+            gettimeofday(&start_51V_B, NULL);
+            enable_51V_B = false;
+        }
+        gettimeofday(&stop_51V_B, NULL);
+        time_51_V_B = (float)(stop_51V_B.tv_sec - start_51V_B.tv_sec);
+        time_51_V_B += (stop_51V_B.tv_usec - start_51V_B.tv_usec) / (float)MICRO_PER_SECOND;
+        if ((time_51_V_B) >= act_51_V_B)
+        {
+            if (funcao == 1)
+            {
+                // IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_BTPTOC21_Op_general, true);
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind21_stVal, true);
+                printf("-------------------------------------------------------------------------------------------------------------\n");
+                printf("                              ATUAR FUNÇÃO 51: SOBRECORRENTE TEMPORIZADA FASE B                              \n");
+                printf("-------------------------------------------------------------------------------------------------------------\n");
+            }
+            else
+            {
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind02_stVal, true);
+                printf("-------------------------------------------------------------------------------------------------------------\n");
+                printf("                   ATUAR FUNÇÃO 51V: SOBRECORRENTE TEMPORIZADA COM RESTRIÇÃO DE TENSÃO FASE B                \n");
+                printf("-------------------------------------------------------------------------------------------------------------\n");
+            }
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
+        }
     }
-
-    M = corrente_primarioA / (j * pick_up);
-    t = (T * (K / ((pow(M, a)) - B)));
-
-    M1 = corrente_primarioB / (j * pick_up);
-    t1 = (T * (K / ((pow(M1, a)) - B)));
-
-    M2 = corrente_primarioC / (j * pick_up);
-    t2 = (T * (K / ((pow(M2, a)) - B)));
+    if (act_51_V_C > 0)
+    {
+        if (enable_51V_C == true)
+        {
+            gettimeofday(&start_51V_C, NULL);
+            enable_51V_C = false;
+        }
+        gettimeofday(&stop_51V_C, NULL);
+        time_51_V_C = (float)(stop_51V_C.tv_sec - start_51V_C.tv_sec);
+        time_51_V_C += (stop_51V_C.tv_usec - start_51V_C.tv_usec) / (float)MICRO_PER_SECOND;
+        if ((time_51_V_C) >= act_51_V_C)
+        {
+            if (funcao == 1)
+            {
+                // IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_CTPTOC22_Op_general, true);
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind22_stVal, true);
+                printf("-------------------------------------------------------------------------------------------------------------\n");
+                printf("                              ATUAR FUNÇÃO 51: SOBRECORRENTE TEMPORIZADA FASE C                              \n");
+                printf("-------------------------------------------------------------------------------------------------------------\n");
+            }
+            else
+            {
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind03_stVal, true);
+                printf("-------------------------------------------------------------------------------------------------------------\n");
+                printf("                   ATUAR FUNÇÃO 51V: SOBRECORRENTE TEMPORIZADA COM RESTRIÇÃO DE TENSÃO FASE C                \n");
+                printf("-------------------------------------------------------------------------------------------------------------\n");
+            }
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
+        }
+    }
 }
 
 void funcao_51N()
@@ -377,9 +461,9 @@ void funcao_67()
     teta = an[3] - aVbc;
     teta1 = an[4] - aVca;
     teta2 = an[5] - aVab;
-    torque = max_corrente_a * mVbc * cos((atm - teta) * pi / 180);
-    torque1 = max_corrente_b * mVca * cos((atm - teta1) * pi / 180);
-    torque2 = max_corrente_c * mVab * cos((atm - teta2) * pi / 180);
+    torque = max_corrente_a * mVbc * cos((atm - teta) * M_PI / 180);
+    torque1 = max_corrente_b * mVca * cos((atm - teta1) * M_PI / 180);
+    torque2 = max_corrente_c * mVab * cos((atm - teta2) * M_PI / 180);
 
     contadorSV3++;
 
@@ -389,10 +473,10 @@ void funcao_67()
         t = (T * (K / ((pow(M, a)) - B)));
         if ((t > 0) && (corrente_primarioA > (pick_up * 50 / 100)))
         {
-            if (contador == true)
+            if (contador9 == true)
             {
                 gettimeofday(&start_time, NULL);
-                contador = false;
+                contador9 = false;
             }
             gettimeofday(&stop_time, NULL);
             time_diff = (float)(stop_time.tv_sec - start_time.tv_sec);
@@ -547,17 +631,17 @@ void funcao_50_62BF()
 {
     if (contador9 == true)
     {
-        gettimeofday(&tart_time, NULL);
+        gettimeofday(&start_50_62BF, NULL);
         contador9 = false;
     }
-    gettimeofday(&top_time, NULL);
-    ime_diff = (float)(top_time.tv_sec - tart_time.tv_sec);
-    ime_diff += (top_time.tv_usec - tart_time.tv_usec) / (float)MICRO_PER_SECOND;
-    if ((ime_diff) >= 0.250)
+    gettimeofday(&stop_50_62BF, NULL);
+    time_50_62BF = (float)(stop_50_62BF.tv_sec - start_50_62BF.tv_sec);
+    time_50_62BF += (stop_50_62BF.tv_usec - start_50_62BF.tv_usec) / (float)MICRO_PER_SECOND;
+    if ((time_50_62BF) >= 0.250)
     {
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_BFR1RBRF1_OpEx_general, true);
     }
-}*/
+}
 /* Callback handler for received SV messages */
 static void
 svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU asdu)
@@ -934,28 +1018,33 @@ main(int argc, char** argv)
     FILE *file2;
     file2 = fopen("Ajustes_51.txt", "r");
     fscanf(file2, "%f\n", &pick_up_51);
-    fscanf(file2, "%d\n", &curva_51);
+    fscanf(file2, "%f\n", &K_67N);
+    fscanf(file2, "%f\n", &alfa_67N);
     fscanf(file2, "%f\n", &dial_51);
     fclose(file2);
 
     FILE *file3;
     file3 = fopen("Ajustes_51V.txt", "r");
     fscanf(file3, "%f\n", &pick_up_51V);
-    fscanf(file3, "%d\n", &curva_51V);
+    fscanf(file3,"%f\n", &tensao_51V);
+    fscanf(file3, "%f\n", &K_67N);
+    fscanf(file3, "%f\n", &alfa_67N);
     fscanf(file3, "%f\n", &dial_51V);
     fclose(file3);
 
     FILE *file4;
     file4 = fopen("Ajustes_51N.txt", "r");
     fscanf(file4, "%f\n", &pick_up_51N);
-    fscanf(file4, "%d\n", &curva_51N);
+    fscanf(file4, "%f\n", &K_67N);
+    fscanf(file4, "%f\n", &alfa_67N);
     fscanf(file4, "%f\n", &dial_51N);
     fclose(file4);
 
     FILE *file5;
     file5 = fopen("Ajustes_67.txt", "r");
     fscanf(file5, "%f\n", &pick_up_67);
-    fscanf(file5, "%d\n", &curva_67);
+    fscanf(file5, "%f\n", &K_67N);
+    fscanf(file5, "%f\n", &alfa_67N);
     fscanf(file5, "%f\n", &dial_67);
     fscanf(file5, "%f\n", &atm_67);
     fclose(file5);
@@ -963,7 +1052,8 @@ main(int argc, char** argv)
     FILE *file6;
     file6 = fopen("Ajustes_67N.txt", "r");
     fscanf(file6, "%f\n", &pick_up_67N);
-    fscanf(file6, "%d\n", &curva_67N);
+    fscanf(file6, "%f\n", &K_67N);
+    fscanf(file6, "%f\n", &alfa_67N);
     fscanf(file6, "%f\n", &dial_67N);
     fscanf(file6, "%f\n", &atm_67N);
     fclose(file6);
@@ -992,7 +1082,42 @@ main(int argc, char** argv)
     GooseReceiver_start(receiver);
     SVReceiver_start(receiverSV);
 
-    //Thread_sleep(1000);
+    //Ligação dos Servidores para cada função de proteção
+    if (pick_up_50 > 0)
+    {
+        thread_50 = Thread_create((ThreadExecutionFunction)funcao_50, (void *) thread_50, false);
+        Thread_start(thread_50);
+    }
+    if (pick_up_50N > 0)
+    {
+        thread_50N = Thread_create((ThreadExecutionFunction)funcao_50N, (void *) thread_50N, false);
+        Thread_start(thread_50N);
+    }
+    if (pick_up_51 > 0)
+    {
+        thread_51 = Thread_create((ThreadExecutionFunction)funcao_51, (void *) thread_51, false);
+        Thread_start(thread_51);
+    }
+    if (pick_up_51V > 0)
+    {
+        thread_51V = Thread_create((ThreadExecutionFunction)funcao_51V, (void *) thread_51V, false);
+        Thread_start(thread_51V);
+    }
+    if (pick_up_51N > 0)
+    {
+        thread_51N = Thread_create((ThreadExecutionFunction)funcao_51N, (void *) thread_51N, false);
+        Thread_start(thread_51N);
+    }
+    if (pick_up_67 > 0)
+    {
+        thread_67 = Thread_create((ThreadExecutionFunction)funcao_67, (void *) thread_67, false);
+        Thread_start(thread_67);
+    }
+    if (pick_up_67N > 0)
+    {
+        thread_67N = Thread_create((ThreadExecutionFunction)funcao_67N, (void *) thread_67N, false);
+        Thread_start(thread_67N);
+    }
 
     IedServer_setGoCBHandler(iedServer, goCbEventHandler, NULL);
 
@@ -1032,21 +1157,10 @@ main(int argc, char** argv)
 
     signal(SIGINT, sigint_handler);
 
-    bool inicializacao = true;
-
     while (running) {
-        
-        if (inicializacao == true){
 
-            //funcaoativa50 = false;
-            //if (funcaoativa 50 == true){
-            //start50;
-            //}
-            //start50
-            inicializacao = false;
-        }
+        Thread_sleep(1000);
 
-        Thread_sleep(0.1667);
     }
 
     /* stop MMS server - close TCP server socket and all client sockets */

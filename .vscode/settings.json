@@ -4,6 +4,8 @@
         "iec61850_client.h": "c",
         "stdlib.h": "c",
         "goose_publisher.h": "c",
-        "goose_receiver.h": "c"
+        "goose_receiver.h": "c",
+        "hal_thread.h": "c",
+        "random": "c"
     }
 }
