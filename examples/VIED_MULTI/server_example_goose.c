@@ -83,18 +83,18 @@ static float tensao_primarioB = 0;
 static float tensao_primarioC = 0;
 static float tensao_primarioN = 0;
 float teste[80];
-static float K_51A, K_51B, K_51C, K_51N;
-static float K_51_V_A, K_51_V_B, K_51_V_C;
-static float K_67A, K_67B, K_67C, K_67N;
+static float K_51, K_51N;
+static float K_51V;
+static float K_67, K_67N;
 static float alfa_51, alfa_51N;
-static float alfa_51_V;
+static float alfa_51V;
 static float alfa_67, alfa_67N;
 static float M1_51A, M2_51B, M3_51C, a, t, t1, t2, B = 1;
-static float M1_51_V_A, M2_51_V_B, M3_51_V_C;
+static float M1_51V_A, M2_51V_B, M3_51V_C;
 static float M1_67A, M2_67B, M3_67C;
 static float M1_50N, M1_51N, M1_67N;
 static float act_51A, act_51B, act_51C, act_51N;
-static float act_51_V_A, act_51_V_B, act_51_V_C;
+static float act_51V_A, act_51V_B, act_51V_C;
 static float act_67A, act_67B, act_67C, act_67N;
 static bool enable_51A = true;
 static bool enable_51B = true;
@@ -117,19 +117,35 @@ struct timeval start_50_62BF;
 struct timeval stop_50_62BF;
 static float ang1, ang2, ang3, ang4, ang5, ang6, ang7, ang8;
 static float time_51A, time_51B, time_51C, time_51N, time_50_62BF;
-static float time_51_V_A, time_51_V_B, time_51_V_C, time_51_V_N;
+static float time_51V_A, time_51V_B, time_51V_C, time_51V_N;
 static float time_67A, time_67B, time_67C, time_67N;
 static float ime_diff = 0, ime_diff1 = 0, ime_diff2 = 0;
 double an[8], ar[6], br[6], teta, teta1, teta2, torque, torque1, torque2, tetaN, torqueN;
 double complex yr[6], Vbc, aVbc, mVbc,Vca, aVca, mVca, Vab, aVab, mVab;
 
-static int funcoes, curva_51, curva_51V, tensao_51V, curva_51N, curva_67, curva_67N;
+static int funcoes, curva_51, curva_51V, curva_51N, curva_67, curva_67N;
 static float pick_up_50, pick_up_50N, pick_up_51, pick_up_51V, pick_up_51N, pick_up_67, pick_up_67N, atm_67, atm_67N;
-static float dial_51, dial_51V, dial_51N, dial_67, dial_67N;
+static float dial_51, dial_51V, dial_51N, dial_67, dial_67N, tensao_51V;
 
 void sigint_handler(int signalId)
 {
 	running = 0;
+}
+
+void funcao_50_62BF()
+{
+    if (contador9 == true)
+    {
+        gettimeofday(&start_50_62BF, NULL);
+        contador9 = false;
+    }
+    gettimeofday(&stop_50_62BF, NULL);
+    time_50_62BF = (float)(stop_50_62BF.tv_sec - start_50_62BF.tv_sec);
+    time_50_62BF += (stop_50_62BF.tv_usec - start_50_62BF.tv_usec) / (float)MICRO_PER_SECOND;
+    if ((time_50_62BF) >= 0.250)
+    {
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_BFR1RBRF1_OpEx_general, true);
+    }
 }
 
 void funcao_50()
@@ -171,6 +187,7 @@ void funcao_50()
 
 void funcao_50N()
 {
+    while(1){
     if ((corrente_primarioN) >= pick_up_50N)
     {
         printf("-------------------------------------------------------------------------------------------------------------\n");
@@ -180,18 +197,21 @@ void funcao_50N()
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
         funcao_50_62BF();
     }
+    Thread_sleep(0.1667);
+    }
 }
 
 void funcao_51()
 {
+    while(1){
     M1_51A = corrente_primarioA / pick_up_51;
-    act_51A = (dial_51 * (K_51A / ((pow(M1_51A, a)) - B)));
+    act_51A = (dial_51 * (K_51 / ((pow(M1_51A, alfa_51)) - B)));
 
     M2_51B = corrente_primarioB / pick_up_51;
-    act_51B = (dial_51 * (K_51B / ((pow(M2_51B, a)) - B)));
+    act_51B = (dial_51 * (K_51 / ((pow(M2_51B, alfa_51)) - B)));
 
     M3_51C = corrente_primarioC / pick_up_51;
-    act_51C = (dial_51 * (K_51C / ((pow(M3_51C, a)) - B)));
+    act_51C = (dial_51 * (K_51 / ((pow(M3_51C, alfa_51)) - B)));
 
     if (act_51A > 0)
     {
@@ -282,23 +302,24 @@ void funcao_51()
             }
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
         }
-    }
+    }Thread_sleep(0.1667);}
 }
 
 void funcao_51V()
 {
-    j = tensao_primarioA / Vn;
+    while(1){
+    j = tensao_primarioA / tensao_51V;
 
-    M1_51_V_A = corrente_primarioA / (j * pick_up_51V);
-    act_51_V_A = (dial_51V * (K_51_V_A / ((pow(M1_51_V_A, a)) - B)));
+    M1_51V_A = corrente_primarioA / (j * pick_up_51V);
+    act_51V_A = (dial_51V * (K_51V / ((pow(M1_51V_A, alfa_51V)) - B)));
 
-    M2_51_V_B = corrente_primarioB / (j * pick_up_51V);
-    act_51_V_B = (dial_51V * (K_51_V_B / ((pow(M2_51_V_B, a)) - B)));
+    M2_51V_B = corrente_primarioB / (j * pick_up_51V);
+    act_51V_B = (dial_51V * (K_51V / ((pow(M2_51V_B, alfa_51V)) - B)));
 
-    M3_51_V_C = corrente_primarioC / (j * pick_up_51V);
-    act_51_V_C = (dial_51V * (K_51_V_C / ((pow(M3_51_V_C, a)) - B)));
+    M3_51V_C = corrente_primarioC / (j * pick_up_51V);
+    act_51V_C = (dial_51V * (K_51V / ((pow(M3_51V_C, alfa_51V)) - B)));
 
-    if (act_51_V_A > 0)
+    if (act_51V_A > 0)
     {
         if (enable_51V_A == true)
         {
@@ -306,9 +327,9 @@ void funcao_51V()
             enable_51V_A = false;
         }
         gettimeofday(&stop_51V_A, NULL);
-        time_51_V_A = (float)(stop_51V_A.tv_sec - start_51V_A.tv_sec);
-        time_51_V_A += (stop_51V_A.tv_usec - start_51V_A.tv_usec) / (float)MICRO_PER_SECOND;
-        if ((time_51_V_A) >= act_51_V_A)
+        time_51V_A = (float)(stop_51V_A.tv_sec - start_51V_A.tv_sec);
+        time_51V_A += (stop_51V_A.tv_usec - start_51V_A.tv_usec) / (float)MICRO_PER_SECOND;
+        if ((time_51V_A) >= act_51V_A)
         {
             if (funcao == 1)
             {
@@ -328,7 +349,7 @@ void funcao_51V()
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
         }
     }
-    if (act_51_V_B > 0)
+    if (act_51V_B > 0)
     {
         if (enable_51V_B == true)
         {
@@ -336,9 +357,9 @@ void funcao_51V()
             enable_51V_B = false;
         }
         gettimeofday(&stop_51V_B, NULL);
-        time_51_V_B = (float)(stop_51V_B.tv_sec - start_51V_B.tv_sec);
-        time_51_V_B += (stop_51V_B.tv_usec - start_51V_B.tv_usec) / (float)MICRO_PER_SECOND;
-        if ((time_51_V_B) >= act_51_V_B)
+        time_51V_B = (float)(stop_51V_B.tv_sec - start_51V_B.tv_sec);
+        time_51V_B += (stop_51V_B.tv_usec - start_51V_B.tv_usec) / (float)MICRO_PER_SECOND;
+        if ((time_51V_B) >= act_51V_B)
         {
             if (funcao == 1)
             {
@@ -358,7 +379,7 @@ void funcao_51V()
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
         }
     }
-    if (act_51_V_C > 0)
+    if (act_51V_C > 0)
     {
         if (enable_51V_C == true)
         {
@@ -366,9 +387,9 @@ void funcao_51V()
             enable_51V_C = false;
         }
         gettimeofday(&stop_51V_C, NULL);
-        time_51_V_C = (float)(stop_51V_C.tv_sec - start_51V_C.tv_sec);
-        time_51_V_C += (stop_51V_C.tv_usec - start_51V_C.tv_usec) / (float)MICRO_PER_SECOND;
-        if ((time_51_V_C) >= act_51_V_C)
+        time_51V_C = (float)(stop_51V_C.tv_sec - start_51V_C.tv_sec);
+        time_51V_C += (stop_51V_C.tv_usec - start_51V_C.tv_usec) / (float)MICRO_PER_SECOND;
+        if ((time_51V_C) >= act_51V_C)
         {
             if (funcao == 1)
             {
@@ -387,49 +408,39 @@ void funcao_51V()
             }
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
         }
-    }
+    }Thread_sleep(0.1667);}
 }
 
 void funcao_51N()
 {
-    M = corrente_primarioN / (pick_up);
-    t = (T * (K / ((pow(M, a)) - B)));
+    while(1){
+    M1_51N = corrente_primarioN / (pick_up_51N);
+    t = (dial_51N * (K_51N / ((pow(M1_51N, a)) - B)));
 
-    if ((t > 0) && (corrente_primarioN > (pick_up * 50 / 100)))
+    if (act_51N > 0)
     {
-        if (contador == true)
+        if (enable_51N == true)
         {
-            gettimeofday(&start_time, NULL);
-            contador = false;
+            gettimeofday(&start_51N, NULL);
+            enable_51N = false;
         }
-        gettimeofday(&stop_time, NULL);
-        time_diff = (float)(stop_time.tv_sec - start_time.tv_sec);
-        time_diff += (stop_time.tv_usec - start_time.tv_usec) / (float)MICRO_PER_SECOND;
-        if ((time_diff) >= t)
+        gettimeofday(&stop_51N, NULL);
+        time_51N = (float)(stop_51N.tv_sec - start_51N.tv_sec);
+        time_51N += (stop_51N.tv_usec - start_51N.tv_usec) / (float)MICRO_PER_SECOND;
+        if ((time_51N) >= act_51N)
         {
             printf("-------------------------------------------------------------------------------------------------------------\n");
             printf("                       ATUAR FUNÇÃO 51N: SOBRECORRENTE TEMPORIZADA DE NEUTRO                                 \n");
             printf("-------------------------------------------------------------------------------------------------------------\n");
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind13_stVal, true);
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
-            if (contador9 == true)
-            {
-                gettimeofday(&tart_time, NULL);
-                contador9 = false;
-            }
-            gettimeofday(&top_time, NULL);
-            ime_diff = (float)(top_time.tv_sec - tart_time.tv_sec);
-            ime_diff += (top_time.tv_usec - tart_time.tv_usec) / (float)MICRO_PER_SECOND;
-            if ((ime_diff) >= 0.250)
-            {
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_BFR1RBRF1_OpEx_general, true);
-            }
         }
-    }
+    }Thread_sleep(0.1667);}
 }
 
 void funcao_67()
 {
+    while(1){
     ar[0] = max_tensao_a * cos(an[0]);
     br[0] = max_tensao_a * sin(an[0]);
     ar[1] = max_tensao_b * cos(an[1]);
@@ -461,187 +472,122 @@ void funcao_67()
     teta = an[3] - aVbc;
     teta1 = an[4] - aVca;
     teta2 = an[5] - aVab;
-    torque = max_corrente_a * mVbc * cos((atm - teta) * M_PI / 180);
-    torque1 = max_corrente_b * mVca * cos((atm - teta1) * M_PI / 180);
-    torque2 = max_corrente_c * mVab * cos((atm - teta2) * M_PI / 180);
-
-    contadorSV3++;
+    torque = max_corrente_a * mVbc * cos((atm_67 - teta) * M_PI / 180);
+    torque1 = max_corrente_b * mVca * cos((atm_67 - teta1) * M_PI / 180);
+    torque2 = max_corrente_c * mVab * cos((atm_67 - teta2) * M_PI / 180);
 
     if (torque > 0)
     {
-        M = corrente_primarioA / (pick_up);
-        t = (T * (K / ((pow(M, a)) - B)));
-        if ((t > 0) && (corrente_primarioA > (pick_up * 50 / 100)))
+        M1_67A = corrente_primarioA / (pick_up_67N);
+        act_67A = (dial_67 * (K_67 / ((pow(M1_67A, alfa_67)) - B)));
+        if (act_67A > 0)
         {
-            if (contador9 == true)
+            if (enable_67A == true)
             {
-                gettimeofday(&start_time, NULL);
-                contador9 = false;
+                gettimeofday(&start_67A, NULL);
+                enable_67A = false;
             }
-            gettimeofday(&stop_time, NULL);
-            time_diff = (float)(stop_time.tv_sec - start_time.tv_sec);
-            time_diff += (stop_time.tv_usec - start_time.tv_usec) / (float)MICRO_PER_SECOND;
-            if ((time_diff) >= t)
+            gettimeofday(&stop_67A, NULL);
+            time_67A = (float)(stop_67A.tv_sec - start_67A.tv_sec);
+            time_67A += (stop_67A.tv_usec - start_67A.tv_usec) / (float)MICRO_PER_SECOND;
+            if ((time_67A) >= act_67A)
             {
                 printf("-------------------------------------------------------------------------------------------------------------\n");
                 printf("                         ATUAR FUNÇÃO 67: SOBRECORRENTE DIRECIONAL TEMPORIZADA FASE A                        \n");
                 printf("-------------------------------------------------------------------------------------------------------------\n");
                 IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind07_stVal, true);
                 IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
-                if (contador9 == true)
-                {
-                    gettimeofday(&tart_time, NULL);
-                    contador9 = false;
-                }
-                gettimeofday(&top_time, NULL);
-                ime_diff = (float)(top_time.tv_sec - tart_time.tv_sec);
-                ime_diff += (top_time.tv_usec - tart_time.tv_usec) / (float)MICRO_PER_SECOND;
-                if ((ime_diff) >= 0.250)
-                {
-                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_BFR1RBRF1_OpEx_general, true);
-                }
             }
         }
     }
 
     if (torque1 > 0)
     {
-        M1 = corrente_primarioB / (pick_up);
-        t1 = (T * (K / ((pow(M1, a)) - B)));
-        if ((t1 > 0) && (corrente_primarioB > (pick_up * 50 / 100)))
+        M2_67B = corrente_primarioB / (pick_up_67);
+        act_67B = (dial_67 * (K_67 / ((pow(M2_67B, alfa_67)) - B)));
+        if (act_67B > 0)
         {
-            if (contador7 == true)
+            if (enable_67B == true)
             {
-                gettimeofday(&start1_time, NULL);
-                contador7 = false;
+                gettimeofday(&start_67B, NULL);
+                enable_67B = false;
             }
-            gettimeofday(&stop1_time, NULL);
-            time_diff1 = (float)(stop1_time.tv_sec - start1_time.tv_sec);
-            time_diff1 += (stop1_time.tv_usec - start1_time.tv_usec) / (float)MICRO_PER_SECOND;
-            if ((time_diff1) >= t1)
+            gettimeofday(&stop_67B, NULL);
+            time_67B = (float)(stop_67B.tv_sec - start_67B.tv_sec);
+            time_67B += (stop_67B.tv_usec - start_67B.tv_usec) / (float)MICRO_PER_SECOND;
+            if ((time_67B) >= act_67B)
             {
                 printf("-------------------------------------------------------------------------------------------------------------\n");
                 printf("                         ATUAR FUNÇÃO 67: SOBRECORRENTE DIRECIONAL TEMPORIZADA FASE B                        \n");
                 printf("-------------------------------------------------------------------------------------------------------------\n");
                 IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind08_stVal, true);
                 IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
-                if (contador10 == true)
-                {
-                    gettimeofday(&tart1_time, NULL);
-                    contador10 = false;
-                }
-                gettimeofday(&top1_time, NULL);
-                ime_diff1 = (float)(top1_time.tv_sec - tart1_time.tv_sec);
-                ime_diff1 += (top1_time.tv_usec - tart1_time.tv_usec) / (float)MICRO_PER_SECOND;
-                if ((ime_diff1) >= 0.250)
-                {
-                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_BFR1RBRF1_OpEx_general, true);
-                }
             }
         }
     }
 
     if (torque2 > 0)
     {
-        M2 = corrente_primarioC / (pick_up);
-        t2 = (T * (K / ((pow(M2, a)) - B)));
-        if ((t2 > 0) && (corrente_primarioC > (pick_up * 50 / 100)))
+        M3_67C = corrente_primarioC / (pick_up_67);
+        act_67C = (dial_67 * (K_67 / ((pow(M3_67C, alfa_67)) - B)));
+        if (act_67C > 0)
         {
-            if (contador8 == true)
+            if (enable_67C == true)
             {
-                gettimeofday(&start2_time, NULL);
-                contador8 = false;
+                gettimeofday(&start_67C, NULL);
+                enable_67C = false;
             }
-            gettimeofday(&stop2_time, NULL);
-            time_diff2 = (float)(stop2_time.tv_sec - start2_time.tv_sec);
-            time_diff2 += (stop2_time.tv_usec - start2_time.tv_usec) / (float)MICRO_PER_SECOND;
-            if ((time_diff2) >= t2)
+            gettimeofday(&stop_67C, NULL);
+            time_67C = (float)(stop_67C.tv_sec - start_67C.tv_sec);
+            time_67C += (stop_67C.tv_usec - start_67C.tv_usec) / (float)MICRO_PER_SECOND;
+            if ((time_67C) >= act_67C)
             {
                 printf("-------------------------------------------------------------------------------------------------------------\n");
                 printf("                         ATUAR FUNÇÃO 67: SOBRECORRENTE DIRECIONAL TEMPORIZADA FASE C                        \n");
                 printf("-------------------------------------------------------------------------------------------------------------\n");
                 IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind09_stVal, true);
                 IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
-                if (contador11 == true)
-                {
-                    gettimeofday(&tart2_time, NULL);
-                    contador11 = false;
-                }
-                gettimeofday(&top2_time, NULL);
-                ime_diff2 = (float)(top2_time.tv_sec - tart2_time.tv_sec);
-                ime_diff2 += (top2_time.tv_usec - tart2_time.tv_usec) / (float)MICRO_PER_SECOND;
-                if ((ime_diff2) >= 0.250)
-                {
-                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_BFR1RBRF1_OpEx_general, true);
-                }
             }
         }
-    }
+    }Thread_sleep(0.1667);}
 }
 
 void funcao_67N()
 {
-    if ((tensao_primarioN > (Vn / 10)) && (corrente_primarioN > (pick_up / 10)))
+    while(1){
+    if (tensao_primarioN > (tensao_51V / 10))
     {
         tetaN = an[7] - (an[6]);
-        torqueN = max_tensao_n * max_corrente_n * cos((atm - tetaN) * pi / 180);
+        torqueN = max_tensao_n * max_corrente_n * cos((atm_67N - tetaN) * pi / 180);
     }
-
-    contadorSV3++;
 
     if (torqueN > 0)
     {
-        M = corrente_primarioN / (pick_up);
-        t = (T * (K / ((pow(M, a)) - B)));
-        if ((t > 0) && (corrente_primarioN > (pick_up * 50 / 100)))
+        M1_67N = corrente_primarioN / (pick_up_67N);
+        act_67N = (dial_67N * (K_67N / ((pow(M1_67N, alfa_67N)) - B)));
+        if (act_67N > 0)
         {
-            if (contador == true)
+            if (enable_67N == true)
             {
-                gettimeofday(&start_time, NULL);
-                contador = false;
+                gettimeofday(&start_67N, NULL);
+                enable_67N = false;
             }
-            gettimeofday(&stop_time, NULL);
-            time_diff = (float)(stop_time.tv_sec - start_time.tv_sec);
-            time_diff += (stop_time.tv_usec - start_time.tv_usec) / (float)MICRO_PER_SECOND;
-            if ((time_diff) >= t)
+            gettimeofday(&stop_67N, NULL);
+            time_67N = (float)(stop_67N.tv_sec - start_67N.tv_sec);
+            time_67N += (stop_67N.tv_usec - start_67N.tv_usec) / (float)MICRO_PER_SECOND;
+            if ((time_67N) >= act_67N)
             {
                 printf("-------------------------------------------------------------------------------------------------------------\n");
                 printf("                       ATUAR FUNÇÃO 67N: DIRECIONAL DE SOBRECORRENTE TEMPORIZADA DE NEUTRO                   \n");
                 printf("-------------------------------------------------------------------------------------------------------------\n");
                 IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind12_stVal, true);
                 IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
-                if (contador9 == true)
-                {
-                    gettimeofday(&tart_time, NULL);
-                    contador9 = false;
-                }
-                gettimeofday(&top_time, NULL);
-                ime_diff = (float)(top_time.tv_sec - tart_time.tv_sec);
-                ime_diff += (top_time.tv_usec - tart_time.tv_usec) / (float)MICRO_PER_SECOND;
-                if ((ime_diff) >= 0.250)
-                {
-                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_BFR1RBRF1_OpEx_general, true);
-                }
             }
         }
-    }
+    }Thread_sleep(0.1667);}
 }
 
-void funcao_50_62BF()
-{
-    if (contador9 == true)
-    {
-        gettimeofday(&start_50_62BF, NULL);
-        contador9 = false;
-    }
-    gettimeofday(&stop_50_62BF, NULL);
-    time_50_62BF = (float)(stop_50_62BF.tv_sec - start_50_62BF.tv_sec);
-    time_50_62BF += (stop_50_62BF.tv_usec - start_50_62BF.tv_usec) / (float)MICRO_PER_SECOND;
-    if ((time_50_62BF) >= 0.250)
-    {
-        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_BFR1RBRF1_OpEx_general, true);
-    }
-}
+
 /* Callback handler for received SV messages */
 static void
 svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU asdu)
@@ -1018,8 +964,8 @@ main(int argc, char** argv)
     FILE *file2;
     file2 = fopen("Ajustes_51.txt", "r");
     fscanf(file2, "%f\n", &pick_up_51);
-    fscanf(file2, "%f\n", &K_67N);
-    fscanf(file2, "%f\n", &alfa_67N);
+    fscanf(file2, "%f\n", &K_51);
+    fscanf(file2, "%f\n", &alfa_51);
     fscanf(file2, "%f\n", &dial_51);
     fclose(file2);
 
@@ -1027,24 +973,24 @@ main(int argc, char** argv)
     file3 = fopen("Ajustes_51V.txt", "r");
     fscanf(file3, "%f\n", &pick_up_51V);
     fscanf(file3,"%f\n", &tensao_51V);
-    fscanf(file3, "%f\n", &K_67N);
-    fscanf(file3, "%f\n", &alfa_67N);
+    fscanf(file3, "%f\n", &K_51V);
+    fscanf(file3, "%f\n", &alfa_51V);
     fscanf(file3, "%f\n", &dial_51V);
     fclose(file3);
 
     FILE *file4;
     file4 = fopen("Ajustes_51N.txt", "r");
     fscanf(file4, "%f\n", &pick_up_51N);
-    fscanf(file4, "%f\n", &K_67N);
-    fscanf(file4, "%f\n", &alfa_67N);
+    fscanf(file4, "%f\n", &K_51N);
+    fscanf(file4, "%f\n", &alfa_51N);
     fscanf(file4, "%f\n", &dial_51N);
     fclose(file4);
 
     FILE *file5;
     file5 = fopen("Ajustes_67.txt", "r");
     fscanf(file5, "%f\n", &pick_up_67);
-    fscanf(file5, "%f\n", &K_67N);
-    fscanf(file5, "%f\n", &alfa_67N);
+    fscanf(file5, "%f\n", &K_67);
+    fscanf(file5, "%f\n", &alfa_67);
     fscanf(file5, "%f\n", &dial_67);
     fscanf(file5, "%f\n", &atm_67);
     fclose(file5);
@@ -1159,7 +1105,7 @@ main(int argc, char** argv)
 
     while (running) {
 
-        Thread_sleep(1000);
+        Thread_sleep(1569325056);
 
     }
 
