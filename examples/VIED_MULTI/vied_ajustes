@@ -1,3 +1,0 @@
-#!/bin/bash
-gcc -g -o VIED_Parametro VIED_Parametros.c
-./VIED_Parametro

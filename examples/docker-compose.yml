@@ -1,0 +1,19 @@
+version: "3"
+services:
+  VIED:
+    image:vied_tester1
+    cap-add:
+      - ALL
+    networks:
+      my-net:
+        ipv4_address: 10.102.76.201
+    container_name: VIED
+
+networks:
+  my-net:
+    ipam:
+      driver: macvlan
+      config:
+        -subnet: "10.102.76.0/23"
+         gateway: "10.102.76.1"
+         parent: enp2s0
