@@ -1,19 +1,21 @@
-version: "3"
+version: "3.7"
+
 services:
   VIED:
-    image:vied_tester1
-    cap-add:
-      - ALL
+    image: vied_tester1
+#    cap-add:
+#      - ALL
     networks:
-      my-net:
+      macvlan_net:
         ipv4_address: 10.102.76.201
-    container_name: VIED
+    container_name: TESTE_JP1
 
 networks:
-  my-net:
+  macvlan_net:
+    driver: macvlan
+    driver_opts:
+      parent: enp2s0
     ipam:
-      driver: macvlan
       config:
-        -subnet: "10.102.76.0/23"
-         gateway: "10.102.76.1"
-         parent: enp2s0
+        - subnet: 10.102.76.0/23
+          gateway: 10.102.76.1

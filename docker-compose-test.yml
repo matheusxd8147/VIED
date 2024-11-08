@@ -1,0 +1,27 @@
+version: '3.7'
+
+services:
+  app1:
+    image: vied_tester1
+    cap-all:
+      - ALL
+    container_name: VIED
+    networks:
+      macvlan_net:
+        ipv4_address: 10.102.76.100  # Defina um IP estático para o container
+
+#  app2:
+#    image: nginx
+#    networks:
+#      macvlan_net:
+#        ipv4_address: 10.102.76.101  # Defina outro IP estático para o outro container
+
+networks:
+  macvlan_net:
+    driver: macvlan
+    driver_opts:
+      parent: enp2s0  # Altere para o nome da sua interface de rede, como eth0 ou enp0s3
+    ipam:
+      config:
+        - subnet: 10.102.76.0/24  # Defina a sub-rede que os containers vão usar
+          gateway: 10.102.76.1    # Defina o gateway

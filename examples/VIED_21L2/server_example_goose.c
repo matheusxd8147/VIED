@@ -879,25 +879,32 @@ gooseListener(GooseSubscriber subscriber, void* parameter)
 {
     MmsValue* values = GooseSubscriber_getDataSetValues(subscriber);
 
-    char buffer[80];
+    char buffer[120];
 
     MmsValue_printToBuffer(values, buffer, 80);
 
 
-    char a, b, c, d, e, f, g, h, i;
+    float a, b, c, d, e, f, g, h, i;
 
-    a = buffer[1];
-    b = buffer[8];
-    c = buffer[16];
-    d = buffer[24];
-    e = buffer[32];
-    f = buffer[40];
-    g = buffer[48];
-    h = buffer[56];
-    i = buffer[64];
+    char h1, i1, j1;
+
+    h1 = buffer[78];
+    i1 = buffer[79];
+    j1 = buffer[81];
+
+    a = atof(&buffer[1]);
+    b = atof(&buffer[12]);
+    c = atof(&buffer[23]);
+    d = atof(&buffer[34]);
+    e = atof(&buffer[45]);
+    f = atof(&buffer[56]);
+    g = atof(&buffer[67]);
+    h = atof(&buffer[78]);
+    i = atof(&buffer[89]);
     uint64_t y = Hal_getTimeInMs();
 
-    printf("\n%c\n",a);
+    printf("\n%f\n%f\n%f\n%f\n%f\n%f\n%f\n%f\n%f\n", a, b, c, d, e, f, g, h, i);
+    printf("\n%c\n%c\n%c\n", h1, i1, j1);
 
     printf("-------------------------------------------------------------------------------------------------------------\n");            
     printf("                               PRIMEIRA MENSAGEM GOOSE ASSINADA VIED 1                                       \n");
