@@ -907,16 +907,9 @@ gooseListener1(GooseSubscriber subscriber, void* parameter)
     char buffer[100];
 
     MmsValue_printToBuffer(values, buffer, 100);
-
-    a = atof(&buffer[1]);//21L1
-    b = atof(&buffer[12]);//21L2
-    c = atof(&buffer[23]);//21L3
-    d = atof(&buffer[34]);//21L4
-    e = atof(&buffer[45]);//21L5
-    f = atof(&buffer[56]);//21L6
-    g = atof(&buffer[67]);//21L7
-    h = atof(&buffer[78]);//21L8
-    i = atof(&buffer[89]);//21L9
+    
+    b = atof(&buffer[1]);//21L2
+    d = atof(&buffer[12]);//21L4
     uint64_t y = Hal_getTimeInMs();
 
     printf("-------------------------------------------------------------------------------------------------------------\n");            
@@ -1110,15 +1103,9 @@ main(int argc, char** argv)
 
     while (running) {
 
-        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn01_mag_f, 0);
         IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn02_mag_f, b);
-        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn03_mag_f, 0);
         IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn04_mag_f, d);
         IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn05_mag_f, 225.00);
-        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn06_mag_f, 0);
-        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn07_mag_f, 0);
-        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn08_mag_f, 0);
-        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn09_mag_f, 0);
         Thread_sleep(17);
 
     }

@@ -879,21 +879,21 @@ goCbEventHandler(MmsGooseControlBlock goCb, int event, void* parameter)
 static void
 gooseListener(GooseSubscriber subscriber, void* parameter)
 {
-    MmsValue* values = GooseSubscriber_getDataSetValues(subscriber);
+    MmsValue* values1 = GooseSubscriber_getDataSetValues(subscriber);
 
-    char buffer[100];
+    char buffer1[100];
 
-    MmsValue_printToBuffer(values, buffer, 100);
+    MmsValue_printToBuffer(values1, buffer1, 100);
 
-    a = atof(&buffer[1]);//21L1
-    b = atof(&buffer[12]);//21L2
-    c = atof(&buffer[23]);//21L3
-    d = atof(&buffer[34]);//21L4
-    e = atof(&buffer[45]);//21L5
-    f = atof(&buffer[56]);//21L6
-    g = atof(&buffer[67]);//21L7
-    h = atof(&buffer[78]);//21L8
-    i = atof(&buffer[89]);//21L9
+    a = atof(&buffer1[1]);//21L1
+    b = atof(&buffer1[12]);//21L2
+    c = atof(&buffer1[23]);//21L3
+    d = atof(&buffer1[34]);//21L4
+    e = atof(&buffer1[45]);//21L5
+    f = atof(&buffer1[56]);//21L6
+    g = atof(&buffer1[67]);//21L7
+    h = atof(&buffer1[78]);//21L8
+    i = atof(&buffer1[89]);//21L9
     uint64_t y = Hal_getTimeInMs();
 
     printf("-------------------------------------------------------------------------------------------------------------\n");            
@@ -914,15 +914,7 @@ gooseListener1(GooseSubscriber subscriber, void* parameter)
 
     char a, b, c, d, e, f, g, h, i;
 
-    a = buffer[1];
-    b = buffer[8];
-    c = buffer[16];
-    d = buffer[24];
-    e = buffer[32];
-    f = buffer[40];
-    g = buffer[48];
-    h = buffer[56];
-    i = buffer[64];
+    
     uint64_t y = Hal_getTimeInMs();
 
     printf("-------------------------------------------------------------------------------------------------------------\n");            
@@ -1116,16 +1108,7 @@ main(int argc, char** argv)
 
     while (running) {
 
-        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn01_mag_f, 0);
         IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn02_mag_f, 222.00);
-        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn03_mag_f, 0);
-        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn04_mag_f, 0);
-        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn05_mag_f, 0);
-        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn06_mag_f, 0);
-        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn07_mag_f, 0);
-        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn08_mag_f, 0);
-        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn09_mag_f, 0);
-        Thread_sleep(17);
         Thread_sleep(17);
 
     }

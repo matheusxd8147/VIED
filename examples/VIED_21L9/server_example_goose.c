@@ -128,6 +128,8 @@ static float pick_up_50, pick_up_50N, pick_up_51, pick_up_51V, pick_up_51N, pick
 static float dial_51, dial_51V, dial_51N, dial_67, dial_67N, tensao_51V;
 
 static float a, b, c, d, e, f, g, h, i;
+static float a1, b1, c1, d1, e1, f1, g1, h1, i1;
+static float a2, b2, c2, d2, e2, f2, g2, h2, i2;
 
 void sigint_handler(int signalId)
 {
@@ -909,13 +911,6 @@ gooseListener1(GooseSubscriber subscriber, void* parameter)
     MmsValue_printToBuffer(values, buffer, 100);
 
     a = atof(&buffer[1]);//21L1
-    b = atof(&buffer[12]);//21L2
-    c = atof(&buffer[23]);//21L3
-    d = atof(&buffer[34]);//21L4
-    e = atof(&buffer[45]);//21L5
-    f = atof(&buffer[56]);//21L6
-    g = atof(&buffer[67]);//21L7
-    h = atof(&buffer[78]);//21L8
     i = atof(&buffer[89]);//21L9
     uint64_t y = Hal_getTimeInMs();
 
@@ -1111,15 +1106,7 @@ main(int argc, char** argv)
     while (running) {
 
         IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn01_mag_f, a);
-        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn02_mag_f, 0);
-        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn03_mag_f, 0);
-        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn04_mag_f, 0);
-        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn05_mag_f, 0);
-        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn06_mag_f, 0);
-        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn07_mag_f, 0);
-        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn08_mag_f, 0);
-        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn09_mag_f, 229.00);
-        //IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn09_mag_f, sqrt(3)*tensao_primarioA*corrente_primarioA);
+        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn09_mag_f, 400);
         Thread_sleep(17);
 
     }

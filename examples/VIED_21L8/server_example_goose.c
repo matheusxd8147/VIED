@@ -887,43 +887,38 @@ gooseListener(GooseSubscriber subscriber, void* parameter)
 
     MmsValue_printToBuffer(values, buffer, 50);
 
-
-    char b; char c; char d;
-
-    b = buffer[1];
-    c = buffer[6];
-    d = buffer[11];
     uint64_t y = Hal_getTimeInMs();
 
-    printf("-------------------------------------------------------------------------------------------------------------\n");            
+    /*printf("-------------------------------------------------------------------------------------------------------------\n");            
     printf("                               PRIMEIRA MENSAGEM GOOSE ASSINADA VIED 1                                       \n");
-    printf("-------------------------------------------------------------------------------------------------------------\n");
+    printf("-------------------------------------------------------------------------------------------------------------\n");*/
 
 }
 
 static void
 gooseListener1(GooseSubscriber subscriber, void* parameter)
 {
-    MmsValue* values = GooseSubscriber_getDataSetValues(subscriber);
+    MmsValue* values1 = GooseSubscriber_getDataSetValues(subscriber);
 
-    char buffer[100];
+    char buffer1[50];
 
-    MmsValue_printToBuffer(values, buffer, 100);
+    MmsValue_printToBuffer(values1, buffer1, 50);
 
-    a = atof(&buffer[1]);//21L1
-    b = atof(&buffer[12]);//21L2
-    c = atof(&buffer[23]);//21L3
-    d = atof(&buffer[34]);//21L4
-    e = atof(&buffer[45]);//21L5
-    f = atof(&buffer[56]);//21L6
-    g = atof(&buffer[67]);//21L7
-    h = atof(&buffer[78]);//21L8
-    i = atof(&buffer[89]);//21L9
+    a = atof(&buffer1[1]);//21L1
+    /*b = atof(&buffer1[12]);//21L2
+    c = atof(&buffer1[22]);//21L3
+    d = atof(&buffer1[34]);//21L4
+    e = atof(&buffer1[45]);//21L5
+    f = atof(&buffer1[56]);//21L6
+    g = atof(&buffer1[67]);//21L7
+    h = atof(&buffer1[78]);//21L8*/
+    i = atof(&buffer1[12]);//21L9
+    printf("\n%f\n%f\n", a, i);
     uint64_t y = Hal_getTimeInMs();
 
-    printf("-------------------------------------------------------------------------------------------------------------\n");            
+    /*printf("-------------------------------------------------------------------------------------------------------------\n");            
     printf("                               PRIMEIRA MENSAGEM GOOSE ASSINADA VIED 2                                       \n");
-    printf("-------------------------------------------------------------------------------------------------------------\n");
+    printf("-------------------------------------------------------------------------------------------------------------\n");*/
 
 }
 
@@ -936,20 +931,15 @@ gooseListener2(GooseSubscriber subscriber, void* parameter)
 
     MmsValue_printToBuffer(values2, buffer2, 100);
 
-    a1 = atof(&buffer2[1]);//21L1
-    b1 = atof(&buffer2[12]);//21L2
-    c1 = atof(&buffer2[23]);//21L3
-    d1 = atof(&buffer2[34]);//21L4
-    e1 = atof(&buffer2[45]);//21L5
-    f1 = atof(&buffer2[56]);//21L6
-    g1 = atof(&buffer2[67]);//21L7
-    h1 = atof(&buffer2[78]);//21L8
-    i1 = atof(&buffer2[89]);//21L9
+    b1 = atof(&buffer2[1]);//21L2
+    d1 = atof(&buffer2[12]);//21L4
+    e1 = atof(&buffer2[23]);//21L5
+    f1 = atof(&buffer2[34]);//21L6
     uint64_t y = Hal_getTimeInMs();
 
-    printf("-------------------------------------------------------------------------------------------------------------\n");            
-    printf("                               PRIMEIRA MENSAGEM GOOSE ASSINADA VIED 2                                       \n");
-    printf("-------------------------------------------------------------------------------------------------------------\n");
+    /*printf("-------------------------------------------------------------------------------------------------------------\n");            
+    printf("                               PRIMEIRA MENSAGEM GOOSE ASSINADA VIED 3                                       \n");
+    printf("-------------------------------------------------------------------------------------------------------------\n");*/
 
 }
 
@@ -962,20 +952,13 @@ gooseListener3(GooseSubscriber subscriber, void* parameter)
 
     MmsValue_printToBuffer(values3, buffer3, 100);
 
-    a2 = atof(&buffer3[1]);//21L1
-    b2 = atof(&buffer3[12]);//21L2
-    c2 = atof(&buffer3[23]);//21L3
-    d2 = atof(&buffer3[34]);//21L4
-    e2 = atof(&buffer3[45]);//21L5
-    f2 = atof(&buffer3[56]);//21L6
-    g2 = atof(&buffer3[67]);//21L7
-    h2 = atof(&buffer3[78]);//21L8
-    i2 = atof(&buffer3[89]);//21L9
+    c2 = atof(&buffer3[1]);//21L3
+    g2 = atof(&buffer3[12]);//21L7
     uint64_t y = Hal_getTimeInMs();
 
-    printf("-------------------------------------------------------------------------------------------------------------\n");            
-    printf("                               PRIMEIRA MENSAGEM GOOSE ASSINADA VIED 2                                       \n");
-    printf("-------------------------------------------------------------------------------------------------------------\n");
+    /*printf("-------------------------------------------------------------------------------------------------------------\n");            
+    printf("                               PRIMEIRA MENSAGEM GOOSE ASSINADA VIED 4                                       \n");
+    printf("-------------------------------------------------------------------------------------------------------------\n");*/
 
 }
 
@@ -1171,15 +1154,18 @@ main(int argc, char** argv)
     while (running) {
 
         IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn01_mag_f, a);
-        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn02_mag_f, b1);
-        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn03_mag_f, c2);
-        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn04_mag_f, d1);
-        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn05_mag_f, e1);
-        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn06_mag_f, f1);
-        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn07_mag_f, g2);
         IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn08_mag_f, 228.00);
-        //IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn08_mag_f, sqrt(3)*tensao_primarioA*corrente_primarioA);
         IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn09_mag_f, i);
+        system("clear");
+        printf("\n%f\n",a);
+        printf("%f\n",b1);
+        printf("%f\n",c2);
+        printf("%f\n",d1);
+        printf("%f\n",e1);
+        printf("%f\n",f1);
+        printf("%f\n",g2);
+        printf("%f\n",228.00);
+        printf("%f\n",i);
         Thread_sleep(17);
 
     }
