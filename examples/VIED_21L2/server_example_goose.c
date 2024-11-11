@@ -127,6 +127,8 @@ static int funcoes, curva_51, curva_51V, curva_51N, curva_67, curva_67N;
 static float pick_up_50, pick_up_50N, pick_up_51, pick_up_51V, pick_up_51N, pick_up_67, pick_up_67N, atm_67, atm_67N;
 static float dial_51, dial_51V, dial_51N, dial_67, dial_67N, tensao_51V;
 
+static float a, b, c, d, e, f, g, h, i;
+
 void sigint_handler(int signalId)
 {
 	running = 0;
@@ -879,32 +881,20 @@ gooseListener(GooseSubscriber subscriber, void* parameter)
 {
     MmsValue* values = GooseSubscriber_getDataSetValues(subscriber);
 
-    char buffer[120];
+    char buffer[100];
 
-    MmsValue_printToBuffer(values, buffer, 80);
+    MmsValue_printToBuffer(values, buffer, 100);
 
-
-    float a, b, c, d, e, f, g, h, i;
-
-    char h1, i1, j1;
-
-    h1 = buffer[78];
-    i1 = buffer[79];
-    j1 = buffer[81];
-
-    a = atof(&buffer[1]);
-    b = atof(&buffer[12]);
-    c = atof(&buffer[23]);
-    d = atof(&buffer[34]);
-    e = atof(&buffer[45]);
-    f = atof(&buffer[56]);
-    g = atof(&buffer[67]);
-    h = atof(&buffer[78]);
-    i = atof(&buffer[89]);
+    a = atof(&buffer[1]);//21L1
+    b = atof(&buffer[12]);//21L2
+    c = atof(&buffer[23]);//21L3
+    d = atof(&buffer[34]);//21L4
+    e = atof(&buffer[45]);//21L5
+    f = atof(&buffer[56]);//21L6
+    g = atof(&buffer[67]);//21L7
+    h = atof(&buffer[78]);//21L8
+    i = atof(&buffer[89]);//21L9
     uint64_t y = Hal_getTimeInMs();
-
-    printf("\n%f\n%f\n%f\n%f\n%f\n%f\n%f\n%f\n%f\n", a, b, c, d, e, f, g, h, i);
-    printf("\n%c\n%c\n%c\n", h1, i1, j1);
 
     printf("-------------------------------------------------------------------------------------------------------------\n");            
     printf("                               PRIMEIRA MENSAGEM GOOSE ASSINADA VIED 1                                       \n");
@@ -1038,7 +1028,7 @@ main(int argc, char** argv)
     //Recepção e Assinatura de mensagens GOOSE
     GooseReceiver receiver = GooseReceiver_create();
     GooseReceiver_setInterfaceId(receiver, "lo");
-    GooseSubscriber subscriber = GooseSubscriber_create("VIED_21L1CFG/LLN0$GO$GOOSE_POWER", NULL); //Especificação de quem o ied irá receber as mensagens goose
+    GooseSubscriber subscriber = GooseSubscriber_create("VIED_21L10CFG/LLN0$GO$GOOSE_POWER", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber subscriber1 = GooseSubscriber_create("VIED_50_2CFG/LLN0$GO$GOOSE_VIED_50_2", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber_setListener(subscriber, gooseListener, iedServer);
     GooseSubscriber_setListener(subscriber1, gooseListener1, iedServer);  
@@ -1126,7 +1116,17 @@ main(int argc, char** argv)
 
     while (running) {
 
-        Thread_sleep(0.1667);
+        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn01_mag_f, 0);
+        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn02_mag_f, 222.00);
+        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn03_mag_f, 0);
+        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn04_mag_f, 0);
+        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn05_mag_f, 0);
+        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn06_mag_f, 0);
+        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn07_mag_f, 0);
+        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn08_mag_f, 0);
+        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn09_mag_f, 0);
+        Thread_sleep(17);
+        Thread_sleep(17);
 
     }
 

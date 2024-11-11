@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SCL xmlns:esel="http://www.selinc.com/2006/61850" version="2007" revision="B" xmlns="http://www.iec.ch/61850/2003/SCL">
-  <Header id="vied" version="4" revision="1.0" toolID="AcSELerator Architect 2.3.17.16">
+  <Header id="vied" version="11" revision="1.0" toolID="AcSELerator Architect 2.3.17.16">
     <History>
-      <Hitem version="4" revision="1.0" when="11/06/2024 17:36:32" who="Matheus-PC\Matheus Souza" what="IED exported from Project vied" />
+      <Hitem version="11" revision="1.0" when="11/10/2024 23:35:28" who="Matheus-PC\Matheus Souza" what="IED exported from Project vied" />
     </History>
   </Header>
   <Communication>
@@ -18,20 +18,30 @@
         </Address>
         <GSE ldInst="CFG" cbName="GOOSE_POWER">
           <Address>
-            <P type="MAC-Address">01-0C-CD-01-00-03</P>
-            <P type="APPID">0003</P>
+            <P type="MAC-Address">01-0C-CD-01-00-05</P>
+            <P type="APPID">0005</P>
             <P type="VLAN-PRIORITY">4</P>
-            <P type="VLAN-ID">005</P>
+            <P type="VLAN-ID">003</P>
           </Address>
           <MinTime unit="s" multiplier="m">4</MinTime>
           <MaxTime unit="s" multiplier="m">1000</MaxTime>
         </GSE>
         <GSE ldInst="CFG" cbName="GOOSE_STATUS">
           <Address>
-            <P type="MAC-Address">01-0C-CD-01-00-05</P>
-            <P type="APPID">0005</P>
+            <P type="MAC-Address">01-0C-CD-01-00-06</P>
+            <P type="APPID">0006</P>
             <P type="VLAN-PRIORITY">4</P>
-            <P type="VLAN-ID">005</P>
+            <P type="VLAN-ID">003</P>
+          </Address>
+          <MinTime unit="s" multiplier="m">4</MinTime>
+          <MaxTime unit="s" multiplier="m">1000</MaxTime>
+        </GSE>
+        <GSE ldInst="CFG" cbName="CONTROL_BK">
+          <Address>
+            <P type="MAC-Address">01-0C-CD-01-00-09</P>
+            <P type="APPID">0009</P>
+            <P type="VLAN-PRIORITY">4</P>
+            <P type="VLAN-ID">003</P>
           </Address>
           <MinTime unit="s" multiplier="m">4</MinTime>
           <MaxTime unit="s" multiplier="m">1000</MaxTime>
@@ -45,8 +55,8 @@
       <esel:ModelVersionMin>R401</esel:ModelVersionMin>
       <esel:ClassFileVersion>009</esel:ClassFileVersion>
       <esel:ClassFileDescription default="false">SEL751 Edition 2, R401 or higher</esel:ClassFileDescription>
-      <esel:IcdFilePath>C:\ProgramData\SEL\AcSELerator\Architect\ICD\0751 009.ICD</esel:IcdFilePath>
-      <esel:CidSentTime>11/06/2024 17:26:02</esel:CidSentTime>
+      <esel:IcdFilePath>C:\Users\m-mat\AppData\Local\SEL\AcSELerator\Architect\Palette\VIED_21L1.icd</esel:IcdFilePath>
+      <esel:CidSentTime>11/09/2024 20:00:50</esel:CidSentTime>
     </Private>
     <Private type="SEL_IedResources">
       <esel:InDigitals>
@@ -114,20 +124,6 @@
               <FCDA ldInst="MET" prefix="MET" lnClass="MMXU" lnInst="1" doName="PhV" fc="MX" />
               <FCDA ldInst="MET" prefix="MET" lnClass="MMXU" lnInst="1" doName="VA" fc="MX" />
             </DataSet>
-            <DataSet name="POWER_SELF_HEALING">
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn01" daName="mag.f" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn02" daName="mag.f" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn03" daName="mag.f" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn04" daName="mag.f" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn05" daName="mag.f" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn06" daName="mag.f" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn07" daName="mag.f" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn08" daName="mag.f" fc="MX" />
-              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn09" daName="mag.f" fc="MX" />
-            </DataSet>
-            <DataSet name="STATUS_DJ">
-              <FCDA ldInst="PRO" prefix="BK1" lnClass="XCBR" lnInst="1" doName="Pos" daName="stVal" fc="ST" />
-            </DataSet>
             <DataSet name="STATUS_VIED">
               <FCDA ldInst="PRO" prefix="BFR1" lnClass="RBRF" lnInst="1" doName="OpEx" fc="ST" />
               <FCDA ldInst="PRO" prefix="TRIP" lnClass="PTRC" lnInst="1" doName="Tr" fc="ST" />
@@ -160,12 +156,30 @@
               <FCDA ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind25" fc="ST" />
               <FCDA ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind26" fc="ST" />
             </DataSet>
-            <ReportControl name="REPORT_1" datSet="STATUS_VIED" rptID="VIED_21L2" confRev="3" buffered="true" bufTime="500" indexed="false">
+            <DataSet name="STATUS_TRIP">
+              <FCDA ldInst="PRO" prefix="TRIP" lnClass="PTRC" lnInst="1" doName="Tr" daName="general" fc="ST" />
+            </DataSet>
+            <DataSet name="CONTROL_MU">
+              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO01" daName="stVal" fc="ST" />
+              <FCDA ldInst="CON" prefix="RB" lnClass="GGIO" lnInst="1" doName="SPCSO02" daName="stVal" fc="ST" />
+            </DataSet>
+            <DataSet name="POWER_SELF_HEALING">
+              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn01" daName="mag.f" fc="MX" />
+              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn02" daName="mag.f" fc="MX" />
+              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn03" daName="mag.f" fc="MX" />
+              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn04" daName="mag.f" fc="MX" />
+              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn05" daName="mag.f" fc="MX" />
+              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn06" daName="mag.f" fc="MX" />
+              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn07" daName="mag.f" fc="MX" />
+              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn08" daName="mag.f" fc="MX" />
+              <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn09" daName="mag.f" fc="MX" />
+            </DataSet>
+            <ReportControl name="REPORT_1" datSet="STATUS_VIED" rptID="VIED_21L2" confRev="5" buffered="true" bufTime="500" indexed="false">
               <TrgOps dchg="true" qchg="true" period="true" />
               <OptFields seqNum="true" timeStamp="true" dataSet="true" reasonCode="true" entryID="true" />
               <RptEnabled />
             </ReportControl>
-            <ReportControl name="REPORT_2" datSet="MX_VIED" rptID="VIED_21L2" confRev="2" buffered="true" bufTime="250" indexed="false">
+            <ReportControl name="REPORT_2" datSet="MX_VIED" rptID="VIED_21L2" confRev="4" buffered="true" bufTime="250" indexed="false">
               <TrgOps dchg="true" qchg="true" period="true" />
               <OptFields seqNum="true" timeStamp="true" dataSet="true" reasonCode="true" bufOvfl="false" />
               <RptEnabled />
@@ -576,12 +590,12 @@
               <ExtRef intAddr="RA127" serviceType="GOOSE" />
               <ExtRef intAddr="RA128" serviceType="GOOSE" />
             </Inputs>
-            <GSEControl name="GOOSE_POWER" datSet="POWER_SELF_HEALING" confRev="2" appID="VIED_21L2">
+            <GSEControl name="GOOSE_POWER" datSet="POWER_SELF_HEALING" confRev="6" appID="VIED_21L2">
               <Private type="SEL_GOOSETXAddress">
                 <esel:Address>
-                  <esel:P type="MAC-Address">01-0C-CD-01-00-03</esel:P>
-                  <esel:P type="APPID">0003</esel:P>
-                  <esel:P type="VLAN-ID">005</esel:P>
+                  <esel:P type="MAC-Address">01-0C-CD-01-00-05</esel:P>
+                  <esel:P type="APPID">0005</esel:P>
+                  <esel:P type="VLAN-ID">003</esel:P>
                   <esel:P type="VLAN-PRIORITY">4</esel:P>
                 </esel:Address>
               </Private>
@@ -592,12 +606,28 @@
                 <esel:MaxTime>1000</esel:MaxTime>
               </Private>
             </GSEControl>
-            <GSEControl name="GOOSE_STATUS" datSet="STATUS_DJ" confRev="4" appID="VIED_21L2">
+            <GSEControl name="GOOSE_STATUS" datSet="STATUS_TRIP" confRev="7" appID="VIED_21L2">
               <Private type="SEL_GOOSETXAddress">
                 <esel:Address>
-                  <esel:P type="MAC-Address">01-0C-CD-01-00-05</esel:P>
-                  <esel:P type="APPID">0005</esel:P>
-                  <esel:P type="VLAN-ID">005</esel:P>
+                  <esel:P type="MAC-Address">01-0C-CD-01-00-06</esel:P>
+                  <esel:P type="APPID">0006</esel:P>
+                  <esel:P type="VLAN-ID">003</esel:P>
+                  <esel:P type="VLAN-PRIORITY">4</esel:P>
+                </esel:Address>
+              </Private>
+              <Private type="SEL_GOOSETXMinTime">
+                <esel:MinTime>4</esel:MinTime>
+              </Private>
+              <Private type="SEL_GOOSETXMaxTime">
+                <esel:MaxTime>1000</esel:MaxTime>
+              </Private>
+            </GSEControl>
+            <GSEControl name="CONTROL_BK" datSet="CONTROL_MU" confRev="3" appID="VIED_21L2">
+              <Private type="SEL_GOOSETXAddress">
+                <esel:Address>
+                  <esel:P type="MAC-Address">01-0C-CD-01-00-09</esel:P>
+                  <esel:P type="APPID">0009</esel:P>
+                  <esel:P type="VLAN-ID">003</esel:P>
                   <esel:P type="VLAN-PRIORITY">4</esel:P>
                 </esel:Address>
               </Private>

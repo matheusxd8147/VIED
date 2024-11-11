@@ -127,6 +127,8 @@ static int funcoes, curva_51, curva_51V, curva_51N, curva_67, curva_67N;
 static float pick_up_50, pick_up_50N, pick_up_51, pick_up_51V, pick_up_51N, pick_up_67, pick_up_67N, atm_67, atm_67N;
 static float dial_51, dial_51V, dial_51N, dial_67, dial_67N, tensao_51V;
 
+static float a, b, c, d, e, f, g, h, i;
+
 void sigint_handler(int signalId)
 {
 	running = 0;
@@ -181,7 +183,7 @@ void funcao_50()
         {
             funcao_50_62BF();
         }
-        Thread_sleep(0.1667);
+        Thread_sleep(17);
     }
 }
 
@@ -197,7 +199,7 @@ void funcao_50N()
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
         funcao_50_62BF();
     }
-    Thread_sleep(0.1667);
+    Thread_sleep(17);
     }
 }
 
@@ -302,7 +304,7 @@ void funcao_51()
             }
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
         }
-    }Thread_sleep(0.1667);}
+    }Thread_sleep(17);}
 }
 
 void funcao_51V()
@@ -408,7 +410,7 @@ void funcao_51V()
             }
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
         }
-    }Thread_sleep(0.1667);}
+    }Thread_sleep(17);}
 }
 
 void funcao_51N()
@@ -435,7 +437,7 @@ void funcao_51N()
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind13_stVal, true);
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
         }
-    }Thread_sleep(0.1667);}
+    }Thread_sleep(17);}
 }
 
 void funcao_67()
@@ -549,7 +551,7 @@ void funcao_67()
                 IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
             }
         }
-    }Thread_sleep(0.1667);}
+    }Thread_sleep(17);}
 }
 
 void funcao_67N()
@@ -584,7 +586,7 @@ void funcao_67N()
                 IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
             }
         }
-    }Thread_sleep(0.1667);}
+    }Thread_sleep(17);}
 }
 
 
@@ -902,16 +904,19 @@ gooseListener1(GooseSubscriber subscriber, void* parameter)
 {
     MmsValue* values = GooseSubscriber_getDataSetValues(subscriber);
 
-    char buffer[50];
+    char buffer[100];
 
-    MmsValue_printToBuffer(values, buffer, 50);
+    MmsValue_printToBuffer(values, buffer, 100);
 
-
-    char b; char c; char d;
-
-    b = buffer[1];
-    c = buffer[6];
-    d = buffer[11];
+    a = atof(&buffer[1]);//21L1
+    b = atof(&buffer[12]);//21L2
+    c = atof(&buffer[23]);//21L3
+    d = atof(&buffer[34]);//21L4
+    e = atof(&buffer[45]);//21L5
+    f = atof(&buffer[56]);//21L6
+    g = atof(&buffer[67]);//21L7
+    h = atof(&buffer[78]);//21L8
+    i = atof(&buffer[89]);//21L9
     uint64_t y = Hal_getTimeInMs();
 
     printf("-------------------------------------------------------------------------------------------------------------\n");            
@@ -1016,9 +1021,9 @@ main(int argc, char** argv)
 
     //Recepção e Assinatura de mensagens GOOSE
     GooseReceiver receiver = GooseReceiver_create();
-    GooseReceiver_setInterfaceId(receiver, "eth0");
-    GooseSubscriber subscriber = GooseSubscriber_create("SEL_751_1CFG/LLN0$GO$GOOSE_SL_1", NULL); //Especificação de quem o ied irá receber as mensagens goose
-    GooseSubscriber subscriber1 = GooseSubscriber_create("VIED_50_2CFG/LLN0$GO$GOOSE_VIED_50_2", NULL); //Especificação de quem o ied irá receber as mensagens goose
+    GooseReceiver_setInterfaceId(receiver, "lo");
+    GooseSubscriber subscriber = GooseSubscriber_create("VIED_21L90CFG/LLN0$GO$GOOSE_STATUS", NULL); //Especificação de quem o ied irá receber as mensagens goose
+    GooseSubscriber subscriber1 = GooseSubscriber_create("VIED_21L90CFG/LLN0$GO$GOOSE_POWER", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber_setListener(subscriber, gooseListener, iedServer);
     GooseSubscriber_setListener(subscriber1, gooseListener1, iedServer);  
     GooseReceiver_addSubscriber(receiver, subscriber);
@@ -1068,7 +1073,7 @@ main(int argc, char** argv)
     IedServer_setGoCBHandler(iedServer, goCbEventHandler, NULL);
 
     /* MMS server will be instructed to start listening to client connections. */
-    IedServer_start(iedServer, 103);
+    IedServer_start(iedServer, 107);
 
     IedServer_setControlHandler(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01, (ControlHandler) controlHandlerForBinaryOutput,
     IEDMODEL_CON_RBGGIO1_SPCSO01);
@@ -1105,7 +1110,17 @@ main(int argc, char** argv)
 
     while (running) {
 
-        Thread_sleep(1100000);
+        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn01_mag_f, 0);
+        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn02_mag_f, 0);
+        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn03_mag_f, 223.00);
+        //IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn03_mag_f, sqrt(3)*tensao_primarioA*corrente_primarioA);
+        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn04_mag_f, 0);
+        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn05_mag_f, 0);
+        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn06_mag_f, 0);
+        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn07_mag_f, 0);
+        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn08_mag_f, 0);
+        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn09_mag_f, 0);
+        Thread_sleep(17);
 
     }
 
