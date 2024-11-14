@@ -893,6 +893,12 @@ gooseListener(GooseSubscriber subscriber, void* parameter)
     b = buffer[1];
     c = buffer[6];
     d = buffer[11];
+    printf("\n%c\n", b);
+    if (b == 116){
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind10_stVal, true);
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind11_stVal, false);
+    }
     uint64_t y = Hal_getTimeInMs();
 
     printf("-------------------------------------------------------------------------------------------------------------\n");            
@@ -911,7 +917,6 @@ gooseListener1(GooseSubscriber subscriber, void* parameter)
     MmsValue_printToBuffer(values, buffer, 100);
 
     a = atof(&buffer[1]);//21L1
-    i = atof(&buffer[89]);//21L9
     uint64_t y = Hal_getTimeInMs();
 
     printf("-------------------------------------------------------------------------------------------------------------\n");            
