@@ -1,0 +1,3 @@
+#!/bin/bash
+gcc -g   -o mu1 vmu.c static_model.c -I../../config -I../../hal/inc -I../../src/common/inc -I../../src/mms/inc -I../../src/mms/inc_private -I../../src/mms/asn1 -I../../src/iec61850/inc -I../../src/iec61850/inc_private -I../../src/goose -I../../src/sampled_values -I../../src/logging -I../../src/tls ../../build/libiec61850.a -lpthread -lm
+./mu1 lo

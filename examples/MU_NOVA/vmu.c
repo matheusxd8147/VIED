@@ -214,7 +214,7 @@ main(int argc, char** argv)
     IedServer_setGoCBHandler(iedServer, goCbEventHandler, NULL);
 
     /* MMS server will be instructed to start listening to client connections. */
-    IedServer_start(iedServer, 102);
+    IedServer_start(iedServer, 120);
 
     if (!IedServer_isRunning(iedServer)) {
         printf("Starting server failed! Exit.\n");

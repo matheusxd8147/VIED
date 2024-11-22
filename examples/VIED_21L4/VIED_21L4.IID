@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SCL xmlns:esel="http://www.selinc.com/2006/61850" version="2007" revision="B" xmlns="http://www.iec.ch/61850/2003/SCL">
-  <Header id="vied" version="14" revision="1.0" toolID="AcSELerator Architect 2.3.17.16">
+  <Header id="vied" version="15" revision="1.0" toolID="AcSELerator Architect 2.3.17.16">
     <History>
-      <Hitem version="14" revision="1.0" when="11/11/2024 12:32:39" who="GREI_PC_MALA\GREI" what="IED exported from Project vied" />
+      <Hitem version="15" revision="1.0" when="11/17/2024 17:23:53" who="Matheus-PC\Matheus Souza" what="IED exported from Project vied" />
     </History>
   </Header>
   <Communication>
@@ -46,6 +46,16 @@
           <MinTime unit="s" multiplier="m">4</MinTime>
           <MaxTime unit="s" multiplier="m">1000</MaxTime>
         </GSE>
+        <GSE ldInst="CFG" cbName="GOOSE_SH">
+          <Address>
+            <P type="MAC-Address">01-0C-CD-01-00-21</P>
+            <P type="APPID">0021</P>
+            <P type="VLAN-PRIORITY">4</P>
+            <P type="VLAN-ID">003</P>
+          </Address>
+          <MinTime unit="s" multiplier="m">4</MinTime>
+          <MaxTime unit="s" multiplier="m">1000</MaxTime>
+        </GSE>
       </ConnectedAP>
     </SubNetwork>
   </Communication>
@@ -56,7 +66,7 @@
       <esel:ClassFileVersion>009</esel:ClassFileVersion>
       <esel:ClassFileDescription default="false">SEL751 Edition 2, R401 or higher</esel:ClassFileDescription>
       <esel:IcdFilePath>C:\Users\m-mat\AppData\Local\SEL\AcSELerator\Architect\Palette\VIED_21L1.icd</esel:IcdFilePath>
-      <esel:CidSentTime>11/10/2024 23:35:51</esel:CidSentTime>
+      <esel:CidSentTime>11/17/2024 17:23:42</esel:CidSentTime>
     </Private>
     <Private type="SEL_IedResources">
       <esel:InDigitals>
@@ -166,6 +176,9 @@
             <DataSet name="POWER_SELF_HEALING">
               <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn02" daName="mag.f" fc="MX" />
               <FCDA ldInst="ANN" prefix="MV" lnClass="GGIO" lnInst="12" doName="AnIn04" daName="mag.f" fc="MX" />
+            </DataSet>
+            <DataSet name="SELF_HEALING">
+              <FCDA ldInst="ANN" prefix="INA" lnClass="GGIO" lnInst="1" doName="Ind01" daName="stVal" fc="ST" />
             </DataSet>
             <ReportControl name="REPORT_1" datSet="STATUS_VIED" rptID="VIED_21L4" confRev="4" buffered="true" bufTime="500" indexed="false">
               <TrgOps dchg="true" qchg="true" period="true" />
@@ -620,6 +633,22 @@
                 <esel:Address>
                   <esel:P type="MAC-Address">01-0C-CD-01-00-0E</esel:P>
                   <esel:P type="APPID">000E</esel:P>
+                  <esel:P type="VLAN-ID">003</esel:P>
+                  <esel:P type="VLAN-PRIORITY">4</esel:P>
+                </esel:Address>
+              </Private>
+              <Private type="SEL_GOOSETXMinTime">
+                <esel:MinTime>4</esel:MinTime>
+              </Private>
+              <Private type="SEL_GOOSETXMaxTime">
+                <esel:MaxTime>1000</esel:MaxTime>
+              </Private>
+            </GSEControl>
+            <GSEControl name="GOOSE_SH" datSet="SELF_HEALING" confRev="1" appID="VIED_21L4">
+              <Private type="SEL_GOOSETXAddress">
+                <esel:Address>
+                  <esel:P type="MAC-Address">01-0C-CD-01-00-21</esel:P>
+                  <esel:P type="APPID">0021</esel:P>
                   <esel:P type="VLAN-ID">003</esel:P>
                   <esel:P type="VLAN-PRIORITY">4</esel:P>
                 </esel:Address>

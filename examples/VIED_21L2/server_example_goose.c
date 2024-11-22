@@ -602,7 +602,7 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind11_stVal, false);
     }
 
-    if ((strcmp(svID,"VMU01"))== 0){      
+    if ((strcmp(svID,"VMU02"))== 0){      
         
         
         SVrms_deltaA = (SVrms_deltaA + pow((SVSubscriber_ASDU_getINT32 (asdu, 0)*0.001),2));
@@ -923,6 +923,37 @@ gooseListener1(GooseSubscriber subscriber, void* parameter)
 
 }
 
+static void
+gooseListener2(GooseSubscriber subscriber, void* parameter)
+{
+    MmsValue* values = GooseSubscriber_getDataSetValues(subscriber);
+
+    char buffer[50];
+
+    MmsValue_printToBuffer(values, buffer, 50);
+
+
+    char b; char c; char d;
+
+    b = buffer[1];
+    c = buffer[6];
+    d = buffer[11];
+    uint64_t y = Hal_getTimeInMs();
+
+    /*if(b == 116){
+        IedServer_updateDbposValue(iedServer, IEDMODEL_PRO_BK1XCBR1_Pos_stVal, DBPOS_ON);
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind11_stVal, false);
+    }else{
+        IedServer_updateDbposValue(iedServer, IEDMODEL_PRO_BK1XCBR1_Pos_stVal, DBPOS_INTERMEDIATE_STATE);
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind10_stVal, false);
+    }*/
+
+    printf("-------------------------------------------------------------------------------------------------------------\n");            
+    printf("                               PRIMEIRA MENSAGEM GOOSE ASSINADA VIED 3                                       \n");
+    printf("-------------------------------------------------------------------------------------------------------------\n");
+
+}
+
 int
 main(int argc, char** argv)
 {
@@ -1022,10 +1053,13 @@ main(int argc, char** argv)
     GooseReceiver_setInterfaceId(receiver, "lo");
     GooseSubscriber subscriber = GooseSubscriber_create("VIED_21L10CFG/LLN0$GO$GOOSE_POWER", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber subscriber1 = GooseSubscriber_create("VIED_50_2CFG/LLN0$GO$GOOSE_VIED_50_2", NULL); //Especificação de quem o ied irá receber as mensagens goose
+    GooseSubscriber subscriber2 = GooseSubscriber_create("MUBinIO_BinaryInputs/LLN0$GO$VMU_02_GOOSE", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber_setListener(subscriber, gooseListener, iedServer);
-    GooseSubscriber_setListener(subscriber1, gooseListener1, iedServer);  
+    GooseSubscriber_setListener(subscriber1, gooseListener1, iedServer);
+    GooseSubscriber_setListener(subscriber2, gooseListener2, iedServer);
     GooseReceiver_addSubscriber(receiver, subscriber);
     GooseReceiver_addSubscriber(receiver, subscriber1);
+    GooseReceiver_addSubscriber(receiver, subscriber2);
 
     //Ligação dos Servidores
     GooseReceiver_start(receiver);
@@ -1109,6 +1143,9 @@ main(int argc, char** argv)
     while (running) {
 
         IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn02_mag_f, 222.00);
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_INAGGIO1_Ind01_stVal, true);
+        IedServer_updateDbposValue(iedServer, IEDMODEL_PRO_BK1XCBR1_Pos_stVal, DBPOS_INTERMEDIATE_STATE);
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
         Thread_sleep(17);
 
     }

@@ -27,6 +27,7 @@
 #define pi 3.14
 
 Thread thread_50, thread_50N, thread_51, thread_51V, thread_51N, thread_67, thread_67N;
+Thread self_healing;
 
 
 /* import IEC 61850 device model created from SCL-File */
@@ -130,6 +131,11 @@ static float dial_51, dial_51V, dial_51N, dial_67, dial_67N, tensao_51V;
 static float a, b, c, d, e, f, g, h, i;
 static float a1, b1, c1, d1, e1, f1, g1, h1, i1;
 static float a2, b2, c2, d2, e2, f2, g2, h2, i2;
+static float pMax_21l4, pMax_21l5;
+
+static float pMaxS21l1 = 5662.5, pMaxS21l2 = 3862.5, pMaxS21l3 = 7325.0;
+
+static char sh;
 
 void sigint_handler(int signalId)
 {
@@ -604,7 +610,7 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind11_stVal, false);
     }
 
-    if ((strcmp(svID,"VMU01"))== 0){      
+    if ((strcmp(svID,"VMU06"))== 0){      
         
         
         SVrms_deltaA = (SVrms_deltaA + pow((SVSubscriber_ASDU_getINT32 (asdu, 0)*0.001),2));
@@ -907,6 +913,21 @@ gooseListener1(GooseSubscriber subscriber, void* parameter)
     b = atof(&buffer1[1]);//21L2
     d = atof(&buffer1[12]);//21L4
     e = atof(&buffer1[23]);//21L5
+
+    if (d>=0){
+        pMax_21l4 = d;
+    }
+    if (e>=0){
+        pMax_21l5 = e;
+    }
+
+    if (d > pMax_21l4){
+        pMax_21l4 = d;
+    }
+    if (e > pMax_21l5){
+        pMax_21l5 = e;
+    }
+
     uint64_t y = Hal_getTimeInMs();
 
     /*printf("-------------------------------------------------------------------------------------------------------------\n");            
@@ -952,6 +973,99 @@ gooseListener3(GooseSubscriber subscriber, void* parameter)
     printf("                               PRIMEIRA MENSAGEM GOOSE ASSINADA VIED 4                                       \n");
     printf("-------------------------------------------------------------------------------------------------------------\n");*/
 
+}
+
+static void
+gooseListener4(GooseSubscriber subscriber, void* parameter)
+{
+    MmsValue* values = GooseSubscriber_getDataSetValues(subscriber);
+
+    char buffer[50];
+
+    
+
+    MmsValue_printToBuffer(values, buffer, 50);
+
+    sh = buffer[1];
+    /*if (sh == 116){
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind10_stVal, true);
+    }*/
+
+    /*if(b == 116){
+        IedServer_updateDbposValue(iedServer, IEDMODEL_PRO_BK1XCBR1_Pos_stVal, DBPOS_ON);
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind11_stVal, false);
+    }
+
+    else{
+        IedServer_updateDbposValue(iedServer, IEDMODEL_PRO_BK1XCBR1_Pos_stVal, DBPOS_INTERMEDIATE_STATE);
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind10_stVal, false);
+    }*/
+    uint64_t y = Hal_getTimeInMs();
+
+    /*printf("-------------------------------------------------------------------------------------------------------------\n");            
+    printf("                               PRIMEIRA MENSAGEM GOOSE ASSINADA VIED 2                                       \n");
+    printf("-------------------------------------------------------------------------------------------------------------\n");*/
+
+}
+
+static void
+gooseListener5(GooseSubscriber subscriber, void* parameter)
+{
+    MmsValue* values = GooseSubscriber_getDataSetValues(subscriber);
+
+    char buffer[50];
+
+    MmsValue_printToBuffer(values, buffer, 50);
+
+
+    char b; char c; char d;
+
+    b = buffer[1];
+    c = buffer[6];
+    d = buffer[11];
+    uint64_t y = Hal_getTimeInMs();
+
+    if(b == 116){
+        IedServer_updateDbposValue(iedServer, IEDMODEL_PRO_BK1XCBR1_Pos_stVal, DBPOS_ON);
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind11_stVal, false);
+    }else{
+        IedServer_updateDbposValue(iedServer, IEDMODEL_PRO_BK1XCBR1_Pos_stVal, DBPOS_INTERMEDIATE_STATE);
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind10_stVal, false);
+    }
+
+    printf("-------------------------------------------------------------------------------------------------------------\n");            
+    printf("                               PRIMEIRA MENSAGEM GOOSE ASSINADA VIED 3                                       \n");
+    printf("-------------------------------------------------------------------------------------------------------------\n");
+
+}
+
+void self_h(){
+    float x, y;
+    printf("\n%f\n",a2);//21L1
+    printf("%f\n",b);//21L2
+    printf("%f\n",c1);//21L3
+    if ((b == 0)&&(sh == 116)){
+        printf("---------------------");
+        printf("----T6 em Falta------");
+        printf("---------------------");
+        x = (a2 + pMax_21l5)/pMaxS21l1;
+        y = (c1 + pMax_21l5)/pMaxS21l3;
+        if (x>y){
+            printf("---------------------------");
+            printf("----Reeligar por 21L8------");
+            printf("---------------------------");
+        }
+        if (y>x){
+            printf("---------------------------");
+            printf("----Reeligar por 21L7------");
+            printf("---------------------------");
+        }
+    }
+    if ((b == 0)&&(sh != 116)){
+        printf("---------------------");
+        printf("----T7 em Falta------");
+        printf("---------------------");
+    }
 }
 
 int
@@ -1055,14 +1169,20 @@ main(int argc, char** argv)
     GooseSubscriber subscriber1 = GooseSubscriber_create("VIED_21L5CFG/LLN0$GO$GOOSE_POWER", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber subscriber2 = GooseSubscriber_create("VIED_21L7CFG/LLN0$GO$GOOSE_POWER", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber subscriber3 = GooseSubscriber_create("VIED_21L8CFG/LLN0$GO$GOOSE_POWER", NULL); //Especificação de quem o ied irá receber as mensagens goose
+    GooseSubscriber subscriber4 = GooseSubscriber_create("VIED_21L5CFG/LLN0$GO$GOOSE_SH", NULL); //Especificação de quem o ied irá receber as mensagens goose
+    GooseSubscriber subscriber5 = GooseSubscriber_create("MUBinIO_BinaryInputs/LLN0$GO$VMU_06_GOOSE", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber_setListener(subscriber, gooseListener, iedServer);
     GooseSubscriber_setListener(subscriber1, gooseListener1, iedServer);
     GooseSubscriber_setListener(subscriber2, gooseListener2, iedServer);
     GooseSubscriber_setListener(subscriber3, gooseListener3, iedServer);
+    GooseSubscriber_setListener(subscriber4, gooseListener4, iedServer);
+    GooseSubscriber_setListener(subscriber5, gooseListener5, iedServer);
     GooseReceiver_addSubscriber(receiver, subscriber);
     GooseReceiver_addSubscriber(receiver, subscriber1);
     GooseReceiver_addSubscriber(receiver, subscriber2);
     GooseReceiver_addSubscriber(receiver, subscriber3);
+    GooseReceiver_addSubscriber(receiver, subscriber4);
+    GooseReceiver_addSubscriber(receiver, subscriber5);
 
     //Ligação dos Servidores
     GooseReceiver_start(receiver);
@@ -1159,6 +1279,7 @@ main(int argc, char** argv)
         printf("%f\n",g1);
         printf("%f\n",h2);
         printf("%f\n",i2);
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_INAGGIO1_Ind01_stVal, true);
         Thread_sleep(17);
 
     }
