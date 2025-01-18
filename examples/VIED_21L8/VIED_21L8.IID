@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SCL xmlns:esel="http://www.selinc.com/2006/61850" version="2007" revision="B" xmlns="http://www.iec.ch/61850/2003/SCL">
-  <Header id="vied" version="24" revision="1.0" toolID="AcSELerator Architect 2.3.17.16">
+  <Header id="New Project" version="0" revision="1.0" toolID="AcSELerator Architect 2.3.17.16">
     <History>
-      <Hitem version="24" revision="1.0" when="12/17/2024 21:01:33" who="DESKTOP-M1EKIGR\Grei_bancada" what="IED exported from Project vied" />
+      <Hitem version="0" revision="1.0" when="01/18/2025 19:17:59" who="GREI_PC_MALA\GREI" what="IED exported from Project New Project" />
     </History>
   </Header>
   <Communication>
@@ -46,6 +46,16 @@
           <MinTime unit="s" multiplier="m">4</MinTime>
           <MaxTime unit="s" multiplier="m">1000</MaxTime>
         </GSE>
+        <GSE ldInst="CFG" cbName="FEEDER_MEETING">
+          <Address>
+            <P type="MAC-Address">01-0C-CD-01-00-05</P>
+            <P type="APPID">0005</P>
+            <P type="VLAN-PRIORITY">4</P>
+            <P type="VLAN-ID">003</P>
+          </Address>
+          <MinTime unit="s" multiplier="m">4</MinTime>
+          <MaxTime unit="s" multiplier="m">1000</MaxTime>
+        </GSE>
       </ConnectedAP>
     </SubNetwork>
   </Communication>
@@ -55,7 +65,7 @@
       <esel:ModelVersionMin>R401</esel:ModelVersionMin>
       <esel:ClassFileVersion>009</esel:ClassFileVersion>
       <esel:ClassFileDescription default="false">SEL751 Edition 2, R401 or higher</esel:ClassFileDescription>
-      <esel:IcdFilePath>C:\Users\m-mat\AppData\Local\SEL\AcSELerator\Architect\Palette\VIED_21L1.icd</esel:IcdFilePath>
+      <esel:IcdFilePath>C:\Users\GREI\AppData\Local\SEL\AcSELerator\Architect\Palette\VIED_21L8.icd</esel:IcdFilePath>
       <esel:CidSentTime>11/17/2024 17:27:57</esel:CidSentTime>
     </Private>
     <Private type="SEL_IedResources">
@@ -168,6 +178,10 @@
             <DataSet name="STATUS">
               <FCDA ldInst="PRO" prefix="TRIP" lnClass="PTRC" lnInst="1" doName="Tr" daName="general" fc="ST" />
               <FCDA ldInst="PRO" prefix="BK1" lnClass="XCBR" lnInst="1" doName="Pos" daName="stVal" fc="ST" />
+            </DataSet>
+            <DataSet name="CONTROL_MEETING">
+              <FCDA ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind23" daName="stVal" fc="ST" />
+              <FCDA ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind24" daName="stVal" fc="ST" />
             </DataSet>
             <ReportControl name="REPORT_1" datSet="STATUS_VIED" rptID="VIED_21L8" confRev="4" buffered="true" bufTime="500" indexed="false">
               <TrgOps dchg="true" qchg="true" period="true" />
@@ -622,6 +636,22 @@
                 <esel:Address>
                   <esel:P type="MAC-Address">01-0C-CD-01-00-1A</esel:P>
                   <esel:P type="APPID">001A</esel:P>
+                  <esel:P type="VLAN-ID">003</esel:P>
+                  <esel:P type="VLAN-PRIORITY">4</esel:P>
+                </esel:Address>
+              </Private>
+              <Private type="SEL_GOOSETXMinTime">
+                <esel:MinTime>4</esel:MinTime>
+              </Private>
+              <Private type="SEL_GOOSETXMaxTime">
+                <esel:MaxTime>1000</esel:MaxTime>
+              </Private>
+            </GSEControl>
+            <GSEControl desc="CONTROL FEEDER MEETING" name="FEEDER_MEETING" datSet="CONTROL_MEETING" confRev="1" appID="VIED_21L8">
+              <Private type="SEL_GOOSETXAddress">
+                <esel:Address>
+                  <esel:P type="MAC-Address">01-0C-CD-01-00-05</esel:P>
+                  <esel:P type="APPID">0005</esel:P>
                   <esel:P type="VLAN-ID">003</esel:P>
                   <esel:P type="VLAN-PRIORITY">4</esel:P>
                 </esel:Address>

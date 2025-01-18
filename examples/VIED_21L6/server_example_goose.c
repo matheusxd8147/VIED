@@ -135,9 +135,9 @@ static float pMax_21l4, pMax_21l5;
 
 static float pMaxS21l1 = 5662.5, pMaxS21l2 = 3862.5, pMaxS21l3 = 7325.0;
 
-static char sh, trip_21l5;
+static char sh, trip_21l5, trip_21l7, trip_21l8;
 
-int estado_dj_21l5_1, estado_dj_21l5_2;
+static int estado_dj_21l5, estado_dj_21l7, estado_dj_21l8;
 
 void sigint_handler(int signalId)
 {
@@ -882,6 +882,46 @@ goCbEventHandler(MmsGooseControlBlock goCb, int event, void* parameter)
 //Função Listener
 
 static void
+gooseListener6(GooseSubscriber subscriber, void* parameter)
+{
+    MmsValue* values = GooseSubscriber_getDataSetValues(subscriber);
+
+    char buffer[50];
+
+    MmsValue_printToBuffer(values, buffer, 50);
+
+    trip_21l7 = buffer[1];
+    estado_dj_21l7 = atoi(&buffer[7]);
+
+    uint64_t y = Hal_getTimeInMs();
+
+    /*printf("-------------------------------------------------------------------------------------------------------------\n");            
+    printf("                               PRIMEIRA MENSAGEM GOOSE ASSINADA VIED 1                                       \n");
+    printf("-------------------------------------------------------------------------------------------------------------\n");*/
+
+}
+
+static void
+gooseListener7(GooseSubscriber subscriber, void* parameter)
+{
+    MmsValue* values = GooseSubscriber_getDataSetValues(subscriber);
+
+    char buffer[50];
+
+    MmsValue_printToBuffer(values, buffer, 50);
+
+    trip_21l8 = buffer[1];
+    estado_dj_21l8 = atoi(&buffer[7]);
+
+    uint64_t y = Hal_getTimeInMs();
+
+    /*printf("-------------------------------------------------------------------------------------------------------------\n");            
+    printf("                               PRIMEIRA MENSAGEM GOOSE ASSINADA VIED 1                                       \n");
+    printf("-------------------------------------------------------------------------------------------------------------\n");*/
+
+}
+
+static void
 gooseListener(GooseSubscriber subscriber, void* parameter)
 {
     MmsValue* values = GooseSubscriber_getDataSetValues(subscriber);
@@ -889,14 +929,9 @@ gooseListener(GooseSubscriber subscriber, void* parameter)
     char buffer[50];
 
     MmsValue_printToBuffer(values, buffer, 50);
-    int estado_dj_21l5_1, estado_dj_21l5_2;
 
     trip_21l5 = buffer[1];
-    estado_dj_21l5_1 = atoi(&buffer[7]);
-    estado_dj_21l5_2 = atoi(&buffer[8]);
-
-    system("clear");
-    printf("\n%d\n\n%d\n\n%d\n", trip_21l5, estado_dj_21l5_1, estado_dj_21l5_2);
+    estado_dj_21l5 = atoi(&buffer[7]);
 
     uint64_t y = Hal_getTimeInMs();
 
@@ -1038,9 +1073,9 @@ gooseListener5(GooseSubscriber subscriber, void* parameter)
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind10_stVal, false);
     }
 
-    printf("-------------------------------------------------------------------------------------------------------------\n");            
+    /*printf("-------------------------------------------------------------------------------------------------------------\n");            
     printf("                               PRIMEIRA MENSAGEM GOOSE ASSINADA VIED 3                                       \n");
-    printf("-------------------------------------------------------------------------------------------------------------\n");
+    printf("-------------------------------------------------------------------------------------------------------------\n");*/
 
 }
 
@@ -1050,10 +1085,10 @@ void self_h(){
     printf("%f\n",b);//21L2
     printf("%f\n",c1);//21L3
     //DETECÇÃO DO TRECHO EM FALTA PARA ENNCONTRO 21L6
-
-    if ((tensao_primarioA == 0)&&(sh == 116)){
+    // TRIP FALSO E DISJUNTOR FECHADO E TENSÃO EM ZERO
+    if ((tensao_primarioA == 0) && (trip_21l5 == 102) && (estado_dj_21l5 == 10)){
         printf("---------------------");
-        printf("----T6 em Falta------");
+        printf("----T5 em Falta------");
         printf("---------------------");
         x = (a2 + pMax_21l5)/pMaxS21l1;
         y = (c1 + pMax_21l5)/pMaxS21l3;
@@ -1061,6 +1096,16 @@ void self_h(){
             printf("---------------------------");
             printf("----Reeligar por 21L8------");
             printf("---------------------------");
+            if ((estado_dj_21l7 == 10) && (estado_dj_21l8 == 0)){
+                //ABRIR 21L7
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind23_stVal, true);
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind24_stVal, false);
+            }
+            if ((estado_dj_21l7 == 0) && (estado_dj_21l8 == 0)){
+                //FECHAR 21L8
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind24_stVal, false);
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind23_stVal, true);
+            }
         }
         if (y>x){
             printf("---------------------------");
@@ -1068,9 +1113,10 @@ void self_h(){
             printf("---------------------------");
         }
     }
-    if ((b == 0)&&(sh != 116)){
+    // TRIP FALSO E DISJUNTOR ABERTO E TENSÃO EM ZERO
+    if ((tensao_primarioA == 0) && (trip_21l5 == 102) && (estado_dj_21l5 == 0)){
         printf("---------------------");
-        printf("----T7 em Falta------");
+        printf("----T6 em Falta------");
         printf("---------------------");
     }
 }
@@ -1172,6 +1218,8 @@ main(int argc, char** argv)
     //Recepção e Assinatura de mensagens GOOSE
     GooseReceiver receiver = GooseReceiver_create();
     GooseReceiver_setInterfaceId(receiver, "eth0");
+    GooseSubscriber subscriber6 = GooseSubscriber_create("VIED_21L7CFG/LLN0$GO$GOOSE_STATUS", NULL); 
+    GooseSubscriber subscriber7 = GooseSubscriber_create("VIED_21L8CFG/LLN0$GO$GOOSE_STATUS", NULL); 
     GooseSubscriber subscriber = GooseSubscriber_create("VIED_21L5CFG/LLN0$GO$GOOSE_STATUS", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber subscriber1 = GooseSubscriber_create("VIED_21L5CFG/LLN0$GO$GOOSE_POWER", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber subscriber2 = GooseSubscriber_create("VIED_21L7CFG/LLN0$GO$GOOSE_POWER", NULL); //Especificação de quem o ied irá receber as mensagens goose
@@ -1184,6 +1232,8 @@ main(int argc, char** argv)
     GooseSubscriber_setListener(subscriber3, gooseListener3, iedServer);
     GooseSubscriber_setListener(subscriber4, gooseListener4, iedServer);
     GooseSubscriber_setListener(subscriber5, gooseListener5, iedServer);
+    GooseSubscriber_setListener(subscriber6, gooseListener6, iedServer);
+    GooseSubscriber_setListener(subscriber7, gooseListener7, iedServer);
     GooseReceiver_addSubscriber(receiver, subscriber);
     GooseReceiver_addSubscriber(receiver, subscriber1);
     GooseReceiver_addSubscriber(receiver, subscriber2);
