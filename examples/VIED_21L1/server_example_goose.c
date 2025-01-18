@@ -810,7 +810,7 @@ controlHandlerForBinaryOutput(ControlAction action, void* parameter, MmsValue* v
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, false);
         }
         else{
-            printf("off\n");
+            //printf("off\n");
 
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, false);
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, true);
