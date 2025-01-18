@@ -135,7 +135,9 @@ static float pMax_21l4, pMax_21l5;
 
 static float pMaxS21l1 = 5662.5, pMaxS21l2 = 3862.5, pMaxS21l3 = 7325.0;
 
-static char sh;
+static char sh, trip_21l5;
+
+int estado_dj_21l5_1, estado_dj_21l5_2;
 
 void sigint_handler(int signalId)
 {
@@ -887,6 +889,14 @@ gooseListener(GooseSubscriber subscriber, void* parameter)
     char buffer[50];
 
     MmsValue_printToBuffer(values, buffer, 50);
+    int estado_dj_21l5_1, estado_dj_21l5_2;
+
+    trip_21l5 = buffer[1];
+    estado_dj_21l5_1 = atoi(&buffer[7]);
+    estado_dj_21l5_2 = atoi(&buffer[8]);
+
+    system("clear");
+    printf("\n%d\n\n%d\n\n%d\n", trip_21l5, estado_dj_21l5_1, estado_dj_21l5_2);
 
     uint64_t y = Hal_getTimeInMs();
 
@@ -1039,7 +1049,9 @@ void self_h(){
     printf("\n%f\n",a2);//21L1
     printf("%f\n",b);//21L2
     printf("%f\n",c1);//21L3
-    if ((b == 0)&&(sh == 116)){
+    //DETECÇÃO DO TRECHO EM FALTA PARA ENNCONTRO 21L6
+
+    if ((tensao_primarioA == 0)&&(sh == 116)){
         printf("---------------------");
         printf("----T6 em Falta------");
         printf("---------------------");
@@ -1223,7 +1235,7 @@ main(int argc, char** argv)
     IedServer_setGoCBHandler(iedServer, goCbEventHandler, NULL);
 
     /* MMS server will be instructed to start listening to client connections. */
-    IedServer_start(iedServer, 102);
+    IedServer_start(iedServer, 103);
 
     IedServer_setControlHandler(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01, (ControlHandler) controlHandlerForBinaryOutput,
     IEDMODEL_CON_RBGGIO1_SPCSO01);
@@ -1264,6 +1276,7 @@ main(int argc, char** argv)
         IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn04_mag_f, d);
         IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn05_mag_f, e);
         IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn06_mag_f, 226.00);
+        /*
         system("clear");
         printf("\n%f\n",a2);
         printf("%f\n",b);
@@ -1274,6 +1287,7 @@ main(int argc, char** argv)
         printf("%f\n",g1);
         printf("%f\n",h2);
         printf("%f\n",i2);
+        */
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_INAGGIO1_Ind01_stVal, true);
         Thread_sleep(17);
 
