@@ -1171,7 +1171,7 @@ main(int argc, char** argv)
 
     //Recepção e Assinatura de mensagens GOOSE
     GooseReceiver receiver = GooseReceiver_create();
-    GooseReceiver_setInterfaceId(receiver, "lo");
+    GooseReceiver_setInterfaceId(receiver, "eth0");
     GooseSubscriber subscriber = GooseSubscriber_create("VIED_21L5CFG/LLN0$GO$GOOSE_STATUS", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber subscriber1 = GooseSubscriber_create("VIED_21L5CFG/LLN0$GO$GOOSE_POWER", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber subscriber2 = GooseSubscriber_create("VIED_21L7CFG/LLN0$GO$GOOSE_POWER", NULL); //Especificação de quem o ied irá receber as mensagens goose
@@ -1235,7 +1235,7 @@ main(int argc, char** argv)
     IedServer_setGoCBHandler(iedServer, goCbEventHandler, NULL);
 
     /* MMS server will be instructed to start listening to client connections. */
-    IedServer_start(iedServer, 103);
+    IedServer_start(iedServer, 102);
 
     IedServer_setControlHandler(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01, (ControlHandler) controlHandlerForBinaryOutput,
     IEDMODEL_CON_RBGGIO1_SPCSO01);

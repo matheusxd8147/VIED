@@ -138,11 +138,9 @@ gooseListener(GooseSubscriber subscriber, void* parameter)
     uint64_t y = Hal_getTimeInMs();
 
     if(b == 116){
-        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_BinIO_BinaryInputs_LPDI3_In_stVal, false);
-        //IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_BinIO_BinaryInputs_LPDI3_In_stVal, true);
-    }else{
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_BinIO_BinaryInputs_LPDI3_In_stVal, true);
-        //IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_BinIO_BinaryInputs_LPDI3_In_stVal, false);
+    }else{
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_BinIO_BinaryInputs_LPDI3_In_stVal, false);
     }
     
     printf("-------------------------------------------------------------------------------------------------------------\n");            
@@ -180,7 +178,7 @@ main(int argc, char** argv)
 
     IedServer_enableGoosePublishing(iedServer);
     GooseReceiver receiver = GooseReceiver_create();
-    GooseReceiver_setInterfaceId(receiver, "lo");
+    GooseReceiver_setInterfaceId(receiver, "eth0");
     GooseSubscriber subscriber = GooseSubscriber_create("VIED_21L5CFG/LLN0$GO$CONTROL_BK", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber_setListener(subscriber, gooseListener, iedServer);
     GooseReceiver_addSubscriber(receiver, subscriber);
