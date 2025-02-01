@@ -48,6 +48,8 @@ bool contador12 = true;
 bool contador13 = true;
 bool resposta = true;
 bool comando = false;
+bool maximo1 = true;
+bool maximo2 = true;
 int curva = 0;
 int funcao = 0;
 
@@ -130,9 +132,15 @@ static float dial_51, dial_51V, dial_51N, dial_67, dial_67N, tensao_51V;
 static float a, b, c, d, e, f, g, h, i;
 static float a1, b1, c1, d1, e1, f1, g1, h1, i1;
 static float a2, b2, c2, d2, e2, f2, g2, h2, i2;
+static float pMax_21l3, pMax_21l7;
 
-static float pMax21l1 = 5662.5, pMax21l2 = 3862.5, pMax21l3 = 7325.0;
+static float pMaxS21l1 = 5662.5, pMaxS21l2 = 3862.5, pMaxS21l3 = 7325.0;
 
+static char sh, trip_21l3, trip_21l6, trip_21l8;
+
+static int estado_dj_21l3, estado_dj_21l6, estado_dj_21l8;
+
+static char comando_received_21l6, comando_received_21l8;
 void sigint_handler(int signalId)
 {
 	running = 0;
@@ -876,6 +884,46 @@ goCbEventHandler(MmsGooseControlBlock goCb, int event, void* parameter)
 //Função Listener
 
 static void
+gooseListener6(GooseSubscriber subscriber, void* parameter)
+{
+    MmsValue* values = GooseSubscriber_getDataSetValues(subscriber);
+
+    char buffer[50];
+
+    MmsValue_printToBuffer(values, buffer, 50);
+
+    trip_21l6 = buffer[1];
+    estado_dj_21l6 = atoi(&buffer[7]);
+
+    uint64_t y = Hal_getTimeInMs();
+
+    /*printf("-------------------------------------------------------------------------------------------------------------\n");            
+    printf("                               PRIMEIRA MENSAGEM GOOSE ASSINADA VIED 1                                       \n");
+    printf("-------------------------------------------------------------------------------------------------------------\n");*/
+
+}
+
+static void
+gooseListener7(GooseSubscriber subscriber, void* parameter)
+{
+    MmsValue* values = GooseSubscriber_getDataSetValues(subscriber);
+
+    char buffer[50];
+
+    MmsValue_printToBuffer(values, buffer, 50);
+
+    trip_21l8 = buffer[1];
+    estado_dj_21l8 = atoi(&buffer[7]);
+
+    uint64_t y = Hal_getTimeInMs();
+
+    /*printf("-------------------------------------------------------------------------------------------------------------\n");            
+    printf("                               PRIMEIRA MENSAGEM GOOSE ASSINADA VIED 1                                       \n");
+    printf("-------------------------------------------------------------------------------------------------------------\n");*/
+
+}
+
+static void
 gooseListener(GooseSubscriber subscriber, void* parameter)
 {
     MmsValue* values = GooseSubscriber_getDataSetValues(subscriber);
@@ -883,6 +931,9 @@ gooseListener(GooseSubscriber subscriber, void* parameter)
     char buffer[50];
 
     MmsValue_printToBuffer(values, buffer, 50);
+
+    trip_21l3 = buffer[1];
+    estado_dj_21l3 = atoi(&buffer[7]);
 
     uint64_t y = Hal_getTimeInMs();
 
@@ -902,6 +953,16 @@ gooseListener1(GooseSubscriber subscriber, void* parameter)
     MmsValue_printToBuffer(values1, buffer1, 100);
 
     c = atof(&buffer1[1]);//21L3
+
+    if (maximo1 == true){
+        pMax_21l3 = c;
+        maximo1 = false;
+    }
+
+    if (c > pMax_21l3){
+        pMax_21l3 = c;
+    }
+
 
     uint64_t y = Hal_getTimeInMs();
 
@@ -1199,10 +1260,23 @@ main(int argc, char** argv)
 
     signal(SIGINT, sigint_handler);
 
+    float teste4;
+
     while (running) {
 
+        teste4 = 227;
         IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn03_mag_f, c);
-        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn07_mag_f, 227.00);
+        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn07_mag_f, teste4);
+
+        if (maximo2 == true){
+        pMax_21l7 = teste4;
+        maximo2 = false;
+        }
+
+        if (teste4 > pMax_21l7){
+        pMax_21l7 = c;
+        }
+
         /*
         system("clear");
         printf("\n%f\n",a2);

@@ -46,6 +46,8 @@ bool contador5 = true;
 bool contador6 = true;
 bool contador12 = true;
 bool contador13 = true;
+bool maximo1 = true;
+bool maximo2 = true;
 bool resposta = true;
 bool comando = false;
 int curva = 0;
@@ -130,11 +132,15 @@ static float dial_51, dial_51V, dial_51N, dial_67, dial_67N, tensao_51V;
 static float a, b, c, d, e, f, g, h, i;
 static float a1, b1, c1, d1, e1, f1, g1, h1, i1;
 static float a2, b2, c2, d2, e2, f2, g2, h2, i2;
+static float pMax_21l3, pMax_21l7;
 
-static float pMax21l1 = 5662.5, pMax21l2 = 3862.5, pMax21l3 = 7325.0;
+static float pMaxS21l1 = 5662.5, pMaxS21l2 = 3862.5, pMaxS21l3 = 7325.0;
 
+static char sh, trip_21l9, trip_21l6, trip_21l7;
 
-static char comando_received_21l7, comando_received_21l6;
+static int estado_dj_21l9, estado_dj_21l6, estado_dj_21l7;
+
+static char comando_received_21l6, comando_received_21l7;
 
 void sigint_handler(int signalId)
 {

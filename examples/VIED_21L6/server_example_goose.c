@@ -49,6 +49,8 @@ bool contador12 = true;
 bool contador13 = true;
 bool resposta = true;
 bool comando = false;
+bool maximo1 = true;
+bool maximo2 = true;
 int curva = 0;
 int funcao = 0;
 
@@ -956,11 +958,13 @@ gooseListener1(GooseSubscriber subscriber, void* parameter)
     d = atof(&buffer1[12]);//21L4
     e = atof(&buffer1[23]);//21L5
 
-    if (d>=0){
+    if (maximo1 == true){
         pMax_21l4 = d;
+        maximo1 = false;
     }
-    if (e>=0){
+    if (maximo2 == true){
         pMax_21l5 = e;
+        maximo2 = false;
     }
 
     if (d > pMax_21l4){
