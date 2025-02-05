@@ -133,7 +133,7 @@ static float dial_51, dial_51V, dial_51N, dial_67, dial_67N, tensao_51V;
 static float a, b, c, d, e, f, g, h, i;
 static float a1, b1, c1, d1, e1, f1, g1, h1, i1;
 static float a2, b2, c2, d2, e2, f2, g2, h2, i2;
-static float pMax_21l4, pMax_21l5;
+static float pMax_21l4, pMax_21l5, pMax_21l7;
 
 static float pMaxS21l1 = 5662.5, pMaxS21l2 = 3862.5, pMaxS21l3 = 7325.0;
 
@@ -935,6 +935,12 @@ gooseListener(GooseSubscriber subscriber, void* parameter)
     MmsValue_printToBuffer(values, buffer, 50);
 
     trip_21l5 = buffer[1];
+
+    if (trip_21l5 == 116){
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, true);
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, false);
+    }
+
     estado_dj_21l5 = atoi(&buffer[7]);
 
     uint64_t y = Hal_getTimeInMs();
@@ -1121,22 +1127,32 @@ gooseListener5(GooseSubscriber subscriber, void* parameter)
 
 void self_h(){
     float x, y;
-    printf("\n%f\n",a2);//21L1
-    printf("%f\n",b);//21L2
-    printf("%f\n",c1);//21L3
-    //DETECÇÃO DO TRECHO EM FALTA PARA ENNCONTRO 21L6
+    /*
+    system("clear");
+    printf("\n%f\n",a2);21l1
+    printf("%f\n",b);21l2
+    printf("%f\n",c1);21l3
+    printf("%f\n",d);21l4
+    printf("%f\n",e);21l5
+    printf("%f\n",226.00);21l6
+    printf("%f\n",g1);21l7
+    printf("%f\n",h2);21l8
+    printf("%f\n",i2);21l9
+    */
+    
+    // DETECÇÃO DO TRECHO EM FALTA PARA ENNCONTRO 21L6
 
     // TRIP FALSO E DISJUNTOR FECHADO E TENSÃO EM ZERO
     if ((tensao_primarioA == 0) && (trip_21l5 == 102) && (estado_dj_21l5 == 10)){
         printf("---------------------");
         printf("----T5 em Falta------");
         printf("---------------------");
-        x = (a2 + pMax_21l4)/pMaxS21l1;
+        x = (a2 + pMax_21l4 + g1)/pMaxS21l1;
         y = (c1 + pMax_21l4)/pMaxS21l3;
 
         //REDUÇÃO DA CARGA A SER RECOMPOSTA
         if ((x>=pMaxS21l1)||(y>=pMaxS21l3)){
-            x = (a2 + pMax_21l5)/pMaxS21l1;
+            x = (a2 + pMax_21l5 + g1)/pMaxS21l1;
             y = (c1 + pMax_21l5)/pMaxS21l3;
         }
 
@@ -1153,43 +1169,10 @@ void self_h(){
                 //FECHAR 21L8
                 IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind24_stVal, false);
             }
-        }
-
-        //RELIGAR POR 21L7
-        if (y>x){
-            printf("---------------------------");
-            printf("----Reeligar por 21L7------");
-            printf("---------------------------");
-            if ((estado_dj_21l7 == 10) && (estado_dj_21l8 == 0)){
-                //ABRIR 21L8
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind24_stVal, true);
-            }
-            if ((estado_dj_21l7 == 10) && (estado_dj_21l8 == 0)){
-                //FECHAR 21L7
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind23_stVal, false);
-            }
-        }
-    }
-    // TRIP FALSO E DISJUNTOR ABERTO E TENSÃO EM ZERO
-    if ((tensao_primarioA == 0) && (trip_21l5 == 102) && (estado_dj_21l5 == 0)){
-        printf("---------------------");
-        printf("----T6 em Falta------");
-        printf("---------------------");
-        x = (a2 + pMax_21l5)/pMaxS21l1;
-        y = (c1 + pMax_21l5)/pMaxS21l3;
-        
-        //RELIGAR PRO 21L8
-        if (x>y){
-            printf("---------------------------");
-            printf("----Reeligar por 21L8------");
-            printf("---------------------------");
-            if ((estado_dj_21l7 == 10) && (estado_dj_21l8 == 0)){
-                //ABRIR 21L7
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind23_stVal, true);
-            }
-            if ((estado_dj_21l7 == 0) && (estado_dj_21l8 == 0)){
-                //FECHAR 21L8
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind24_stVal, false);
+            if ((estado_dj_21l7 == 0) && (estado_dj_21l8 == 10)){
+                //FECHAR 21L6
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, false);
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, true);
             }
         }
 
@@ -1205,6 +1188,59 @@ void self_h(){
             if ((estado_dj_21l7 == 0) && (estado_dj_21l8 == 0)){
                 //FECHAR 21L7
                 IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind23_stVal, false);
+            }
+            if ((estado_dj_21l7 == 10) && (estado_dj_21l8 == 0)){
+                //FECHAR 21L6
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, false);
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, true);
+            }
+        }
+    }
+    // TRIP FALSO E DISJUNTOR ABERTO E TENSÃO EM ZERO
+    if ((tensao_primarioA == 0) && (trip_21l5 == 102) && (estado_dj_21l5 == 0)){
+        printf("---------------------");
+        printf("----T6 em Falta------");
+        printf("---------------------");
+        x = (a2 + pMax_21l5 + g1)/pMaxS21l1;
+        y = (c1 + pMax_21l5)/pMaxS21l3;
+        
+        //RELIGAR PRO 21L8
+        if (x>y){
+            printf("---------------------------");
+            printf("----Reeligar por 21L8------");
+            printf("---------------------------");
+            if ((estado_dj_21l7 == 10) && (estado_dj_21l8 == 0)){
+                //ABRIR 21L7
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind23_stVal, true);
+            }
+            if ((estado_dj_21l7 == 0) && (estado_dj_21l8 == 0)){
+                //FECHAR 21L8
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind24_stVal, false);
+            }
+            if ((estado_dj_21l7 == 0) && (estado_dj_21l8 == 10)){
+                //FECHAR 21L6
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, false);
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, true);
+            }
+        }
+
+        //RELIGAR POR 21L7
+        if (y>x){
+            printf("---------------------------");
+            printf("----Reeligar por 21L7------");
+            printf("---------------------------");
+            if ((estado_dj_21l7 == 0) && (estado_dj_21l8 == 10)){
+                //ABRIR 21L8
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind24_stVal, true);
+            }
+            if ((estado_dj_21l7 == 0) && (estado_dj_21l8 == 0)){
+                //FECHAR 21L7
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind23_stVal, false);
+            }
+            if ((estado_dj_21l7 == 10) && (estado_dj_21l8 == 0)){
+                //FECHAR 21L6
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, false);
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, true);
             }
         }
     }
@@ -1309,7 +1345,7 @@ main(int argc, char** argv)
     GooseReceiver_setInterfaceId(receiver, "lo");
     GooseSubscriber subscriber6 = GooseSubscriber_create("VIED_21L7CFG/LLN0$GO$GOOSE_STATUS", NULL); 
     GooseSubscriber subscriber7 = GooseSubscriber_create("VIED_21L8CFG/LLN0$GO$GOOSE_STATUS", NULL); 
-    GooseSubscriber subscriber = GooseSubscriber_create("VIED_21L5CFG/LLN0$GO$GOOSE_STATUS", NULL); //Especificação de quem o ied irá receber as mensagens goose
+    GooseSubscriber subscriber  = GooseSubscriber_create("VIED_21L5CFG/LLN0$GO$GOOSE_STATUS", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber subscriber1 = GooseSubscriber_create("VIED_21L5CFG/LLN0$GO$GOOSE_POWER", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber subscriber2 = GooseSubscriber_create("VIED_21L7CFG/LLN0$GO$GOOSE_POWER", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber subscriber3 = GooseSubscriber_create("VIED_21L8CFG/LLN0$GO$GOOSE_POWER", NULL); //Especificação de quem o ied irá receber as mensagens goose
@@ -1375,6 +1411,9 @@ main(int argc, char** argv)
         thread_67N = Thread_create((ThreadExecutionFunction)funcao_67N, (void *) thread_67N, false);
         Thread_start(thread_67N);
     }
+
+    self_healing = Thread_create((ThreadExecutionFunction)self_h, (void *) self_healing, false);
+    Thread_start(self_healing);
 
     IedServer_setGoCBHandler(iedServer, goCbEventHandler, NULL);
 

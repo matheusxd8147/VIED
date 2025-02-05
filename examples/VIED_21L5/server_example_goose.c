@@ -129,6 +129,8 @@ static float dial_51, dial_51V, dial_51N, dial_67, dial_67N, tensao_51V;
 
 static float a, b, c, d, e, f, g, h, i;
 
+static char trip_21l4;
+
 void sigint_handler(int signalId)
 {
 	running = 0;
@@ -881,11 +883,12 @@ gooseListener(GooseSubscriber subscriber, void* parameter)
     MmsValue_printToBuffer(values, buffer, 50);
 
 
-    char b; char c; char d;
+    trip_21l4 = buffer[1];
 
-    b = buffer[1];
-    c = buffer[6];
-    d = buffer[11];
+    if (trip_21l4 == 116){
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, true);
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, false);
+    }
     uint64_t y = Hal_getTimeInMs();
 
     /*printf("-------------------------------------------------------------------------------------------------------------\n");            

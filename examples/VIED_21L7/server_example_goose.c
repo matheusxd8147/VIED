@@ -27,6 +27,7 @@
 #define pi 3.14
 
 Thread thread_50, thread_50N, thread_51, thread_51V, thread_51N, thread_67, thread_67N;
+Thread self_healing;
 
 
 /* import IEC 61850 device model created from SCL-File */
@@ -136,7 +137,7 @@ static float pMax_21l3, pMax_21l7;
 
 static float pMaxS21l1 = 5662.5, pMaxS21l2 = 3862.5, pMaxS21l3 = 7325.0;
 
-static char sh, trip_21l3, trip_21l6, trip_21l8;
+static char sh, trip_21l3, trip_21l6, trip_21l8, estado_dj_21l7;
 
 static int estado_dj_21l3, estado_dj_21l6, estado_dj_21l8;
 
@@ -933,6 +934,12 @@ gooseListener(GooseSubscriber subscriber, void* parameter)
     MmsValue_printToBuffer(values, buffer, 50);
 
     trip_21l3 = buffer[1];
+
+    if (trip_21l3 == 116){
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, true);
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, false);
+    }
+
     estado_dj_21l3 = atoi(&buffer[7]);
 
     uint64_t y = Hal_getTimeInMs();
@@ -1020,12 +1027,55 @@ gooseListener4(GooseSubscriber subscriber, void* parameter)
 
     char buffer[50];
 
-    char sh;
+    MmsValue_printToBuffer(values, buffer, 50);
+
+    comando_received_21l6 = buffer[1];
+
+    if (d1 == 0){
+        if (comando_received_21l6 == 116)
+        {
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, true);
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, false);
+        }
+        else
+        {
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, false);
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, true);
+        }
+    }
+    
+    uint64_t y = Hal_getTimeInMs();
+
+    /*printf("-------------------------------------------------------------------------------------------------------------\n");            
+    printf("                               PRIMEIRA MENSAGEM GOOSE ASSINADA VIED 2                                       \n");
+    printf("-------------------------------------------------------------------------------------------------------------\n");*/
+
+}
+
+static void
+gooseListener8(GooseSubscriber subscriber, void* parameter)
+{
+    MmsValue* values = GooseSubscriber_getDataSetValues(subscriber);
+
+    char buffer[50];
 
     MmsValue_printToBuffer(values, buffer, 50);
 
-    sh = buffer[1];
-    printf("\n%d\n", sh);
+    comando_received_21l8 = buffer[6];
+
+    if (i2 == 0){
+        if (comando_received_21l8 == 116)
+        {
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, true);
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, false);
+        }
+        else
+        {
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, false);
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, true);
+        }
+    }
+    
     uint64_t y = Hal_getTimeInMs();
 
     /*printf("-------------------------------------------------------------------------------------------------------------\n");            
@@ -1046,22 +1096,89 @@ gooseListener5(GooseSubscriber subscriber, void* parameter)
 
     char b; char c; char d;
 
-    b = buffer[1];
+    estado_dj_21l7 = buffer[1];
     c = buffer[6];
     d = buffer[11];
     uint64_t y = Hal_getTimeInMs();
 
-    if(b == 116){
+    if(estado_dj_21l7 == 116){
         IedServer_updateDbposValue(iedServer, IEDMODEL_PRO_BK1XCBR1_Pos_stVal, DBPOS_ON);
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind11_stVal, false);
     }else{
         IedServer_updateDbposValue(iedServer, IEDMODEL_PRO_BK1XCBR1_Pos_stVal, DBPOS_INTERMEDIATE_STATE);
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind10_stVal, false);
     }
-
+    /*
     printf("-------------------------------------------------------------------------------------------------------------\n");            
     printf("                               PRIMEIRA MENSAGEM GOOSE ASSINADA VIED 3                                       \n");
     printf("-------------------------------------------------------------------------------------------------------------\n");
+    */
+}
+
+void self_h(){
+    float x, y;
+    /*
+    system("clear");
+    printf("\n%f\n",a2);21l1
+    printf("%f\n",b1);21l2
+    printf("%f\n",c);21l3
+    printf("%f\n",d1);21l4
+    printf("%f\n",e1);21l5
+    printf("%f\n",f1);21l6
+    printf("%f\n",227.00);21l7
+    printf("%f\n",h2);21l8
+    printf("%f\n",i2);21l9
+    */
+
+    //DETECÇÃO DO TRECHO EM FALTA PARA ENNCONTRO 21L7
+    if ((tensao_primarioA == 0) && (trip_21l3 == 116) && (estado_dj_21l3 == 0) && (estado_dj_21l7 == 116)){
+        printf("---------------------");
+        printf("----T3 em Falta------");
+        printf("---------------------");
+        x = (a2 + pMax_21l7)/pMaxS21l1;
+        y = (b1 + pMax_21l7)/pMaxS21l2;
+    
+
+        //RELIGAR POR 21L8
+        if (x>y){
+            printf("---------------------------");
+            printf("----Reeligar por 21L8------");
+            printf("---------------------------");
+            if ((estado_dj_21l6 == 10) && (estado_dj_21l8 == 0)){
+                //ABRIR 21L6
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind23_stVal, true);
+            }
+            if ((estado_dj_21l6 == 0) && (estado_dj_21l8 == 0)){
+                //FECHAR 21L8
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind24_stVal, false);
+            }
+            if ((estado_dj_21l6 == 0) && (estado_dj_21l8 == 10)){
+                //FECHAR 21L7
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, false);
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, true);
+            }
+        }
+
+        //RELIGAR POR 21L6
+        if (y>x){
+            printf("---------------------------");
+            printf("----Reeligar por 21L6------");
+            printf("---------------------------");
+            if ((estado_dj_21l6 == 0) && (estado_dj_21l8 == 10)){
+                //ABRIR 21L8
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind24_stVal, true);
+            }
+            if ((estado_dj_21l6 == 0) && (estado_dj_21l8 == 0)){
+                //FECHAR 21L6
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind23_stVal, false);
+            }
+            if ((estado_dj_21l6 == 10) && (estado_dj_21l8 == 0)){
+                //FECHAR 21L7
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, false);
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, true);
+            }
+        }
+    }
 
 }
 
@@ -1162,24 +1279,33 @@ main(int argc, char** argv)
     //Recepção e Assinatura de mensagens GOOSE
     GooseReceiver receiver = GooseReceiver_create();
     GooseReceiver_setInterfaceId(receiver, "lo");
-    GooseSubscriber subscriber = GooseSubscriber_create("VIED_21L3CFG/LLN0$GO$GOOSE_STATUS", NULL); //Especificação de quem o ied irá receber as mensagens goose
+    GooseSubscriber subscriber6 = GooseSubscriber_create("VIED_21L6CFG/LLN0$GO$GOOSE_STATUS", NULL); 
+    GooseSubscriber subscriber7 = GooseSubscriber_create("VIED_21L8CFG/LLN0$GO$GOOSE_STATUS", NULL); 
+    GooseSubscriber subscriber  = GooseSubscriber_create("VIED_21L3CFG/LLN0$GO$GOOSE_STATUS", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber subscriber1 = GooseSubscriber_create("VIED_21L3CFG/LLN0$GO$GOOSE_POWER", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber subscriber2 = GooseSubscriber_create("VIED_21L6CFG/LLN0$GO$GOOSE_POWER", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber subscriber3 = GooseSubscriber_create("VIED_21L8CFG/LLN0$GO$GOOSE_POWER", NULL); //Especificação de quem o ied irá receber as mensagens goose
-    GooseSubscriber subscriber4 = GooseSubscriber_create("VIED_21L3CFG/LLN0$GO$GOOSE_SH", NULL); //Especificação de quem o ied irá receber as mensagens goose
+    GooseSubscriber subscriber4 = GooseSubscriber_create("VIED_21L6CFG/LLN0$GO$FEEDER_MEETING", NULL); //Especificação de quem o ied irá receber as mensagens goose
+    GooseSubscriber subscriber8 = GooseSubscriber_create("VIED_21L8CFG/LLN0$GO$FEEDER_MEETING", NULL);
     GooseSubscriber subscriber5 = GooseSubscriber_create("MUBinIO_BinaryInputs/LLN0$GO$VMU_07_GOOSE", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber_setListener(subscriber, gooseListener, iedServer);
     GooseSubscriber_setListener(subscriber1, gooseListener1, iedServer);
     GooseSubscriber_setListener(subscriber2, gooseListener2, iedServer);
     GooseSubscriber_setListener(subscriber3, gooseListener3, iedServer);
     GooseSubscriber_setListener(subscriber4, gooseListener4, iedServer);
+    GooseSubscriber_setListener(subscriber8, gooseListener8, iedServer);
     GooseSubscriber_setListener(subscriber5, gooseListener5, iedServer);
+    GooseSubscriber_setListener(subscriber6, gooseListener6, iedServer);
+    GooseSubscriber_setListener(subscriber7, gooseListener7, iedServer);
     GooseReceiver_addSubscriber(receiver, subscriber);
     GooseReceiver_addSubscriber(receiver, subscriber1);
     GooseReceiver_addSubscriber(receiver, subscriber2);
     GooseReceiver_addSubscriber(receiver, subscriber3);
     GooseReceiver_addSubscriber(receiver, subscriber4);
+    GooseReceiver_addSubscriber(receiver, subscriber8);
     GooseReceiver_addSubscriber(receiver, subscriber5);
+    GooseReceiver_addSubscriber(receiver, subscriber6);
+    GooseReceiver_addSubscriber(receiver, subscriber7);
 
     //Ligação dos Servidores
     GooseReceiver_start(receiver);
@@ -1222,10 +1348,13 @@ main(int argc, char** argv)
         Thread_start(thread_67N);
     }
 
+    self_healing = Thread_create((ThreadExecutionFunction)self_h, (void *) self_healing, false);
+    Thread_start(self_healing);
+
     IedServer_setGoCBHandler(iedServer, goCbEventHandler, NULL);
 
     /* MMS server will be instructed to start listening to client connections. */
-    IedServer_start(iedServer, 103);
+    IedServer_start(iedServer, 102);
 
     IedServer_setControlHandler(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01, (ControlHandler) controlHandlerForBinaryOutput,
     IEDMODEL_CON_RBGGIO1_SPCSO01);
@@ -1274,20 +1403,20 @@ main(int argc, char** argv)
         }
 
         if (teste4 > pMax_21l7){
-        pMax_21l7 = c;
+        pMax_21l7 = teste4;
         }
 
         /*
         system("clear");
-        printf("\n%f\n",a2);
-        printf("%f\n",b1);
-        printf("%f\n",c);
-        printf("%f\n",d1);
-        printf("%f\n",e1);
-        printf("%f\n",f1);
-        printf("%f\n",227.00);
-        printf("%f\n",h2);
-        printf("%f\n",i2);
+        printf("\n%f\n",a2);21l1
+        printf("%f\n",b1);21l2
+        printf("%f\n",c);21l3
+        printf("%f\n",d1);21l4
+        printf("%f\n",e1);21l5
+        printf("%f\n",f1);21l6
+        printf("%f\n",227.00);21l7
+        printf("%f\n",h2);21l8
+        printf("%f\n",i2);21l9
         */
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_INAGGIO1_Ind01_stVal, true);
 

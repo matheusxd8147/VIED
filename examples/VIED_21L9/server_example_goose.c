@@ -133,6 +133,8 @@ static float a2, b2, c2, d2, e2, f2, g2, h2, i2;
 
 static float pMax21l1 = 5662.5, pMax21l2 = 3862.5, pMax21l3 = 7325.0;
 
+static char trip_21l1;
+
 void sigint_handler(int signalId)
 {
 	running = 0;
@@ -885,17 +887,12 @@ gooseListener(GooseSubscriber subscriber, void* parameter)
     MmsValue_printToBuffer(values, buffer, 50);
 
 
-    char b; char c; char d;
+    trip_21l1 = buffer[1];
 
-    b = buffer[1];
-    c = buffer[6];
-    d = buffer[11];
-    //printf("\n%c\n", b);
-    /*if (b == 116){
-        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
-        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind10_stVal, true);
-        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind11_stVal, false);
-    }*/
+    if (trip_21l1 == 116){
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, true);
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, false);
+    }
     uint64_t y = Hal_getTimeInMs();
 
     /*printf("-------------------------------------------------------------------------------------------------------------\n");            

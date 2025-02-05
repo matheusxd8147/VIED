@@ -27,6 +27,7 @@
 #define pi 3.14
 
 Thread thread_50, thread_50N, thread_51, thread_51V, thread_51N, thread_67, thread_67N;
+Thread self_healing;
 
 
 /* import IEC 61850 device model created from SCL-File */
@@ -132,7 +133,7 @@ static float dial_51, dial_51V, dial_51N, dial_67, dial_67N, tensao_51V;
 static float a, b, c, d, e, f, g, h, i;
 static float a1, b1, c1, d1, e1, f1, g1, h1, i1;
 static float a2, b2, c2, d2, e2, f2, g2, h2, i2;
-static float pMax_21l3, pMax_21l7;
+static float pMax_21l9, pMax_21l8;
 
 static float pMaxS21l1 = 5662.5, pMaxS21l2 = 3862.5, pMaxS21l3 = 7325.0;
 
@@ -885,6 +886,46 @@ goCbEventHandler(MmsGooseControlBlock goCb, int event, void* parameter)
 //Função Listener
 
 static void
+gooseListener6(GooseSubscriber subscriber, void* parameter)
+{
+    MmsValue* values = GooseSubscriber_getDataSetValues(subscriber);
+
+    char buffer[50];
+
+    MmsValue_printToBuffer(values, buffer, 50);
+
+    trip_21l6 = buffer[1];
+    estado_dj_21l6 = atoi(&buffer[7]);
+
+    uint64_t y = Hal_getTimeInMs();
+
+    /*printf("-------------------------------------------------------------------------------------------------------------\n");            
+    printf("                               PRIMEIRA MENSAGEM GOOSE ASSINADA VIED 1                                       \n");
+    printf("-------------------------------------------------------------------------------------------------------------\n");*/
+
+}
+
+static void
+gooseListener7(GooseSubscriber subscriber, void* parameter)
+{
+    MmsValue* values = GooseSubscriber_getDataSetValues(subscriber);
+
+    char buffer[50];
+
+    MmsValue_printToBuffer(values, buffer, 50);
+
+    trip_21l7 = buffer[1];
+    estado_dj_21l7 = atoi(&buffer[7]);
+
+    uint64_t y = Hal_getTimeInMs();
+
+    /*printf("-------------------------------------------------------------------------------------------------------------\n");            
+    printf("                               PRIMEIRA MENSAGEM GOOSE ASSINADA VIED 1                                       \n");
+    printf("-------------------------------------------------------------------------------------------------------------\n");*/
+
+}
+
+static void
 gooseListener(GooseSubscriber subscriber, void* parameter)
 {
     MmsValue* values = GooseSubscriber_getDataSetValues(subscriber);
@@ -892,6 +933,15 @@ gooseListener(GooseSubscriber subscriber, void* parameter)
     char buffer[50];
 
     MmsValue_printToBuffer(values, buffer, 50);
+
+    trip_21l9 = buffer[1];
+
+    if (trip_21l9 == 116){
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, true);
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, false);
+    }
+
+    estado_dj_21l9 = atoi(&buffer[7]);
 
     uint64_t y = Hal_getTimeInMs();
 
@@ -911,14 +961,17 @@ gooseListener1(GooseSubscriber subscriber, void* parameter)
     MmsValue_printToBuffer(values1, buffer1, 50);
 
     a = atof(&buffer1[1]);//21L1
-    /*b = atof(&buffer1[12]);//21L2
-    c = atof(&buffer1[22]);//21L3
-    d = atof(&buffer1[34]);//21L4
-    e = atof(&buffer1[45]);//21L5
-    f = atof(&buffer1[56]);//21L6
-    g = atof(&buffer1[67]);//21L7
-    h = atof(&buffer1[78]);//21L8*/
     i = atof(&buffer1[12]);//21L9
+
+    if (maximo1 == true){
+        pMax_21l9 = i;
+        maximo1 = false;
+    }
+
+    if (i > pMax_21l9){
+        pMax_21l9 = i;
+    }
+
     printf("\n%f\n%f\n", a, i);
     uint64_t y = Hal_getTimeInMs();
 
@@ -979,9 +1032,9 @@ gooseListener4(GooseSubscriber subscriber, void* parameter)
 
     MmsValue_printToBuffer(values, buffer, 50);
 
-    comando_received_21l7 = buffer[6];
+    comando_received_21l6 = buffer[6];
 
-    if (comando_received_21l7 == 116){
+    if (comando_received_21l6 == 116){
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, true);
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, false);
     }else{
@@ -1010,7 +1063,7 @@ gooseListener8(GooseSubscriber subscriber, void* parameter)
 
     MmsValue_printToBuffer(values, buffer, 50);
 
-    comando_received_21l6 = buffer[6];
+    comando_received_21l7 = buffer[6];
 
     if (comando_received_21l7 == 116){
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, true);
@@ -1058,6 +1111,73 @@ gooseListener5(GooseSubscriber subscriber, void* parameter)
     printf("-------------------------------------------------------------------------------------------------------------\n");            
     printf("                               PRIMEIRA MENSAGEM GOOSE ASSINADA VIED 3                                       \n");
     printf("-------------------------------------------------------------------------------------------------------------\n");
+
+}
+
+void self_h(){
+    float x, y;
+    /*
+    system("clear");
+    printf("\n%f\n",a);21l1
+    printf("%f\n",b1);21l2
+    printf("%f\n",c2);21l3
+    printf("%f\n",d1);21l4
+    printf("%f\n",e1);21l5
+    printf("%f\n",f1);21l6
+    printf("%f\n",g2);21l7
+    printf("%f\n",228.00);21l8
+    printf("%f\n",i);21l9
+    */
+
+    //DETECÇÃO DO TRECHO EM FALTA PARA ENNCONTRO 21L8
+    if ((tensao_primarioA == 0) && (trip_21l9 == 102) && (estado_dj_21l9 == 0)){
+        printf("---------------------");
+        printf("----T1 em Falta------");
+        printf("---------------------");
+        x = (c2 + pMax_21l9)/pMaxS21l3;
+        y = (b1 + pMax_21l9 + g2)/pMaxS21l2;
+    
+
+        //RELIGAR POR 21L7
+        if (x>y){
+            printf("---------------------------");
+            printf("----Reeligar por 21L7------");
+            printf("---------------------------");
+            if ((estado_dj_21l6 == 10) && (estado_dj_21l7 == 0)){
+                //ABRIR 21L6
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind23_stVal, true);
+            }
+            if ((estado_dj_21l6 == 0) && (estado_dj_21l7 == 0)){
+                //FECHAR 21L7
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind24_stVal, false);
+            }
+            if ((estado_dj_21l6 == 0) && (estado_dj_21l7 == 10)){
+                //FECHAR 21L8
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, false);
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, true);
+            }
+        }
+
+        //RELIGAR POR 21L6
+        if (y>x){
+            printf("---------------------------");
+            printf("----Reeligar por 21L6------");
+            printf("---------------------------");
+            if ((estado_dj_21l6 == 0) && (estado_dj_21l7 == 10)){
+                //ABRIR 21L8
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind24_stVal, true);
+            }
+            if ((estado_dj_21l6 == 0) && (estado_dj_21l7 == 0)){
+                //FECHAR 21L6
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind23_stVal, false);
+            }
+            if ((estado_dj_21l6 == 10) && (estado_dj_21l7 == 0)){
+                //FECHAR 21L8
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, false);
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, true);
+            }
+        }
+    }
 
 }
 
@@ -1158,12 +1278,14 @@ main(int argc, char** argv)
     //Recepção e Assinatura de mensagens GOOSE
     GooseReceiver receiver = GooseReceiver_create();
     GooseReceiver_setInterfaceId(receiver, "lo");
-    GooseSubscriber subscriber = GooseSubscriber_create("VIED_21L9CFG/LLN0$GO$GOOSE_STATUS", NULL); //Especificação de quem o ied irá receber as mensagens goose
+    GooseSubscriber subscriber6 = GooseSubscriber_create("VIED_21L6CFG/LLN0$GO$GOOSE_STATUS", NULL); 
+    GooseSubscriber subscriber7 = GooseSubscriber_create("VIED_21L7CFG/LLN0$GO$GOOSE_STATUS", NULL); 
+    GooseSubscriber subscriber  = GooseSubscriber_create("VIED_21L9CFG/LLN0$GO$GOOSE_STATUS", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber subscriber1 = GooseSubscriber_create("VIED_21L9CFG/LLN0$GO$GOOSE_POWER", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber subscriber2 = GooseSubscriber_create("VIED_21L6CFG/LLN0$GO$GOOSE_POWER", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber subscriber3 = GooseSubscriber_create("VIED_21L7CFG/LLN0$GO$GOOSE_POWER", NULL); //Especificação de quem o ied irá receber as mensagens goose
-    GooseSubscriber subscriber4 = GooseSubscriber_create("VIED_21L7CFG/LLN0$GO$FEEDER_MEETING", NULL); //Especificação de quem o ied irá receber as mensagens goose
-    GooseSubscriber subscriber8 = GooseSubscriber_create("VIED_21L6CFG/LLN0$GO$FEEDER_MEETING", NULL); //Especificação de quem o ied irá receber as mensagens goose
+    GooseSubscriber subscriber4 = GooseSubscriber_create("VIED_21L6CFG/LLN0$GO$FEEDER_MEETING", NULL); //Especificação de quem o ied irá receber as mensagens goose
+    GooseSubscriber subscriber8 = GooseSubscriber_create("VIED_21L7CFG/LLN0$GO$FEEDER_MEETING", NULL);
     GooseSubscriber subscriber5 = GooseSubscriber_create("MUBinIO_BinaryInputs/LLN0$GO$VMU_08_GOOSE", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber_setListener(subscriber, gooseListener, iedServer);
     GooseSubscriber_setListener(subscriber1, gooseListener1, iedServer);
@@ -1172,6 +1294,8 @@ main(int argc, char** argv)
     GooseSubscriber_setListener(subscriber4, gooseListener4, iedServer);
     GooseSubscriber_setListener(subscriber8, gooseListener8, iedServer);
     GooseSubscriber_setListener(subscriber5, gooseListener5, iedServer);
+    GooseSubscriber_setListener(subscriber6, gooseListener6, iedServer);
+    GooseSubscriber_setListener(subscriber7, gooseListener7, iedServer);
     GooseReceiver_addSubscriber(receiver, subscriber);
     GooseReceiver_addSubscriber(receiver, subscriber1);
     GooseReceiver_addSubscriber(receiver, subscriber2);
@@ -1179,6 +1303,8 @@ main(int argc, char** argv)
     GooseReceiver_addSubscriber(receiver, subscriber4);
     GooseReceiver_addSubscriber(receiver, subscriber8);
     GooseReceiver_addSubscriber(receiver, subscriber5);
+    GooseReceiver_addSubscriber(receiver, subscriber6);
+    GooseReceiver_addSubscriber(receiver, subscriber7);
 
     //Ligação dos Servidores
     GooseReceiver_start(receiver);
@@ -1221,6 +1347,9 @@ main(int argc, char** argv)
         Thread_start(thread_67N);
     }
 
+    self_healing = Thread_create((ThreadExecutionFunction)self_h, (void *) self_healing, false);
+    Thread_start(self_healing);
+
     IedServer_setGoCBHandler(iedServer, goCbEventHandler, NULL);
 
     /* MMS server will be instructed to start listening to client connections. */
@@ -1259,21 +1388,36 @@ main(int argc, char** argv)
 
     signal(SIGINT, sigint_handler);
 
+    float teste4;
+
     while (running) {
 
+        teste4 = 228;
         IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn01_mag_f, a);
-        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn08_mag_f, 228.00);
+        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn08_mag_f, teste4);
         IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn09_mag_f, i);
+
+        if (maximo2 == true){
+        pMax_21l8 = teste4;
+        maximo2 = false;
+        }
+
+        if (teste4 > pMax_21l8){
+        pMax_21l8 = teste4;
+        }
+
+        /*
         system("clear");
-        printf("\n%f\n",a);
-        printf("%f\n",b1);
-        printf("%f\n",c2);
-        printf("%f\n",d1);
-        printf("%f\n",e1);
-        printf("%f\n",f1);
-        printf("%f\n",g2);
-        printf("%f\n",228.00);
-        printf("%f\n",i);
+        printf("\n%f\n",a);21l1
+        printf("%f\n",b1);21l2
+        printf("%f\n",c2);21l3
+        printf("%f\n",d1);21l4
+        printf("%f\n",e1);21l5
+        printf("%f\n",f1);21l6
+        printf("%f\n",g2);21l7
+        printf("%f\n",228.00);21l8
+        printf("%f\n",i);21l9
+        */
         Thread_sleep(17);
 
     }

@@ -6,6 +6,7 @@
         "goose_publisher.h": "c",
         "goose_receiver.h": "c",
         "hal_thread.h": "c",
-        "random": "c"
+        "random": "c",
+        "timeb.h": "c"
     }
 }
