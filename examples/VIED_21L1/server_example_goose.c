@@ -152,8 +152,6 @@ void funcao_50()
 {
     while (1)
     {
-        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
-
         if (corrente_primarioA > pick_up_50)
         {
             printf("-------------------------------------------------------------------------------------------------------------\n");
@@ -1132,8 +1130,6 @@ main(int argc, char** argv)
     running = 1;
 
     signal(SIGINT, sigint_handler);
-
-    bool status_trip;
 
     while (running) {
 
