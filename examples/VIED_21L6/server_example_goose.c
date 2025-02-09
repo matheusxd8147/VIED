@@ -1342,7 +1342,7 @@ main(int argc, char** argv)
 
     //Recepção e Assinatura de mensagens GOOSE
     GooseReceiver receiver = GooseReceiver_create();
-    GooseReceiver_setInterfaceId(receiver, "lo");
+    GooseReceiver_setInterfaceId(receiver, "eth0");
     GooseSubscriber subscriber6 = GooseSubscriber_create("VIED_21L7CFG/LLN0$GO$GOOSE_STATUS", NULL); 
     GooseSubscriber subscriber7 = GooseSubscriber_create("VIED_21L8CFG/LLN0$GO$GOOSE_STATUS", NULL); 
     GooseSubscriber subscriber  = GooseSubscriber_create("VIED_21L5CFG/LLN0$GO$GOOSE_STATUS", NULL); //Especificação de quem o ied irá receber as mensagens goose
