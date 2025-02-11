@@ -1107,10 +1107,11 @@ gooseListener5(GooseSubscriber subscriber, void* parameter)
         IedServer_updateDbposValue(iedServer, IEDMODEL_PRO_BK1XCBR1_Pos_stVal, DBPOS_INTERMEDIATE_STATE);
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind10_stVal, false);
     }
-
+    /*
     printf("-------------------------------------------------------------------------------------------------------------\n");            
     printf("                               PRIMEIRA MENSAGEM GOOSE ASSINADA VIED 3                                       \n");
     printf("-------------------------------------------------------------------------------------------------------------\n");
+    */
 
 }
 
@@ -1134,6 +1135,7 @@ void self_h(){
         printf("---------------------");
         printf("----T1 em Falta------");
         printf("---------------------");
+        //Análise do Trecho em Recomposição
         x = (c2 + pMax_21l9)/pMaxS21l3;
         y = (b1 + pMax_21l9 + g2)/pMaxS21l2;
     

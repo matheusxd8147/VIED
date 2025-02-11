@@ -963,10 +963,11 @@ gooseListener3(GooseSubscriber subscriber, void* parameter)
         IedServer_updateDbposValue(iedServer, IEDMODEL_PRO_BK1XCBR1_Pos_stVal, DBPOS_INTERMEDIATE_STATE);
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind10_stVal, false);
     }
-
+    /*
     printf("-------------------------------------------------------------------------------------------------------------\n");            
     printf("                               PRIMEIRA MENSAGEM GOOSE ASSINADA VIED 3                                       \n");
     printf("-------------------------------------------------------------------------------------------------------------\n");
+    */
 
 }
 
