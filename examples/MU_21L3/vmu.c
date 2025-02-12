@@ -142,6 +142,8 @@ gooseListener(GooseSubscriber subscriber, void* parameter)
     }else{
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_BinIO_BinaryInputs_LPDI3_In_stVal, false);
     }
+
+    printf("\n%d  %d\n", b, c);
     /*
     printf("-------------------------------------------------------------------------------------------------------------\n");            
     printf("                               PRIMEIRA MENSAGEM GOOSE ASSINADA VIED 1                                       \n");
