@@ -139,7 +139,9 @@ gooseListener(GooseSubscriber subscriber, void* parameter)
 
     if(b == 116){
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_BinIO_BinaryInputs_LPDI3_In_stVal, true);
-    }else{
+    }
+    
+    if(c == 116){
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_BinIO_BinaryInputs_LPDI3_In_stVal, false);
     }
     
