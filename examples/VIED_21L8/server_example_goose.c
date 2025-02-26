@@ -1094,8 +1094,8 @@ gooseListener8(GooseSubscriber subscriber, void* parameter)
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, true);
         */
     }
-    system("clear");
-    printf("\n%d\n%d\n", buffer[1], buffer[6]);
+    /*system("clear");
+    printf("\n%d\n%d\n", buffer[1], buffer[6]);*/
     
     uint64_t y = Hal_getTimeInMs();
 

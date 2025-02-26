@@ -1058,8 +1058,8 @@ gooseListener4(GooseSubscriber subscriber, void* parameter)
             */
         }
     }
-    system("clear");
-    printf("\n%d\n%d\n", buffer[1], buffer[6]);
+    /*system("clear");
+    printf("\n%d\n%d\n", buffer[1], buffer[6]);*/
     
     uint64_t y = Hal_getTimeInMs();
 
