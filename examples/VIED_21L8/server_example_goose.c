@@ -1075,7 +1075,7 @@ gooseListener8(GooseSubscriber subscriber, void* parameter)
 
     comando_received_21l7 = buffer[6];
 
-    if()
+    if(g2 == 0)
     if (comando_received_21l7 == 116)
     {
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, false);
