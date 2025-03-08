@@ -137,6 +137,8 @@ gooseListener(GooseSubscriber subscriber, void* parameter)
     d = buffer[11];
     uint64_t y = Hal_getTimeInMs();
 
+    printf("\n%d\n%d\n", b, c);
+
     if(b == 116){
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_BinIO_BinaryInputs_LPDI3_In_stVal, true);
     }
