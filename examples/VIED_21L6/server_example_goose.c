@@ -1159,7 +1159,7 @@ void self_h(){
     // DETECÇÃO DO TRECHO EM FALTA PARA ENNCONTRO 21L6
 
     // TRIP FALSO E DISJUNTOR FECHADO E TENSÃO EM ZERO
-    if ((tensao_primarioA == 0) && (trip_21l5 == 102) && (estado_dj_21l5 == 10)){
+    if ((tensao_primarioA == 0) && (trip_21l5 != 116) && (estado_dj_21l5 == 10)){
         printf("---------------------");
         printf("----T5 em Falta------");
         printf("---------------------");
