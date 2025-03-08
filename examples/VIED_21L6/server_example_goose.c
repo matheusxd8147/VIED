@@ -1166,6 +1166,8 @@ void self_h(){
         x = (a2 + pMax_21l4 + g1)/pMaxS21l1;
         y = (c1 + pMax_21l4)/pMaxS21l3;
 
+        printf("\n%f\n%f\n", x, y);
+
         //REDUÇÃO DA CARGA A SER RECOMPOSTA
         if ((x>=pMaxS21l1)&&(y>=pMaxS21l3)){
             x = (a2 + pMax_21l5 + g1)/pMaxS21l1;
