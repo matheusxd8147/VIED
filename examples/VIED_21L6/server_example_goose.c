@@ -767,6 +767,7 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
 
         contadorSV3 ++;
 
+        /*
         if(contadorSV3 == 60){
             //system ("clear");
             printf("  svID=(%s)\n", svID);
@@ -794,6 +795,7 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
             IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_MET_METMMXU1_PPV_phsCA_cVal_ang_f, an[2]);
             contadorSV3 = 0;
         }
+        */
 
         contadorSV1=0;
         SVrms_deltaA=0;
@@ -1143,6 +1145,9 @@ gooseListener5(GooseSubscriber subscriber, void* parameter)
 
 void self_h(){
     float x, y;
+    printf("---------------------");
+        printf("----T5 em Falta------");
+        printf("---------------------");
     /*
     system("clear");
     printf("\n%f\n",a2);21l1
