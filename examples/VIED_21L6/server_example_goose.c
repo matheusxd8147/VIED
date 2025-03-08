@@ -1143,131 +1143,154 @@ gooseListener5(GooseSubscriber subscriber, void* parameter)
 
 }
 
-void self_h(){
-    float x, y;
-    printf("---------------------");
-        printf("----T5 em Falta------");
-        printf("---------------------");
-    /*
-    system("clear");
-    printf("\n%f\n",a2);21l1
-    printf("%f\n",b);21l2
-    printf("%f\n",c1);21l3
-    printf("%f\n",d);21l4
-    printf("%f\n",e);21l5
-    printf("%f\n",226.00);21l6
-    printf("%f\n",g1);21l7
-    printf("%f\n",h2);21l8
-    printf("%f\n",i2);21l9
-    */
-    
-    // DETECÇÃO DO TRECHO EM FALTA PARA ENNCONTRO 21L6
-
-    // TRIP FALSO E DISJUNTOR FECHADO E TENSÃO EM ZERO
-    if ((tensao_primarioA == 0) && (trip_21l5 != 116) && (estado_dj_21l5 == 10)){
+void self_h()
+{
+    while (1)
+    {
+        float x, y;
         printf("---------------------");
         printf("----T5 em Falta------");
         printf("---------------------");
-        x = (a2 + pMax_21l4 + g1)/pMaxS21l1;
-        y = (c1 + pMax_21l4)/pMaxS21l3;
+        /*
+        system("clear");
+        printf("\n%f\n",a2);21l1
+        printf("%f\n",b);21l2
+        printf("%f\n",c1);21l3
+        printf("%f\n",d);21l4
+        printf("%f\n",e);21l5
+        printf("%f\n",226.00);21l6
+        printf("%f\n",g1);21l7
+        printf("%f\n",h2);21l8
+        printf("%f\n",i2);21l9
+        */
 
-        printf("\n%f\n%f\n", x, y);
+        // DETECÇÃO DO TRECHO EM FALTA PARA ENNCONTRO 21L6
 
-        //REDUÇÃO DA CARGA A SER RECOMPOSTA
-        if ((x>=pMaxS21l1)&&(y>=pMaxS21l3)){
-            x = (a2 + pMax_21l5 + g1)/pMaxS21l1;
-            y = (c1 + pMax_21l5)/pMaxS21l3;
+        // TRIP FALSO E DISJUNTOR FECHADO E TENSÃO EM ZERO
+        if ((tensao_primarioA == 0) && (trip_21l5 != 116) && (estado_dj_21l5 == 10))
+        {
+            printf("---------------------");
+            printf("----T5 em Falta------");
+            printf("---------------------");
+            x = (a2 + pMax_21l4 + g1) / pMaxS21l1;
+            y = (c1 + pMax_21l4) / pMaxS21l3;
+
+            printf("\n%f\n%f\n", x, y);
+
+            // REDUÇÃO DA CARGA A SER RECOMPOSTA
+            if ((x >= pMaxS21l1) && (y >= pMaxS21l3))
+            {
+                x = (a2 + pMax_21l5 + g1) / pMaxS21l1;
+                y = (c1 + pMax_21l5) / pMaxS21l3;
+            }
+
+            // RELIGAR POR 21L8
+            if (x > y)
+            {
+                printf("---------------------------");
+                printf("----Reeligar por 21L8------");
+                printf("---------------------------");
+                if ((estado_dj_21l7 == 10) && (estado_dj_21l8 == 0))
+                {
+                    // ABRIR 21L7
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind23_stVal, true);
+                }
+                if ((estado_dj_21l7 == 0) && (estado_dj_21l8 == 0))
+                {
+                    // FECHAR 21L8
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind24_stVal, false);
+                }
+                if ((estado_dj_21l7 == 0) && (estado_dj_21l8 == 10))
+                {
+                    // FECHAR 21L6
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, true);
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, false);
+                    /*
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, false);
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, true);
+                    */
+                }
+            }
+
+            // RELIGAR POR 21L7
+            if (y > x)
+            {
+                printf("---------------------------");
+                printf("----Reeligar por 21L7------");
+                printf("---------------------------");
+                if ((estado_dj_21l7 == 0) && (estado_dj_21l8 == 10))
+                {
+                    // ABRIR 21L8
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind24_stVal, true);
+                }
+                if ((estado_dj_21l7 == 0) && (estado_dj_21l8 == 0))
+                {
+                    // FECHAR 21L7
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind23_stVal, false);
+                }
+                if ((estado_dj_21l7 == 10) && (estado_dj_21l8 == 0))
+                {
+                    // FECHAR 21L6
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, true);
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, false);
+                }
+            }
         }
+        // TRIP FALSO E DISJUNTOR ABERTO E TENSÃO EM ZERO
+        if ((tensao_primarioA == 0) && (trip_21l5 == 102) && (estado_dj_21l5 == 0))
+        {
+            printf("---------------------");
+            printf("----T6 em Falta------");
+            printf("---------------------");
+            x = (a2 + pMax_21l5 + g1) / pMaxS21l1;
+            y = (c1 + pMax_21l5) / pMaxS21l3;
 
-        //RELIGAR POR 21L8
-        if (x>y){
-            printf("---------------------------");
-            printf("----Reeligar por 21L8------");
-            printf("---------------------------");
-            if ((estado_dj_21l7 == 10) && (estado_dj_21l8 == 0)){
-                //ABRIR 21L7
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind23_stVal, true);
+            // RELIGAR PRO 21L8
+            if (x > y)
+            {
+                printf("---------------------------");
+                printf("----Reeligar por 21L8------");
+                printf("---------------------------");
+                if ((estado_dj_21l7 == 10) && (estado_dj_21l8 == 0))
+                {
+                    // ABRIR 21L7
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind23_stVal, true);
+                }
+                if ((estado_dj_21l7 == 0) && (estado_dj_21l8 == 0))
+                {
+                    // FECHAR 21L8
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind24_stVal, false);
+                }
+                if ((estado_dj_21l7 == 0) && (estado_dj_21l8 == 10))
+                {
+                    // FECHAR 21L6
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, true);
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, false);
+                }
             }
-            if ((estado_dj_21l7 == 0) && (estado_dj_21l8 == 0)){
-                //FECHAR 21L8
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind24_stVal, false);
-            }
-            if ((estado_dj_21l7 == 0) && (estado_dj_21l8 == 10)){
-                //FECHAR 21L6
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, true);
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, false);
-                /*
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, false);
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, true);
-                */
-            }
-        }
 
-        //RELIGAR POR 21L7
-        if (y>x){
-            printf("---------------------------");
-            printf("----Reeligar por 21L7------");
-            printf("---------------------------");
-            if ((estado_dj_21l7 == 0) && (estado_dj_21l8 == 10)){
-                //ABRIR 21L8
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind24_stVal, true);
-            }
-            if ((estado_dj_21l7 == 0) && (estado_dj_21l8 == 0)){
-                //FECHAR 21L7
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind23_stVal, false);
-            }
-            if ((estado_dj_21l7 == 10) && (estado_dj_21l8 == 0)){
-                //FECHAR 21L6
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, true);
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, false);
-            }
-        }
-    }
-    // TRIP FALSO E DISJUNTOR ABERTO E TENSÃO EM ZERO
-    if ((tensao_primarioA == 0) && (trip_21l5 == 102) && (estado_dj_21l5 == 0)){
-        printf("---------------------");
-        printf("----T6 em Falta------");
-        printf("---------------------");
-        x = (a2 + pMax_21l5 + g1)/pMaxS21l1;
-        y = (c1 + pMax_21l5)/pMaxS21l3;
-        
-        //RELIGAR PRO 21L8
-        if (x>y){
-            printf("---------------------------");
-            printf("----Reeligar por 21L8------");
-            printf("---------------------------");
-            if ((estado_dj_21l7 == 10) && (estado_dj_21l8 == 0)){
-                //ABRIR 21L7
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind23_stVal, true);
-            }
-            if ((estado_dj_21l7 == 0) && (estado_dj_21l8 == 0)){
-                //FECHAR 21L8
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind24_stVal, false);
-            }
-            if ((estado_dj_21l7 == 0) && (estado_dj_21l8 == 10)){
-                //FECHAR 21L6
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, true);
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, false);
-            }
-        }
-
-        //RELIGAR POR 21L7
-        if (y>x){
-            printf("---------------------------");
-            printf("----Reeligar por 21L7------");
-            printf("---------------------------");
-            if ((estado_dj_21l7 == 0) && (estado_dj_21l8 == 10)){
-                //ABRIR 21L8
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind24_stVal, true);
-            }
-            if ((estado_dj_21l7 == 0) && (estado_dj_21l8 == 0)){
-                //FECHAR 21L7
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind23_stVal, false);
-            }
-            if ((estado_dj_21l7 == 10) && (estado_dj_21l8 == 0)){
-                //FECHAR 21L6
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, true);
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, false);
+            // RELIGAR POR 21L7
+            if (y > x)
+            {
+                printf("---------------------------");
+                printf("----Reeligar por 21L7------");
+                printf("---------------------------");
+                if ((estado_dj_21l7 == 0) && (estado_dj_21l8 == 10))
+                {
+                    // ABRIR 21L8
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind24_stVal, true);
+                }
+                if ((estado_dj_21l7 == 0) && (estado_dj_21l8 == 0))
+                {
+                    // FECHAR 21L7
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind23_stVal, false);
+                }
+                if ((estado_dj_21l7 == 10) && (estado_dj_21l8 == 0))
+                {
+                    // FECHAR 21L6
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, true);
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, false);
+                }
             }
         }
     }
