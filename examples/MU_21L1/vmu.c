@@ -133,11 +133,11 @@ gooseListener(GooseSubscriber subscriber, void* parameter)
     char b; char c; char d;
 
     b = buffer[1];
-    c = buffer[6];
+    c = buffer[7];
     d = buffer[11];
     uint64_t y = Hal_getTimeInMs();
 
-    printf("\n%d\n%d\n", b, c);
+    //printf("\n%d\n%d\n", b, c);
 
     if(b == 116){
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_BinIO_BinaryInputs_LPDI3_In_stVal, true);
@@ -147,9 +147,9 @@ gooseListener(GooseSubscriber subscriber, void* parameter)
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_BinIO_BinaryInputs_LPDI3_In_stVal, false);
     }
     
-    printf("-------------------------------------------------------------------------------------------------------------\n");            
+    /*printf("-------------------------------------------------------------------------------------------------------------\n");            
     printf("                               PRIMEIRA MENSAGEM GOOSE ASSINADA VIED 1                                       \n");
-    printf("-------------------------------------------------------------------------------------------------------------\n");
+    printf("-------------------------------------------------------------------------------------------------------------\n");*/
 
 }
 
