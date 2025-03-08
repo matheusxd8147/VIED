@@ -133,7 +133,7 @@ gooseListener(GooseSubscriber subscriber, void* parameter)
     char b; char c; char d;
 
     b = buffer[1];
-    c = buffer[6];
+    c = buffer[7];
     d = buffer[11];
     uint64_t y = Hal_getTimeInMs();
 
