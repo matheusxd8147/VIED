@@ -1168,7 +1168,7 @@ void self_h()
         printf("\n%f\n%d\n%d\n",tensao_primarioA,trip_21l5,estado_dj_21l5);
         if ((tensao_primarioA == 0) && (trip_21l5 != 116) && (estado_dj_21l5 == 10))
         {
-            system("clear");
+            //system("clear");
             printf("\n---------------------");
             printf("\n----T5 em Falta------");
             printf("\n---------------------");
@@ -1240,7 +1240,7 @@ void self_h()
         // TRIP FALSO E DISJUNTOR ABERTO E TENSÃO EM ZERO
         if ((tensao_primarioA == 0) && (trip_21l5 != 116) && (estado_dj_21l5 == 0))
         {
-            system("clear");
+            //system("clear");
             printf("\n---------------------");
             printf("\n----T6 em Falta------");
             printf("\n---------------------");
