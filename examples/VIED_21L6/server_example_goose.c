@@ -1244,7 +1244,7 @@ void self_h()
             printf("\n---------------------");
             printf("\n----T6 em Falta------");
             printf("\n---------------------");
-            printf("\n%f\n%d\n%d\n",tensao_primarioA,trip_21l5,estado_dj_21l5);
+            printf("\n%f\n%d\n%d\n%d\n%d\n",tensao_primarioA,trip_21l5,estado_dj_21l5, estado_dj_21l7, estado_dj_21l8);
             x = (a2 + pMax_21l5 + g1) / pMaxS21l1;
             y = (c1 + pMax_21l5) / pMaxS21l3;
 
@@ -1295,7 +1295,7 @@ void self_h()
                 }
                 if ((estado_dj_21l7 == 10) && (estado_dj_21l8 == 0))
                 {
-                    printf("\n----Abrir 21L6------");
+                    printf("\n----Fechar 21L6------");
                     // FECHAR 21L6
                     IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, true);
                     IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, false);
