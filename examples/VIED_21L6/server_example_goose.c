@@ -1165,14 +1165,14 @@ void self_h()
 
         // TRIP FALSO E DISJUNTOR FECHADO E TENSÃO EM ZERO
         system("clear");
-        printf("\n%f\n%d\n%d\n",tensao_primarioA,trip_21l5,estado_dj_21l5);
+        printf("\n%f\n%d\n%d\n%d\n%d\n",tensao_primarioA,trip_21l5,estado_dj_21l5, estado_dj_21l7, estado_dj_21l8);
         if ((tensao_primarioA == 0) && (trip_21l5 != 116) && (estado_dj_21l5 == 10))
         {
             //system("clear");
             printf("\n---------------------");
             printf("\n----T5 em Falta------");
             printf("\n---------------------");
-            printf("\n%f\n%d\n%d\n",tensao_primarioA,trip_21l5,estado_dj_21l5);
+            //printf("\n%f\n%d\n%d\n",tensao_primarioA,trip_21l5,estado_dj_21l5);
             x = (a2 + pMax_21l4 + g1) / pMaxS21l1;
             y = (c1 + pMax_21l4) / pMaxS21l3;
 
@@ -1244,7 +1244,7 @@ void self_h()
             printf("\n---------------------");
             printf("\n----T6 em Falta------");
             printf("\n---------------------");
-            printf("\n%f\n%d\n%d\n%d\n%d\n",tensao_primarioA,trip_21l5,estado_dj_21l5, estado_dj_21l7, estado_dj_21l8);
+            //printf("\n%f\n%d\n%d\n%d\n%d\n",tensao_primarioA,trip_21l5,estado_dj_21l5, estado_dj_21l7, estado_dj_21l8);
             x = (a2 + pMax_21l5 + g1) / pMaxS21l1;
             y = (c1 + pMax_21l5) / pMaxS21l3;
 
