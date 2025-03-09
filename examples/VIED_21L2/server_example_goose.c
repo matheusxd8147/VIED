@@ -184,6 +184,7 @@ void funcao_50()
             funcao_50_62BF();
         }
         Thread_sleep(0.1667);
+        system ("clear");
     }
 }
 
@@ -200,6 +201,7 @@ void funcao_50N()
         funcao_50_62BF();
     }
     Thread_sleep(0.1667);
+    system ("clear");
     }
 }
 
@@ -304,7 +306,8 @@ void funcao_51()
             }
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
         }
-    }Thread_sleep(0.1667);}
+    }Thread_sleep(0.1667);
+    system ("clear");}
 }
 
 void funcao_51V()
@@ -410,7 +413,8 @@ void funcao_51V()
             }
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
         }
-    }Thread_sleep(0.1667);}
+    }Thread_sleep(0.1667);
+    system ("clear");}
 }
 
 void funcao_51N()
@@ -437,7 +441,8 @@ void funcao_51N()
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind13_stVal, true);
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
         }
-    }Thread_sleep(0.1667);}
+    }Thread_sleep(0.1667);
+    system ("clear");}
 }
 
 void funcao_67()
@@ -551,7 +556,8 @@ void funcao_67()
                 IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
             }
         }
-    }Thread_sleep(0.1667);}
+    }Thread_sleep(0.1667);
+    system ("clear");}
 }
 
 void funcao_67N()
@@ -586,7 +592,8 @@ void funcao_67N()
                 IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
             }
         }
-    }Thread_sleep(16.67);}
+    }Thread_sleep(16.67);
+    system ("clear");}
 }
 
 
@@ -1147,8 +1154,6 @@ main(int argc, char** argv)
         }
 
         Thread_sleep(17);
-
-        system("clear");
 
     }
 
