@@ -1148,6 +1148,8 @@ main(int argc, char** argv)
 
         Thread_sleep(17);
 
+        system("clear");
+
     }
 
     /* stop MMS server - close TCP server socket and all client sockets */
