@@ -1242,6 +1242,7 @@ void self_h()
             printf("\n---------------------");
             printf("\n----T6 em Falta------");
             printf("\n---------------------");
+            printf("\n%f\n%d\n%d\n",tensao_primarioA,trip_21l5,estado_dj_21l5);
             x = (a2 + pMax_21l5 + g1) / pMaxS21l1;
             y = (c1 + pMax_21l5) / pMaxS21l3;
 
