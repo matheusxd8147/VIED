@@ -1148,9 +1148,6 @@ void self_h()
     while (1)
     {
         float x, y;
-        printf("---------------------");
-        printf("----T5 em Falta------");
-        printf("---------------------");
         /*
         system("clear");
         printf("\n%f\n",a2);21l1
@@ -1169,13 +1166,14 @@ void self_h()
         // TRIP FALSO E DISJUNTOR FECHADO E TENSÃO EM ZERO
         if ((tensao_primarioA == 0) && (trip_21l5 != 116) && (estado_dj_21l5 == 10))
         {
-            printf("---------------------");
-            printf("----T5 em Falta------");
-            printf("---------------------");
+            system("clear");
+            printf("\n---------------------");
+            printf("\n----T5 em Falta------");
+            printf("\n---------------------");
             x = (a2 + pMax_21l4 + g1) / pMaxS21l1;
             y = (c1 + pMax_21l4) / pMaxS21l3;
 
-            printf("\n%f\n%f\n", x, y);
+            //printf("\n%f\n%f\n", x, y);
 
             // REDUÇÃO DA CARGA A SER RECOMPOSTA
             if ((x >= pMaxS21l1) && (y >= pMaxS21l3))
@@ -1187,9 +1185,9 @@ void self_h()
             // RELIGAR POR 21L8
             if (x > y)
             {
-                printf("---------------------------");
-                printf("----Reeligar por 21L8------");
-                printf("---------------------------");
+                printf("\n---------------------------");
+                printf("\n----Reeligar por 21L8------");
+                printf("\n---------------------------");
                 if ((estado_dj_21l7 == 10) && (estado_dj_21l8 == 0))
                 {
                     // ABRIR 21L7
@@ -1215,9 +1213,9 @@ void self_h()
             // RELIGAR POR 21L7
             if (y > x)
             {
-                printf("---------------------------");
-                printf("----Reeligar por 21L7------");
-                printf("---------------------------");
+                printf("\n---------------------------");
+                printf("\n----Reeligar por 21L7------");
+                printf("\n---------------------------");
                 if ((estado_dj_21l7 == 0) && (estado_dj_21l8 == 10))
                 {
                     // ABRIR 21L8
@@ -1237,20 +1235,21 @@ void self_h()
             }
         }
         // TRIP FALSO E DISJUNTOR ABERTO E TENSÃO EM ZERO
-        if ((tensao_primarioA == 0) && (trip_21l5 == 102) && (estado_dj_21l5 == 0))
+        if ((tensao_primarioA == 0) && (trip_21l5 != 116) && (estado_dj_21l5 == 0))
         {
-            printf("---------------------");
-            printf("----T6 em Falta------");
-            printf("---------------------");
+            system("clear");
+            printf("\n---------------------");
+            printf("\n----T6 em Falta------");
+            printf("\n---------------------");
             x = (a2 + pMax_21l5 + g1) / pMaxS21l1;
             y = (c1 + pMax_21l5) / pMaxS21l3;
 
             // RELIGAR PRO 21L8
             if (x > y)
             {
-                printf("---------------------------");
-                printf("----Reeligar por 21L8------");
-                printf("---------------------------");
+                printf("\n---------------------------");
+                printf("\n----Reeligar por 21L8------");
+                printf("\n---------------------------");
                 if ((estado_dj_21l7 == 10) && (estado_dj_21l8 == 0))
                 {
                     // ABRIR 21L7
@@ -1272,9 +1271,9 @@ void self_h()
             // RELIGAR POR 21L7
             if (y > x)
             {
-                printf("---------------------------");
-                printf("----Reeligar por 21L7------");
-                printf("---------------------------");
+                printf("\n---------------------------");
+                printf("\n----Reeligar por 21L7------");
+                printf("\n---------------------------");
                 if ((estado_dj_21l7 == 0) && (estado_dj_21l8 == 10))
                 {
                     // ABRIR 21L8
@@ -1293,6 +1292,7 @@ void self_h()
                 }
             }
         }
+        Thread_sleep(17);
     }
 }
 

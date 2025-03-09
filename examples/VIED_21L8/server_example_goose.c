@@ -1137,72 +1137,85 @@ gooseListener5(GooseSubscriber subscriber, void* parameter)
 
 }
 
-void self_h(){
-    float x, y;
-    /*
-    system("clear");
-    printf("\n%f\n",a);21l1
-    printf("%f\n",b1);21l2
-    printf("%f\n",c2);21l3
-    printf("%f\n",d1);21l4
-    printf("%f\n",e1);21l5
-    printf("%f\n",f1);21l6
-    printf("%f\n",g2);21l7
-    printf("%f\n",228.00);21l8
-    printf("%f\n",i);21l9
-    */
+void self_h()
+{
+    while (1)
+    {
+        float x, y;
+        /*
+        system("clear");
+        printf("\n%f\n",a);21l1
+        printf("%f\n",b1);21l2
+        printf("%f\n",c2);21l3
+        printf("%f\n",d1);21l4
+        printf("%f\n",e1);21l5
+        printf("%f\n",f1);21l6
+        printf("%f\n",g2);21l7
+        printf("%f\n",228.00);21l8
+        printf("%f\n",i);21l9
+        */
 
-    //DETECÇÃO DO TRECHO EM FALTA PARA ENNCONTRO 21L8
-    if ((tensao_primarioA == 0) && (trip_21l9 == 102) && (estado_dj_21l9 == 0)){
-        printf("---------------------");
-        printf("----T1 em Falta------");
-        printf("---------------------");
-        //Análise do Trecho em Recomposição
-        x = (c2 + pMax_21l9)/pMaxS21l3;
-        y = (b1 + pMax_21l9 + g2)/pMaxS21l2;
-    
+        // DETECÇÃO DO TRECHO EM FALTA PARA ENNCONTRO 21L8
+        if ((tensao_primarioA == 0) && (trip_21l9 == 102) && (estado_dj_21l9 == 0))
+        {
+            system("clear");
+            printf("\n---------------------");
+            printf("\n----T1 em Falta------");
+            printf("\n---------------------");
+            // Análise do Trecho em Recomposição
+            x = (c2 + pMax_21l9) / pMaxS21l3;
+            y = (b1 + pMax_21l9 + g2) / pMaxS21l2;
 
-        //RELIGAR POR 21L7
-        if (x>y){
-            printf("---------------------------");
-            printf("----Reeligar por 21L7------");
-            printf("---------------------------");
-            if ((estado_dj_21l6 == 10) && (estado_dj_21l7 == 0)){
-                //ABRIR 21L6
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind23_stVal, true);
+            // RELIGAR POR 21L7
+            if (x > y)
+            {
+                printf("\n---------------------------");
+                printf("\n----Reeligar por 21L7------");
+                printf("\n---------------------------");
+                if ((estado_dj_21l6 == 10) && (estado_dj_21l7 == 0))
+                {
+                    // ABRIR 21L6
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind23_stVal, true);
+                }
+                if ((estado_dj_21l6 == 0) && (estado_dj_21l7 == 0))
+                {
+                    // FECHAR 21L7
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind24_stVal, false);
+                }
+                if ((estado_dj_21l6 == 0) && (estado_dj_21l7 == 10))
+                {
+                    // FECHAR 21L8
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, true);
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, false);
+                }
             }
-            if ((estado_dj_21l6 == 0) && (estado_dj_21l7 == 0)){
-                //FECHAR 21L7
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind24_stVal, false);
-            }
-            if ((estado_dj_21l6 == 0) && (estado_dj_21l7 == 10)){
-                //FECHAR 21L8
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, true);
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, false);
+
+            // RELIGAR POR 21L6
+            if (y > x)
+            {
+                printf("\n---------------------------");
+                printf("\n----Reeligar por 21L6------");
+                printf("\n---------------------------");
+                if ((estado_dj_21l6 == 0) && (estado_dj_21l7 == 10))
+                {
+                    // ABRIR 21L8
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind24_stVal, true);
+                }
+                if ((estado_dj_21l6 == 0) && (estado_dj_21l7 == 0))
+                {
+                    // FECHAR 21L6
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind23_stVal, false);
+                }
+                if ((estado_dj_21l6 == 10) && (estado_dj_21l7 == 0))
+                {
+                    // FECHAR 21L8
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, true);
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, false);
+                }
             }
         }
-
-        //RELIGAR POR 21L6
-        if (y>x){
-            printf("---------------------------");
-            printf("----Reeligar por 21L6------");
-            printf("---------------------------");
-            if ((estado_dj_21l6 == 0) && (estado_dj_21l7 == 10)){
-                //ABRIR 21L8
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind24_stVal, true);
-            }
-            if ((estado_dj_21l6 == 0) && (estado_dj_21l7 == 0)){
-                //FECHAR 21L6
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind23_stVal, false);
-            }
-            if ((estado_dj_21l6 == 10) && (estado_dj_21l7 == 0)){
-                //FECHAR 21L8
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, true);
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, false);
-            }
-        }
+        Thread_sleep(17);
     }
-
 }
 
 int
