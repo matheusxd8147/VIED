@@ -253,6 +253,7 @@ main(int argc, char** argv)
 
         //int vol = (int) (6350.f * sqrt(2));
         //int amp = (int) (350.f);
+        static float phaseAngle = 0.f;
         
 
         FILE *file;
