@@ -750,7 +750,7 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
 
         contadorSV3 ++;
 
-        /*if(contadorSV3 == 60){
+        if(contadorSV3 == 60){
             system ("clear");
             printf("  svID=(%s)\n", svID);
             printf("  smpCnt: %i\n", SVSubscriber_ASDU_getSmpCnt(asdu));
@@ -776,7 +776,7 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
             IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_MET_METMMXU1_PPV_phsBC_cVal_ang_f, an[1]);
             IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_MET_METMMXU1_PPV_phsCA_cVal_ang_f, an[2]);
             contadorSV3 = 0;
-        }*/
+        }
 
         contadorSV1=0;
         SVrms_deltaA=0;
