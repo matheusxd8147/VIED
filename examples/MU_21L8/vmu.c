@@ -271,14 +271,14 @@ main(int argc, char** argv)
             double angleB2 = (2 * M_PI / 80) * samplePoint + (an[1] * M_PI / 180);
             double angleC2 = (2 * M_PI / 80) * samplePoint + (an[2] * M_PI / 180);
 
-            voltageA = (vol10 * sin(angleA1)) * 100;
-            voltageB = (vol20 * sin(angleB1)) * 100;
-            voltageC = (vol30 * sin(angleC1)) * 100;
+            voltageA = (vol10 * sqrt(2) * sin(angleA1)) * 100;
+            voltageB = (vol20 * sqrt(2) * sin(angleB1)) * 100;
+            voltageC = (vol30 * sqrt(2) * sin(angleC1)) * 100;
             voltageN = voltageA + voltageB + voltageC;
 
-            currentA = (amp10 * sin(angleA2 - phaseAngle)) * 1000;
-            currentB = (amp20 * sin(angleB2 - phaseAngle)) * 1000;
-            currentC = (amp30 * sin(angleC2 - phaseAngle)) * 1000;
+            currentA = (amp10 * sqrt(2) * sin(angleA2 - phaseAngle)) * 1000;
+            currentB = (amp20 * sqrt(2) * sin(angleB2 - phaseAngle)) * 1000;
+            currentC = (amp30 * sqrt(2) * sin(angleC2 - phaseAngle)) * 1000;
             currentN = currentA + currentB + currentC;
 
             IedServer_lockDataModel(iedServer);
