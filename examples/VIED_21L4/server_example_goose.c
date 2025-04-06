@@ -1163,7 +1163,7 @@ main(int argc, char** argv)
     while (running) {
 
         IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn02_mag_f, b);
-        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn04_mag_f, 224.00);
+        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn04_mag_f, corrente_primarioA);
 
         if ((IedServer_getBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general)) == true){
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, false);

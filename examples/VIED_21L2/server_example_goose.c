@@ -1145,7 +1145,7 @@ main(int argc, char** argv)
 
     while (running) {
 
-        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn02_mag_f, 222.00);
+        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn02_mag_f, corrente_primarioA);
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_INAGGIO1_Ind01_stVal, true);
 
         if ((IedServer_getBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general)) == true){

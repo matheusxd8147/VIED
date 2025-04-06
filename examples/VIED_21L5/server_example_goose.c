@@ -1163,7 +1163,7 @@ main(int argc, char** argv)
 
         IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn02_mag_f, b);
         IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn04_mag_f, d);
-        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn05_mag_f, 225.00);
+        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn05_mag_f, corrente_primarioA);
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_INAGGIO1_Ind01_stVal, true);
         Thread_sleep(17);
 

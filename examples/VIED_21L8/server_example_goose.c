@@ -135,7 +135,7 @@ static float a1, b1, c1, d1, e1, f1, g1, h1, i1;
 static float a2, b2, c2, d2, e2, f2, g2, h2, i2;
 static float pMax_21l9, pMax_21l8;
 
-static float pMaxS21l1 = 5662.5, pMaxS21l2 = 3862.5, pMaxS21l3 = 7325.0;
+static float pMaxS21l1 = 215, pMaxS21l2 = 215, pMaxS21l3 = 215;
 
 static char sh, trip_21l9, trip_21l6, trip_21l7;
 
@@ -1431,7 +1431,7 @@ main(int argc, char** argv)
 
         teste4 = 228;
         IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn01_mag_f, a);
-        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn08_mag_f, teste4);
+        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn08_mag_f, corrente_primarioA);
         IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn09_mag_f, i);
 
         if (maximo2 == true){
