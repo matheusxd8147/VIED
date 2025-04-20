@@ -1011,7 +1011,7 @@ gooseListener3(GooseSubscriber subscriber, void* parameter)
 
     a2 = atof(&buffer3[1]);//21L1
     h2 = atof(&buffer3[11]);//21L8
-    i2 = atof(&buffer3[21]);//21L9
+    i2 = atof(&buffer3[20]);//21L9
     uint64_t y = Hal_getTimeInMs();
 
     /*printf("-------------------------------------------------------------------------------------------------------------\n");            
