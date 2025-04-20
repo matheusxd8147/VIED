@@ -371,7 +371,7 @@ main(int argc, char** argv)
                     timeval = Hal_getTimeInMs();
                 }
 
-                nextCycleStart = nextCycleStart + 100;
+                nextCycleStart = nextCycleStart + 100;//teste
             }
         }
     }
