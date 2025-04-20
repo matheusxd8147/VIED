@@ -906,7 +906,7 @@ gooseListener1(GooseSubscriber subscriber, void* parameter)
     MmsValue_printToBuffer(values, buffer, 100);
     
     b = atof(&buffer[1]);//21L2
-    d = atof(&buffer[12]);//21L4
+    d = atof(&buffer[11]);//21L4
     uint64_t y = Hal_getTimeInMs();
 
     /*printf("-------------------------------------------------------------------------------------------------------------\n");            
