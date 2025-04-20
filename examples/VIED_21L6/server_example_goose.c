@@ -1525,18 +1525,19 @@ main(int argc, char** argv)
         IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn04_mag_f, d);
         IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn05_mag_f, e);
         IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn06_mag_f, corrente_primarioA);
-        /*
+        
+
         system("clear");
-        printf("\n%f\n",a2);21l1
-        printf("%f\n",b);21l2
-        printf("%f\n",c1);21l3
-        printf("%f\n",d);21l4
-        printf("%f\n",e);21l5
-        printf("%f\n",226.00);21l6
-        printf("%f\n",g1);21l7
-        printf("%f\n",h2);21l8
-        printf("%f\n",i2);21l9
-        */
+        printf("\n%f\n",a2);//21l1
+        printf("%f\n",b);//21l2
+        printf("%f\n",c1);//21l3
+        printf("%f\n",d);//21l4
+        printf("%f\n",e);//21l5
+        printf("%f\n",corrente_primarioA);//21l6
+        printf("%f\n",g1);//21l7
+        printf("%f\n",h2);//21l8
+        printf("%f\n",i2);//21l9
+        
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_INAGGIO1_Ind01_stVal, true);
         Thread_sleep(17);
 
