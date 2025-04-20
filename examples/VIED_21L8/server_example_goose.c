@@ -1448,18 +1448,18 @@ main(int argc, char** argv)
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, true);
         }
 
-        /*
+        
         system("clear");
-        printf("\n%f\n",a);21l1
-        printf("%f\n",b1);21l2
-        printf("%f\n",c2);21l3
-        printf("%f\n",d1);21l4
-        printf("%f\n",e1);21l5
-        printf("%f\n",f1);21l6
-        printf("%f\n",g2);21l7
-        printf("%f\n",228.00);21l8
-        printf("%f\n",i);21l9
-        */
+        printf("\n%f\n",a);//21l1
+        printf("%f\n",b1);//21l2
+        printf("%f\n",c2);//21l3
+        printf("%f\n",d1);//21l4
+        printf("%f\n",e1);//21l5
+        printf("%f\n",f1);//21l6
+        printf("%f\n",g2);//21l7
+        printf("%f\n",228.00);//21l8
+        printf("%f\n",i);//21l9
+        
         Thread_sleep(17);
 
     }

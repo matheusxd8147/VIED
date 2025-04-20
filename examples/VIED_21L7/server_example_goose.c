@@ -1435,18 +1435,18 @@ main(int argc, char** argv)
         pMax_21l7 = teste4;
         }
 
-        /*
+        
         system("clear");
-        printf("\n%f\n",a2);21l1
-        printf("%f\n",b1);21l2
-        printf("%f\n",c);21l3
-        printf("%f\n",d1);21l4
-        printf("%f\n",e1);21l5
-        printf("%f\n",f1);21l6
-        printf("%f\n",227.00);21l7
-        printf("%f\n",h2);21l8
-        printf("%f\n",i2);21l9
-        */
+        printf("\n%f\n",a2);//21l1
+        printf("%f\n",b1);//21l2
+        printf("%f\n",c);//21l3
+        printf("%f\n",d1);//21l4
+        printf("%f\n",e1);//21l5
+        printf("%f\n",f1);//21l6
+        printf("%f\n",227.00);//21l7
+        printf("%f\n",h2);//21l8
+        printf("%f\n",i2);//21l9
+        
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_INAGGIO1_Ind01_stVal, true);
 
         //IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind23_stVal, true);
