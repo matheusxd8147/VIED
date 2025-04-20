@@ -1148,26 +1148,27 @@ void self_h()
     while (1)
     {
         float x, y;
-        /*
+        
         system("clear");
-        printf("\n%f\n",a2);21l1
-        printf("%f\n",b);21l2
-        printf("%f\n",c1);21l3
-        printf("%f\n",d);21l4
-        printf("%f\n",e);21l5
-        printf("%f\n",226.00);21l6
-        printf("%f\n",g1);21l7
-        printf("%f\n",h2);21l8
-        printf("%f\n",i2);21l9
-        */
+        printf("\n%f\n",a2);//21l1
+        printf("%f\n",b);//21l2
+        printf("%f\n",c1);//21l3
+        printf("%f\n",d);//21l4
+        printf("%f\n",e);//21l5
+        printf("%f\n",corrente_primarioA);//21l6
+        printf("%f\n",g1);//21l7
+        printf("%f\n",h2);//21l8
+        printf("%f\n",i2);//21l9
+        
 
         // DETECÇÃO DO TRECHO EM FALTA PARA ENNCONTRO 21L6
 
         // TRIP FALSO E DISJUNTOR FECHADO E TENSÃO EM ZERO
-        /*
-        system("clear");
+        
+        // system("clear");
+        
         printf("\n%f\n%d\n%d\n%d\n%d\n",tensao_primarioA,trip_21l5,estado_dj_21l5, estado_dj_21l7, estado_dj_21l8);
-        */
+
         if ((tensao_primarioA == 0) && (trip_21l5 != 116) && (estado_dj_21l5 == 10))
         {
             //system("clear");
