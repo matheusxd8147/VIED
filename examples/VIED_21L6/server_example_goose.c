@@ -1166,7 +1166,7 @@ void self_h()
         // TRIP FALSO E DISJUNTOR FECHADO E TENSÃO EM ZERO
         
         // system("clear");
-        
+
         printf("\n%f\n%d\n%d\n%d\n%d\n",tensao_primarioA,trip_21l5,estado_dj_21l5, estado_dj_21l7, estado_dj_21l8);
 
         if ((tensao_primarioA == 0) && (trip_21l5 != 116) && (estado_dj_21l5 == 10))
@@ -1530,6 +1530,8 @@ main(int argc, char** argv)
         IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn06_mag_f, corrente_primarioA);
         
 
+        
+        /*
         system("clear");
         printf("\n%f\n",a2);//21l1
         printf("%f\n",b);//21l2
@@ -1540,6 +1542,7 @@ main(int argc, char** argv)
         printf("%f\n",g1);//21l7
         printf("%f\n",h2);//21l8
         printf("%f\n",i2);//21l9
+        */
         
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_INAGGIO1_Ind01_stVal, true);
         Thread_sleep(17);
