@@ -748,7 +748,6 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
         funcao_67();
         funcao_67N();*/
 
-        
         contadorSV3 ++;
 
         if(contadorSV3 == 60){
@@ -778,7 +777,6 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
             IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_MET_METMMXU1_PPV_phsCA_cVal_ang_f, an[2]);
             contadorSV3 = 0;
         }
-        
 
         contadorSV1=0;
         SVrms_deltaA=0;
@@ -795,6 +793,7 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
         contador6 = true;
     }
 }
+
 
 void
 controlHandlerForBinaryOutput(ControlAction action, void* parameter, MmsValue* value, bool test)
