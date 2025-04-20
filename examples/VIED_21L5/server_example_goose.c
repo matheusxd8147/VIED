@@ -1166,6 +1166,7 @@ main(int argc, char** argv)
         IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn05_mag_f, corrente_primarioA);
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_INAGGIO1_Ind01_stVal, true);
 
+        system("clear");
         printf("\n%f\n", b);
         printf("%f\n", d);
         printf("%f\n", corrente_primarioA);
