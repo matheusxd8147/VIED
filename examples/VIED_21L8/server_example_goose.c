@@ -961,7 +961,7 @@ gooseListener1(GooseSubscriber subscriber, void* parameter)
     MmsValue_printToBuffer(values1, buffer1, 50);
 
     a = atof(&buffer1[1]);//21L1
-    i = atof(&buffer1[12]);//21L9
+    i = atof(&buffer1[11]);//21L9
 
     if (maximo1 == true){
         pMax_21l9 = i;
@@ -991,9 +991,9 @@ gooseListener2(GooseSubscriber subscriber, void* parameter)
     MmsValue_printToBuffer(values2, buffer2, 100);
 
     b1 = atof(&buffer2[1]);//21L2
-    d1 = atof(&buffer2[12]);//21L4
-    e1 = atof(&buffer2[23]);//21L5
-    f1 = atof(&buffer2[34]);//21L6
+    d1 = atof(&buffer2[11]);//21L4
+    e1 = atof(&buffer2[21]);//21L5
+    f1 = atof(&buffer2[31]);//21L6
     uint64_t y = Hal_getTimeInMs();
 
     /*printf("-------------------------------------------------------------------------------------------------------------\n");            
@@ -1012,7 +1012,7 @@ gooseListener3(GooseSubscriber subscriber, void* parameter)
     MmsValue_printToBuffer(values3, buffer3, 100);
 
     c2 = atof(&buffer3[1]);//21L3
-    g2 = atof(&buffer3[12]);//21L7
+    g2 = atof(&buffer3[11]);//21L7
     uint64_t y = Hal_getTimeInMs();
 
     /*printf("-------------------------------------------------------------------------------------------------------------\n");            
