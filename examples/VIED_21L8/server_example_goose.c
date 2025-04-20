@@ -1429,7 +1429,7 @@ main(int argc, char** argv)
 
     while (running) {
 
-        teste4 = 228;
+        teste4 = corrente_primarioA;
         IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn01_mag_f, a);
         IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn08_mag_f, corrente_primarioA);
         IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_ANN_MVGGIO12_AnIn09_mag_f, i);
@@ -1457,7 +1457,7 @@ main(int argc, char** argv)
         printf("%f\n",e1);//21l5
         printf("%f\n",f1);//21l6
         printf("%f\n",g2);//21l7
-        printf("%f\n",228.00);//21l8
+        printf("%f\n",corrente_primarioA);//21l8
         printf("%f\n",i);//21l9
         
         Thread_sleep(17);
