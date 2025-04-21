@@ -71,6 +71,10 @@ static int vol4q;
 static SVPublisher svPublisher;
 static SVPublisher_ASDU asdu;
 
+static float vol10,vol20,vol30;
+static float amp10,amp20,amp30;
+static float an[6];
+
 static void
 setupSVPublisher(const char* svInterface)
 {
@@ -139,10 +143,37 @@ gooseListener(GooseSubscriber subscriber, void* parameter)
 
     if(b == 116){
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_BinIO_BinaryInputs_LPDI3_In_stVal, true);
+        FILE *file;
+        file = fopen("AjustesMU.txt","r");
+        fscanf(file,"%f\n",&amp10);
+        fscanf(file,"%f\n",&an[0]);
+        fscanf(file,"%f\n",&amp20);
+        fscanf(file,"%f\n",&an[1]);
+        fscanf(file,"%f\n",&amp30);
+        fscanf(file,"%f\n",&an[2]);
+        fscanf(file,"%f\n",&vol10);
+        fscanf(file,"%f\n",&an[3]);
+        fscanf(file,"%f\n",&vol20);
+        fscanf(file,"%f\n",&an[4]);
+        fscanf(file,"%f\n",&vol30);
+        fscanf(file,"%f\n",&an[5]);
+        fclose(file);
     }
     
     if(c == 116){
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_BinIO_BinaryInputs_LPDI3_In_stVal, false);
+        amp10 = 0;
+        amp20 = 0;
+        amp30 = 0;
+        vol10 = 0;
+        vol20 = 0;
+        vol30 = 0;
+        an[0] = 0;
+        an[1] = 0;
+        an[2] = 0;
+        an[3] = 0;
+        an[4] = 0;
+        an[5] = 0;
     }
     
     /*printf("-------------------------------------------------------------------------------------------------------------\n");            
@@ -220,9 +251,6 @@ main(int argc, char** argv)
 
         //int vol = (int) (6350.f * sqrt(2));
         //int amp = (int) (350.f);
-        float vol10,vol20,vol30;
-        float amp10,amp20,amp30;
-        float an[6];
         float phaseAngle = 0.f;
 
         FILE *file;
