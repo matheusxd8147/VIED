@@ -1158,12 +1158,14 @@ void self_h()
         if ((tensao_primarioA == 0) && (trip_21l3 == 116) && (estado_dj_21l3 == 0) && (estado_dj_21l7 == 116))
         {
             system("clear");
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind26_stVal, false);
             printf("\n---------------------");
             printf("\n----T3 em Falta------");
             printf("\n---------------------\n");
-            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind26_stVal, false);
-            x = (a2 + pMax_21l7) / pMaxS21l1;
+                        x = (a2 + pMax_21l7) / pMaxS21l1;
             y = (b1 + pMax_21l7) / pMaxS21l2;
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind19_stVal, false);
+            
 
             // RELIGAR POR 21L8
             if (x > y)
@@ -1187,7 +1189,7 @@ void self_h()
                     // FECHAR 21L7
                     IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, true);
                     IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, false);
-                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind17_stVal, false);
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind17_stVal, true);
                 }
             }
 
@@ -1213,7 +1215,7 @@ void self_h()
                     // FECHAR 21L7
                     IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, true);
                     IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, false);
-                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind17_stVal, false);
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind17_stVal, true);
                 }
             }
         }

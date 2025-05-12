@@ -1037,6 +1037,7 @@ gooseListener4(GooseSubscriber subscriber, void* parameter)
     {
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, false);
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, true);
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind24_stVal, true);
         /*
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, true);
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, false);
@@ -1046,6 +1047,7 @@ gooseListener4(GooseSubscriber subscriber, void* parameter)
     {
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, true);
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, false);
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind24_stVal, false);
         /*
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, false);
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, true);
@@ -1081,6 +1083,7 @@ gooseListener8(GooseSubscriber subscriber, void* parameter)
     {
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, false);
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, true);
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind25_stVal, true);
         /*
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, true);
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, false);
@@ -1090,6 +1093,7 @@ gooseListener8(GooseSubscriber subscriber, void* parameter)
     {
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, true);
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, false);
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind25_stVal, false);
         /*
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, false);
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, true);
@@ -1160,12 +1164,14 @@ void self_h()
         if ((tensao_primarioA == 0) && (trip_21l9 == 102) && (estado_dj_21l9 == 0))
         {
             system("clear");
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind26_stVal, true);
             printf("\n---------------------");
             printf("\n----T1 em Falta------");
             printf("\n---------------------");
             // Análise do Trecho em Recomposição
             x = (c2 + pMax_21l9) / pMaxS21l3;
             y = (b1 + pMax_21l9 + g2) / pMaxS21l2;
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind19_stVal, true);
 
             // RELIGAR POR 21L7
             if (x > y)
@@ -1173,6 +1179,7 @@ void self_h()
                 printf("\n---------------------------");
                 printf("\n----Reeligar por 21L7------");
                 printf("\n---------------------------");
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind25_stVal, true);
                 if ((estado_dj_21l6 == 10) && (estado_dj_21l7 == 0))
                 {
                     // ABRIR 21L6
@@ -1188,6 +1195,7 @@ void self_h()
                     // FECHAR 21L8
                     IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, true);
                     IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, false);
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind17_stVal, true);
                 }
             }
 
@@ -1197,6 +1205,7 @@ void self_h()
                 printf("\n---------------------------");
                 printf("\n----Reeligar por 21L6------");
                 printf("\n---------------------------");
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind24_stVal, true);
                 if ((estado_dj_21l6 == 0) && (estado_dj_21l7 == 10))
                 {
                     // ABRIR 21L8
@@ -1212,6 +1221,7 @@ void self_h()
                     // FECHAR 21L8
                     IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, true);
                     IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, false);
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind17_stVal, true);
                 }
             }
         }
