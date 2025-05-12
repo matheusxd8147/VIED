@@ -938,6 +938,7 @@ gooseListener(GooseSubscriber subscriber, void* parameter)
     if (trip_21l3 == 116){
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, false);
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, true);
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind23_stVal, true);
     }
 
     estado_dj_21l3 = atoi(&buffer[7]);
