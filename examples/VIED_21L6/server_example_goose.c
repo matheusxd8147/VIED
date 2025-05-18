@@ -1207,13 +1207,13 @@ void self_h()
                 {
                     printf("\n----Abrir 21L7------");
                     // ABRIR 21L7
-                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind23_stVal, true);
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind27_stVal, true);
                 }
                 if ((estado_dj_21l7 == 0) && (estado_dj_21l8 == 0))
                 {
                     printf("\n----Fechar 21L8------");
                     // FECHAR 21L8
-                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind24_stVal, false);
+                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind28_stVal, false);
                 }
                 if ((estado_dj_21l7 == 0) && (estado_dj_21l8 == 10))
                 {
