@@ -767,9 +767,8 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
 
         contadorSV3 ++;
 
-        /*
         if(contadorSV3 == 60){
-            //system ("clear");
+            system ("clear");
             printf("  svID=(%s)\n", svID);
             printf("  smpCnt: %i\n", SVSubscriber_ASDU_getSmpCnt(asdu));
             printf("-----------------------------------------------------\n");  
@@ -795,7 +794,7 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
             IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_MET_METMMXU1_PPV_phsCA_cVal_ang_f, an[2]);
             contadorSV3 = 0;
         }
-        */
+
 
         contadorSV1=0;
         SVrms_deltaA=0;
@@ -1193,7 +1192,7 @@ void self_h()
             //printf("\n%f\n%f\n", x, y);
 
             // REDUÇÃO DA CARGA A SER RECOMPOSTA
-            if ((x >= pMaxS21l1) && (y1 >= pMaxS21l3))
+            if ((x >= 1) && (y1 >= 1))
             {
                 IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind19_stVal, false);
                 IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind19_t, y);
