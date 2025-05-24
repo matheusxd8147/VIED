@@ -768,7 +768,7 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
         contadorSV3 ++;
 
         if(contadorSV3 == 60){
-            system ("clear");
+            //system ("clear");
             printf("  svID=(%s)\n", svID);
             printf("  smpCnt: %i\n", SVSubscriber_ASDU_getSmpCnt(asdu));
             printf("-----------------------------------------------------\n");  
