@@ -1164,6 +1164,8 @@ void self_h()
         printf("%f\n",g1);//21l7
         printf("%f\n",h2);//21l8
         printf("%f\n",i2);//21l9
+
+        uint64_t y = Hal_getTimeInMs();
         
 
         // DETECÇÃO DO TRECHO EM FALTA PARA ENNCONTRO 21L6
@@ -1178,6 +1180,7 @@ void self_h()
         {
             //system("clear");
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind26_stVal, false);
+            IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind26_t, y);
             printf("\n---------------------");
             printf("\n----T5 em Falta------");
             printf("\n---------------------");
@@ -1185,6 +1188,7 @@ void self_h()
             x = (a2 + pMax_21l4 + g1) / pMaxS21l1;
             y = (c1 + pMax_21l4) / pMaxS21l3;
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind19_stVal, false);
+            IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind19_t, y);
 
             //printf("\n%f\n%f\n", x, y);
 
@@ -1192,6 +1196,7 @@ void self_h()
             if ((x >= pMaxS21l1) && (y >= pMaxS21l3))
             {
                 IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind19_stVal, false);
+                IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind19_t, y);
                 x = (a2 + pMax_21l5 + g1) / pMaxS21l1;
                 y = (c1 + pMax_21l5) / pMaxS21l3;
             }
@@ -1203,17 +1208,20 @@ void self_h()
                 printf("\n----Reeligar por 21L8------");
                 printf("\n---------------------------");
                 IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind15_stVal, false);
+                IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind15_t, y);
                 if ((estado_dj_21l7 == 10) && (estado_dj_21l8 == 0))
                 {
                     printf("\n----Abrir 21L7------");
                     // ABRIR 21L7
                     IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind27_stVal, true);
+                    IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind27_t, y);
                 }
                 if ((estado_dj_21l7 == 0) && (estado_dj_21l8 == 0))
                 {
                     printf("\n----Fechar 21L8------");
                     // FECHAR 21L8
                     IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind28_stVal, false);
+                    IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind28_t, y);
                 }
                 if ((estado_dj_21l7 == 0) && (estado_dj_21l8 == 10))
                 {
@@ -1222,6 +1230,7 @@ void self_h()
                     IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, true);
                     IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, false);
                     IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind17_stVal, true);
+                    IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind17_t, y);
                     /*
                     IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, false);
                     IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, true);
