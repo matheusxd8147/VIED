@@ -1178,7 +1178,7 @@ void self_h()
         if ((tensao_primarioA == 0) && (trip_21l5 != 116) && (estado_dj_21l5 == 10))
         {
             //system("clear");
-            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind26_stVal, false);
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind26_stVal, true);
             IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind26_t, y);
             printf("\n---------------------");
             printf("\n----T5 em Falta------");
@@ -1186,7 +1186,7 @@ void self_h()
             //printf("\n%f\n%d\n%d\n",tensao_primarioA,trip_21l5,estado_dj_21l5);
             x = (a2 + pMax_21l4 + g1) / pMaxS21l1;
             y1 = (c1 + pMax_21l4) / pMaxS21l3;
-            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind19_stVal, false);
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind19_stVal, true);
             IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind19_t, y);
 
             //printf("\n%f\n%f\n", x, y);
@@ -1194,7 +1194,7 @@ void self_h()
             // REDUÇÃO DA CARGA A SER RECOMPOSTA
             if ((x >= 1) && (y1 >= 1))
             {
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind19_stVal, false);
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind19_stVal, true);
                 IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind19_t, y);
                 x = (a2 + pMax_21l5 + g1) / pMaxS21l1;
                 y1 = (c1 + pMax_21l5) / pMaxS21l3;
@@ -1206,7 +1206,7 @@ void self_h()
                 printf("\n---------------------------");
                 printf("\n----Reeligar por 21L8------");
                 printf("\n---------------------------");
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind15_stVal, false);
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind15_stVal, true);
                 IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind15_t, y);
                 if ((estado_dj_21l7 == 10) && (estado_dj_21l8 == 0))
                 {
