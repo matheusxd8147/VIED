@@ -1152,7 +1152,7 @@ void self_h()
 {
     while (1)
     {
-        float x, y;
+        float x, y1;
         
         system("clear");
         printf("\n%f\n",a2);//21l1
@@ -1186,23 +1186,23 @@ void self_h()
             printf("\n---------------------");
             //printf("\n%f\n%d\n%d\n",tensao_primarioA,trip_21l5,estado_dj_21l5);
             x = (a2 + pMax_21l4 + g1) / pMaxS21l1;
-            y = (c1 + pMax_21l4) / pMaxS21l3;
+            y1 = (c1 + pMax_21l4) / pMaxS21l3;
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind19_stVal, false);
             IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind19_t, y);
 
             //printf("\n%f\n%f\n", x, y);
 
             // REDUÇÃO DA CARGA A SER RECOMPOSTA
-            if ((x >= pMaxS21l1) && (y >= pMaxS21l3))
+            if ((x >= pMaxS21l1) && (y1 >= pMaxS21l3))
             {
                 IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind19_stVal, false);
                 IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind19_t, y);
                 x = (a2 + pMax_21l5 + g1) / pMaxS21l1;
-                y = (c1 + pMax_21l5) / pMaxS21l3;
+                y1 = (c1 + pMax_21l5) / pMaxS21l3;
             }
 
             // RELIGAR POR 21L8
-            if (x > y)
+            if (x > y1)
             {
                 printf("\n---------------------------");
                 printf("\n----Reeligar por 21L8------");
@@ -1239,7 +1239,7 @@ void self_h()
             }
 
             // RELIGAR POR 21L7
-            if (y > x)
+            if (y1 > x)
             {
                 printf("\n---------------------------");
                 printf("\n----Reeligar por 21L7------");
@@ -1277,11 +1277,11 @@ void self_h()
             printf("\n---------------------");
             //printf("\n%f\n%d\n%d\n%d\n%d\n",tensao_primarioA,trip_21l5,estado_dj_21l5, estado_dj_21l7, estado_dj_21l8);
             x = (a2 + pMax_21l5 + g1) / pMaxS21l1;
-            y = (c1 + pMax_21l5) / pMaxS21l3;
+            y1 = (c1 + pMax_21l5) / pMaxS21l3;
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind19_stVal, false);
 
             // RELIGAR PRO 21L8
-            if (x > y)
+            if (x > y1)
             {
                 printf("\n---------------------------");
                 printf("\n----Reeligar por 21L8------");
@@ -1310,7 +1310,7 @@ void self_h()
             }
 
             // RELIGAR POR 21L7
-            if (y > x)
+            if (y1 > x)
             {
                 printf("\n---------------------------");
                 printf("\n----Reeligar por 21L7------");
