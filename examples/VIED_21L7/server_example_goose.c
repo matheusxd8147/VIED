@@ -1158,13 +1158,13 @@ void self_h()
         if ((tensao_primarioA == 0) && (trip_21l3 == 116) && (estado_dj_21l3 == 0) && (estado_dj_21l7 == 116))
         {
             system("clear");
-            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind26_stVal, false);
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind26_stVal, true);
             printf("\n---------------------");
             printf("\n----T3 em Falta------");
             printf("\n---------------------\n");
                         x = (a2 + pMax_21l7) / pMaxS21l1;
             y = (b1 + pMax_21l7) / pMaxS21l2;
-            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind19_stVal, false);
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind19_stVal, true);
             
 
             // RELIGAR POR 21L8
@@ -1173,7 +1173,7 @@ void self_h()
                 printf("\n---------------------------");
                 printf("\n----Reeligar por 21L8------");
                 printf("\n---------------------------");
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind16_stVal, false);
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind16_stVal, true);
                 if ((estado_dj_21l6 == 10) && (estado_dj_21l8 == 0))
                 {
                     // ABRIR 21L6
@@ -1199,7 +1199,7 @@ void self_h()
                 printf("\n---------------------------");
                 printf("\n----Reeligar por 21L6------");
                 printf("\n---------------------------");
-                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind15_stVal, false);
+                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind15_stVal, true);
                 if ((estado_dj_21l6 == 0) && (estado_dj_21l8 == 10))
                 {
                     // ABRIR 21L8
