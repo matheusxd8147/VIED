@@ -1180,7 +1180,7 @@ void self_h()
         printf("%f\n",i);21l9
         */
 
-        // DETECÇÃO DO TRECHO EM FALTA PARA ENNCONTRO 21L7
+        // DETECÇÃO DO TRECHO EM FALTA PARA ENNCONTRO 21L8
         if ((tensao_primarioA == 0) && (trip_21l9 == 102) && (estado_dj_21l9 == 0))
         {
             if (delay_1 == true)
