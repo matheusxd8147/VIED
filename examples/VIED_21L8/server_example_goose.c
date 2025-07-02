@@ -1051,7 +1051,7 @@ gooseListener4(GooseSubscriber subscriber, void* parameter)
     MmsValue_printToBuffer(values, buffer, 50);
 
     comando_received_21l6 = buffer[6];
-    tensao = buffer[13];
+    tensao = atof(&buffer[11]);
 
     system("clear");
     printf("\nTESTE BYTE DE TENSÃO\nV = %f", tensao);
