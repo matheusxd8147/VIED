@@ -786,7 +786,7 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
         contadorSV3 ++;
 
         if(contadorSV3 == 60){
-            //system ("clear");
+            system ("clear");
             printf("  svID=(%s)\n", svID);
             printf("  smpCnt: %i\n", SVSubscriber_ASDU_getSmpCnt(asdu));
             printf("-----------------------------------------------------\n");  
@@ -1171,7 +1171,7 @@ void self_h()
     {
         float x, y1;
         
-        system("clear");
+        /*system("clear");
         printf("\n%f\n",a2);//21l1
         printf("%f\n",b);//21l2
         printf("%f\n",c1);//21l3
@@ -1180,7 +1180,7 @@ void self_h()
         printf("%f\n",corrente_primarioA);//21l6
         printf("%f\n",g1);//21l7
         printf("%f\n",h2);//21l8
-        printf("%f\n",i2);//21l9
+        printf("%f\n",i2);//21l9*/
 
         uint64_t y = Hal_getTimeInMs();
         
@@ -1191,7 +1191,7 @@ void self_h()
         
         // system("clear");
 
-        printf("\n%f\n%d\n%d\n%d\n%d\n",tensao_primarioA,trip_21l5,estado_dj_21l5, estado_dj_21l7, estado_dj_21l8);
+        //printf("\n%f\n%d\n%d\n%d\n%d\n",tensao_primarioA,trip_21l5,estado_dj_21l5, estado_dj_21l7, estado_dj_21l8);
 
         if ((tensao_primarioA == 0) && (trip_21l5 != 116) && (estado_dj_21l5 == 10))
         {

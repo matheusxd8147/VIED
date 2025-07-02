@@ -1051,10 +1051,10 @@ gooseListener4(GooseSubscriber subscriber, void* parameter)
     MmsValue_printToBuffer(values, buffer, 50);
 
     comando_received_21l6 = buffer[6];
-    tensao = buffer[11];
+    tensao = buffer[10];
 
     system("clear");
-    printf("\nTESTE BYTE DE TENSÃO\nV = %f\n", tensao);
+    printf("\nTESTE BYTE DE TENSÃO\nV = %f", tensao);
 
     if (d1 == 0)
     {
