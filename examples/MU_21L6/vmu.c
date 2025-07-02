@@ -162,7 +162,8 @@ gooseListener(GooseSubscriber subscriber, void* parameter)
     
     if(c == 116){
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_BinIO_BinaryInputs_LPDI3_In_stVal, false);
-        /*amp10 = 0;
+        ///*
+        amp10 = 0;
         amp20 = 0;
         amp30 = 0;
         vol10 = 0;
@@ -173,7 +174,8 @@ gooseListener(GooseSubscriber subscriber, void* parameter)
         an[2] = 0;
         an[3] = 0;
         an[4] = 0;
-        an[5] = 0;*/
+        an[5] = 0;
+        //*/
     }
     
     /*printf("-------------------------------------------------------------------------------------------------------------\n");            
