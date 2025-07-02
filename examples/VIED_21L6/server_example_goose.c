@@ -1058,7 +1058,11 @@ gooseListener4(GooseSubscriber subscriber, void* parameter)
 
     comando_received_21l7 = buffer[1];
 
-    if (g1 == 0){
+    float tensao;
+    tensao = atof(&buffer[13]);
+
+    if ((g1 == 0)&&(tensao==0))
+    {
         if (comando_received_21l7 == 116)
         {
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, false);
@@ -1102,7 +1106,11 @@ gooseListener8(GooseSubscriber subscriber, void* parameter)
 
     comando_received_21l8 = buffer[1];
 
-    if (i2 == 0){
+    float tensao;
+    tensao = atof(&buffer[13]);
+
+    if ((i2 == 0)&&(tensao==0))
+    {
         if (comando_received_21l8 == 116)
         {
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, false);
@@ -1125,7 +1133,6 @@ gooseListener8(GooseSubscriber subscriber, void* parameter)
         }
     }
 
-    
     uint64_t y = Hal_getTimeInMs();
 
     /*printf("-------------------------------------------------------------------------------------------------------------\n");            
