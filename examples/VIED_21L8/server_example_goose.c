@@ -1051,7 +1051,7 @@ gooseListener4(GooseSubscriber subscriber, void* parameter)
     MmsValue_printToBuffer(values, buffer, 50);
 
     comando_received_21l6 = buffer[6];
-    tensao = buffer[12];
+    tensao = buffer[13];
 
     system("clear");
     printf("\nTESTE BYTE DE TENSÃO\nV = %f", tensao);
@@ -1652,6 +1652,7 @@ main(int argc, char** argv)
         }
 
         
+        /*
         system("clear");
         printf("\n%f\n",a);//21l1
         printf("%f\n",b1);//21l2
@@ -1661,7 +1662,7 @@ main(int argc, char** argv)
         printf("%f\n",f1);//21l6
         printf("%f\n",g2);//21l7
         printf("%f\n",corrente_primarioA);//21l8
-        printf("%f\n",i);//21l9
+        printf("%f\n",i);//21l9*/
         
         Thread_sleep(17);
 
