@@ -1189,7 +1189,7 @@ void self_h()
         printf("%f\n",corrente_primarioA);//21l6
         printf("%f\n",g1);//21l7
         printf("%f\n",h2);//21l8
-        printf("%f\n",i2);//21l9*/
+        printf("%f\n",i2);//21l9/*
 
         /*IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind29_stVal, true);
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind30_stVal, true);*/
