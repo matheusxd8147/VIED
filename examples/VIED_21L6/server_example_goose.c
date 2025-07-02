@@ -1390,9 +1390,9 @@ void self_h()
                 //system("clear");
                 IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind18_stVal, true);
                 IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind18_t, y);
-                printf("\n---------------------");
+                /*printf("\n---------------------");
                 printf("\n----T6 em Falta------");
-                printf("\n---------------------");
+                printf("\n---------------------");*/
                 //printf("\n%f\n%d\n%d\n%d\n%d\n",tensao_primarioA,trip_21l5,estado_dj_21l5, estado_dj_21l7, estado_dj_21l8);
                 x = (a2 + pMax_21l5 + g1) / pMaxS21l1;
                 y1 = (c1 + pMax_21l5) / pMaxS21l3;
