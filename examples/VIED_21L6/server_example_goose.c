@@ -141,7 +141,7 @@ static char sh, trip_21l5, trip_21l7, trip_21l8;
 
 static int estado_dj_21l5, estado_dj_21l7, estado_dj_21l8;
 
-static char comando_received_21l7, comando_received_21l8;
+static char comando_received_21l7_A, comando_received_21l8_A, comando_received_21l7_F, comando_received_21l8_F;
 
 struct timeval delay1, delay2, delay3, delay4, delay5;
 struct timeval delay6, delay7, delay8, delay9, delay10;
@@ -1056,14 +1056,15 @@ gooseListener4(GooseSubscriber subscriber, void* parameter)
 
     MmsValue_printToBuffer(values, buffer, 50);
 
-    comando_received_21l7 = buffer[1];
+    comando_received_21l7_A = buffer[1];
+    comando_received_21l7_F = buffer[6];
 
     float tensao;
-    tensao = atof(&buffer[13]);
+    tensao = atof(&buffer[23]);
 
     if ((g1 == 0)&&(tensao==0))
     {
-        if (comando_received_21l7 == 116)
+        if (comando_received_21l7_A == 116)
         {
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, false);
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, true);
@@ -1073,11 +1074,11 @@ gooseListener4(GooseSubscriber subscriber, void* parameter)
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, false);
             */
         }
-        else
+        if (comando_received_21l7_F == 116)
         {
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, true);
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, false);
-            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind24_stVal, false);
+            IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind24_stVal, true);
             /*
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, false);
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, true);
@@ -1104,14 +1105,15 @@ gooseListener8(GooseSubscriber subscriber, void* parameter)
 
     MmsValue_printToBuffer(values, buffer, 50);
 
-    comando_received_21l8 = buffer[1];
+    comando_received_21l8_A = buffer[1];
+    comando_received_21l8_F = buffer[6];
 
     float tensao;
-    tensao = atof(&buffer[13]);
+    tensao = atof(&buffer[23]);
 
     if ((i2 == 0)&&(tensao==0))
     {
-        if (comando_received_21l8 == 116)
+        if (comando_received_21l8_A == 116)
         {
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, false);
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, true);
@@ -1121,7 +1123,7 @@ gooseListener8(GooseSubscriber subscriber, void* parameter)
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, false);
             */
         }
-        else
+        if (comando_received_21l8_F == 116)
         {
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, true);
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, false);
@@ -1188,6 +1190,9 @@ void self_h()
         printf("%f\n",g1);//21l7
         printf("%f\n",h2);//21l8
         printf("%f\n",i2);//21l9*/
+
+        /*IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind29_stVal, true);
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind30_stVal, true);*/
 
         uint64_t y = Hal_getTimeInMs();
         
@@ -1278,7 +1283,7 @@ void self_h()
                                 {
                                     printf("\n----Fechar 21L8------");
                                     // FECHAR 21L8
-                                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind28_stVal, false);
+                                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind30_stVal, true);
                                     IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind28_t, y);
                                 }
                                 if (delay_5 == true)
@@ -1330,7 +1335,7 @@ void self_h()
                             {
                                 printf("\n----Abrir 21L8------");
                                 // ABRIR 21L8
-                                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind28_stVal, true);
+                                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind29_stVal, true);
                                 IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind28_t, y);
                             }
                             if (delay_7 == true)
@@ -1347,7 +1352,7 @@ void self_h()
                                 {
                                     printf("\n----Fechar 21L7------");
                                     // FECHAR 21L7
-                                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind27_stVal, false);
+                                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind28_stVal, true);
                                     IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind27_t, y);
                                 }
                                 if (delay_8 == true)
@@ -1453,7 +1458,7 @@ void self_h()
                                 {
                                     printf("\n----Fechar 21L8------");
                                     // FECHAR 21L8
-                                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind28_stVal, false);
+                                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind30_stVal, true);
                                     IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind28_t, y);
                                 }
                                 if (delay_5 == true)
@@ -1501,7 +1506,7 @@ void self_h()
                             {
                                 printf("\n----Abrir 21L8------");
                                 // ABRIR 21L8
-                                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind28_stVal, true);
+                                IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind29_stVal, true);
                                 IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind28_t, y);
                             }
                             if (delay_7 == true)
@@ -1518,7 +1523,7 @@ void self_h()
                                 {
                                     printf("\n----Fechar 21L7------");
                                     // FECHAR 21L7
-                                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind27_stVal, false);
+                                    IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind28_stVal, true);
                                     IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind27_t, y);
                                 }
                                 if (delay_8 == true)

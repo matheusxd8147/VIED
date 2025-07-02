@@ -2,7 +2,7 @@
 <SCL xmlns:esel="http://www.selinc.com/2006/61850" version="2007" revision="B" xmlns="http://www.iec.ch/61850/2003/SCL">
   <Header id="New Project" version="0" revision="1.0" toolID="AcSELerator Architect 2.3.17.16">
     <History>
-      <Hitem version="0" revision="1.0" when="07/02/2025 00:31:07" who="Matheus-PC\Matheus Souza" what="IED exported from Project New Project" />
+      <Hitem version="0" revision="1.0" when="07/01/2025 23:46:54" who="Matheus-PC\Matheus Souza" what="IED exported from Project New Project" />
     </History>
   </Header>
   <Communication>
@@ -183,6 +183,8 @@
             <DataSet name="CONTROL_MEETING">
               <FCDA ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind27" daName="stVal" fc="ST" />
               <FCDA ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind28" daName="stVal" fc="ST" />
+              <FCDA ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind29" daName="stVal" fc="ST" />
+              <FCDA ldInst="ANN" prefix="SV" lnClass="GGIO" lnInst="3" doName="Ind30" daName="stVal" fc="ST" />
               <FCDA ldInst="MET" prefix="MET" lnClass="MMXU" lnInst="1" doName="PPV.phsAB" daName="cVal.mag.f" fc="MX" />
             </DataSet>
             <ReportControl name="REPORT_1" datSet="STATUS_VIED" rptID="VIED_21L6" confRev="4" buffered="true" bufTime="500" indexed="false">
@@ -649,7 +651,7 @@
                 <esel:MaxTime>1000</esel:MaxTime>
               </Private>
             </GSEControl>
-            <GSEControl desc="CONTROL FEEDER MEETING" name="FEEDER_MEETING" datSet="CONTROL_MEETING" confRev="4" appID="VIED_21L6">
+            <GSEControl desc="CONTROL FEEDER MEETING" name="FEEDER_MEETING" datSet="CONTROL_MEETING" confRev="5" appID="VIED_21L6">
               <Private type="SEL_GOOSETXAddress">
                 <esel:Address>
                   <esel:P type="MAC-Address">01-0C-CD-01-00-03</esel:P>
