@@ -1053,31 +1053,10 @@ gooseListener4(GooseSubscriber subscriber, void* parameter)
     comando_received_21l6_F = buffer[16];
 
     float tensao,tensao1,tensao2,tensao3,tensao4,tensao5,tensao6,tensao7,tensao8,tensao9,tensao10;
-    tensao = atof(&buffer[18]);
-    tensao1 = atof(&buffer[19]);
-    tensao2 = atof(&buffer[20]);
-    tensao3 = atof(&buffer[21]);
-    tensao4 = atof(&buffer[22]);
-    tensao5 = atof(&buffer[23]);
-    tensao6 = atof(&buffer[24]);
-    tensao7 = atof(&buffer[25]);
-    tensao8 = atof(&buffer[26]);
-    tensao9 = atof(&buffer[27]);
-    tensao10 = atof(&buffer[28]);
+    tensao = atof(&buffer[25]);
 
     system("clear");
     printf("\nTESTE NOVA MENSAGEM CONTROLE RELIGAMENTO\nCOMANDO 1: %d\nCOMANDO 2: %d\nTENSÂO V = %f\n", comando_received_21l6_A, comando_received_21l6_F, tensao);
-    printf("\nTENSÂO V 18 = %f\n",tensao);
-    printf("\nTENSÂO V 19 = %f\n",tensao1);
-    printf("\nTENSÂO V 20 = %f\n",tensao2);
-    printf("\nTENSÂO V 21 = %f\n",tensao3);
-    printf("\nTENSÂO V 22 = %f\n",tensao4);
-    printf("\nTENSÂO V 23 = %f\n",tensao5);
-    printf("\nTENSÂO V 24 = %f\n",tensao6);
-    printf("\nTENSÂO V 25 = %f\n",tensao7);
-    printf("\nTENSÂO V 26 = %f\n",tensao8);
-    printf("\nTENSÂO V 27 = %f\n",tensao9);
-    printf("\nTENSÂO V 28 = %f\n",tensao10);
 
     if ((d1 == 0)&&(tensao==0))
     {
