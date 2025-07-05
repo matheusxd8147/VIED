@@ -1067,7 +1067,6 @@ gooseListener4(GooseSubscriber subscriber, void* parameter)
 
     system("clear");
     printf("\nTESTE NOVA MENSAGEM CONTROLE RELIGAMENTO\nCOMANDO 1: %d\nCOMANDO 2: %d\nTENSÂO V = %f\n", comando_received_21l6_A, comando_received_21l6_F, tensao);
-
     printf("\nTENSÂO V = %f\n",tensao);
     printf("\nTENSÂO V = %f\n",tensao1);
     printf("\nTENSÂO V = %f\n",tensao2);
