@@ -1049,8 +1049,8 @@ gooseListener4(GooseSubscriber subscriber, void* parameter)
     
     MmsValue_printToBuffer(values, buffer, 50);
 
-    comando_received_21l6_A = buffer[12];
-    comando_received_21l6_F = buffer[17];
+    comando_received_21l6_A = buffer[10];
+    comando_received_21l6_F = buffer[15];
 
     float tensao;
     tensao = atof(&buffer[23]);
