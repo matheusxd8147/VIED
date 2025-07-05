@@ -1067,17 +1067,17 @@ gooseListener4(GooseSubscriber subscriber, void* parameter)
 
     system("clear");
     printf("\nTESTE NOVA MENSAGEM CONTROLE RELIGAMENTO\nCOMANDO 1: %d\nCOMANDO 2: %d\nTENSÂO V = %f\n", comando_received_21l6_A, comando_received_21l6_F, tensao);
-    printf("\nTENSÂO V = %f\n",tensao);
-    printf("\nTENSÂO V = %f\n",tensao1);
-    printf("\nTENSÂO V = %f\n",tensao2);
-    printf("\nTENSÂO V = %f\n",tensao3);
-    printf("\nTENSÂO V = %f\n",tensao4);
-    printf("\nTENSÂO V = %f\n",tensao5);
-    printf("\nTENSÂO V = %f\n",tensao6);
-    printf("\nTENSÂO V = %f\n",tensao7);
-    printf("\nTENSÂO V = %f\n",tensao8);
-    printf("\nTENSÂO V = %f\n",tensao9);
-    printf("\nTENSÂO V = %f\n",tensao10);
+    printf("\nTENSÂO V 18 = %f\n",tensao);
+    printf("\nTENSÂO V 19 = %f\n",tensao1);
+    printf("\nTENSÂO V 20 = %f\n",tensao2);
+    printf("\nTENSÂO V 21 = %f\n",tensao3);
+    printf("\nTENSÂO V 22 = %f\n",tensao4);
+    printf("\nTENSÂO V 23 = %f\n",tensao5);
+    printf("\nTENSÂO V 24 = %f\n",tensao6);
+    printf("\nTENSÂO V 25 = %f\n",tensao7);
+    printf("\nTENSÂO V 26 = %f\n",tensao8);
+    printf("\nTENSÂO V 27 = %f\n",tensao9);
+    printf("\nTENSÂO V 28 = %f\n",tensao10);
 
     if ((d1 == 0)&&(tensao==0))
     {
