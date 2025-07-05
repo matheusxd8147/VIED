@@ -1049,14 +1049,14 @@ gooseListener4(GooseSubscriber subscriber, void* parameter)
     
     MmsValue_printToBuffer(values, buffer, 50);
 
-    comando_received_21l6_A = buffer[10];
-    comando_received_21l6_F = buffer[15];
+    comando_received_21l6_A = buffer[12];
+    comando_received_21l6_F = buffer[17];
 
     float tensao;
     tensao = atof(&buffer[23]);
 
     system("clear");
-    printf("\nTESTE NOVA MENSAGEM CONTROLE RELIGAMENTO\nCOMANDO 1:%d\nCOMANDO 2:%d\nTENSÂO V = %f\n", comando_received_21l6_A, comando_received_21l6_F, tensao);
+    printf("\nTESTE NOVA MENSAGEM CONTROLE RELIGAMENTO\nCOMANDO 1: %d\nCOMANDO 2: %d\nTENSÂO V = %f\n", comando_received_21l6_A, comando_received_21l6_F, tensao);
 
     if ((d1 == 0)&&(tensao==0))
     {
