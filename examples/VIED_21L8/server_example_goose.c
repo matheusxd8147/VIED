@@ -1068,9 +1068,10 @@ gooseListener4(GooseSubscriber subscriber, void* parameter)
     float tensao;
     tensao = atof(&buffer[25]);
 
-    system("clear");
-    printf("\nTESTE NOVA MENSAGEM CONTROLE RELIGAMENTO\nCOMANDO 1: %d\nCOMANDO 2: %d\nTENSÂO V = %f\n", comando_received_21l6_A, comando_received_21l6_F, tensao);
+    //system("clear");
+    //printf("\nTESTE NOVA MENSAGEM CONTROLE RELIGAMENTO\nCOMANDO 1: %d\nCOMANDO 2: %d\nTENSÂO V = %f\n", comando_received_21l6_A, comando_received_21l6_F, tensao);
 
+    system("clear");
     printf("\nCOMANDO 10: %d", tcomando1);
     printf("\nCOMANDO 11: %d", tcomando2);
     printf("\nCOMANDO 12: %d", tcomando3);
