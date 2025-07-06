@@ -1531,8 +1531,8 @@ main(int argc, char** argv)
     GooseSubscriber subscriber1 = GooseSubscriber_create("VIED_21L9CFG/LLN0$GO$GOOSE_POWER", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber subscriber2 = GooseSubscriber_create("VIED_21L6CFG/LLN0$GO$GOOSE_POWER", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber subscriber3 = GooseSubscriber_create("VIED_21L7CFG/LLN0$GO$GOOSE_POWER", NULL); //Especificação de quem o ied irá receber as mensagens goose
-    GooseSubscriber subscriber4 = GooseSubscriber_create("VIED_21L6CFG/LLN0$GO$VIED_21L8", NULL); //Especificação de quem o ied irá receber as mensagens goose
-    GooseSubscriber subscriber8 = GooseSubscriber_create("VIED_21L7CFG/LLN0$GO$VIED_21L8", NULL);
+    GooseSubscriber subscriber4 = GooseSubscriber_create("VIED_21L6CFG/LLN0$GO$CONTROL_21L8", NULL); //Especificação de quem o ied irá receber as mensagens goose
+    GooseSubscriber subscriber8 = GooseSubscriber_create("VIED_21L7CFG/LLN0$GO$CONTROL_21L8", NULL);
     GooseSubscriber subscriber5 = GooseSubscriber_create("MUBinIO_BinaryInputs/LLN0$GO$VMU_08_GOOSE", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber_setListener(subscriber, gooseListener, iedServer);
     GooseSubscriber_setListener(subscriber1, gooseListener1, iedServer);
