@@ -1059,10 +1059,10 @@ gooseListener4(GooseSubscriber subscriber, void* parameter)
 
     tcomando1 = buffer[1];
     tcomando2 = buffer[6];
-    tcomando3 = buffer[13];
-    tcomando11 = buffer[14];
-    tcomando12 = buffer[16];
-    tcomando13 = buffer[18];
+    tcomando3 = buffer[11];
+    tcomando11 = buffer[16];
+    tcomando12 = buffer[12];
+    tcomando13 = buffer[17];
     comando_received_21l6_A = buffer[11];
     comando_received_21l6_F = buffer[16];
 
