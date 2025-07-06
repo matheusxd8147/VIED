@@ -786,7 +786,7 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
         contadorSV3 ++;
 
         if(contadorSV3 == 60){
-            system ("clear");
+            /*system ("clear");
             printf("  svID=(%s)\n", svID);
             printf("  smpCnt: %i\n", SVSubscriber_ASDU_getSmpCnt(asdu));
             printf("-----------------------------------------------------\n");  
@@ -798,6 +798,7 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
             printf("   A corrente RMS da fase B no primário é: %.2f [A] %.1f°\n", corrente_primarioB, an[4] );
             printf("   A corrente RMS da fase C no primário é: %.2f [A] %.1f°\n", corrente_primarioC, an[5] );
             printf("-----------------------------------------------------\n");
+            */
             IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_MET_METMMXU1_A_phsA_cVal_mag_f, corrente_primarioA);
             IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_MET_METMMXU1_A_phsB_cVal_mag_f, corrente_primarioB);
             IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_MET_METMMXU1_A_phsC_cVal_mag_f, corrente_primarioC);
