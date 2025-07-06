@@ -1057,8 +1057,8 @@ gooseListener4(GooseSubscriber subscriber, void* parameter)
     char tcomando12;
     char tcomando13;
 
-    tcomando1 = buffer[9];
-    tcomando2 = buffer[11];
+    tcomando1 = buffer[1];
+    tcomando2 = buffer[6];
     tcomando3 = buffer[13];
     tcomando11 = buffer[14];
     tcomando12 = buffer[16];
