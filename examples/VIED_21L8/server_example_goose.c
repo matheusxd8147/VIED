@@ -1073,12 +1073,12 @@ gooseListener4(GooseSubscriber subscriber, void* parameter)
     //printf("\nTESTE NOVA MENSAGEM CONTROLE RELIGAMENTO\nCOMANDO 1: %d\nCOMANDO 2: %d\nTENSÂO V = %f\n", comando_received_21l6_A, comando_received_21l6_F, tensao);
 
     system("clear");
-    printf("\nCOMANDO 10: %d", tcomando1);
-    printf("\nCOMANDO 11: %d", tcomando2);
-    printf("\nCOMANDO 12: %d", tcomando3);
-    printf("\nCOMANDO 15: %d", tcomando11);
-    printf("\nCOMANDO 16: %d", tcomando12);
-    printf("\nCOMANDO 17: %d", tcomando13);
+    printf("\nCOMANDO 10: %d\n", tcomando1);
+    printf("\nCOMANDO 11: %d\n", tcomando2);
+    printf("\nCOMANDO 12: %d\n", tcomando3);
+    printf("\nCOMANDO 15: %d\n", tcomando11);
+    printf("\nCOMANDO 16: %d\n", tcomando12);
+    printf("\nCOMANDO 17: %d\n", tcomando13);
 
     if ((d1 == 0)&&(tensao==0))
     {
