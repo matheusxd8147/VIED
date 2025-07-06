@@ -1052,11 +1052,11 @@ gooseListener4(GooseSubscriber subscriber, void* parameter)
     comando_received_21l6_A = buffer[11];
     comando_received_21l6_F = buffer[16];
 
-    float tensao,tensao1,tensao2,tensao3,tensao4,tensao5,tensao6,tensao7,tensao8,tensao9,tensao10;
+    float tensao;
     tensao = atof(&buffer[25]);
 
-    system("clear");
-    printf("\nTESTE NOVA MENSAGEM CONTROLE RELIGAMENTO\nCOMANDO 1: %d\nCOMANDO 2: %d\nTENSÂO V = %f\n", comando_received_21l6_A, comando_received_21l6_F, tensao);
+    //system("clear");
+    //printf("\nTESTE NOVA MENSAGEM CONTROLE RELIGAMENTO\nCOMANDO 1: %d\nCOMANDO 2: %d\nTENSÂO V = %f\n", comando_received_21l6_A, comando_received_21l6_F, tensao);
 
     if ((d1 == 0)&&(tensao==0))
     {
@@ -1105,7 +1105,7 @@ gooseListener8(GooseSubscriber subscriber, void* parameter)
     comando_received_21l7_F = buffer[16];
 
     float tensao;
-    tensao = atof(&buffer[23]);
+    tensao = atof(&buffer[25]);
 
     if ((g2 == 0)&&(tensao==0))
         if (comando_received_21l7_A == 116)

@@ -1060,7 +1060,7 @@ gooseListener4(GooseSubscriber subscriber, void* parameter)
     comando_received_21l7_F = buffer[6];
 
     float tensao;
-    tensao = atof(&buffer[23]);
+    tensao = atof(&buffer[25]);
 
     if ((g1 == 0)&&(tensao==0))
     {
@@ -1109,7 +1109,7 @@ gooseListener8(GooseSubscriber subscriber, void* parameter)
     comando_received_21l8_F = buffer[6];
 
     float tensao;
-    tensao = atof(&buffer[23]);
+    tensao = atof(&buffer[25]);
 
     if ((i2 == 0)&&(tensao==0))
     {
