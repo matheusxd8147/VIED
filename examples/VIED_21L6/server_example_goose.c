@@ -1101,9 +1101,9 @@ gooseListener8(GooseSubscriber subscriber, void* parameter)
 {
     MmsValue* values = GooseSubscriber_getDataSetValues(subscriber);
 
-    char buffer[50];
+    char buffer[100];
 
-    MmsValue_printToBuffer(values, buffer, 50);
+    MmsValue_printToBuffer(values, buffer, 100);
 
     comando_received_21l8_A = buffer[1];
     comando_received_21l8_F = buffer[6];
