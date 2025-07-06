@@ -1049,6 +1049,19 @@ gooseListener4(GooseSubscriber subscriber, void* parameter)
     
     MmsValue_printToBuffer(values, buffer, 50);
 
+    char tcomando1;
+    char tcomando2;
+    char tcomando3;
+    char tcomando11;
+    char tcomando12;
+    char tcomando13;
+
+    tcomando1 = buffer[10];
+    tcomando2 = buffer[11];
+    tcomando3 = buffer[12];
+    tcomando11 = buffer[15];
+    tcomando12 = buffer[16];
+    tcomando13 = buffer[17];
     comando_received_21l6_A = buffer[11];
     comando_received_21l6_F = buffer[16];
 
@@ -1057,6 +1070,13 @@ gooseListener4(GooseSubscriber subscriber, void* parameter)
 
     system("clear");
     printf("\nTESTE NOVA MENSAGEM CONTROLE RELIGAMENTO\nCOMANDO 1: %d\nCOMANDO 2: %d\nTENSÂO V = %f\n", comando_received_21l6_A, comando_received_21l6_F, tensao);
+
+    printf("\nCOMANDO 10: %d", tcomando1);
+    printf("\nCOMANDO 11: %d", tcomando2);
+    printf("\nCOMANDO 12: %d", tcomando3);
+    printf("\nCOMANDO 15: %d", tcomando11);
+    printf("\nCOMANDO 16: %d", tcomando12);
+    printf("\nCOMANDO 17: %d", tcomando13);
 
     if ((d1 == 0)&&(tensao==0))
     {
