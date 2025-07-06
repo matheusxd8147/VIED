@@ -801,7 +801,7 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
             IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_MET_METMMXU1_A_phsA_cVal_mag_f, corrente_primarioA);
             IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_MET_METMMXU1_A_phsB_cVal_mag_f, corrente_primarioB);
             IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_MET_METMMXU1_A_phsC_cVal_mag_f, corrente_primarioC);
-            IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_MET_METMMXU1_PPV_phsAB_cVal_mag_f, tensao_primarioA);
+            //IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_MET_METMMXU1_PPV_phsAB_cVal_mag_f, tensao_primarioA);
             IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_MET_METMMXU1_PPV_phsBC_cVal_mag_f, tensao_primarioB);
             IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_MET_METMMXU1_PPV_phsCA_cVal_mag_f, tensao_primarioC);
             IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_MET_METMMXU1_A_phsA_cVal_ang_f, an[3]);
@@ -1060,7 +1060,7 @@ gooseListener4(GooseSubscriber subscriber, void* parameter)
     comando_received_21l7_F = buffer[6];
 
     float tensao;
-    tensao = atof(&buffer[25]);
+    tensao = atof(&buffer[12]);
 
     if ((g1 == 0)&&(tensao==0))
     {
@@ -1109,7 +1109,7 @@ gooseListener8(GooseSubscriber subscriber, void* parameter)
     comando_received_21l8_F = buffer[6];
 
     float tensao;
-    tensao = atof(&buffer[25]);
+    tensao = atof(&buffer[12]);
 
     if ((i2 == 0)&&(tensao==0))
     {
@@ -1193,8 +1193,9 @@ void self_h()
         
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind27_stVal, true);
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind28_stVal, true);
-        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind29_stVal, false);
+        IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind29_stVal, true);
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind30_stVal, true);
+        IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_MET_METMMXU1_PPV_phsAB_cVal_mag_f, 13800);
 
         uint64_t y = Hal_getTimeInMs();
         
@@ -1652,6 +1653,8 @@ main(int argc, char** argv)
     //Habilitando a publicação de mensagens GOOSE
     IedServer_enableGoosePublishing(iedServer);
 
+    //VIED_21L6CFG/LLN0$GO$CONTROL_21L7
+
     //Recepção e Assinatura de mensagens GOOSE
     GooseReceiver receiver = GooseReceiver_create();
     GooseReceiver_setInterfaceId(receiver, "eth0");
@@ -1661,8 +1664,8 @@ main(int argc, char** argv)
     GooseSubscriber subscriber1 = GooseSubscriber_create("VIED_21L5CFG/LLN0$GO$GOOSE_POWER", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber subscriber2 = GooseSubscriber_create("VIED_21L7CFG/LLN0$GO$GOOSE_POWER", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber subscriber3 = GooseSubscriber_create("VIED_21L8CFG/LLN0$GO$GOOSE_POWER", NULL); //Especificação de quem o ied irá receber as mensagens goose
-    GooseSubscriber subscriber4 = GooseSubscriber_create("VIED_21L7CFG/LLN0$GO$FEEDER_MEETING", NULL); //Especificação de quem o ied irá receber as mensagens goose
-    GooseSubscriber subscriber8 = GooseSubscriber_create("VIED_21L8CFG/LLN0$GO$FEEDER_MEETING", NULL); //Especificação de quem o ied irá receber as mensagens goose
+    GooseSubscriber subscriber4 = GooseSubscriber_create("VIED_21L7CFG/LLN0$GO$CONTROL_21L6", NULL); //Especificação de quem o ied irá receber as mensagens goose
+    GooseSubscriber subscriber8 = GooseSubscriber_create("VIED_21L8CFG/LLN0$GO$CONTROL_21L6", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber subscriber5 = GooseSubscriber_create("MUBinIO_BinaryInputs/LLN0$GO$VMU_06_GOOSE", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber_setListener(subscriber, gooseListener, iedServer);
     GooseSubscriber_setListener(subscriber1, gooseListener1, iedServer);

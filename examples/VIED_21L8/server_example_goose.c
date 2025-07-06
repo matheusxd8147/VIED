@@ -1050,35 +1050,14 @@ gooseListener4(GooseSubscriber subscriber, void* parameter)
     
     MmsValue_printToBuffer(values, buffer, 50);
 
-    char tcomando1;
-    char tcomando2;
-    char tcomando3;
-    char tcomando11;
-    char tcomando12;
-    char tcomando13;
-
-    tcomando1 = buffer[1];
-    tcomando2 = buffer[6];
-    tcomando3 = buffer[11];
-    tcomando11 = buffer[16];
-    tcomando12 = buffer[12];
-    tcomando13 = buffer[17];
-    comando_received_21l6_A = buffer[11];
-    comando_received_21l6_F = buffer[16];
+    comando_received_21l6_A = buffer[1];
+    comando_received_21l6_F = buffer[6];
 
     float tensao;
-    tensao = atof(&buffer[25]);
-
-    //system("clear");
-    //printf("\nTESTE NOVA MENSAGEM CONTROLE RELIGAMENTO\nCOMANDO 1: %d\nCOMANDO 2: %d\nTENSÂO V = %f\n", comando_received_21l6_A, comando_received_21l6_F, tensao);
+    tensao = atof(&buffer[12]);
 
     system("clear");
-    printf("\nCOMANDO 10: %d\n", tcomando1);
-    printf("\nCOMANDO 11: %d\n", tcomando2);
-    printf("\nCOMANDO 12: %d\n", tcomando3);
-    printf("\nCOMANDO 15: %d\n", tcomando11);
-    printf("\nCOMANDO 16: %d\n", tcomando12);
-    printf("\nCOMANDO 17: %d\n", tcomando13);
+    printf("\nTESTE NOVA MENSAGEM CONTROLE RELIGAMENTO\nCOMANDO 1: %d\nCOMANDO 2: %d\nTENSÂO V = %f\n", comando_received_21l6_A, comando_received_21l6_F, tensao);
 
     if ((d1 == 0)&&(tensao==0))
     {
@@ -1123,11 +1102,11 @@ gooseListener8(GooseSubscriber subscriber, void* parameter)
 
     MmsValue_printToBuffer(values, buffer, 50);
 
-    comando_received_21l7_A = buffer[11];
-    comando_received_21l7_F = buffer[16];
+    comando_received_21l7_A = buffer[1];
+    comando_received_21l7_F = buffer[6];
 
     float tensao;
-    tensao = atof(&buffer[25]);
+    tensao = atof(&buffer[12]);
 
     if ((g2 == 0)&&(tensao==0))
         if (comando_received_21l7_A == 116)
@@ -1552,8 +1531,8 @@ main(int argc, char** argv)
     GooseSubscriber subscriber1 = GooseSubscriber_create("VIED_21L9CFG/LLN0$GO$GOOSE_POWER", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber subscriber2 = GooseSubscriber_create("VIED_21L6CFG/LLN0$GO$GOOSE_POWER", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber subscriber3 = GooseSubscriber_create("VIED_21L7CFG/LLN0$GO$GOOSE_POWER", NULL); //Especificação de quem o ied irá receber as mensagens goose
-    GooseSubscriber subscriber4 = GooseSubscriber_create("VIED_21L6CFG/LLN0$GO$FEEDER_MEETING", NULL); //Especificação de quem o ied irá receber as mensagens goose
-    GooseSubscriber subscriber8 = GooseSubscriber_create("VIED_21L7CFG/LLN0$GO$FEEDER_MEETING", NULL);
+    GooseSubscriber subscriber4 = GooseSubscriber_create("VIED_21L6CFG/LLN0$GO$VIED_21L8", NULL); //Especificação de quem o ied irá receber as mensagens goose
+    GooseSubscriber subscriber8 = GooseSubscriber_create("VIED_21L7CFG/LLN0$GO$VIED_21L8", NULL);
     GooseSubscriber subscriber5 = GooseSubscriber_create("MUBinIO_BinaryInputs/LLN0$GO$VMU_08_GOOSE", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber_setListener(subscriber, gooseListener, iedServer);
     GooseSubscriber_setListener(subscriber1, gooseListener1, iedServer);

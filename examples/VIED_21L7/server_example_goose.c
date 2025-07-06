@@ -1053,7 +1053,7 @@ gooseListener4(GooseSubscriber subscriber, void* parameter)
     comando_received_21l6_F = buffer[6];
 
     float tensao;
-    tensao = atof(&buffer[25]);
+    tensao = atof(&buffer[12]);
     
     //system("clear");
     //printf("\nTESTE NOVA MENSAGEM CONTROLE RELIGAMENTO\nCOMANDO 1: %d\nCOMANDO 2: %d\nTENSÂO V = %f\n", comando_received_21l6_A, comando_received_21l6_F, tensao);
@@ -1100,11 +1100,11 @@ gooseListener8(GooseSubscriber subscriber, void* parameter)
 
     MmsValue_printToBuffer(values, buffer, 50);
 
-    comando_received_21l8_A = buffer[11];
-    comando_received_21l8_A = buffer[16];
+    comando_received_21l8_A = buffer[1];
+    comando_received_21l8_A = buffer[6];
 
     float tensao;
-    tensao = atof(&buffer[25]);
+    tensao = atof(&buffer[12]);
 
     if ((i2 == 0)&&(tensao==0))
     {
@@ -1524,8 +1524,8 @@ main(int argc, char** argv)
     GooseSubscriber subscriber1 = GooseSubscriber_create("VIED_21L3CFG/LLN0$GO$GOOSE_POWER", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber subscriber2 = GooseSubscriber_create("VIED_21L6CFG/LLN0$GO$GOOSE_POWER", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber subscriber3 = GooseSubscriber_create("VIED_21L8CFG/LLN0$GO$GOOSE_POWER", NULL); //Especificação de quem o ied irá receber as mensagens goose
-    GooseSubscriber subscriber4 = GooseSubscriber_create("VIED_21L6CFG/LLN0$GO$FEEDER_MEETING", NULL); //Especificação de quem o ied irá receber as mensagens goose
-    GooseSubscriber subscriber8 = GooseSubscriber_create("VIED_21L8CFG/LLN0$GO$FEEDER_MEETING", NULL);
+    GooseSubscriber subscriber4 = GooseSubscriber_create("VIED_21L6CFG/LLN0$GO$CONTROL_21L7", NULL); //Especificação de quem o ied irá receber as mensagens goose
+    GooseSubscriber subscriber8 = GooseSubscriber_create("VIED_21L8CFG/LLN0$GO$CONTROL_21L7", NULL);
     GooseSubscriber subscriber5 = GooseSubscriber_create("MUBinIO_BinaryInputs/LLN0$GO$VMU_07_GOOSE", NULL); //Especificação de quem o ied irá receber as mensagens goose
     GooseSubscriber_setListener(subscriber, gooseListener, iedServer);
     GooseSubscriber_setListener(subscriber1, gooseListener1, iedServer);
