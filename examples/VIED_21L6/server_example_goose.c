@@ -1057,10 +1057,10 @@ gooseListener4(GooseSubscriber subscriber, void* parameter)
     MmsValue_printToBuffer(values, buffer, 50);
 
     comando_received_21l7_A = buffer[1];
-    comando_received_21l7_F = buffer[6];
+    comando_received_21l7_F = buffer[7];
 
     float tensao;
-    tensao = atof(&buffer[12]);
+    tensao = atof(&buffer[13]);
 
     if ((g1 == 0)&&(tensao==0))
     {
@@ -1106,10 +1106,10 @@ gooseListener8(GooseSubscriber subscriber, void* parameter)
     MmsValue_printToBuffer(values, buffer, 100);
 
     comando_received_21l8_A = buffer[1];
-    comando_received_21l8_F = buffer[6];
+    comando_received_21l8_F = buffer[7];
 
     float tensao;
-    tensao = atof(&buffer[12]);
+    tensao = atof(&buffer[13]);
 
     if ((i2 == 0)&&(tensao==0))
     {
