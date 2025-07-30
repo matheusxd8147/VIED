@@ -1199,7 +1199,7 @@ void self_h()
 
 
         system("clear");
-        printf("\nEstado do 21L3: %d\n\nEstado 21L7: %d\n", estado_dj_21l3, dbposVal);
+        printf("\nEstado do 21L3: %d\n\nEstado 21L7: %d\n Trip 21l3: %d\nTensão primario A: %f", estado_dj_21l3, dbposVal, trip_21l3, tensao_primarioA);
 
         // DETECÇÃO DO TRECHO EM FALTA PARA ENNCONTRO 21L7
         if ((tensao_primarioA == 0) && (trip_21l3 == 116) && (estado_dj_21l3 == 0) && ( dbposVal == 0))
