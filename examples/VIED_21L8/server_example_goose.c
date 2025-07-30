@@ -1108,7 +1108,7 @@ gooseListener8(GooseSubscriber subscriber, void* parameter)
     float tensao;
     tensao = atof(&buffer[13]);
 
-    if ((g2 == 0)&&(tensao==0))
+    if ((g2 == 0)&&(tensao==0)){
         if (comando_received_21l7_A == 116)
         {
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, false);
@@ -1129,6 +1129,7 @@ gooseListener8(GooseSubscriber subscriber, void* parameter)
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, true);
             */
         }
+    }
     /*system("clear");
     printf("\n%d\n%d\n", buffer[1], buffer[6]);*/
     
@@ -1179,18 +1180,18 @@ void self_h()
         float x, y1;
 
         uint64_t y = Hal_getTimeInMs();
-        /*
+        
         system("clear");
-        printf("\n%f\n",a);21l1
-        printf("%f\n",b1);21l2
-        printf("%f\n",c2);21l3
-        printf("%f\n",d1);21l4
-        printf("%f\n",e1);21l5
-        printf("%f\n",f1);21l6
-        printf("%f\n",g2);21l7
-        printf("%f\n",228.00);21l8
-        printf("%f\n",i);21l9
-        */
+        printf("\n%f\n",a);//21l1
+        printf("%f\n",b1);//\\21l2
+        printf("%f\n",c2);//21l3
+        printf("%f\n",d1);//21l4
+        printf("%f\n",e1);//21l5
+        printf("%f\n",f1);//21l6
+        printf("%f\n",g2);//21l7
+        printf("%f\n",corrente_primarioA);//21l8
+        printf("%f\n",i);//21l9
+        
 
         // DETECÇÃO DO TRECHO EM FALTA PARA ENNCONTRO 21L8
         if ((tensao_primarioA == 0) && (trip_21l9 == 102) && (estado_dj_21l9 == 0))
@@ -1313,7 +1314,7 @@ void self_h()
                                 printf("\n----Abrir 21L7------");
                                 // ABRIR 21L7
                                 IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind29_stVal, true);
-                                IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind28_t, y);
+                                IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind29_t, y);
                             }
                             if (delay_7 == true)
                             {
@@ -1330,7 +1331,7 @@ void self_h()
                                     printf("\n----Fechar 21L6------");
                                     // FECHAR 21L6
                                     IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind28_stVal, true);
-                                    IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind27_t, y);
+                                    IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind28_t, y);
                                 }
                                 if (delay_8 == true)
                                 {
