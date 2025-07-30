@@ -783,9 +783,10 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
         funcao_67();
         funcao_67N();*/
 
-        contadorSV3 ++;
+        //contadorSV3 ++;
 
         if(contadorSV3 == 60){
+            /*
             system ("clear");
             printf("  svID=(%s)\n", svID);
             printf("  smpCnt: %i\n", SVSubscriber_ASDU_getSmpCnt(asdu));
@@ -811,6 +812,7 @@ svUpdateListener (SVSubscriber subscriber, void* parameter, SVSubscriber_ASDU as
             IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_MET_METMMXU1_PPV_phsBC_cVal_ang_f, an[1]);
             IedServer_updateFloatAttributeValue(iedServer, IEDMODEL_MET_METMMXU1_PPV_phsCA_cVal_ang_f, an[2]);
             contadorSV3 = 0;
+            */
         }
 
         contadorSV1=0;
@@ -1190,6 +1192,8 @@ void self_h()
         printf("%f\n",h2);21l8
         printf("%f\n",i2);21l9
         */
+
+        printf("\nEstado do 21L3: %d\n\nEstado 21L7: %d\n", estado_dj_21l3, IEDMODEL_PRO_BK1XCBR1_Pos_stVal);
 
         // DETECÇÃO DO TRECHO EM FALTA PARA ENNCONTRO 21L7
         if ((tensao_primarioA == 0) && (trip_21l3 == 116) && (estado_dj_21l3 == 0) && ( IEDMODEL_PRO_BK1XCBR1_Pos_stVal == 0))
