@@ -1204,7 +1204,7 @@ void self_h()
 
         // TRIP FALSO E DISJUNTOR FECHADO E TENSÃO EM ZERO
         
-        // system("clear");
+        system("clear");
 
         //printf("\n%f\n%d\n%d\n%d\n%d\n",tensao_primarioA,trip_21l5,estado_dj_21l5, estado_dj_21l7, estado_dj_21l8);
 
@@ -1220,7 +1220,7 @@ void self_h()
             time_delay1 += (delay1.tv_usec - delay1p.tv_usec) / (float)MICRO_PER_SECOND;
             if ((time_delay1) >= 1)
             {
-                system("clear");
+                //system("clear");
                 IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind26_stVal, true);
                 IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind26_t, y);
                 printf("\n---------------------");
