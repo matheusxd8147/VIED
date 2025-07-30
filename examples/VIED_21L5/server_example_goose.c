@@ -891,7 +891,7 @@ gooseListener(GooseSubscriber subscriber, void* parameter)
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind23_stVal, true);
         IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind23_t, y2);
     }
-    }
+    
     uint64_t y = Hal_getTimeInMs();
 
     /*printf("-------------------------------------------------------------------------------------------------------------\n");            
