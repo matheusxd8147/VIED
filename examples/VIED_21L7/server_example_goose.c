@@ -1193,7 +1193,8 @@ void self_h()
         printf("%f\n",i2);21l9
         */
 
-        printf("\nEstado do 21L3: %d\n\nEstado 21L7: %d\n", estado_dj_21l3, IEDMODEL_PRO_BK1XCBR1_Pos_stVal);
+        system("clear");
+        printf("\nEstado do 21L3: %d\n\nEstado 21L7: %d\n", estado_dj_21l3, IedServer_getFloatAttributeValue(iedServer, IEDMODEL_PRO_BK1XCBR1_Pos_stVal));
 
         // DETECÇÃO DO TRECHO EM FALTA PARA ENNCONTRO 21L7
         if ((tensao_primarioA == 0) && (trip_21l3 == 116) && (estado_dj_21l3 == 0) && ( IEDMODEL_PRO_BK1XCBR1_Pos_stVal == 0))
