@@ -1193,11 +1193,11 @@ void self_h()
         printf("%f\n",i2);21l9
         */
 
-        IedModel* model = IedServer_getDataModel(iedServer);
-        MmsValue* value = DataAttribute_getValue(IEDMODEL_PRO_BK1XCBR1_Pos_stVal);
+        MmsValue* val = IedServer_getAttributeValue(iedServer, IEDMODEL_PRO_BK1XCBR1_Pos_stVal);
+
 
         system("clear");
-        printf("\nEstado do 21L3: %d\n\nEstado 21L7: %d\n", estado_dj_21l3, value);
+        printf("\nEstado do 21L3: %d\n\nEstado 21L7: %d\n", estado_dj_21l3, val);
 
         // DETECÇÃO DO TRECHO EM FALTA PARA ENNCONTRO 21L7
         if ((tensao_primarioA == 0) && (trip_21l3 == 116) && (estado_dj_21l3 == 0) && ( IEDMODEL_PRO_BK1XCBR1_Pos_stVal == 0))
