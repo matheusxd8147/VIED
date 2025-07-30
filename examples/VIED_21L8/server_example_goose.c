@@ -1206,7 +1206,7 @@ void self_h()
             time_delay1 += (delay1.tv_usec - delay1p.tv_usec) / (float)MICRO_PER_SECOND;
             if ((time_delay1) >= 1)
             {
-                system("clear");
+                //system("clear");
                 IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind26_stVal, true);
                 IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind26_t, y);
                 printf("\n---------------------");
