@@ -1181,7 +1181,7 @@ void self_h()
 
         uint64_t y = Hal_getTimeInMs();
         
-        system("clear");
+        /*system("clear");
         printf("\n%f\n",a);//21l1
         printf("%f\n",b1);//\\21l2
         printf("%f\n",c2);//21l3
@@ -1190,7 +1190,7 @@ void self_h()
         printf("%f\n",f1);//21l6
         printf("%f\n",g2);//21l7
         printf("%f\n",corrente_primarioA);//21l8
-        printf("%f\n",i);//21l9
+        printf("%f\n",i);//21l9*/
         
 
         // DETECÇÃO DO TRECHO EM FALTA PARA ENNCONTRO 21L8
@@ -1214,7 +1214,10 @@ void self_h()
                 printf("\n---------------------");
                 // Análise do Trecho em Recomposição
                 x = (c2 + pMax_21l9) / pMaxS21l3;
-                y = (b1 + pMax_21l9 + g2) / pMaxS21l2;
+                y1 = (b1 + pMax_21l9 + g2) / pMaxS21l2;
+
+                //printf("\nValor x: %f\n\nValor y1: %f\n", )
+
                 IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind19_stVal, true);
                 IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind19_t, y);
                 if (delay_2 == true)
