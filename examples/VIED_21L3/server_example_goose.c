@@ -154,6 +154,7 @@ void funcao_50()
 {
     while (1)
     {
+        uint64_t y2 = Hal_getTimeInMs();
 
         if (corrente_primarioA > pick_up_50)
         {
@@ -162,6 +163,8 @@ void funcao_50()
             printf("-------------------------------------------------------------------------------------------------------------\n");
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind04_stVal, true);
             IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_general, true);
+            IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind04_t, y2);
+            IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_PRO_TRIPPTRC1_Tr_t, y2);
         }
         if (corrente_primarioB > pick_up_50)
         {
