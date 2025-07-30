@@ -880,6 +880,7 @@ gooseListener(GooseSubscriber subscriber, void* parameter)
     char buffer[50];
 
     MmsValue_printToBuffer(values, buffer, 50);
+    uint64_t y2 = Hal_getTimeInMs();
 
 
     trip_21l4 = buffer[1];
@@ -888,6 +889,8 @@ gooseListener(GooseSubscriber subscriber, void* parameter)
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO01_stVal, false);
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_CON_RBGGIO1_SPCSO02_stVal, true);
         IedServer_updateBooleanAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind23_stVal, true);
+        IedServer_updateUTCTimeAttributeValue(iedServer, IEDMODEL_ANN_SVGGIO3_Ind23_t, y2);
+    }
     }
     uint64_t y = Hal_getTimeInMs();
 
