@@ -1226,7 +1226,7 @@ void self_h()
                 time_delay2 += (delay2.tv_usec - delay2p.tv_usec) / (float)MICRO_PER_SECOND;
                 if ((time_delay2) >= 1)
                 {
-                    if (x > y1)
+                    if (x < y1)
                     {
                         printf("\n---------------------------");
                         printf("\n----Reeligar por 21L7------");
@@ -1291,7 +1291,7 @@ void self_h()
                         }
                     }
 
-                    if (y1 > x)
+                    if (y1 < x)
                     {
                         printf("\n---------------------------");
                         printf("\n----Reeligar por 21L6------");
